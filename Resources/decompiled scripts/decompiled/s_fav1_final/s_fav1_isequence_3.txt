@@ -1,0 +1,106 @@
+void main()
+{
+    unknown uVar2;
+
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U2 = 0;
+    sub_77( "SP", "Script s_Fav1_iSequences is starting...", "###" );
+    uVar2 = sub_202( sub_126(), 456708483, 200, 0, 1 );
+    sub_541( 1000 );
+    while (true)
+    {
+        sub_625();
+        WAIT( 0 );
+    }
+    sub_77( "SP", "Script s_Fav1_iSequences is terminating...", "###" );
+    return;
+}
+
+void sub_77(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+
+int sub_126()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED( sub_148() );
+    }
+    return 0;
+}
+
+void sub_148()
+{
+    return GET_PLAYER_ID();
+}
+
+void sub_202(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                }
+            }
+        }
+    }
+    else
+    {
+        sub_508( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+void sub_508(unknown uParam0)
+{
+    return;
+}
+
+void sub_541(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_625()
+{
+    if (l_U2 == 0)
+    {
+        START_WIDGET_GROUP( "Interactive Sequence Helper" );
+        STOP_WIDGET_GROUP();
+        l_U2 = 1;
+    }
+    return;
+}
+

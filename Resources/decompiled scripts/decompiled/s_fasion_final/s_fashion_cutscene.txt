@@ -1,0 +1,770 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U29 = 0;
+    l_U30 = 0;
+    l_U31 = 0;
+    l_U60 = 0;
+    sub_90( "GA", "Script s_fashion_cutscene.sc is starting...", 0 );
+    DO_SCREEN_FADE_IN( 0 );
+    sub_147();
+    while (IS_EXITFLAG_SET() == 0)
+    {
+        sub_210();
+        WAIT( 0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    sub_90( "GA", "Script s_fashion_cutscene.sc is terminating...", 0 );
+    return;
+}
+
+void sub_90(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+
+void sub_147()
+{
+    int iVar2;
+
+    iVar2 = 0;
+    StrCopy( ref l_U20[iVar2], "00_01_INTRO", 32 );
+    iVar2++;
+    return;
+}
+
+void sub_210()
+{
+    int I;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+
+    if (NOT l_U60)
+    {
+        sub_90( "GA", "Creating Cutscene widget.", 0 );
+        START_WIDGET_GROUP( "CUTSCENES - Rooftop Party" );
+        START_NEW_WIDGET_COMBO();
+        for ( I = 0; I <= 0; I++ )
+        {
+            ADD_TO_WIDGET_COMBO( ref l_U20[I] );
+        }
+        STOP_WIDGET_COMBO( "Cutscene to play: ", ref l_U29 );
+        ADD_WIDGET_STRING( " " );
+        ADD_WIDGET_BOOL( "Play Cutscene", ref l_U31 );
+        ADD_WIDGET_BOOL( "Capture Cutscene", ref l_U30 );
+        STOP_WIDGET_GROUP();
+        l_U60 = 1;
+    }
+    if (l_U31)
+    {
+        if (NOT (CUTSCENE_EXIST( ref l_U20[l_U29] )))
+        {
+            StrCopy( ref uVar3, 16, l_U20[l_U29], 8);
+            ConcatString(ref uVar3, " : Cutscene does not exist!", 64);
+            SCRIPT_ASSERT( ref uVar3, 0 );
+        }
+        else
+        {
+            while (NOT HAS_CUTSCENE_UNLOADED())
+            {
+                WAIT( 0 );
+            }
+            sub_582( ref l_U20[l_U29], 1 );
+            if (l_U29 == 0)
+            {
+                sub_3330( ref l_U32, ref l_U20[l_U29], 851, 2528, 2804, 2820, 250, 0 );
+            }
+            l_U32._fU4 = 2;
+            while (NOT (sub_3754( ref l_U32 )))
+            {
+                WAIT( 0 );
+            }
+        }
+        l_U31 = 0;
+    }
+    return;
+}
+
+void sub_582(unknown uParam0, int iParam1)
+{
+    if (HAS_CUTSCENE_LOADED())
+    {
+        if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+        {
+            SCRIPT_ASSERT( "Another cutscene is already loaded.  You can only load one cutscene into memory.  Your current cutscene will not load into memory.", 0 );
+        }
+    }
+    if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+    {
+        PRE_STREAM_SEAMLESS_CUTSCENE( uParam0 );
+        if (iParam1 == 1)
+        {
+            while ((CUTSCENE_IS_LOADED( uParam0 )) == 0)
+            {
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+int sub_851()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+
+    sub_90( "GA", "CS_00_01_PreCutsceneSetup", 0 );
+    sub_913( GET_SCENE_PED_MODEL( 2085576407 ), 1 );
+    sub_1122( ref uVar2, 1.00000000, 1.00000000, 1.00000000, 0.00000000, 2085576407, 7, 3, 2, 0, 0 );
+    l_U59 = sub_1230( ref uVar2 );
+    if (NOT (IS_PED_DEAD( sub_1886() )))
+    {
+        REMOVE_ALL_PED_WEAPONS( sub_1886() );
+    }
+    sub_1992( sub_1886(), 68019059, 200, 0, 1 );
+    sub_2319( sub_1886() );
+    return 1;
+}
+
+void sub_913(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+        sub_1018( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_1018(unknown uParam0)
+{
+    return;
+}
+
+void sub_1122(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU20 = uParam5;
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU16 = GET_SCENE_PED_MODEL( uParam5 );
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+void sub_1230(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = 0;
+    if (iParam0->_fU16 == 0)
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            iVar3 = GET_SCENE_PED_MODEL( iParam0->_fU20 );
+        }
+    }
+    else
+    {
+        iVar3 = iParam0->_fU16;
+    }
+    if ((HAS_MODEL_LOADED( iVar3 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+        sub_913( iParam0->_fU16, 1 );
+    }
+    iParam0->_fU40 = CREATE_PED( iParam0->_fU24, iParam0->_fU16, iParam0->_fU0, iParam0->_fU12, 1, iParam0->_fU48 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( iParam0->_fU40, 1 );
+        SET_PED_COORDS_NO_OFFSET( iParam0->_fU40, "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( iParam0->_fU40 ) );
+        SET_PED_HEADING( iParam0->_fU40, iParam0->_fU12 );
+        iParam0->_fU44 = 1;
+    }
+    else
+    {
+        SCRIPT_ASSERT( "Error: The ped you created doesn't exist or is dead!", 0 );
+    }
+    sub_1709( iParam0->_fU40 );
+    sub_1789( iParam0->_fU40 );
+    return iParam0->_fU40;
+}
+
+void sub_1709(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+void sub_1789(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+
+int sub_1886()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED( sub_1908() );
+    }
+    return 0;
+}
+
+void sub_1908()
+{
+    return GET_PLAYER_ID();
+}
+
+void sub_1992(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                }
+            }
+        }
+    }
+    else
+    {
+        sub_1018( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+void sub_2319(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 12, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 25, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_2528()
+{
+    unknown uVar2;
+
+    sub_90( "GA", "CS_00_01_Register start", 0 );
+    if (NOT (IS_PED_DEAD( sub_1886() )))
+    {
+        uVar2 = GET_WEAPON_FROM_HAND( sub_1886(), 0, 0 );
+        if (GET_DOES_WEAPON_EXIST( uVar2 ))
+        {
+            REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar2, "W_PI_PT92_Aa_H", 0 );
+        }
+    }
+    if (NOT (IS_PED_DEAD( l_U59 )))
+    {
+        sub_90( "GA", "Registering Becker for 00_01_Intro", 0 );
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( l_U59, "Armo_Unif", 0 );
+    }
+    if (l_U30)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U20[l_U29] );
+    }
+    sub_90( "GA", "CS_00_01_Register end", 0 );
+    return;
+}
+
+void sub_2804()
+{
+    return;
+}
+
+int sub_2820()
+{
+    sub_90( "GA", "CS_00_01_PostCutsceneSetup", 0 );
+    if (l_U30)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    sub_2890( sub_1886() );
+    sub_3097( l_U59 );
+    sub_3183( GET_SCENE_PED_MODEL( 2085576407 ) );
+    return 1;
+}
+
+void sub_2890(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_3097(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+void sub_3183(unknown uParam0)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 1)
+    {
+        SET_MODEL_AS_NO_LONGER_NEEDED( uParam0 );
+    }
+    else
+    {
+        sub_1018( "[SP]### ERROR! (UnloadModel) Trying to unload a model that isn't in the img! ###" );
+    }
+    return;
+}
+
+void sub_3330(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7)
+{
+    sub_90( "MSWW", "CutSys_CreateStandaloneCutscene", "###" );
+    return sub_3476( uParam0, uParam1, uParam2, uParam3, uParam4, uParam5, uParam7, 0, 3407, 3423, 0, 3441, 3457, uParam6 );
+}
+
+void sub_3407()
+{
+    return;
+}
+
+int sub_3423()
+{
+    return 1;
+}
+
+void sub_3441()
+{
+    return;
+}
+
+int sub_3457()
+{
+    return 1;
+}
+
+void sub_3476(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13)
+{
+    iParam0->_fU0 = uParam1;
+    iParam0->_fU8 = uParam2;
+    iParam0->_fU12 = uParam3;
+    iParam0->_fU16 = uParam4;
+    iParam0->_fU20 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU32 = uParam8;
+    iParam0->_fU36 = uParam9;
+    iParam0->_fU40 = uParam10;
+    iParam0->_fU44 = uParam11;
+    iParam0->_fU48 = uParam12;
+    iParam0->_fU52 = 1;
+    iParam0->_fU56 = uParam13;
+    iParam0->_fU60 = 1;
+    iParam0->_fU64 = 1;
+    iParam0->_fU68 = 0;
+    iParam0->_fU72 = 0;
+    iParam0->_fU76 = "Pants";
+    iParam0->_fU80 = "Pants";
+    iParam0->_fU84 = {0, 0, 0};
+    iParam0->_fU100 = 1;
+    iParam0->_fU104 = 1;
+    return (iParam0^);
+}
+
+void sub_3754(int iParam0)
+{
+    int iVar3;
+    int Result;
+    unknown uVar5;
+
+    iVar3 = iParam0->_fU4;
+    Result = 0;
+    switch (iParam0->_fU4)
+    {
+        case 0: break;
+        case 1:
+        if (IS_ARCADE_MODE_ACTIVE())
+        {
+            sub_90( "AT", "ARCADE MODE ACTIVE. SKIPPING BINK STATE.", "###" );
+            iParam0->_fU4 = 2;
+        }
+        else if (iParam0->_fU52)
+        {
+            sub_90( "AT", "Setting CUTSCENE_SET_WAIT_FOR_MOVIE.", "###" );
+            CUTSCENE_SET_WAIT_FOR_MOVIE( 9 );
+            SET_TRANSITION_MOVIE_SKIPPABLE( 0 );
+            iParam0->_fU96 = 0;
+        }
+        if (NOT iParam0->_fU96)
+        {
+            if (GET_NUMBER_OF_STREAMING_REQUESTS() == 0)
+            {
+                if (IS_SCREEN_FADED_OUT())
+                {
+                    DO_SCREEN_FADE_IN( 0 );
+                }
+                sub_90( "AT", "Streaming requests complete! Cutscene can be skipped!", "###" );
+                SET_TRANSITION_MOVIE_SKIPPABLE( 1 );
+                iParam0->_fU96 = 1;
+                break;
+                iParam0->_fU12;
+                break;
+            }
+        }
+        if ((NOT IS_TRANSITION_MOVIE_PLAYING()) || (NOT CUTSCENE_IS_WAITING_FOR_MOVIE()))
+        {
+            sub_90( "AT", "Bink is complete! Playing cutscene!", "###" );
+            iParam0->_fU4 = 5;
+        }
+        break;
+        case 2:
+        if (NOT HAS_CUTSCENE_LOADED())
+        {
+            sub_90( "MSWW", "CutSys reports cutscene not already loaded.", "###" );
+        }
+        else if ((NOT (CUTSCENE_IS_LOADED( iParam0->_fU0 ))) AND (HAS_CUTSCENE_LOADED()))
+        {
+            sub_90( "MSWW", "CutSys reports wrong cutscene is loaded.", "###" );
+            CLEAR_NAMED_CUTSCENE( "ThisStringDoesNothing" );
+            break;
+        }
+        if (CUTSCENE_IS_LOADED( iParam0->_fU0 ))
+        {
+            iParam0->_fU4 = 4;
+        }
+        else if (NOT CUTSCENE_IS_LOADING())
+        {
+            sub_582( iParam0->_fU0, 0 );
+            sub_90( "MSWW", "CutSys trying to load cutscene.", "###" );
+        }
+        break;
+        case 4:
+        if (iParam0->_fU8)
+        {
+            sub_4621( iParam0->_fU60, 0, 0, iParam0->_fU104 );
+            if (iParam0->_fU40)
+            {
+                iParam0->_fU4 = 3;
+                break;
+                iParam0->_fU44;
+                break;
+            }
+            else
+            {
+                iParam0->_fU4 = 5;
+                break;
+                iParam0->_fU12;
+                break;
+            }
+        }
+        break;
+        case 3:
+        if (iParam0->_fU48)
+        {
+            iParam0->_fU4 = 5;
+            break;
+            iParam0->_fU12;
+            break;
+        }
+        break;
+        case 5:
+        sub_4621( 1, 0, 0, iParam0->_fU104 );
+        if (NOT iParam0->_fU100)
+        {
+            CUTSCENE_ENABLE_SKIP( 0 );
+        }
+        sub_90( "MSWW", "CUTSCENE SYSTEM STARTING CUTSCENE!", "###" );
+        START_SEAMLESS_CUTSCENE();
+        if (iParam0->_fU24)
+        {
+            CUTSCENE_DISABLE_FADE_IN_GAME_AT_END( 1 );
+        }
+        iParam0->_fU4 = 6;
+        break;
+        case 6:
+        if (iParam0->_fU52)
+        {
+            DO_SCREEN_FADE_IN( iParam0->_fU56 );
+        }
+        if (HAS_CUTSCENE_FINISHED())
+        {
+            if (iParam0->_fU68)
+            {
+                if (WAS_CUTSCENE_SKIPPED())
+                {
+                    if (iParam0->_fU72)
+                    {
+                        uVar5 = GET_INTERIOR_FROM_NAME( iParam0->_fU76, 0 );
+                        SET_INTERIOR_ACTIVE( uVar5, 1, 0 );
+                        LOAD_SCENE_FOR_ROOM_BY_KEY( uVar5, GET_HASH_KEY( iParam0->_fU80 ) );
+                    }
+                    else
+                    {
+                        LOAD_SCENE( iParam0->_fU84 );
+                    }
+                }
+            }
+            if (iParam0->_fU64)
+            {
+                sub_5149( 1 );
+            }
+            if (iParam0->_fU28)
+            {
+                iParam0->_fU4 = 8;
+                break;
+                iParam0->_fU32;
+                break;
+            }
+            else
+            {
+                iParam0->_fU4 = 9;
+            }
+        }
+        break;
+        break;
+        iParam0->_fU16;
+        break;
+        case 7:
+        sub_4621( 1, 0, 0, iParam0->_fU104 );
+        iParam0->_fU4 = 8;
+        break;
+        break;
+        iParam0->_fU32;
+        break;
+        case 8:
+        if (iParam0->_fU36)
+        {
+            iParam0->_fU4 = 9;
+        }
+        break;
+        case 9:
+        if (iParam0->_fU20)
+        {
+            sub_5498( 1, 1 );
+            iParam0->_fU4 = 0;
+            Result = 1;
+        }
+        break;
+        case 10:
+        sub_5498( 1, 1 );
+        iParam0->_fU4 = 0;
+        Result = 1;
+        break;
+    }
+    if (iParam0->_fU4 != iVar3)
+    {
+        iParam0->_fU52 = 1;
+    }
+    else
+    {
+        iParam0->_fU52 = 0;
+    }
+    return Result;
+}
+
+void sub_4621(int iParam0, int iParam1, unknown uParam2, boolean bParam3)
+{
+    END_POSTFX_BLENDER( 12, 0 );
+    if (bParam3)
+    {
+        STOP_ALL_IMAGEFX( 0 );
+    }
+    SET_WIDESCREEN_BORDERS( 1, 500 );
+    DISPLAY_HUD( 0 );
+    if (iParam0 == 1)
+    {
+        if (NOT (IS_PED_DEAD( sub_1886() )))
+        {
+            SET_PLAYER_CONTROL( sub_1908(), 0, uParam2 );
+            SET_PED_DUCKING( sub_1886(), 0 );
+            if (iParam1 == 1)
+            {
+                CLEAR_PED_TASKS_IMMEDIATELY( sub_1886() );
+            }
+            SET_PED_INVINCIBLE( sub_1886(), 1 );
+        }
+    }
+    DEACTIVATE_BULLET_TIME( 1, 0 );
+    return;
+}
+
+void sub_5149(unknown uParam0)
+{
+    unknown uVar3;
+
+    if (NOT (IS_PED_DEAD( sub_1886() )))
+    {
+        uVar3 = GET_WEAPON_FROM_HAND( sub_1886(), 0, 0 );
+        if (GET_DOES_WEAPON_EXIST( uVar3 ))
+        {
+            SET_WEAPON_VISIBLE( uVar3, uParam0 );
+        }
+        uVar3 = GET_WEAPON_FROM_HAND( sub_1886(), 1, 0 );
+        if (GET_DOES_WEAPON_EXIST( uVar3 ))
+        {
+            SET_WEAPON_VISIBLE( uVar3, uParam0 );
+        }
+        uVar3 = GET_WEAPON_FROM_HOLSTER( sub_1886(), 0 );
+        if (GET_DOES_WEAPON_EXIST( uVar3 ))
+        {
+            SET_WEAPON_VISIBLE( uVar3, uParam0 );
+        }
+        uVar3 = GET_WEAPON_FROM_HOLSTER( sub_1886(), 1 );
+        if (GET_DOES_WEAPON_EXIST( uVar3 ))
+        {
+            SET_WEAPON_VISIBLE( uVar3, uParam0 );
+        }
+        uVar3 = GET_WEAPON_FROM_HOLSTER( sub_1886(), 2 );
+        if (GET_DOES_WEAPON_EXIST( uVar3 ))
+        {
+            SET_WEAPON_VISIBLE( uVar3, uParam0 );
+        }
+    }
+    return;
+}
+
+void sub_5498(boolean bParam0, boolean bParam1)
+{
+    SET_WIDESCREEN_BORDERS( 0, 500 );
+    DISPLAY_HUD( 1 );
+    if (NOT (IS_PED_DEAD( sub_1886() )))
+    {
+        SET_PLAYER_CONTROL( sub_1908(), 1, 0 );
+        SET_PED_INVINCIBLE( sub_1886(), 0 );
+        if (bParam0)
+        {
+            sub_5579();
+        }
+    }
+    PULSE_CROSSHAIR( 1 );
+    if (bParam1)
+    {
+        DESTROY_ALL_CAMS();
+    }
+    return;
+}
+
+void sub_5579()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    if ((IS_PED_DEAD( sub_1886() )) == 0)
+    {
+        uVar2 = GET_WEAPON_FROM_HAND( sub_1886(), 0, 0 );
+        uVar3 = GET_WEAPON_FROM_HAND( sub_1886(), 1, 0 );
+        if ((GET_DOES_WEAPON_EXIST( uVar2 )) == 1)
+        {
+            uVar4 = GET_MAX_AMMO_IN_HAND_CLIP_MP( sub_1886(), 0 );
+            SET_WEAPON_AMMO_IN_CLIP( uVar2, uVar4 );
+        }
+        if ((GET_DOES_WEAPON_EXIST( uVar3 )) == 1)
+        {
+            uVar5 = GET_MAX_AMMO_IN_HAND_CLIP_MP( sub_1886(), 1 );
+            SET_WEAPON_AMMO_IN_CLIP( uVar3, uVar5 );
+        }
+    }
+    return;
+}
+

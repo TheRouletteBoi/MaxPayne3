@@ -1,0 +1,162 @@
+void main()
+{
+    unknown uVar2;
+    unknown uVar3;
+
+    l_U0 = 0;
+    l_U1 = 1;
+    l_U2 = 0;
+    l_U3 = 1.00000000;
+    l_U4 = -5.00000000;
+    l_U5 = 0;
+    l_U6 = 0;
+    l_U7 = 0;
+    l_U11 = 42;
+    l_U12 = 0;
+    l_U13 = 0;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 90.00000000;
+    l_U18 = {0.00000000, 0.00000000, 0.00000000};
+    l_U21 = {0.00000000, 0.00000000, 0.00000000};
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = nil;
+    l_U31 = {0.00000000, 0.00000000, 0.00000000};
+    l_U34 = 0;
+    l_U35 = 0;
+    l_U36 = 0;
+    sub_248( "sk", "Script s_fashion_test_panel.sc is starting...", "###" );
+    sub_298( 0 );
+    if (NOT (IS_PED_DEAD( sub_376() )))
+    {
+        FREEZE_PED_POSITION( sub_376(), 1 );
+    }
+    sub_490( sub_376(), g_U1333[1], g_U1450[1] );
+    uVar2 = GET_HASH_KEY( ref g_U1563 );
+    uVar3 = GET_INTERIOR_FROM_NAME( "MILO_RTP_cnd_A", 0 );
+    SET_INTERIOR_ACTIVE( uVar3, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar3, uVar2 );
+    if (NOT (IS_PED_DEAD( sub_376() )))
+    {
+        SET_ROOM_FOR_PED_BY_NAME( sub_376(), ref g_U1563 );
+        FREEZE_PED_POSITION( sub_376(), 0 );
+        PED_ACTION_TREE_PLAY_NODE( sub_376(), "/Global/Player/PlayerRoot/PLAYER_INITIALIZE_LOCO" );
+    }
+    sub_735( sub_376(), 68019059, 25000, 0, 1 );
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U1486[1], 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U1522[1], 1065353216, 0 );
+    sub_1115( 500 );
+    while (IS_EXITFLAG_SET() == 0)
+    {
+        WAIT( 0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    sub_248( "sk", "Script s_fashion_test_panel.sc is shutting down...", "###" );
+    return;
+}
+
+void sub_248(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+
+void sub_298(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+int sub_376()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED( sub_398() );
+    }
+    return 0;
+}
+
+void sub_398()
+{
+    return GET_PLAYER_ID();
+}
+
+void sub_490(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+void sub_735(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                }
+            }
+        }
+    }
+    else
+    {
+        sub_1041( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+void sub_1041(unknown uParam0)
+{
+    return;
+}
+
+void sub_1115(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+

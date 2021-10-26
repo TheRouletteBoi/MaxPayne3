@@ -1,0 +1,90 @@
+if ((NOT (IS_PED_RELOADING(  /* PLAYER_PED_ID */ sub_39670() ))) AND (IS_CONTROL_PRESSED( 0, 4 ))) // s_boat_boatraila
+if ((NOT (IS_PED_RELOADING(  /* PLAYER_PED_ID */ sub_34875() ))) AND (IS_CONTROL_PRESSED( 0, 4 ))) // s_boat_boatrailb
+if ((NOT (IS_PED_RELOADING( sub_36819() ))) AND (IS_CONTROL_PRESSED( 0, 4 ))) // s_boat_boatraila
+if ((NOT (IS_PED_RELOADING( sub_32908() ))) AND (IS_CONTROL_PRESSED( 0, 4 ))) // s_boat_boatrailb
+if ((((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || ((IS_CONTROL_PRESSED( 0, 6 )) == 1)) || ((l_U636 == 1) || ((l_U635 == 1) || (l_U634 == 1)))) // busdepot_fuel_depot
+if ((((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || ((IS_CONTROL_PRESSED( 0, 6 )) == 1)) || ((l_U636 == 1) || ((l_U635 == 1) || (l_U634 == 1)))) // busdepot_fuel_depot
+else if ((IS_TARGET_IN_VALID_COVER_FROM_PED( l_U534,  /* PLAYER_PED_ID */ sub_1768() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) // s_cemet_mausoleum
+else if ((IS_TARGET_IN_VALID_COVER_FROM_PED( l_U534, sub_1590() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) // s_cemet_mausoleum
+if (IS_CONTROL_PRESSED( 0, 6 )) // club_isequences
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_dancefloor
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_lounge
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_viproom
+if (IS_CONTROL_PRESSED( 0, 6 )) // club_isequences
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_dancefloor
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_lounge
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_club_viproom
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_hall
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_l1
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_l2a
+else if (IS_CONTROL_PRESSED( 0, 6 )) // s_fashion_mainlobby
+else if (NOT (IS_CONTROL_PRESSED( 0, 6 ))) // s_fashion_mainlobby
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_mainlobby
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_parkingexit
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_hall
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_l1
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_l2a
+else if (IS_CONTROL_PRESSED( 0, 6 )) // s_fashion_mainlobby
+else if (NOT (IS_CONTROL_PRESSED( 0, 6 ))) // s_fashion_mainlobby
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_mainlobby
+if (IS_CONTROL_PRESSED( 2, 19 )) // s_fashion_parkingexit
+if (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || ((IS_CONTROL_PRESSED( 0, 6 )) == 1)) // fav2_bridgefight
+if ((( /* ISTIMERDONE */ sub_16421( ref l_U399 )) == 1) || ((( /* F_ISPLAYERINTRIGGERBOX */ sub_31618( l_U418 )) == 0) || ((HAS_PED_BEEN_DAMAGED_BY_PED( l_U439,  /* PLAYER_PED_ID */ sub_1742(), 0 )) || (((IS_CONTROL_PRESSED( 0, 6 )) == 1) || (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || (((IS_PED_IN_COVER(  /* PLAYER_PED_ID */ sub_1742() )) == 0) || ((HAS_SHOT_BEEN_FIRED_IN_AREA( "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS(  /* PLAYER_PED_ID */ sub_1742() ), 7.00000000, 0, ref uVar2 )) == 1))))))) // fav2_isequences6
+if (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || ((IS_CONTROL_PRESSED( 0, 6 )) == 1)) // fav2_bridgefight
+if (((sub_15364( ref l_U399 )) == 1) || (((sub_29336( l_U418 )) == 0) || ((HAS_PED_BEEN_DAMAGED_BY_PED( l_U439, sub_1663(), 0 )) || (((IS_CONTROL_PRESSED( 0, 6 )) == 1) || (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || (((IS_PED_IN_COVER( sub_1663() )) == 0) || ((HAS_SHOT_BEEN_FIRED_IN_AREA( "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( sub_1663() ), 7.00000000, 0, ref uVar2 )) == 1))))))) // fav2_isequences6
+else if ((HAS_PED_CLEAR_LOS_TO_PED( iParam0->_fU0,  /* PLAYER_PED_ID */ sub_1077() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) // hotel_5f6f_fight
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((iVar4 == 10648147) || (iVar4 == 1224272620))) // hotel_5f6f_fight
+if (((HAS_PED_CLEAR_LOS_TO_PED( uParam0._fU0,  /* PLAYER_PED_ID */ sub_1077() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_TARGET_IN_VALID_COVER_FROM_PED( uParam0._fU0,  /* PLAYER_PED_ID */ sub_1077() )))) // hotel_5f6f_fight
+else if ((HAS_PED_CLEAR_LOS_TO_PED( iParam0->_fU0, sub_938() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) // hotel_5f6f_fight
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((iVar4 == 10648147) || (iVar4 == 1224272620))) // hotel_5f6f_fight
+if (((HAS_PED_CLEAR_LOS_TO_PED( uParam0._fU0, sub_938() )) AND (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_TARGET_IN_VALID_COVER_FROM_PED( uParam0._fU0, sub_938() )))) // hotel_5f6f_fight
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_marina_slipway
+if (IS_CONTROL_PRESSED( 0, 6 )) // s_marina_slipway
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (l_U1758 >= 3)) // s_nyc_alley
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc_alley
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc_alley
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc_bar
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc_bar
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc2_chopshop
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc2_chopshop
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((IS_PLAYER_GUN_RAISED(  /* PLAYER_ID */ sub_11416() )) AND (IS_PED_IN_CROSSHAIR_CYLINDER_OFFSET( g_U818, 0.40000000, 1.00000000, 0.00000000, 0.00000000, -0.20000000, 15.00000000, 1 )))) // s_nyc2_rooftops
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc2_rooftops
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc2_rooftops
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc2_chopshop
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc2_chopshop
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((IS_PLAYER_GUN_RAISED( sub_10216() )) AND (IS_PED_IN_CROSSHAIR_CYLINDER_OFFSET( g_U818, 0.40000000, 1.00000000, 0.00000000, 0.00000000, -0.20000000, 15.00000000, 1 )))) // s_nyc2_rooftops
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc2_rooftops
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc2_rooftops
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (l_U1758 >= 3)) // s_nyc_alley
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc_alley
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc_alley
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // s_nyc_bar
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // s_nyc_bar
+if ((( /* ISTIMERDONE */ sub_5845( ref l_U395 )) == 1) || (((IS_CONTROL_PRESSED( 0, 6 )) == 1) || (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || (((IS_PED_IN_COVER(  /* PLAYER_PED_ID */ sub_1113() )) == 0) || (((HAS_SHOT_BEEN_FIRED_IN_AREA( l_U491, 30.00000000, 0, ref uVar2 )) == 1) || (( /* F_ISPLAYERINTRIGGERBOX */ sub_1643( l_U116 )) == 0)))))) // s_office_cub_start
+if (((sub_5194( ref l_U395 )) == 1) || (((IS_CONTROL_PRESSED( 0, 6 )) == 1) || (((IS_CONTROL_JUST_PRESSED( 0, 6 )) == 1) || (((IS_PED_IN_COVER( sub_991() )) == 0) || (((HAS_SHOT_BEEN_FIRED_IN_AREA( l_U491, 30.00000000, 0, ref uVar2 )) == 1) || ((sub_1437( l_U116 )) == 0)))))) // s_office_cub_start
+if ((NOT (IS_ANY_SPEECH_PLAYING(  /* PLAYER_PED_ID */ sub_1086() ))) AND ((NOT (IS_ANY_SPEECH_PLAYING( g_U3504 ))) AND ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U3504, l_U686, 100.00000000, 1, -1082130432 ))))) // s_pana_ob1
+if ((NOT (IS_ANY_SPEECH_PLAYING(  /* PLAYER_PED_ID */ sub_1024() ))) AND ((NOT (IS_ANY_SPEECH_PLAYING( g_U3504 ))) AND ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U3504, l_U822, 100.00000000, 1, -1082130432 ))))) // s_pana_ob2
+if ((NOT (IS_ANY_SPEECH_PLAYING( sub_938() ))) AND ((NOT (IS_ANY_SPEECH_PLAYING( g_U3504 ))) AND ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U3504, l_U686, 100.00000000, 1, -1082130432 ))))) // s_pana_ob1
+if ((NOT (IS_ANY_SPEECH_PLAYING( sub_876() ))) AND ((NOT (IS_ANY_SPEECH_PLAYING( g_U3504 ))) AND ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U3504, l_U822, 100.00000000, 1, -1082130432 ))))) // s_pana_ob2
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((IS_PLAYER_GUN_RAISED(  /* PLAYER_ID */ sub_1043() )) AND (IS_PED_IN_CROSSHAIR_CYLINDER_OFFSET( l_U1250, 0.40000000, 1.00000000, 0.00000000, 0.00000000, -0.20000000, 15.00000000, 0 )))) // s_police_holdingcells
+if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) AND (IS_PED_IN_COVER(  /* PLAYER_PED_ID */ sub_1488() ))) // s_police_parking
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((IS_PLAYER_GUN_RAISED( sub_899() )) AND (IS_PED_IN_CROSSHAIR_CYLINDER_OFFSET( l_U1250, 0.40000000, 1.00000000, 0.00000000, 0.00000000, -0.20000000, 15.00000000, 0 )))) // s_police_holdingcells
+if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) AND (IS_PED_IN_COVER( sub_1348() ))) // s_police_parking
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U4007, 1, 10000, 1, -1082130432 ))) // stad_concession
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_concession
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_concession
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_mediastairwell
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_mediastairwell
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND ((( /* MAL_GETACTINTSTATUS */ sub_61171( l_U1714, 52 )) == 3) AND (IS_PED_IN_CROSSHAIR_CYLINDER( l_U1714, 1, 10000, 1, -1082130432 )))) // stad_pracfield
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_pracfield
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_pracfield
+if ((NOT (IS_CONTROL_PRESSED( 0, 4 ))) AND ((IS_PED_IN_COVER(  /* PLAYER_PED_ID */ sub_1016() )) AND ((NOT IS_LAST_MAN_STANDING_ACTIVE()) AND ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) AND (NOT (IS_BULLET_TIME_ACTIVE( 1 ))))))) // stad_trophyroom
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( g_U4007, 1, 10000, 1, -1082130432 ))) // stad_concession
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_concession
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_concession
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_mediastairwell
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_mediastairwell
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (((sub_49157( l_U1714, 52 )) == 3) AND (IS_PED_IN_CROSSHAIR_CYLINDER( l_U1714, 1, 10000, 1, -1082130432 )))) // stad_pracfield
+if ((IS_CONTROL_PRESSED( 0, 6 )) AND (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1, 10000, 0, -1082130432 ))) // stad_pracfield
+else if ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) || (NOT (IS_PED_IN_CROSSHAIR_CYLINDER( uParam0, 1.50000000, 10000, 0, -1082130432 )))) // stad_pracfield
+if ((NOT (IS_CONTROL_PRESSED( 0, 4 ))) AND ((IS_PED_IN_COVER( sub_886() )) AND ((NOT IS_LAST_MAN_STANDING_ACTIVE()) AND ((NOT (IS_CONTROL_PRESSED( 0, 6 ))) AND (NOT (IS_BULLET_TIME_ACTIVE( 1 ))))))) // stad_trophyroom

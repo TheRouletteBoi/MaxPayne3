@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<uiml xmlns="http://www.rockstargames.com/schemas/mp3/uiml">
+	<frame width="1,*parent" height="1,*parent">
+		<frame id="TS_Main.Menu" width=".375,*parent">
+			<scrolllist id="TS_Main.Options" align="LEFT"  showGaps="false" visible="true" maxVisibleItems="10">
+                        <anchor point="BOTTOMLEFT" relPoint="TOPLEFT"  offset="-200,-255"/>
+				<include src="ts/main_menu_item" arg="1,Max Payne 3 Developer Menu,true" />
+			</scrolllist>
+		</frame>
+		<frame id="TS_Main.NewsLayoutFrame" width="435">
+			<anchor point="TOPRIGHT"/>
+			<anchor POINT="BOTTOMRIGHT"/>
+			<string id="TS_Main.NewsPanelHeader" scale="HEADINGTEXT" font="FUTURA_BOLD" focusable="false">
+				<anchor point="TOPLEFT" relPoint="TOPLEFT"/>
+			</string>    
+			<newspanels id="TS_Main.News" width="1,*parent" height="600" hidebuttons="true" type="NEWS" >
+				<data selectorTexture="payne_common_mp/TabTexture"/>
+				<data headerFontString="TS_Main.NewsPanelHeader"/>
+				<anchor point="TOPLEFT" relPoint="BOTTOMLEFT" rel="TS_Main.NewsPanelHeader" offset="0,5"/>
+			</newspanels>
+		</frame>
+	</frame>
+</uiml>

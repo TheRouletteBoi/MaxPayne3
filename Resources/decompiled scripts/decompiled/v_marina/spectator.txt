@@ -1,0 +1,2935 @@
+void main()
+{
+    l_U9 = 0;
+    l_U10 = 0;
+    l_U11 = GET_IS_UNLOCKED( "VENDETTAS" );
+    l_U12 = -1;
+    l_U13 = -1;
+    l_U14 = -1;
+    l_U15 = -1;
+    DISPLAYF( "[Spectator] Thread is starting up", 0 );
+    l_U0._fU8 =  /* SEV_MP_GETMYPLAYER */ sub_110();
+    l_U0._fU24 =  /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( l_U0._fU8, 1, 0 );
+    l_U0._fU0 = 0;
+    l_U0._fU16 = -1;
+    l_U0._fU32 = -1;
+    l_U0._fU4 = 0;
+    if (l_U0._fU24)
+    {
+        l_U0._fU20 = g_U179[l_U0._fU8]._fU176;
+        l_U0._fU12 = g_U1514[l_U0._fU8]._fU20;
+        while ((l_U0._fU24) AND (NOT IS_EXITFLAG_SET()))
+        {
+            l_U0._fU8 =  /* SEV_MP_GETMYPLAYER */ sub_110();
+            if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( l_U0._fU8, 1, 0 ))
+            {
+                if ( /* SEV_MP_ISPLAYERACTIVEANDNOTJOINING */ sub_830( l_U0._fU8 ))
+                {
+                     /* KILL_STRIP_UPDATE */ sub_1011();
+                }
+                else
+                {
+                    l_U0._fU24 = 0;
+                    DISPLAYF( "[Spectator] Player is currently inactive or joining the game, aborting", 0 );
+                }
+            }
+            else
+            {
+                l_U0._fU24 = 0;
+                DISPLAYF( "[Spectator] Player is currently invalid, aborting", 0 );
+            }
+            WAIT( 0 );
+        }
+    }
+    DISPLAYF( "[Spectator] Thread is shutting down", 0 );
+    UI_SET( 0, 2, 513, 1553897412, 257, 0 );
+    UI_SET( 17, 2, 513, -1297477337, 769, 0.00000000 );
+    SET_EXITFLAG_RESPONSE();
+    TERMINATE_THIS_THREAD();
+    return;
+}
+
+/* SEV_MP_GETMYPLAYER */ void sub_110()
+{
+    return SEV_GET_MY_PLAYER();
+}
+
+/* SEV_MP_ISPLAYERINDEXVALID */ int sub_168(int iParam0, boolean bParam1, boolean bParam2)
+{
+    if (iParam0 < 0)
+    {
+        if (bParam1)
+        {
+            DISPLAYF( "sev_mp_IsPlayerIndexValid - ERROR: iPlayer points outside the mp_Players array! index: {}", 1, 513, iParam0 );
+        }
+        if (bParam2)
+        {
+            SCRIPT_ASSERT( "sev_mp_IsPlayerIndexValid - ERROR: iPlayer points outside the mp_Players array! index: {}", 1, 513, iParam0 );
+        }
+        return 0;
+    }
+    else if (iParam0 >= 16)
+    {
+        if (bParam1)
+        {
+            DISPLAYF( "sev_mp_IsPlayerIndexValid - ERROR: iPlayer points outside the mp_Players array! index: {}", 1, 513, iParam0 );
+        }
+        if (bParam2)
+        {
+            SCRIPT_ASSERT( "sev_mp_IsPlayerIndexValid - ERROR: iPlayer points outside the mp_Players array! index: {}", 1, 513, iParam0 );
+        }
+        return 0;
+    }
+    return 1;
+}
+
+/* SEV_MP_ISPLAYERACTIVEANDNOTJOINING */ int sub_830(unknown uParam0)
+{
+    if (g_U179[uParam0]._fU0)
+    {
+        return NOT ( /* SEV_MP_ISPLAYERJOINING */ sub_897( uParam0 ));
+    }
+    return 0;
+}
+
+/* SEV_MP_ISPLAYERJOINING */ boolean sub_897(unknown uParam0)
+{
+    return (g_U179[uParam0]._fU32 == 3) || ((g_U179[uParam0]._fU32 == 2) || (g_U179[uParam0]._fU32 == 1));
+}
+
+/* KILL_STRIP_UPDATE */ void sub_1011()
+{
+    switch (l_U0._fU0)
+    {
+        case 0:
+         /* RESET_EVERYTHING */ sub_1069();
+        if ( /* SEV_MP_ISPLAYERWAITINGTOJOIN */ sub_1732( l_U0._fU8 ))
+        {
+             /* SET_UP_WAITING_TO_JOIN */ sub_1803();
+            l_U10 = 1;
+        }
+        else if ( /* IS_MY_DEATH_A_SUICIDE */ sub_1930())
+        {
+             /* SET_UP_SUICIDE */ sub_2099();
+            ALLOW_BULLET_CAMERA_TO_GAMEPLAY( 0, 1 );
+            l_U10 = 1;
+        }
+        else
+        {
+             /* SET_UP_KILLER_SCREEN */ sub_2338();
+            ALLOW_BULLET_CAMERA_TO_GAMEPLAY( 0, 1 );
+        }
+        l_U0._fU0 = 1;
+        case 1:
+         /* SET_UP_KILLER_SECTION */ sub_2587();
+         /* UPDATE_SCREEN_VISIBILITY */ sub_6380();
+         /* UPDATE_UI_TIMER */ sub_6747( ref l_U0._fU16 );
+         /* UPDATE_RESPAWN_BUTTON */ sub_30373();
+         /* UPDATE_VENDETTA_BUTTON */ sub_31223();
+        break;
+    }
+    return;
+}
+
+/* RESET_EVERYTHING */ void sub_1069()
+{
+    DISPLAYF( "[Spectator] RESET_EVERYTHING()", 0 );
+    UI_SET( 0, 2, 513, 1879230879, 257, 1 );
+    UI_SET( 15, 2, 513, 1879230879, 257, 1 );
+    UI_SET( 0, 2, 513, 1015327932, 257, 0 );
+    UI_SET( 0, 2, 513, 613906292, 257, 0 );
+    UI_SET( 0, 2, 513, -879816530, 257, 0 );
+    UI_SET( 0, 2, 513, -1019769706, 257, 0 );
+    UI_SET( 0, 2, 513, -225245730, 257, 1 );
+    UI_SET( 0, 2, 513, -1650140892, 257, 0 );
+    UI_SET( 0, 2, 513, -50545556, 257, 0 );
+    UI_SET( 0, 2, 513, -1659497608, 257, 0 );
+    UI_SET( 0, 2, 513, -907933514, 257, 0 );
+    UI_SET( 0, 2, 513, -283222141, 257, 0 );
+    UI_SET( 0, 2, 513, 2008668901, 257, 0 );
+    UI_SET( 0, 2, 513, -1871370562, 257, 0 );
+    UI_SET( 0, 2, 513, 1527115010, 257, 0 );
+    UI_SET( 0, 2, 513, 1912280222, 257, 0 );
+    UI_SET( 0, 2, 513, 2038485066, 257, 0 );
+    UI_REMOVE_MP_HITMARKS();
+    if ( /* RESPAWN_MEANS_SPECTATE */ sub_1520())
+    {
+        UI_SET( 2, 2, 513, -1258627775, 1537, "MP_SPECTATE" );
+    }
+    else
+    {
+        UI_SET( 2, 2, 513, -1258627775, 1537, "MP_RESPAWN" );
+    }
+    UI_SET( 0, 2, 513, 305109691, 257, 0 );
+    UI_SET( 0, 2, 513, -234436332, 257, 0 );
+    UI_SET( 17, 2, 513, -1297477337, 769, 100.00000000 );
+    return;
+}
+
+/* RESPAWN_MEANS_SPECTATE */ boolean sub_1520()
+{
+    return l_U0._fU20 == -10;
+}
+
+/* SEV_MP_ISPLAYERWAITINGTOJOIN */ boolean sub_1732(unknown uParam0)
+{
+    return g_U179[uParam0]._fU32 != 0;
+}
+
+/* SET_UP_WAITING_TO_JOIN */ void sub_1803()
+{
+    DISPLAYF( "[Spectator] SET_UP_WAITING_TO_JOIN()", 0 );
+    l_U0._fU4 = 4;
+    UI_SET( 0, 2, 513, -234436332, 257, 1 );
+    return;
+}
+
+/* IS_MY_DEATH_A_SUICIDE */ int sub_1930()
+{
+    if (l_U0._fU8 == l_U0._fU12)
+    {
+        DISPLAYF( "[Spectator] Death was a suicide because my player ID ({})'s last killer was myself", 1, 513, l_U0._fU8 );
+        return 1;
+    }
+    return 0;
+}
+
+/* SET_UP_SUICIDE */ void sub_2099()
+{
+    DISPLAYF( "[Spectator] SET_UP_SUICIDE()", 0 );
+    if ((GET_PLAYER_CAUSE_OF_DEATH(  /* SEV_MP_GETMYLOCALPLAYERINDEX */ sub_2165() )) == -1629340685)
+    {
+        UI_SET( 2, 2, 513, -311353769, 1537, "KS_TEARGAS" );
+    }
+    else
+    {
+        UI_SET( 2, 2, 513, -311353769, 1537, "KS_SUICIDE" );
+    }
+    l_U0._fU4 = 2;
+    return;
+}
+
+/* SEV_MP_GETMYLOCALPLAYERINDEX */ int sub_2165()
+{
+    return 0;
+}
+
+/* SET_UP_KILLER_SCREEN */ void sub_2338()
+{
+    unknown uVar2;
+    int iVar3;
+    int J;
+    int iVar5;
+    int iVar6;
+    int iVar7;
+    int iVar8;
+    int I;
+
+    DISPLAYF( "[Spectator] SET_UP_KILLER_SCREEN()", 0 );
+    if ( /* SEV_MP_ISPLAYERACTIVEANDNOTWAITINGTOJOIN */ sub_2421( l_U0._fU8 ))
+    {
+        if (NOT g_U179[l_U0._fU8]._fU8)
+        {
+            UI_SET( 0, 2, 513, -879816530, 257, 1 );
+            if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( l_U0._fU12, 1, 0 ))
+            {
+                 /* SET_UP_KILLER_SECTION */ sub_2587();
+                 /* SET_UP_KILL_SECTION */ sub_5529();
+            }
+            SEV_ISOLATE();
+            DISPLAYF( "[Spectator] SET_UP_KILLER_SCREEN() Setting up target dummy", 0 );
+            uVar2 =  /* SEV_MP_GETMYLOCALPLAYERINDEX */ sub_2165();
+            iVar3 = DEATHRECORD_GET_NUM_SHOTS( uVar2 );
+            for ( J = 0; J < iVar3; J++ )
+            {
+                iVar5 = DEATHRECORD_GET_SHOT_BULLETCOUNT( uVar2, J );
+                iVar6 = DEATHRECORD_GET_SHOT_COMPONENT( uVar2, J );
+                iVar7 = DEATHRECORD_GET_SHOT_WEAPON( uVar2, J );
+                iVar8 = 0;
+                if (iVar7 == -1569615261)
+                {
+                    iVar8 = 2;
+                    iVar6 = 12;
+                }
+                else if ((GET_WEAPON_GUNTYPE( iVar7 )) == 3)
+                {
+                    iVar8 = 1;
+                }
+                for ( I = 0; I < iVar5; I++ )
+                {
+                    UI_ADD_MP_HITMARK( iVar6, iVar8 );
+                }
+            }
+            SEV_ISOLATE_OFF();
+        }
+        else
+        {
+            DISPLAYF( "[Spectator] Local player was alive when attempting to generate death screen", 0 );
+        }
+    }
+    DISPLAYF( "[Spectator] SET_UP_KILLER_SCREEN() Complete!", 0 );
+    return;
+}
+
+/* SEV_MP_ISPLAYERACTIVEANDNOTWAITINGTOJOIN */ int sub_2421(unknown uParam0)
+{
+    if (g_U179[uParam0]._fU0)
+    {
+        return g_U179[uParam0]._fU32 == 0;
+    }
+    return 0;
+}
+
+/* SET_UP_KILLER_SECTION */ void sub_2587()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    boolean bVar50;
+    unknown uVar51;
+    unknown uVar52;
+
+    if (l_U10)
+    {
+        return;
+    }
+    DISPLAYF( "[Spectator] SET_UP_KILLER_SECTION() for Killer {}", 1, 513, l_U0._fU12 );
+    if (NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( l_U0._fU12, 0, 0 )))
+    {
+        DISPLAYF( "[Spectator] SET_UP_KILLER_SECTION() Exiting early because the killer player index is invalid", 0 );
+        l_U10 = 1;
+        return;
+    }
+    if ((ARE_STRINGS_EQUAL( ref g_U179[l_U0._fU12]._fU76, "??" )) || (ARE_STRINGS_EQUAL( ref g_U179[l_U0._fU12]._fU76, "" )))
+    {
+        DISPLAYF( "[Spectator] SET_UP_KILLER_SECTION() Exiting early because the name of the killer is invalid", 0 );
+        l_U10 = 1;
+        return;
+    }
+    UI_SET( 24, 2, 513, -1432661058, 257, 0 );
+    if (g_U5216)
+    {
+        DISPLAYF( "Vendetta text has been overridden by game mode", 0 );
+        StrCopy( ref uVar18, 16, g_U5217, 4);
+        uVar34 = {g_U5221};
+        uVar2 = {g_U5237};
+        g_U5216 = 0;
+        bVar50 =  /* UI_SETANDSHOW_IFGOTTEXT */ sub_3137( -50545556, ref uVar18, "-" );
+         /* SET_UP_KILLER_NAME */ sub_3481( NOT bVar50 );
+        l_U10 = 1;
+    }
+    else if ( /* GET_VENDETTA_TEXT */ sub_4409( ref uVar34, ref uVar2 ))
+    {
+        l_U10 = 1;
+    }
+    UI_SET( 0, 2, 513, -50545556, 257, 0 );
+     /* SET_UP_KILLER_NAME */ sub_3481( 1 );;
+    uVar51 =  /* UI_SETANDSHOW_IFGOTTEXT */ sub_3137( -1659497608, ref uVar34, "-" );
+    UI_SET( 0, 2, 513, -907933514, 257, uVar51 );
+    uVar52 =  /* UI_SETANDSHOW_IFGOTTEXT */ sub_3137( -283222141, ref uVar2, "-" );
+    UI_SET( 0, 2, 513, 2008668901, 257, uVar52 );
+    DISPLAYF( "[Spectator] SET_UP_KILLER_SECTION() Complete!", 0 );
+    return;
+}
+
+/* UI_SETANDSHOW_IFGOTTEXT */ int sub_3137(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    if ((ARE_STRINGS_EQUAL( uParam1, "" )) || (ARE_STRINGS_EQUAL( uParam1, uParam2 )))
+    {
+        DISPLAYF( "[Spectator] UI_SETANDSHOW_IFGOTTEXT() Setting element {} with text {} to FALSE", 2, 513, uParam0, 1537, uParam1 );
+        UI_SET( 0, 2, 513, uParam0, 257, 0 );
+        return 0;
+    }
+    DISPLAYF( "[Spectator] UI_SETANDSHOW_IFGOTTEXT() Setting element {} with text {} to TRUE", 2, 513, uParam0, 1537, uParam1 );
+    UI_SET( 2, 2, 513, uParam0, 1537, uParam1 );
+    UI_SET( 0, 2, 513, uParam0, 257, 1 );
+    return 1;
+}
+
+/* SET_UP_KILLER_NAME */ void sub_3481(boolean bParam0)
+{
+    unknown uVar3;
+
+    uVar3 =  /* SEV_MP_GETLOCALPLAYERINDEX */ sub_3517( l_U0._fU12 );
+    UI_SET( 21, 2, 513, -1019769706, 513, uVar3 );
+    if (bParam0)
+    {
+        UI_SET( 0, 2, 513, -1019769706, 257, 1 );
+        if ( /* SEV_MP_ISTEAMGAME */ sub_3646( 0 ))
+        {
+            if ( /* SEV_MP_AREPLAYERSONSAMETEAM */ sub_4120( l_U0._fU12, l_U0._fU8 ))
+            {
+                UI_SET( 10, 2, 513, -1019769706, 513, 26 );
+            }
+            else
+            {
+                UI_SET( 10, 2, 513, -1019769706, 513, 28 );
+            }
+        }
+        else
+        {
+            UI_SET( 10, 2, 513, -1019769706, 513, 28 );
+        }
+    }
+    else
+    {
+        UI_SET( 0, 2, 513, -1019769706, 257, 0 );
+    }
+    return;
+}
+
+/* SEV_MP_GETLOCALPLAYERINDEX */ void sub_3517(unknown uParam0)
+{
+    unknown Result;
+
+    SEV_ISOLATE();
+    Result = SEV_PLAYER_SLOT_TO_INDEX( uParam0 );
+    SEV_ISOLATE_OFF();
+    return Result;
+}
+
+/* SEV_MP_ISTEAMGAME */ boolean sub_3646(unknown uParam0)
+{
+    int iVar3;
+
+    if ((uParam0) AND (g_U2625))
+    {
+        return 1;
+    }
+    iVar3 =  /* SEV_MP_GETGAMEMODE */ sub_3693();
+    return (iVar3 == 1) || (iVar3 == 2);
+}
+
+/* SEV_MP_GETGAMEMODE */ void sub_3693()
+{
+    if (g_U117._fU4)
+    {
+        return g_U117._fU8;
+        break;
+    }
+    if (IS_THIS_THREAD_CONNECTED())
+    {
+        DISPLAYF( "sev_mp_GetGameMode() directly from observation", 0 );
+    }
+    else
+    {
+        SCRIPT_ASSERT( "sev_mp_GetGameMode() ERROR: observation on an isolated thread when we didn't ask before, probably will go wrong!", 0 );
+        DISPLAYF( "sev_mp_GetGameMode() ERROR: observation on an isolated thread when we didn't ask before, probably will go wrong!", 0 );
+    }
+    return LOBBY_GET_SELECTED_GAME_MODE();
+}
+
+/* SEV_MP_AREPLAYERSONSAMETEAM */ int sub_4120(int iParam0, int iParam1)
+{
+    if ((NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( iParam1, 1, 1 ))) || (NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( iParam0, 1, 1 ))))
+    {
+        return 0;
+    }
+    if (iParam0 == iParam1)
+    {
+        return 1;
+    }
+    if (g_U179[iParam0]._fU124 == -1)
+    {
+        return 0;
+    }
+    if (g_U179[iParam0]._fU124 == g_U179[iParam1]._fU124)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* GET_VENDETTA_TEXT */ int sub_4409(unknown uParam0, unknown uParam1)
+{
+    int iVar4;
+
+    if (g_U179[l_U0._fU8]._fU176 == -10)
+    {
+        STRING_FORMAT( 64, uParam0, "KS_VEN_07_A", 0 );
+        STRING_FORMAT( 64, uParam1, "KS_VEN_07_B", 0 );
+    }
+    else
+    {
+        iVar4 = 0;
+        if (g_U3583)
+        {
+            if ((l_U11) AND (NOT g_U4917))
+            {
+                DISPLAYF( "Warning: Fetching vendetta status before the vendetta thread has declared it ready. Need to add a wait to the spectator thread?", 0 );
+                return 0;
+            }
+            iVar4 = g_U3550[l_U0._fU8]._fU4;
+        }
+        switch (iVar4)
+        {
+            case 0:
+            STRING_FORMAT( 64, uParam0, "KS_VEN_01_A", 0 );
+            STRING_FORMAT( 64, uParam1, "KS_VEN_01_B", 0 );
+            break;
+            case 1:
+            if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( g_U3550[l_U0._fU8]._fU0, 1, 0 ))
+            {
+                if ( /* SEV_MP_ISPLAYERACTIVEANDNOTWAITINGTOJOIN */ sub_2421( g_U3550[l_U0._fU8]._fU0 ))
+                {
+                    STRING_FORMAT( 64, uParam0, "KS_VEN_02_A", 1, 1281, ref g_U179[g_U3550[l_U0._fU8]._fU0]._fU76 );
+                    STRING_FORMAT( 64, uParam1, "KS_VEN_02_B", 1, 1281, ref g_U179[g_U3550[l_U0._fU8]._fU0]._fU76 );
+                }
+            }
+            break;
+            case 2:
+            STRING_FORMAT( 64, uParam0, "KS_VEN_03_A", 0 );
+            STRING_FORMAT( 64, uParam1, "KS_VEN_03_B", 0 );
+            break;
+            case 3:
+            STRING_FORMAT( 64, uParam0, "KS_VEN_04_A", 0 );
+            STRING_FORMAT( 64, uParam1, "KS_VEN_04_B", 0 );
+            break;
+            case 4:
+            STRING_FORMAT( 64, uParam0, "KS_VEN_05_A", 0 );
+            STRING_FORMAT( 64, uParam1, "KS_VEN_05_B", 0 );
+            break;
+            case 5:
+            STRING_FORMAT( 64, uParam0, "KS_VEN_06_A", 0 );
+            STRING_FORMAT( 64, uParam1, "KS_VEN_06_B", 0 );
+            break;
+        }
+    }
+    DISPLAYF( "Recorded above as '{}', below as '{}' (vendetta status {})", 3, 1281, uParam0, 1281, uParam1, 513, g_U3550[l_U0._fU8]._fU4 );
+    return 1;
+}
+
+/* SET_UP_KILL_SECTION */ void sub_5529()
+{
+    int iVar2;
+    int iVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    DISPLAYF( "SET_UP_KILL_SECTION()", 0 );
+    iVar2 =  /* SEV_MP_GETLOCALPLAYERINDEX */ sub_3517( l_U0._fU12 );
+    if (iVar2 == -1)
+    {
+        return;
+    }
+    iVar3 = GET_PLAYER_CAUSE_OF_DEATH(  /* SEV_MP_GETMYLOCALPLAYERINDEX */ sub_2165() );
+    DISPLAYF( "[Spectator] CAUSE OF DEATH was type: {}", 1, 513, iVar3 );
+    if (iVar3 == 3)
+    {
+        UI_SET( 0, 2, 513, -225245730, 257, 0 );
+        UI_SET( 0, 2, 513, -1650140892, 257, 1 );
+    }
+    uVar4 = g_U1514[l_U0._fU8]._fU44[l_U0._fU12];
+    uVar5 = g_U1514[l_U0._fU12]._fU44[l_U0._fU8];
+    DISPLAYF( "[Spectator] Kills for {}, Kills Against {}", 2, 513, uVar4, 513, uVar5 );
+    UI_SET( 6, 2, 1537, "Dead.KillerComparePlayer", 513, uVar4 );
+    UI_SET( 6, 2, 1537, "Dead.KillerCompareEnemy", 513, uVar5 );
+    return;
+}
+
+/* UPDATE_SCREEN_VISIBILITY */ void sub_6380()
+{
+    l_U9 = (NOT g_U5210) AND ((NOT g_U5212) AND (NOT IS_PAUSE_MENU_ACTIVE()));
+    if ((l_U15 != l_U0._fU4) || ( /* DO_IF_DIFF */ sub_6447( ref l_U12, l_U9 )))
+    {
+        UI_SET( 0, 2, 513, 1553897412, 257, l_U9 );
+        l_U15 = l_U0._fU4;
+         /* SET_FOCUS_IF_TYPE */ sub_6593( 677002921, 0 );
+         /* SET_FOCUS_IF_TYPE */ sub_6593( 1476565132, 1 );
+         /* SET_FOCUS_IF_TYPE */ sub_6593( 1378193684, 2 );
+         /* SET_FOCUS_IF_TYPE */ sub_6593( 1980876986, 3 );
+         /* SET_FOCUS_IF_TYPE */ sub_6593( 1205745857, 4 );
+    }
+    return;
+}
+
+/* DO_IF_DIFF */ int sub_6447(unknown uParam0, unknown uParam1)
+{
+    if ((uParam0^) != ( /* B2I */ sub_6475( uParam1 )))
+    {
+        (uParam0^) =  /* B2I */ sub_6475( uParam1 );
+        return 1;
+    }
+    return 0;
+}
+
+/* B2I */ int sub_6475(boolean bParam0)
+{
+    if (bParam0)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* SET_FOCUS_IF_TYPE */ void sub_6593(unknown uParam0, int iParam1)
+{
+    UI_SET( 1, 2, 513, uParam0, 257, (l_U9) AND (iParam1 == l_U0._fU4) );
+    UI_SET( 0, 2, 513, uParam0, 257, (l_U9) AND (iParam1 == l_U0._fU4) );
+    return;
+}
+
+/* UPDATE_UI_TIMER */ void sub_6747(unknown uParam0)
+{
+    unknown uVar3;
+    int iVar4;
+
+    if ( /* SHOULD_DISABLE_RESPAWN_BUTTON */ sub_6775())
+    {
+        UI_SET( 0, 2, 513, -2126078402, 257, 0 );
+        return;
+    }
+    else if ( /* RESPAWN_MEANS_SPECTATE */ sub_1520())
+    {
+        if (g_U4929 == 0)
+        {
+            g_U4929 = 1;
+        }
+        UI_SET( 0, 2, 513, -2126078402, 257, 0 );
+        return;
+    }
+    uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() );
+    iVar4 = CEIL( uVar3 / 1000.00000000 );
+    if ((uParam0^) != iVar4)
+    {
+        (uParam0^) = iVar4;
+        if (iVar4 > 0)
+        {
+            UI_SET( 0, 2, 513, -2126078402, 257, 1 );
+            UI_SET( 15, 2, 513, -173577160, 257, 1 );
+            UI_SET( 6, 2, 513, 2096559922, 513, iVar4 );
+            PLAY_SOUND_FRONTEND( -1, "FRONTEND_MENU_SPAWN_CLOCK" );
+        }
+        else
+        {
+            UI_SET( 0, 2, 513, -2126078402, 257, 0 );
+            if (g_U4929 == 0)
+            {
+                DISPLAYF( "[Spectator] Player {} is now allowed to respawn", 1, 513, l_U0._fU8 );
+                PLAY_SOUND_FRONTEND( -1, "FRONTEND_MENU_SPAWN_CLOCK_ZERO" );
+                g_U4929 = 1;
+            }
+            else if ((-uVar3 > 15000) AND (g_U4929 == 1))
+            {
+                g_U4929 = 2;
+                 /* SEV_MP_SPAWN_SENDRESPAWNEVENTWITHSPAWNDETAILS */ sub_7454( l_U0._fU8 );
+                l_U0._fU32 = GET_NETWORK_TIMER();
+                DISPLAYF( "[Spectator] Forced a player respawn after {} seconds of availability at time {}", 2, 513, -iVar4, 513, l_U0._fU32 );
+            }
+        }
+    }
+    return;
+}
+
+/* SHOULD_DISABLE_RESPAWN_BUTTON */ int sub_6775()
+{
+    if ((NOT g_U169._fU0) || (g_U169._fU4))
+    {
+        return 1;
+    }
+    else if (( /* SEV_MP_ISPLAYERWAITINGTOJOIN */ sub_1732( l_U0._fU8 )) || (g_U179[l_U0._fU8]._fU8))
+    {
+        return 1;
+    }
+    else if ( /* SEV_MP_ISPLAYERRESPAWNING */ sub_6893( l_U0._fU8 ))
+    {
+        return 1;
+    };;;
+    return 0;
+}
+
+/* SEV_MP_ISPLAYERRESPAWNING */ boolean sub_6893(unknown uParam0)
+{
+    return (g_U179[uParam0]._fU36 == 3) || ((g_U179[uParam0]._fU36 == 2) || (g_U179[uParam0]._fU36 == 1));
+}
+
+/* SEV_MP_SPAWN_SENDRESPAWNEVENTWITHSPAWNDETAILS */ void sub_7454(unknown uParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    SEV_ISOLATE();
+    if ( /* SEV_MP_ISTHISMYPLAYER */ sub_7521( uParam0 ))
+    {
+        uVar3._fU0 =  /* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_LOCALCALCULATION */ sub_7583( uParam0, ref uVar3._fU4, 1, 0 );
+        uVar3._fU8 = g_U3255;
+        DISPLAYF( "Local player has chosen spawn point {}{}, with heading {}", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uVar3._fU0 ), 1281, ref g_U3274, 769, uVar3._fU4 );
+         /* __MP_SPAWNDEBUG_PRINTCURRENTGAMESTATE */ sub_18083();
+        SEV_INDUCE_LOCAL_EVENT_ARGS( g_U179[uParam0]._fU192, ref uVar3, 3 );
+    }
+    SEV_ISOLATE_OFF();
+    return;
+}
+
+/* SEV_MP_ISTHISMYPLAYER */ boolean sub_7521(int iParam0)
+{
+    return iParam0 == ( /* SEV_MP_GETMYPLAYER */ sub_110());
+}
+
+/* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_LOCALCALCULATION */ void sub_7583(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+    unknown uVar60;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+    unknown uVar66;
+    unknown uVar67;
+    unknown uVar68;
+    unknown uVar69;
+    unknown uVar70;
+    unknown uVar71;
+    unknown uVar72;
+    unknown uVar73;
+    unknown uVar74;
+    unknown uVar75;
+    unknown uVar76;
+    unknown uVar77;
+    unknown uVar78;
+    unknown uVar79;
+    unknown uVar80;
+    unknown uVar81;
+    unknown uVar82;
+    unknown uVar83;
+    unknown uVar84;
+    unknown uVar85;
+    unknown uVar86;
+    unknown uVar87;
+    unknown uVar88;
+    unknown uVar89;
+    unknown uVar90;
+    unknown uVar91;
+    unknown uVar92;
+    unknown uVar93;
+    unknown uVar94;
+    unknown uVar95;
+    unknown uVar96;
+    unknown uVar97;
+    unknown uVar98;
+    unknown uVar99;
+    unknown uVar100;
+    unknown uVar101;
+    unknown uVar102;
+    unknown uVar103;
+    unknown uVar104;
+    unknown uVar105;
+    unknown uVar106;
+    unknown uVar107;
+    unknown uVar108;
+    unknown uVar109;
+    unknown uVar110;
+    unknown uVar111;
+    unknown uVar112;
+    unknown uVar113;
+    unknown uVar114;
+    unknown uVar115;
+    unknown uVar116;
+    unknown uVar117;
+    unknown uVar118;
+    unknown uVar119;
+    unknown uVar120;
+    unknown uVar121;
+    unknown uVar122;
+    unknown uVar123;
+    unknown uVar124;
+    unknown uVar125;
+    unknown uVar126;
+    unknown uVar127;
+    unknown uVar128;
+    unknown uVar129;
+    unknown uVar130;
+    unknown uVar131;
+    unknown uVar132;
+    unknown uVar133;
+    unknown uVar134;
+    unknown uVar135;
+    unknown uVar136;
+    unknown uVar137;
+    unknown uVar138;
+    unknown uVar139;
+    unknown uVar140;
+    unknown uVar141;
+    unknown uVar142;
+    unknown uVar143;
+    unknown uVar144;
+    unknown uVar145;
+    unknown uVar146;
+    unknown uVar147;
+    unknown uVar148;
+    unknown uVar149;
+    unknown uVar150;
+    unknown uVar151;
+
+    uVar6 = { /* SEV_MP_SPAWN_GETBASICRULECHECKINFO */ sub_7652( uParam0, uParam2 )};
+     /* SEV_YIELD_IF */ sub_8875( uParam3 );
+    return  /* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_LOCALCALCULATION_BASICINFOP */ sub_8960( uParam0, uParam1, ref uVar6, 20.00000000, 0, uParam3 );
+}
+
+/* SEV_MP_SPAWN_GETBASICRULECHECKINFO */ void sub_7652(int iParam0, boolean bParam1)
+{
+    unknown Result;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+    unknown uVar60;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+    unknown uVar66;
+    unknown uVar67;
+    unknown uVar68;
+    unknown uVar69;
+    unknown uVar70;
+    unknown uVar71;
+    unknown uVar72;
+    unknown uVar73;
+    unknown uVar74;
+    unknown uVar75;
+    unknown uVar76;
+    unknown uVar77;
+    unknown uVar78;
+    unknown uVar79;
+    unknown uVar80;
+    unknown uVar81;
+    unknown uVar82;
+    unknown uVar83;
+    unknown uVar84;
+    unknown uVar85;
+    unknown uVar86;
+    unknown uVar87;
+    unknown uVar88;
+    unknown uVar89;
+    unknown uVar90;
+    unknown uVar91;
+    unknown uVar92;
+    unknown uVar93;
+    unknown uVar94;
+    unknown uVar95;
+    unknown uVar96;
+    unknown uVar97;
+    unknown uVar98;
+    unknown uVar99;
+    unknown uVar100;
+    unknown uVar101;
+    unknown uVar102;
+    unknown uVar103;
+    unknown uVar104;
+    unknown uVar105;
+    unknown uVar106;
+    unknown uVar107;
+    unknown uVar108;
+    unknown uVar109;
+    unknown uVar110;
+    unknown uVar111;
+    unknown uVar112;
+    unknown uVar113;
+    unknown uVar114;
+    unknown uVar115;
+    unknown uVar116;
+    unknown uVar117;
+    unknown uVar118;
+    unknown uVar119;
+    unknown uVar120;
+    unknown uVar121;
+    unknown uVar122;
+    unknown uVar123;
+    unknown uVar124;
+    unknown uVar125;
+    unknown uVar126;
+    unknown uVar127;
+    unknown uVar128;
+    unknown uVar129;
+    unknown uVar130;
+    unknown uVar131;
+    unknown uVar132;
+    unknown uVar133;
+    unknown uVar134;
+    unknown uVar135;
+    unknown uVar136;
+    unknown uVar137;
+    unknown uVar138;
+    unknown uVar139;
+    unknown uVar140;
+    unknown uVar141;
+    unknown uVar142;
+    unknown uVar143;
+    unknown uVar144;
+    unknown uVar145;
+    unknown uVar146;
+    unknown uVar147;
+    unknown uVar148;
+    unknown uVar149;
+    int I;
+
+    array(ref Result._fU8, 16);
+    array(ref Result._fU80, 16);
+    array(ref Result._fU276._fU0, 16);
+    array(ref Result._fU276._fU68, 16);
+    ref Result._fU276;
+    array(ref Result._fU540._fU4, 3);
+    ref Result._fU540;
+    ref Result;
+    Result._fU0 = iParam0;
+    if (bParam1)
+    {
+        Result._fU540 = {g_U4930};
+    }
+    else
+    {
+        Result._fU540 = { /* MP_SPAWN_GETHEADINGOPTIONS */ sub_7780( iParam0 )};
+    }
+    for ( I = 0; I < 16; I++ )
+    {
+        Result._fU8[I] = -1;
+        if (I != iParam0)
+        {
+            if ( /* SEV_MP_ISPLAYERACTIVEANDJOINEDENOUGHFORSPAWNRULES */ sub_7890( I ))
+            {
+                if ( /* SEV_MP_ISPLAYERRESPAWNING */ sub_6893( I ))
+                {
+                    Result._fU276._fU68[I] = { /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( g_U179[I]._fU160 )};
+                    Result._fU276._fU0[I] = 1;
+                    if ((g_U179[I]._fU124 == -1) || (g_U179[I]._fU124 != g_U179[iParam0]._fU124))
+                    {
+                        Result._fU80[Result._fU76] = {Result._fU276._fU68[I] + (vector( 0, 0, 1.50000000))};
+                        Result._fU76++;
+                    }
+                }
+                else if (g_U179[I]._fU8)
+                {
+                    Result._fU276._fU68[I] = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( g_U179[I]._fU72 )};
+                    Result._fU276._fU0[I] = 1;
+                    if ((g_U179[I]._fU124 == -1) || (g_U179[I]._fU124 != g_U179[iParam0]._fU124))
+                    {
+                        if (NOT ( /* SEV_MP_ISPLAYERIDLE */ sub_8723( I )))
+                        {
+                            if (Result._fU276._fU68[I]._fU8 > -48.00000000)
+                            {
+                                Result._fU8[I] =  /* SEV_MP_GETLOCALPLAYERINDEX */ sub_3517( I );
+                                Result._fU4 = 1;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return Result;
+}
+
+/* MP_SPAWN_GETHEADINGOPTIONS */ string sub_7780(unknown uParam0)
+{
+    return "[dynamic result, ret vals = 11]";
+    break;
+    g_U2597;
+    uParam0;
+    break;
+}
+
+/* SEV_MP_ISPLAYERACTIVEANDJOINEDENOUGHFORSPAWNRULES */ int sub_7890(unknown uParam0)
+{
+    if (NOT g_U179[uParam0]._fU0)
+    {
+        return 0;
+    }
+    switch (g_U179[uParam0]._fU32)
+    {
+        case 0: return 1;
+        case 1: return 0;
+        case 2: return 1;
+        case 3: return 1;
+        case 4: return 1;
+    }
+    SCRIPT_ASSERT( "Unhandled join status entry when checking active+teleport status", 0 );
+    return 0;
+}
+
+/* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ void sub_8179(unknown uParam0)
+{
+    unknown Result;
+    unknown uVar4;
+    unknown uVar5;
+
+    NETWORK_LEVEL_DATA_GET_VECTOR_FROM_NODE( ref Result, ":pos", uParam0 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetLevelDataPositionByNode()", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, Result );
+    return Result;
+}
+
+/* SEV_MP_GETLEVELDATANAMEBYNODE */ string sub_8299(unknown uParam0)
+{
+    if (NOT (NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 64, ref g_U3274, ":name", uParam0 )))
+    {
+        StrCopy( ref g_U3274, "", 64 );
+    }
+    return "";
+}
+
+/* SEV_MP_ISPLAYERIDLE */ void sub_8723(unknown uParam0)
+{
+    return g_U179[uParam0]._fU4;
+}
+
+/* SEV_YIELD_IF */ void sub_8875(boolean bParam0)
+{
+    if (bParam0)
+    {
+        DISPLAYF( "SEV_YIELD_IF()", 0 );
+        SEV_YIELD();
+    }
+    return;
+}
+
+/* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_LOCALCALCULATION_BASICINFOP */ void sub_8960(unknown uParam0, unknown uParam1, int iParam2, unknown uParam3, unknown uParam4, unknown uParam5)
+{
+    int I;
+    unknown[75] uVar9;
+    unknown uVar85;
+    unknown uVar86;
+    unknown uVar87;
+    unknown uVar88;
+    unknown uVar89;
+    unknown uVar90;
+    unknown uVar91;
+    unknown uVar92;
+    unknown uVar93;
+    unknown uVar94;
+    unknown uVar95;
+    unknown uVar96;
+    unknown uVar97;
+    unknown uVar98;
+    unknown uVar99;
+    unknown uVar100;
+    unknown uVar101;
+    unknown uVar102;
+    unknown uVar103;
+    unknown uVar104;
+    unknown uVar105;
+    unknown uVar106;
+    unknown uVar107;
+    unknown uVar108;
+    unknown uVar109;
+    unknown uVar110;
+    unknown uVar111;
+    unknown uVar112;
+    unknown uVar113;
+    unknown uVar114;
+    unknown uVar115;
+    unknown uVar116;
+    unknown uVar117;
+    unknown uVar118;
+    unknown uVar119;
+    unknown uVar120;
+    unknown uVar121;
+    unknown uVar122;
+    unknown uVar123;
+    unknown uVar124;
+    unknown uVar125;
+    unknown uVar126;
+    unknown uVar127;
+    unknown uVar128;
+    unknown uVar129;
+    unknown uVar130;
+    unknown uVar131;
+    unknown uVar132;
+    unknown uVar133;
+    unknown uVar134;
+    unknown uVar135;
+    unknown uVar136;
+    unknown uVar137;
+    unknown uVar138;
+    unknown uVar139;
+    unknown uVar140;
+    unknown uVar141;
+    unknown uVar142;
+    unknown uVar143;
+    unknown uVar144;
+    unknown uVar145;
+    unknown uVar146;
+    unknown uVar147;
+    unknown uVar148;
+    unknown uVar149;
+    unknown uVar150;
+    unknown uVar151;
+    unknown uVar152;
+    unknown uVar153;
+    unknown uVar154;
+    unknown uVar155;
+    unknown uVar156;
+    unknown uVar157;
+    unknown uVar158;
+    unknown uVar159;
+    unknown uVar160;
+    unknown uVar161;
+    unknown uVar162;
+    unknown uVar163;
+    unknown uVar164;
+    unknown uVar165;
+    unknown uVar166;
+    unknown uVar167;
+    unknown uVar168;
+    unknown uVar169;
+    unknown uVar170;
+    unknown uVar171;
+    unknown uVar172;
+    unknown uVar173;
+    unknown uVar174;
+    unknown uVar175;
+    unknown uVar176;
+    unknown uVar177;
+    unknown uVar178;
+    unknown uVar179;
+    unknown uVar180;
+    unknown uVar181;
+    unknown uVar182;
+    unknown uVar183;
+    unknown uVar184;
+    unknown uVar185;
+    unknown uVar186;
+    unknown uVar187;
+    unknown uVar188;
+    unknown uVar189;
+    unknown uVar190;
+    unknown uVar191;
+    unknown uVar192;
+    unknown uVar193;
+    unknown uVar194;
+    unknown uVar195;
+    unknown uVar196;
+    unknown uVar197;
+    unknown uVar198;
+    unknown uVar199;
+    unknown uVar200;
+    unknown uVar201;
+    unknown uVar202;
+    unknown uVar203;
+    unknown uVar204;
+    unknown uVar205;
+    unknown uVar206;
+    unknown uVar207;
+    unknown uVar208;
+    unknown uVar209;
+    unknown uVar210;
+    unknown uVar211;
+    unknown uVar212;
+    unknown uVar213;
+    unknown uVar214;
+    unknown uVar215;
+    unknown uVar216;
+    unknown uVar217;
+    unknown uVar218;
+    unknown uVar219;
+    unknown uVar220;
+    unknown uVar221;
+    unknown uVar222;
+    unknown uVar223;
+    unknown uVar224;
+    unknown uVar225;
+    unknown uVar226;
+    unknown uVar227;
+    unknown uVar228;
+    unknown uVar229;
+    unknown uVar230;
+    unknown uVar231;
+    unknown uVar232;
+    unknown uVar233;
+    unknown uVar234;
+    unknown uVar235;
+    unknown uVar236;
+
+    DISPLAYF( "[SpawnDebug] ============================================================", 1, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Finding spawn point for player {}", 2, 513, uParam0, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Num heading options {}", 2, 513, ref iParam2->_fU540->_fU0, 1537, "                           " );
+    if ((ref iParam2->_fU540->_fU0) > 0)
+    {
+        for ( I = 0; I < (ref iParam2->_fU540->_fU0); I++ )
+        {
+            DISPLAYF( "[SpawnDebug] == Heading options {} = {}", 3, 513, I, 1027, ref iParam2->_fU540->_fU4[I], 1537, "                           " );
+        }
+    }
+    if (g_U3244)
+    {
+         /* __SEV_MP_CACHEMIDPOINTSFORSPAWNSYSTEM */ sub_9515( iParam2 );
+    }
+     /* SEV_YIELD_IF */ sub_8875( uParam5 );
+    array(ref uVar9, 75);
+    uVar235 =  /* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_BASICVALIDITY */ sub_11284( uParam0, 75, iParam2, ref uVar9, uParam3, uParam4 );
+     /* SEV_YIELD_IF */ sub_8875( uParam5 );
+     /* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_GAMEPLAYQUALITY */ sub_25814( uParam0, uVar235, iParam2, ref uVar9, uParam4, uParam5 );
+     /* SEV_YIELD_IF */ sub_8875( uParam5 );
+    uVar236 =  /* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_VISIBILITYCHECKS */ sub_28868( uParam0, uVar235, iParam2, ref uVar9, uParam5 );
+    (uParam1^) = uVar9[uVar236]._fU4;
+    return uVar9[uVar236]._fU0;
+}
+
+/* __SEV_MP_CACHEMIDPOINTSFORSPAWNSYSTEM */ void sub_9515(unknown uParam0)
+{
+    g_U3249 = { /* SEV_MP_MIDPOINTOFPLAYERS_USINGBASICRULECHECKINFO */ sub_9569( uParam0, 0, 0 )};
+    g_U3252 = { /* SEV_MP_MIDPOINTOFPLAYERS_USINGBASICRULECHECKINFO */ sub_9569( uParam0, 1, 0 )};
+    g_U3246 = { /* SEV_MP_MIDPOINTOFPLAYERS_USINGBASICRULECHECKINFO */ sub_9569( uParam0, -1, 0 )};
+    DISPLAYF( "[SpawnDebug] == Updated midpoint cache . AllPlayers={}, Team0 ={}, Team1={}", 4, 1027, g_U3246, 1027, g_U3249, 1027, g_U3252, 1537, "                           " );
+    return;
+}
+
+/* SEV_MP_MIDPOINTOFPLAYERS_USINGBASICRULECHECKINFO */ void sub_9569(int iParam0, unknown uParam1, unknown uParam2)
+{
+    unknown[16] uVar5;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    int I;
+    int iVar55;
+    boolean bVar56;
+
+    array(ref uVar5, 16);
+    iVar55 = 0;
+    bVar56 = NOT ( /* SEV_MP_ISTEAMINDEXVALID */ sub_9645( uParam1, 0, 0, 1 ));
+    for ( I = 0; I < 16; I++ )
+    {
+        if (ref iParam0->_fU276->_fU0[I])
+        {
+            if (bVar56)
+            {
+                if ((NOT g_U179[I]._fU4) || (uParam2))
+                {
+                    uVar5[iVar55] = {ref iParam0->_fU276->_fU68[I]};
+                    iVar55++;
+                }
+            }
+            else if ( /* SEV_MP_ISTHISPLAYERONTHISTEAM */ sub_10141( I, uParam1 ))
+            {
+                if ((NOT g_U179[I]._fU4) || (uParam2))
+                {
+                    uVar5[iVar55] = {ref iParam0->_fU276->_fU68[I]};
+                    iVar55++;
+                }
+            }
+        }
+    }
+    return  /* SEV_GETMEDIANVECTOR */ sub_10332( ref uVar5, iVar55 );
+}
+
+/* SEV_MP_ISTEAMINDEXVALID */ int sub_9645(int iParam0, boolean bParam1, boolean bParam2, unknown uParam3)
+{
+    char[64] cVar6;
+    char[128] cVar22;
+
+    if ((iParam0 >= 2) || (iParam0 < 0))
+    {
+        if ((bParam2) || (bParam1))
+        {
+            StrCopy( ref cVar6, "sev_mp_IsTeamIndexValid - ERROR: iTeam out of bounds: ", 64 );
+            ConcatString(ref cVar6, iParam0, 64);
+            if (bParam1)
+            {
+                 /* PUTS */ sub_9778( ref cVar6 );
+            }
+            if (bParam2)
+            {
+                SCRIPT_ASSERT( ref cVar6, 0 );
+            }
+        }
+        return 0;
+    }
+    if ((g_U1060[iParam0]._fU0 == 0) AND (uParam3))
+    {
+        if ((bParam2) || (bParam1))
+        {
+            StrCopy( ref cVar22, "sev_mp_IsTeamIndexValid - ERROR: iTeam is not active: ", 128 );
+            ConcatString(ref cVar22, iParam0, 128);
+            ConcatString(ref cVar22, " has ", 128);
+            ConcatString(ref cVar22, g_U1060[iParam0]._fU20, 128);
+            if (bParam1)
+            {
+                 /* PUTS */ sub_9778( ref cVar22 );
+            }
+            if (bParam2)
+            {
+                SCRIPT_ASSERT( ref cVar22, 0 );
+            }
+        }
+        return 0;
+    }
+    return 1;
+}
+
+/* PUTS */ void sub_9778(unknown uParam0)
+{
+    DISPLAYF( "", 1, 1537, uParam0 );
+    return;
+}
+
+/* SEV_MP_ISTHISPLAYERONTHISTEAM */ int sub_10141(unknown uParam0, int iParam1)
+{
+    if (NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( uParam0, 0, 0 )))
+    {
+        return 0;
+    }
+    if (g_U179[uParam0]._fU124 == iParam1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* SEV_GETMEDIANVECTOR */ void sub_10332(unknown uParam0, int iParam1)
+{
+    int I;
+    unknown[16] uVar5;
+    unknown[16] uVar22;
+    unknown[16] uVar39;
+    unknown Result;
+    unknown uVar57;
+    unknown uVar58;
+
+    if (iParam1 > 16)
+    {
+         /* PUTS */ sub_9778( "WARNING: sev_GetMedianVector - input array size is greater than cap - increase the cap!" );
+        return (uParam0^)[(uParam0^) / 2];
+    }
+    if (iParam1 > (uParam0^))
+    {
+         /* PUTS */ sub_9778( "WARNING: sev_GetMedianVector - reported datasize is bigger than the actual data!" );
+        return (uParam0^)[(uParam0^) / 2];
+    }
+    array(ref uVar5, 16);
+    array(ref uVar22, 16);
+    array(ref uVar39, 16);
+    for ( I = 0; I < iParam1; I++ )
+    {
+        uVar5[I] = (uParam0^)[I]._fU0;
+        uVar22[I] = (uParam0^)[I]._fU4;
+        uVar39[I] = (uParam0^)[I]._fU8;
+    }
+    Result._fU0 =  /* SEV_GETMEDIANFLOAT */ sub_10687( ref uVar5, iParam1 );
+    Result._fU4 =  /* SEV_GETMEDIANFLOAT */ sub_10687( ref uVar22, iParam1 );
+    Result._fU8 =  /* SEV_GETMEDIANFLOAT */ sub_10687( ref uVar39, iParam1 );
+    return Result;
+}
+
+/* SEV_GETMEDIANFLOAT */ void sub_10687(unknown uParam0, int iParam1)
+{
+    int iVar4;
+
+     /* SEV_SORTFLOATS */ sub_10722( uParam0, iParam1 );
+    iVar4 = iParam1 / 2;
+    return (uParam0^)[iVar4];
+}
+
+/* SEV_SORTFLOATS */ void sub_10722(unknown uParam0, int iParam1)
+{
+    boolean bVar4;
+    int I;
+    unknown uVar6;
+
+    if (iParam1 <= 1)
+    {
+        return;
+    }
+    if (iParam1 > (uParam0^))
+    {
+         /* PUTS */ sub_9778( "WARNING: sev_SortFloats - dataSize doesn't match up to the size of the array passed" );
+        return;
+    }
+    bVar4 = false;
+    while (NOT bVar4)
+    {
+        bVar4 = true;
+        I = 0;
+        for ( I = 0; I < (iParam1 - 1); I++ )
+        {
+            if ((uParam0^)[I] < ((uParam0^)[I + 1]))
+            {
+                bVar4 = false;
+                uVar6 = (uParam0^)[I];
+                (uParam0^)[I] = (uParam0^)[I + 1];
+                (uParam0^)[I + 1] = uVar6;
+            }
+        }
+    }
+    return;
+}
+
+/* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_BASICVALIDITY */ void sub_11284(unknown uParam0, int iParam1, int iParam2, unknown uParam3, unknown uParam4, int iParam5)
+{
+    int I;
+    int iVar9;
+    int iVar10;
+    int iVar11;
+    int iVar12;
+    int Result;
+    unknown uVar14;
+    boolean bVar15;
+    unknown[500] uVar16;
+
+    bVar15 = true;
+    if ( /* SEV_MP_SPAWN_HASANYGROUPRULES */ sub_11350())
+    {
+        DISPLAYF( "[SpawnDebug] == Found spawn group rules, checking for list of valid spawn points", 1, 1537, "                           " );
+        array(ref uVar16, 500);
+         /* SEV_MP_SPAWN_FILLSPARRAYFROMGROUPRULES */ sub_11588( uParam0, ref iVar12, ref uVar16 );
+        if (iVar12 > 0)
+        {
+            if (iVar12 < iParam1)
+            {
+                iVar10 = iVar12;
+            }
+            else
+            {
+                iVar10 = iParam1;
+            }
+            iVar11 = GET_RANDOM_INT_IN_RANGE( 0, iVar12 );
+            (uParam3^)[0]._fU0 =  /* SEV_MP_GETSPAWNPOINTNODE */ sub_12534( iVar11 );
+            iVar9 = iVar12 / iVar10;
+            for ( I = 0; I < iVar10; I++ )
+            {
+                if ( /* SEV_MP_SPAWN_DOESSPAWNPOINTFITHEADINGOPTIONS */ sub_12649( uVar16[iVar11], iParam2->_fU540, ref (uParam3^)[Result]._fU4, uParam4 ))
+                {
+                    (uParam3^)[Result]._fU0 = uVar16[iVar11];
+                    Result++;
+                    DISPLAYF( "[SpawnDebug] == First pass - Spawn {} PASSED basic rule checks", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uVar16[iVar11] ), 1281, ref g_U3274, 1537, "                           " );
+                }
+                else
+                {
+                    DISPLAYF( "[SpawnDebug] == First pass - Spawn {} failed basic rule checks", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uVar16[iVar11] ), 1281, ref g_U3274, 1537, "                           " );
+                }
+                iVar11 += iVar9;
+                if (iVar11 >= iVar12)
+                {
+                    iVar11 -= iVar12;
+                }
+            }
+            DISPLAYF( "[SpawnDebug] == Raw number of spawn points for selection {}", 2, 513, iVar12, 1537, "                           " );
+            DISPLAYF( "[SpawnDebug] == First pass basic rule checks - checked {}, passed {}", 3, 513, iVar10, 513, Result, 1537, "                           " );
+            if (Result < 10)
+            {
+                 /* MP_SPAWNDEBUG_REPORTERROR */ sub_15219( uParam0, 8 );
+            }
+            bVar15 = false;
+        }
+    }
+    if (bVar15)
+    {
+        DISPLAYF( "[SpawnDebug] == Performing a first pass check against all spawn points", 1, 1537, "                           " );
+        if (g_U6208 < iParam1)
+        {
+            iVar10 = g_U6208;
+        }
+        else
+        {
+            iVar10 = iParam1;
+        }
+        iVar12 = g_U6208;
+        iVar11 =  /* SEV_MP_GETRANDOMSPAWNPOINT */ sub_24762();
+        (uParam3^)[0]._fU0 =  /* SEV_MP_GETSPAWNPOINTNODE */ sub_12534( iVar11 );
+        iVar9 = iVar12 / iVar10;
+        if (iParam5 != nil)
+        {
+            DISPLAYF( "[SpawnDebug] == First pass - Requiring near spawn {}", 2, 1793, iParam5, 1537, "                           " );
+            iVar11 = ( /* SEV_MP_GETSPAWNPOINTINDEXBYNODE */ sub_24964( iParam5 )) - (iVar10 / 2);
+            if (iVar11 < 0)
+            {
+                iVar11 += g_U6208;
+            }
+            iVar9 = 1;
+        }
+        for ( I = 0; I < iVar10; I++ )
+        {
+            uVar14 =  /* SEV_MP_GETSPAWNPOINTNODE */ sub_12534( iVar11 );
+            if ( /* SEV_MP_SPAWN_DOESSPAWNPOINTFITHEADINGOPTIONS */ sub_12649( uVar14, iParam2->_fU540, ref (uParam3^)[Result]._fU4, uParam4 ))
+            {
+                (uParam3^)[Result]._fU0 = uVar14;
+                Result++;
+                DISPLAYF( "[SpawnDebug] == First pass - Spawn {} PASSED basic rule checks", 2, 513, iVar11, 1537, "                           " );
+            }
+            else
+            {
+                DISPLAYF( "[SpawnDebug] == First pass - Spawn {} failed basic rule checks", 2, 513, iVar11, 1537, "                           " );
+            }
+            iVar11 += iVar9;
+            if (iVar11 >= iVar12)
+            {
+                iVar11 -= iVar12;
+            }
+        }
+        DISPLAYF( "[SpawnDebug] == Raw number of spawn points for selection {}", 2, 513, g_U6208, 1537, "                           " );
+        DISPLAYF( "[SpawnDebug] == First pass basic rule checks - checked {}, passed {}", 3, 513, iVar10, 513, Result, 1537, "                           " );
+        if (Result < 10)
+        {
+             /* MP_SPAWNDEBUG_REPORTERROR */ sub_15219( uParam0, 8 );
+        }
+    }
+    if (Result == 0)
+    {
+        SCRIPT_ASSERT( "[SpawnDebug] Failed to find any valid spawns during the first pass selection", 0 );
+        Result = 1;
+    }
+    return Result;
+}
+
+/* SEV_MP_SPAWN_HASANYGROUPRULES */ int sub_11350()
+{
+    int I;
+
+    for ( I = 0; I < 8; I++ )
+    {
+        if (g_U2646[I]._fU0 != -2)
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* SEV_MP_SPAWN_FILLSPARRAYFROMGROUPRULES */ void sub_11588(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    int J;
+    int I;
+    int iVar7;
+
+    for ( J = 0; J < 8; J++ )
+    {
+        if ((g_U2646[J]._fU0 == -1) || (g_U2646[J]._fU0 == g_U179[uParam0]._fU124))
+        {
+            iVar7 =  /* SEV_MP_GETSPGROUPSIZEBYNODE */ sub_11708( g_U2646[J]._fU4 );
+            for ( I = 0; I < iVar7; I++ )
+            {
+                 /* SEV_MP_ADDSPTOARRAY */ sub_12328(  /* SEV_MP_GETSPGROUPSPAWNNODEBYNODE */ sub_11975( g_U2646[J]._fU4, I ), uParam1, uParam2 );
+            }
+        }
+    }
+    return;
+}
+
+/* SEV_MP_GETSPGROUPSIZEBYNODE */ void sub_11708(unknown uParam0)
+{
+    return  /* SEV_MP_GETLEVELDATASIZEBYNODE */ sub_11775( uParam0, "PlayerSpawnGroupMember" );
+}
+
+/* SEV_MP_GETLEVELDATASIZEBYNODE */ void sub_11775(unknown uParam0, unknown uParam1)
+{
+    unknown Result;
+
+    Result = NETWORK_LEVEL_DATA_GET_NUM_NODES_FROM_NODE( uParam1, uParam0 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetLevelDataSizeByNode() for query '{}' is {}", 2, 1537, uParam1, 513, Result );
+    return Result;
+    return NETWORK_LEVEL_DATA_GET_NUM_NODES_FROM_NODE( uParam1, uParam0 );
+}
+
+/* SEV_MP_GETSPGROUPSPAWNNODEBYNODE */ void sub_11975(unknown uParam0, unknown uParam1)
+{
+    unknown uVar4;
+
+    NETWORK_LEVEL_DATA_RUN_STORED_QUERY_HASH( ref uVar4, uParam0, 6, uParam1, 0 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetSPGroupSpawnNodeByNode()", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 513, uVar4 );
+    return  /* SEV_MP_GETLEVELDATANODE */ sub_12118( 1, uVar4, 0 );
+}
+
+/* SEV_MP_GETLEVELDATANODE */ void sub_12118(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    unknown Result;
+
+    Result = NETWORK_LEVEL_DATA_RUN_STORED_QUERY_NODE( g_U2645, uParam0, uParam1, uParam2 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetLevelDataNode() Query #{} with params {} and {} returned node ", 6, 513, uParam0, 513, uParam1, 513, uParam2, 1793, Result, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( Result ), 1281, ref g_U3274 );
+    return Result;
+}
+
+/* SEV_MP_ADDSPTOARRAY */ int sub_12328(int iParam0, unknown uParam1, unknown uParam2)
+{
+    int I;
+
+    for ( I = 0; I < (uParam2^); I++ )
+    {
+        if (I < (uParam1^))
+        {
+            if ((uParam2^)[I] == iParam0)
+            {
+                return 1;
+            }
+        }
+        else
+        {
+            (uParam1^) = I + 1;
+            (uParam2^)[I] = iParam0;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* SEV_MP_GETSPAWNPOINTNODE */ void sub_12534(unknown uParam0)
+{
+    return  /* SEV_MP_GETLEVELDATANODE */ sub_12118( 0, uParam0, 0 );
+}
+
+/* SEV_MP_SPAWN_DOESSPAWNPOINTFITHEADINGOPTIONS */ void sub_12649(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13)
+{
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown Result;
+    float fVar24;
+    float fVar25;
+    unknown uVar26;
+    boolean bVar27;
+    int I;
+
+    if (uParam1._fU0 <= 0)
+    {
+        (uParam12^) =  /* SEV_MP_GETLEVELDATAHEADINGBYNODE */ sub_12719( uParam0 );
+        DISPLAYF( "[SpawnDebug] == Checking spawn {}{} heading, TRUE because there are no heading options!", 2, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274 );
+        return 1;
+    }
+     /* SEV_MP_GETSPAWNPOINTBYNODE */ sub_13002( uParam0, ref uVar16 );
+    if (uParam1._fU0 == 1)
+    {
+        Result = GET_BEST_HEADING_IF_POSSIBLE( uVar16._fU0, uParam1._fU4[0], uVar16._fU12, uVar16._fU16, uParam13, uParam12 );
+        DISPLAYF( "[SpawnDebug] == Checking spawn {}{} with pos {}, heading {} with +- {} arc (+{}). {} toward pos {} with heading {}", 9, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, uVar16._fU0, 769, uVar16._fU12, 769, uVar16._fU16, 769, uParam13, 257, Result, 1027, uParam1._fU4[0], 769, (uParam12^) );
+        return Result;
+    }
+    else
+    {
+        (uParam12^) = uVar16._fU12;
+    }
+    if (uParam1._fU0 > 3)
+    {
+        SCRIPT_ASSERT( "Too many spawn heading options returned by game mode", 0 );
+        uParam1._fU0 = 3;
+    }
+    for ( I = 0; I < uParam1._fU0; I++ )
+    {
+        if (NOT bVar27)
+        {
+            if (GET_BEST_HEADING_IF_POSSIBLE( uVar16._fU0, uParam1._fU4[I], uVar16._fU12, uVar16._fU16, uParam13, ref uVar26 ))
+            {
+                fVar24 = VDIST2( uVar16._fU0, uParam1._fU4[I] );
+                (uParam12^) = uVar26;
+                bVar27 = true;
+                DISPLAYF( "[SpawnDebug] == Checking spawn {}{} with pos {}, heading {} +- {} arc (+{}). TRUE toward pos {} with heading {}", 8, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, uVar16._fU0, 769, uVar16._fU12, 769, uVar16._fU16, 769, uParam13, 1027, uParam1._fU4[I], 769, (uParam12^) );
+            }
+            else
+            {
+                DISPLAYF( "[SpawnDebug] == Checking spawn {}{} with pos {}, heading {} +- {} arc (+{}). FALSE toward pos {} with heading {}", 8, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, uVar16._fU0, 769, uVar16._fU12, 769, uVar16._fU16, 769, uParam13, 1027, uParam1._fU4[I], 769, uVar26 );
+            }
+        }
+        else
+        {
+            fVar25 = VDIST2( uVar16._fU0, uParam1._fU4[I] );
+            if (fVar25 < fVar24)
+            {
+                if (GET_BEST_HEADING_IF_POSSIBLE( uVar16._fU0, uParam1._fU4[I], uVar16._fU12, uVar16._fU16, uParam13, ref uVar26 ))
+                {
+                    fVar24 = fVar25;
+                    (uParam12^) = uVar26;
+                    bVar27 = true;
+                    DISPLAYF( "[SpawnDebug] == Checking spawn {}{} with pos {}, heading {} +- {} arc (+{}). TRUE toward pos {} with heading {}", 8, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, uVar16._fU0, 769, uVar16._fU12, 769, uVar16._fU16, 769, uParam13, 1027, uParam1._fU4[I], 769, (uParam12^) );
+                }
+                else
+                {
+                    DISPLAYF( "[SpawnDebug] == Checking spawn {}{} with pos {}, heading {} +- {} arc (+{}). FALSE toward pos {} with heading {}", 8, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, uVar16._fU0, 769, uVar16._fU12, 769, uVar16._fU16, 769, uParam13, 1027, uParam1._fU4[I], 769, uVar26 );
+                }
+            }
+        }
+    }
+    return bVar27;
+}
+
+/* SEV_MP_GETLEVELDATAHEADINGBYNODE */ void sub_12719(unknown uParam0)
+{
+    unknown Result;
+
+    NETWORK_LEVEL_DATA_GET_FLOAT_FROM_NODE( ref Result, ":heading", uParam0 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetLevelDataHeadingByNode()", 3, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 769, Result );
+    return Result;
+}
+
+/* SEV_MP_GETSPAWNPOINTBYNODE */ void sub_13002(unknown uParam0, int iParam1)
+{
+    NETWORK_LEVEL_DATA_GET_VECTOR_FROM_NODE( iParam1 + 0, ":pos", uParam0 );
+    NETWORK_LEVEL_DATA_GET_FLOAT_FROM_NODE( iParam1 + 12, ":heading", uParam0 );
+    NETWORK_LEVEL_DATA_GET_FLOAT_FROM_NODE( iParam1 + 16, ":headingArc", uParam0 );
+    NETWORK_LEVEL_DATA_GET_FLOAT_FROM_NODE( iParam1 + 20, ":groupHeading", uParam0 );
+    NETWORK_LEVEL_DATA_GET_HASH_FROM_NODE( iParam1 + 24, ":milo", uParam0 );
+    DISPLAYF( "[LEVELDATA] sev_mp_GetSpawnPointByNode()", 7, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam0 ), 1281, ref g_U3274, 1027, iParam1->_fU0, 769, iParam1->_fU12, 769, iParam1->_fU16, 769, iParam1->_fU20, 513, iParam1->_fU24 );
+    return;
+}
+
+/* MP_SPAWNDEBUG_REPORTERROR */ void sub_15219(unknown uParam0, unknown uParam1)
+{
+    g_U4881++;
+    g_U4882[uParam1]++;
+    if (NOT g_U4670[uParam0]._fU4)
+    {
+        g_U4880++;
+    }
+     /* __MP_SPAWNDEBUG_PRINTERROR */ sub_15322( uParam0, uParam1 );
+    g_U4670[uParam0]._fU4 = 1;
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTERROR */ void sub_15322(unknown uParam0, unknown uParam1)
+{
+    DISPLAYF( "[SpawnDebug] ============================================================", 1, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == SPAWN ERROR DETECTED ====================================", 1, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Error # {} Player # {} Name {}", 4, 513, g_U4881, 513, uParam0, 1281, ref g_U179[uParam0]._fU76, 1537, "                           " );
+     /* __MP_SPAWNDEBUG_PRINTERRORDESCRIPTION */ sub_15717( uParam1 );
+    if ( /* SEV_MP_ISTHISMYPLAYER */ sub_7521( 0 ))
+    {
+        DISPLAYF( "[SpawnDebug] == I am the host, and here comes more information!", 1, 1537, "                           " );
+        DISPLAYF( "[SpawnDebug] == ---------------------------------------------------------", 1, 1537, "                           " );
+         /* __MP_SPAWNDEBUG_PRINTLASTSPAWNINFO */ sub_17185( uParam0, g_U4670[uParam0] );
+        DISPLAYF( "[SpawnDebug] == ---------------------------------------------------------", 1, 1537, "                           " );
+         /* __MP_SPAWNDEBUG_PRINTCURRENTGAMESTATE */ sub_18083();
+        DISPLAYF( "[SpawnDebug] == ---------------------------------------------------------", 1, 1537, "                           " );
+         /* __MP_SPAWNDEBUG_PRINTGENERALSTATS */ sub_23201();
+    }
+    else
+    {
+        DISPLAYF( "[SpawnDebug] == See host's log for more information! I.e. player name:", 2, 1281, ref g_U179[0]._fU76, 1537, "                           " );
+    }
+    DISPLAYF( "[SpawnDebug] == END SPAWN ERROR PRINTOUT ================================", 1, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] ============================================================", 1, 1537, "                           " );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTERRORDESCRIPTION */ void sub_15717(unknown uParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+
+    uVar3 = { /* __MP_SPAWNDEBUG_GETLABELFORERRORTYPE */ sub_15770( uParam0, 0 )};
+    DISPLAYF( "[SpawnDebug] == Error type: {}", 2, 1281, ref uVar3, 1537, "                           " );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_GETLABELFORERRORTYPE */ void sub_15770(unknown uParam0, boolean bParam1)
+{
+    char[64] cVar4;
+    char[64] Result;
+
+    switch (uParam0)
+    {
+        case 0:
+        StrCopy( ref cVar4, "Forced to choose a spawn point that was visible to enemy", 64 );
+        StrCopy( ref Result, "FORCED TO CHOOSE ENEMY VISIBLE", 64 );
+        break;
+        case 1:
+        StrCopy( ref cVar4, "Spawn became visible to enemy while the player was teleporting", 64 );
+        StrCopy( ref Result, "ENEMY VISIBLE ONCE TELEPORTED", 64 );
+        break;
+        case 2:
+        StrCopy( ref cVar4, "Player was killed or injured too soon after spawning", 64 );
+        StrCopy( ref Result, "KILLED/INJURED TOO SOON", 64 );
+        break;
+        case 3:
+        StrCopy( ref cVar4, "Streaming took a long time to place player at spawn point", 64 );
+        StrCopy( ref Result, "STREAMING TOOK TOO LONG", 64 );
+        break;
+        case 4:
+        StrCopy( ref cVar4, "Double streaming took a long time (second choice spawn)", 64 );
+        StrCopy( ref Result, "DOUBLE STREAMING TOOK TOO LONG", 64 );
+        break;
+        case 5:
+        StrCopy( ref cVar4, "Too close to another ped after teleporting to spawn point", 64 );
+        StrCopy( ref Result, "TOO CLOSE TO PED ON SPAWN", 64 );
+        break;
+        case 6:
+        StrCopy( ref cVar4, "Failed to fix bad spawn, after it went bad during streaming", 64 );
+        StrCopy( ref Result, "FAILED TO FIX BAD SPAWN", 64 );
+        break;
+        case 7:
+        StrCopy( ref cVar4, "Best spawn heading was pointed away from the target positions", 64 );
+        StrCopy( ref Result, "HEADING OUTSIDE TOLERANCE", 64 );
+        break;
+        case 8:
+        StrCopy( ref cVar4, "Too few spawning options after first pass", 64 );
+        StrCopy( ref Result, "TOO FEW AFTER 1ST PASS", 64 );
+        break;
+        default:
+        StrCopy( ref cVar4, "Unknown", 64 );
+        StrCopy( ref Result, "UNKNOWN", 64 );
+        break;
+    }
+    if (bParam1)
+    {
+        return Result;
+    }
+    return cVar4;
+}
+
+/* __MP_SPAWNDEBUG_PRINTLASTSPAWNINFO */ void sub_17185(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13)
+{
+    if (uParam1._fU4)
+    {
+        DISPLAYF( "[SpawnDebug] == Error already reported for this spawn!", 1, 1537, "                           " );
+    }
+    DISPLAYF( "[SpawnDebug] == Last spawn info for player", 3, 513, uParam0, 1281, ref g_U179[uParam0]._fU76, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Spawn count for this player", 2, 513, uParam1._fU0, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Chosen spawn point", 5, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( uParam1._fU8 ), 1281, ref g_U3274, 1537, "Cost =", 513, uParam1._fU12, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Selected - time=", 4, 513, uParam1._fU16, 1537, "visible=", 257, uParam1._fU24, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Teleported - time=", 4, 513, uParam1._fU20, 1537, "visible=", 257, uParam1._fU28, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Streaming duration=", 2, 513, uParam1._fU20 - uParam1._fU16, 1537, "                           " );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTCURRENTGAMESTATE */ void sub_18083()
+{
+    DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Story # {}, Node # {}, Gamemode # {}, SetupEnum # {}", 5, 513, g_U5521, 513,  /* SEV_MP_GETSTORYNODEINDEX */ sub_18339( g_U5523._fU0 ), 513, g_U5523._fU12, 513, g_U5523._fU8, 1537, "                           " );
+     /* __MP_SPAWNDEBUG_PRINTGWMODEINFO */ sub_18728( g_U5523._fU12 );
+     /* __MP_SPAWNDEBUG_PRINTALLSPAWNRULES */ sub_21096();
+     /* __MP_SPAWNDEBUG_PRINTPLAYERSTATUSES */ sub_22361();
+    return;
+}
+
+/* SEV_MP_GETSTORYNODEINDEX */ int sub_18339(unknown uParam0)
+{
+    unknown Result;
+
+    if (g_U5623)
+    {
+        DISPLAYF( "sev_mp_GetStoryNodeIndex() Custom story, returning current round {}", 1, 513, g_U5528._fU4 );
+        return g_U5528._fU4;
+        break;
+    }
+    if (NETWORK_LEVEL_DATA_GET_INT_FROM_NODE( ref Result, ":id", uParam0 ))
+    {
+        DISPLAYF( "sev_mp_GetStoryNodeIndex() Returning index {}", 1, 513, Result );
+        return Result;
+        break;
+    }
+    DISPLAYF( "sev_mp_GetStoryNodeIndex() Failed to find data, returning -1", 0 );
+    return -1;
+}
+
+/* __MP_SPAWNDEBUG_PRINTGWMODEINFO */ void sub_18728(unknown uParam0)
+{
+    char[64] cVar3;
+
+    StrCopy( ref cVar3, "[SpawnDebug] == ", 64 );
+    switch (uParam0)
+    {
+        case 0:
+        DISPLAYF( ref cVar3, 3, 1537, "Assassination: Player to kill= {}", 513, g_U5788, 1537, "                           " );
+        break;
+        case 1:
+        DISPLAYF( ref cVar3, 10, 1537, "Bomb: Defending team {}, Terrorist team {}, Loc 0 {}{} planted is {}, Loc 1 {}{} planted is {}", 513, g_U5769, 513, g_U5770, 1537,  /* SEV_MP_GETLEVELDATAIDBYNODE */ sub_19156( g_U5825[0]._fU0 ), 1281, ref g_U3274, 257, g_U5825[0]._fU8, 1537,  /* SEV_MP_GETLEVELDATAIDBYNODE */ sub_19156( g_U5825[1]._fU0 ), 1281, ref g_U3274, 257, g_U5825[1]._fU8, 1537, "                           " );
+        break;
+        case 11:
+         /* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ sub_19347();
+        DISPLAYF( ref cVar3, 7, 1537, "Delivery: Current drop-off= {}, Team0 carrier {} / cache {}, Team1 carrier {} / cache {}", 513, g_U5787, 513, g_U5789[0], 1027, g_U5799[0], 513, g_U5789[1], 1027, g_U5799[1], 1537, "                           " );
+        break;
+        case 12:
+        case 13:
+        case 14:
+         /* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ sub_19347();
+        DISPLAYF( ref cVar3, 4, 1537, "Grab: Recently used location 0= {}, Recently used location 1= {}", 513, g_U5898[0], 513, g_U5898[1], 1537, "                           " );
+        break;
+        case 2:
+        DISPLAYF( ref cVar3, 6, 1537, "Kidnap: Victim= {}, Victim status= {}, Kidnapper= {}, Kidnapping team= {},", 513, g_U5788, 513, g_U5807, 513, g_U5809, 513, g_U5770, 1537, "                           " );
+        break;
+        case 3:
+         /* __MP_SPAWNDEBUG_PRINTTERRITORYSTATUSES */ sub_20007();
+        DISPLAYF( ref cVar3, 4, 1537, "Siege: Current turf= {}, Defending team= {}", 513, g_U5787, 513, g_U5770, 1537, "                           " );
+        break;
+        case 5:
+        case 6:
+         /* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ sub_19347();
+        DISPLAYF( ref cVar3, 3, 1537, "Team DM: In sudden death= {}", 257, g_U5792[2], 1537, "                           " );
+        break;
+        case 7:
+        DISPLAYF( ref cVar3, 2, 1537, "Team LMS: No extra info", 1537, "                           " );
+        break;
+        case 8:
+         /* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ sub_19347();
+        DISPLAYF( ref cVar3, 2, 1537, "Finale LMS: No extra info", 1537, "                           " );
+        break;
+        case 9:
+         /* __MP_SPAWNDEBUG_PRINTTERRITORYSTATUSES */ sub_20007();
+        DISPLAYF( ref cVar3, 4, 1537, "Total Turf: Original owner team= {}, Num active turfs= {}", 513, g_U5770, 513, g_U5778, 1537, "                           " );
+        break;
+        case 4:
+         /* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ sub_19347();
+        DISPLAYF( ref cVar3, 3, 1537, "Transit: Escaping team= {}", 513, g_U5769, 1537, "                           " );
+        break;
+        case 10:
+         /* __MP_SPAWNDEBUG_PRINTTERRITORYSTATUSES */ sub_20007();
+        DISPLAYF( ref cVar3, 3, 1537, "Turf Grab: Turf= {}", 513, g_U5771[0], 1537, "                           " );
+        break;
+        case 15:
+        DISPLAYF( ref cVar3, 4, 1537, "Cutscene: Sequence name={}, Character set= {}", 1281, ref g_U5751, 513, g_U5767, 1537, "                           " );
+        break;
+    }
+    return;
+}
+
+/* SEV_MP_GETLEVELDATAIDBYNODE */ string sub_19156(unknown uParam0)
+{
+    if (NOT (NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 64, ref g_U3274, ":id", uParam0 )))
+    {
+        StrCopy( ref g_U3274, "", 64 );
+    }
+    return "";
+}
+
+/* __MP_SPAWNDEBUG_PRINTROUNDSCORE */ void sub_19347()
+{
+    DISPLAYF( "[SpawnDebug] == Scores: Team0= {}, Team1= {}", 3, 513, g_U5647[0], 513, g_U5647[1], 1537, "                           " );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTTERRITORYSTATUSES */ void sub_20007()
+{
+    int I;
+
+    for ( I = 0; I < 7; I++ )
+    {
+        if (g_U3755[I]._fU12)
+        {
+            DISPLAYF( "[SpawnDebug] == Territory # {}, Owner team= {}, Num teams inside= {}, Which team= {}, ", 5, 513, I, 513, g_U3755[I]._fU132, 513, g_U3755[I]._fU116, 513, g_U3755[I]._fU124, 1537, "                           " );
+        }
+    }
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTALLSPAWNRULES */ void sub_21096()
+{
+    int I;
+
+    DISPLAYF( "[SpawnDebug] == Player spawn rules ---------------------------", 1, 1537, "                           " );
+    for ( I = 0; I < 20; I++ )
+    {
+         /* __MP_SPAWNDEBUG_PRINTSPAWNRULE */ sub_21282( g_U2663[I], I, "PLAYER" );
+    }
+    DISPLAYF( "[SpawnDebug] == Team spawn rules -----------------------------", 1, 1537, "                           " );
+    for ( I = 0; I < 20; I++ )
+    {
+         /* __MP_SPAWNDEBUG_PRINTSPAWNRULE */ sub_21282( g_U2944[I], I, "TEAM" );
+    }
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTSPAWNRULE */ void sub_21282(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15)
+{
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+
+    if (uParam0._fU8 == 0)
+    {
+        return;
+    }
+    switch (uParam0._fU8)
+    {
+        case 2:
+        STRING_FORMAT( 64, ref uVar18, "Target Player={}", 1, 513, uParam0._fU32 );
+        break;
+        case 6:
+        STRING_FORMAT( 64, ref uVar18, "Target Team={}", 1, 513, uParam0._fU32 );
+        break;
+        case 1:
+        STRING_FORMAT( 64, ref uVar18, "Target Pos={}", 1, 1027, uParam0._fU20 );
+        break;
+    }
+    if (uParam0._fU36 == 0)
+    {
+        DISPLAYF( "[SpawnDebug] == -- #{} Radius Type, Cost={}, Applies to {} {}", 5, 513, uParam14, 513, uParam0._fU4, 1537, uParam15, 513, uParam0._fU0, 1537, "                           " );
+        DISPLAYF( "[SpawnDebug] == -- {} Dist={}, Exclude={}", 4, 1281, ref uVar18, 769, uParam0._fU12, 257, uParam0._fU16, 1537, "                           " );
+    }
+    else
+    {
+        DISPLAYF( "[SpawnDebug] == -- #{} Line Type, Cost={}, Applies to {} {}", 5, 513, uParam14, 513, uParam0._fU4, 1537, uParam15, 513, uParam0._fU0, 1537, "                           " );
+        switch (uParam0._fU36)
+        {
+            case 2:
+            STRING_FORMAT( 64, ref uVar34, "Target2 Player={}", 1, 513, uParam0._fU52 );
+            break;
+            case 6:
+            STRING_FORMAT( 64, ref uVar34, "Target2 Team={}", 1, 513, uParam0._fU52 );
+            break;
+            case 1:
+            STRING_FORMAT( 64, ref uVar34, "Target2 Pos={}", 1, 1027, uParam0._fU40 );
+            break;
+        }
+        DISPLAYF( "[SpawnDebug] == -- {} {} Dist={}, Exceed={}", 5, 1281, ref uVar18, 1281, ref uVar34, 769, uParam0._fU12, 257, uParam0._fU16, 1537, "                           " );
+    }
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTPLAYERSTATUSES */ void sub_22361()
+{
+    int I;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown[16] uVar8;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+
+    DISPLAYF( "[SpawnDebug] == Player statuses ------------------------------", 1, 1537, "                           " );
+    array(ref uVar8, 16);
+    for ( I = 0; I < 16; I++ )
+    {
+        if ( /* SEV_MP_ISPLAYERACTIVE */ sub_22534( I ))
+        {
+             /* __MP_SPAWN_GETPLAYERCOORDS */ sub_22601( -1, I, ref uVar3, ref uVar7, ref uVar8 );
+            uVar6 = GET_PED_HEADING( g_U179[I]._fU72 );
+            DISPLAYF( "[SpawnDebug] == -- Player # {} {}, Team {}, Pos= {}, Heading= {}, Alive= {}, Respawning= {}.", 8, 513, I, 1281, ref g_U179[I]._fU76, 513, g_U179[I]._fU124, 1027, uVar3, 769, uVar6, 257, g_U179[I]._fU8, 257,  /* SEV_MP_ISPLAYERRESPAWNING */ sub_6893( I ), 1537, "                           " );
+        }
+    }
+    return;
+}
+
+/* SEV_MP_ISPLAYERACTIVE */ void sub_22534(unknown uParam0)
+{
+    return g_U179[uParam0]._fU0;
+}
+
+/* __MP_SPAWN_GETPLAYERCOORDS */ int sub_22601(int iParam0, int iParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( iParam1, 1, 1 )))
+    {
+        return 0;
+    }
+    if (NOT ( /* SEV_MP_ISPLAYERACTIVEANDJOINEDENOUGHFORSPAWNRULES */ sub_7890( iParam1 )))
+    {
+        return 0;
+    }
+    if ( /* SEV_MP_ISPLAYERRESPAWNING */ sub_6893( iParam1 ))
+    {
+        (uParam2^) = { /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( g_U179[iParam1]._fU160 )};
+        if (iParam1 != iParam0)
+        {
+            (uParam4^)[(uParam3^)] = {(uParam2^) + (vector( 0, 0, 1.50000000))};
+            (uParam3^)++;
+        }
+        return 1;
+    }
+    else if (g_U179[iParam1]._fU8)
+    {
+        (uParam2^) = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( g_U179[iParam1]._fU72 )};
+        return 1;
+    }
+    return 0;
+}
+
+/* __MP_SPAWNDEBUG_PRINTGENERALSTATS */ void sub_23201()
+{
+    int I;
+
+    DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Total number of spawns", 2, 513, g_U4879, 1537, "                           " );
+    DISPLAYF( "[SpawnDebug] == Total Spawn Error #", 2, 513, g_U4881, 1537, "                           " );
+    for ( I = 0; I < 9; I++ )
+    {
+         /* __MP_SPAWNDEBUG_PRINTERRORTYPE */ sub_23521( I );
+    }
+    DISPLAYF( "[SpawnDebug] == -- {}% of spawns had errors ({} total)", 3, 513, (g_U4880 * 100) / g_U4879, 513, g_U4880, 1537, "                           " );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4892, "Streaming delay (ms)" );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4896, "Spawn cost" );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4900, "Spawn cost (w/o errors)" );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4904, "Time before killed/injured (ms)" );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4908, "-- Round start spawns (ms)" );
+     /* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ sub_23838( ref g_U4912, "-- Mid-round spawns (ms)" );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTERRORTYPE */ void sub_23521(unknown uParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+
+    uVar3 = { /* __MP_SPAWNDEBUG_GETLABELFORERRORTYPE */ sub_15770( uParam0, 1 )};
+    DISPLAYF( "[SpawnDebug] == -- of which {} {}", 3, 513, g_U4882[uParam0], 1281, ref uVar3, 1537, "                           " );
+    return;
+}
+
+/* __MP_SPAWNDEBUG_PRINTSTATSTRACKER */ void sub_23838(int iParam0, unknown uParam1)
+{
+    DISPLAYF( "[SpawnDebug] == {} - Av= {}, High= {}, Low= {}.", 5, 1537, uParam1, 513, iParam0->_fU8 / iParam0->_fU12, 513, iParam0->_fU0, 513, iParam0->_fU4, 1537, "                           " );
+    return;
+}
+
+/* SEV_MP_GETRANDOMSPAWNPOINT */ void sub_24762()
+{
+    return GET_RANDOM_INT_IN_RANGE( 0, g_U6208 );
+}
+
+/* SEV_MP_GETSPAWNPOINTINDEXBYNODE */ int sub_24964(unknown uParam0)
+{
+    return (g_U6208 - (NETWORK_LEVEL_DATA_GET_SIBLING_COUNT_AFTER_NODE( uParam0 ))) - 1;
+}
+
+/* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_GAMEPLAYQUALITY */ void sub_25814(unknown uParam0, int iParam1, unknown uParam2, unknown uParam3, int iParam4, unknown uParam5)
+{
+    int I;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+
+     /* SEV_MP_SPAWN_CALCULATESPAWNRULECOSTS */ sub_25886( uParam3, iParam1, uParam0, uParam2 );
+     /* SEV_YIELD_IF */ sub_8875( uParam5 );
+    for ( I = 0; I < iParam1; I++ )
+    {
+        DISPLAYF( "[SpawnDebug] == Second pass - Cost for spawn {}{} = {}", 4, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( (uParam3^)[I]._fU0 ), 1281, ref g_U3274, 513, (uParam3^)[I]._fU8, 1537, "                           " );
+    }
+    if (iParam4 != nil)
+    {
+        uVar9 = { /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( iParam4 )};
+        for ( I = 0; I < iParam1; I++ )
+        {
+            if ((VDIST2(  /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( (uParam3^)[I]._fU0 ), uVar9 )) > 625.00000000)
+            {
+                (uParam3^)[I]._fU8 += 5;
+            }
+        }
+    }
+     /* SEV_MP_SPAWN_SORTSPARRAY */ sub_28251( uParam3, iParam1 );
+    DISPLAYF( "[SpawnDebug] == Contents of spawn array after second pass", 1, 1537, "                           " );
+    for ( I = 0; I < iParam1; I++ )
+    {
+        DISPLAYF( "[SpawnDebug] == Index {} spawn {}{} cost {} heading {}", 6, 513, I, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( (uParam3^)[I]._fU0 ), 1281, ref g_U3274, 513, (uParam3^)[I]._fU8, 769, (uParam3^)[I]._fU4, 1537, "                           " );
+    }
+    return;
+}
+
+/* SEV_MP_SPAWN_CALCULATESPAWNRULECOSTS */ void sub_25886(unknown uParam0, int iParam1, int iParam2, unknown uParam3)
+{
+    int J;
+    int I;
+    boolean bVar8;
+    boolean bVar9;
+    boolean bVar10;
+    boolean bVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+
+    for ( J = 0; J < 20; J++ )
+    {
+        bVar8 = false;
+        bVar9 = false;
+        bVar10 = false;
+        bVar11 = false;
+        if (g_U2944[J]._fU8 != 0)
+        {
+            if (g_U179[iParam2]._fU124 == g_U2944[J]._fU0)
+            {
+                bVar8 = g_U2944[J]._fU36 == 0;
+                bVar9 = NOT bVar8;
+            }
+            else if (g_U2944[J]._fU0 == -1)
+            {
+                bVar8 = g_U2944[J]._fU36 == 0;
+                bVar9 = NOT bVar8;
+            }
+        }
+        if (g_U2663[J]._fU8 != 0)
+        {
+            if (iParam2 == g_U2663[J]._fU0)
+            {
+                bVar10 = g_U2663[J]._fU36 == 0;
+                bVar11 = NOT bVar10;
+            }
+            else if (g_U2663[J]._fU0 == -1)
+            {
+                bVar10 = g_U2663[J]._fU36 == 0;
+                bVar11 = NOT bVar10;
+            }
+        }
+        if ((bVar11) || ((bVar10) || ((bVar9) || (bVar8))))
+        {
+            for ( I = 0; I < iParam1; I++ )
+            {
+                uVar12 = { /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( (uParam0^)[I]._fU0 )};
+                if (bVar8)
+                {
+                    if (NOT ( /* __SEV_MP_SPOBEYSRADIUSDISTRULE */ sub_26273( g_U2944[J], uVar12, iParam2, uParam3 )))
+                    {
+                        (uParam0^)[I]._fU8 += g_U2944[J]._fU4;
+                    }
+                }
+                else if (bVar9)
+                {
+                    if (NOT ( /* __SEV_MP_SPOBEYSLINEDISTRULE */ sub_27004( g_U2944[J], uVar12, iParam2, uParam3 )))
+                    {
+                        (uParam0^)[I]._fU8 += g_U2944[J]._fU4;
+                    }
+                }
+                if (bVar10)
+                {
+                    if (NOT ( /* __SEV_MP_SPOBEYSRADIUSDISTRULE */ sub_26273( g_U2663[J], uVar12, iParam2, uParam3 )))
+                    {
+                        (uParam0^)[I]._fU8 += g_U2663[J]._fU4;
+                    }
+                }
+                else if (bVar11)
+                {
+                    if (NOT ( /* __SEV_MP_SPOBEYSLINEDISTRULE */ sub_27004( g_U2663[J], uVar12, iParam2, uParam3 )))
+                    {
+                        (uParam0^)[I]._fU8 += g_U2663[J]._fU4;
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+/* __SEV_MP_SPOBEYSRADIUSDISTRULE */ int sub_26273(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15, unknown uParam16, unknown uParam17, int iParam18)
+{
+    int I;
+
+    if (uParam0._fU8 == 2)
+    {
+        if (ref iParam18->_fU276->_fU0[uParam0._fU32])
+        {
+            return NOT ( /* __COMPARE */ sub_26390( VDIST2( uParam14, ref iParam18->_fU276->_fU68[uParam0._fU32] ), uParam0._fU12, uParam0._fU16 ));
+        }
+    }
+    else if (uParam0._fU8 == 1)
+    {
+        return NOT ( /* __COMPARE */ sub_26390( VDIST2( uParam14, uParam0._fU20 ), uParam0._fU12, uParam0._fU16 ));
+    }
+    else if (uParam0._fU8 == 3)
+    {
+        return NOT ( /* __COMPARE */ sub_26390( VDIST2( uParam14, uParam0._fU20 ), uParam0._fU12, uParam0._fU16 ));
+    }
+    else if (uParam0._fU8 == 6)
+    {
+        for ( I = 0; I < 16; I++ )
+        {
+            if (ref iParam18->_fU276->_fU0[I])
+            {
+                if ((NOT g_U179[I]._fU4) AND (g_U179[I]._fU124 == uParam0._fU32))
+                {
+                    if ((VDIST2( uParam14, ref iParam18->_fU276->_fU68[I] )) < uParam0._fU12)
+                    {
+                        return NOT uParam0._fU16;
+                    }
+                }
+            }
+        }
+        return uParam0._fU16;
+    }
+    else if (uParam0._fU8 == 4)
+    {
+        if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( g_U1514[uParam17]._fU20, 1, 0 ))
+        {
+            if (ref iParam18->_fU276->_fU0[g_U1514[uParam17]._fU20])
+            {
+                return NOT ( /* __COMPARE */ sub_26390( VDIST2( uParam14, ref iParam18->_fU276->_fU68[g_U1514[uParam17]._fU20] ), uParam0._fU12, uParam0._fU16 ));
+            }
+        }
+    }
+    else if (uParam0._fU8 == 5)
+    {
+        if (g_U179[uParam17]._fU160 != nil)
+        {
+            return NOT ( /* __COMPARE */ sub_26390( VDIST2( uParam14,  /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( g_U179[uParam17]._fU160 ) ), uParam0._fU12, uParam0._fU16 ));
+        }
+    };;;;;;
+    return 1;
+}
+
+/* __COMPARE */ boolean sub_26390(float fParam0, float fParam1, boolean bParam2)
+{
+    if (NOT bParam2)
+    {
+        return fParam0 >= fParam1;
+        break;
+    }
+    return fParam0 < fParam1;
+}
+
+/* __SEV_MP_SPOBEYSLINEDISTRULE */ boolean sub_27004(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15, unknown uParam16, unknown uParam17, int iParam18)
+{
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+
+    if (uParam0._fU8 == 2)
+    {
+        if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( uParam0._fU32, 0, 0 ))
+        {
+            if (ref iParam18->_fU276->_fU0[uParam0._fU32])
+            {
+                uVar21 = {ref iParam18->_fU276->_fU68[uParam0._fU32]};
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        else
+        {
+            return 1;
+        }
+    }
+    else if (uParam0._fU8 == 6)
+    {
+        if (uParam0._fU32 == 0)
+        {
+            uVar21 = {g_U3249};
+        }
+        else if (uParam0._fU32 == 1)
+        {
+            uVar21 = {g_U3252};
+        }
+        else
+        {
+            uVar21 = {g_U3246};
+        }
+    }
+    else if (uParam0._fU8 == 1)
+    {
+        uVar21 = {uParam0._fU20};
+    };;;
+    if (uParam0._fU36 == 6)
+    {
+        if (uParam0._fU52 == 0)
+        {
+            uVar24 = {g_U3249};
+        }
+        else if (uParam0._fU52 == 1)
+        {
+            uVar24 = {g_U3252};
+        }
+        else
+        {
+            uVar24 = {g_U3246};
+        }
+    }
+    else if (uParam0._fU36 == 1)
+    {
+        uVar24 = {uParam0._fU40};
+    }
+    else if (uParam0._fU36 == 2)
+    {
+        if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( uParam0._fU52, 0, 0 ))
+        {
+            if (ref iParam18->_fU276->_fU0[uParam0._fU52])
+            {
+                uVar24 = {ref iParam18->_fU276->_fU68[uParam0._fU52]};
+            }
+            else
+            {
+                return 1;
+            }
+        }
+        else
+        {
+            return 1;
+        }
+    };;;
+    if ( /* ARE_VECTORS_EQUAL_WITHIN_TOLERANCE */ sub_27470( uVar21, uVar24, 4.00000000 ))
+    {
+        DISPLAYF( "Aborted line distance rule details - the two points are too close together - rule index {}, pos1 {}, pos2 {}", 3, 513, uParam0._fU0, 1027, uVar21, 1027, uVar24 );
+        return 1;
+    }
+    if (uParam0._fU16)
+    {
+        return (PROJECTED_DISTANCE( uVar21, uVar24, uParam14 )) >= uParam0._fU12;
+        break;
+    }
+    return (PROJECTED_DISTANCE( uVar21, uVar24, uParam14 )) < uParam0._fU12;
+}
+
+/* ARE_VECTORS_EQUAL_WITHIN_TOLERANCE */ boolean sub_27470(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, float fParam6)
+{
+    return (VDIST2( uParam0, uParam3 )) <= fParam6;
+}
+
+/* SEV_MP_SPAWN_SORTSPARRAY */ void sub_28251(unknown uParam0, int iParam1)
+{
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    int iVar7;
+    int iVar8;
+    int iVar9;
+    int iVar10;
+
+    iVar7 = iParam1 / 2;
+    while (true)
+    {
+        if (iVar7 > 0)
+        {
+            iVar7--;
+            uVar4 = {(uParam0^)[iVar7]};
+        }
+        else
+        {
+            iParam1--;
+            if (iParam1 == 0)
+            {
+                return;
+            }
+            else
+            {
+                uVar4 = {(uParam0^)[iParam1]};
+                (uParam0^)[iParam1] = {(uParam0^)[0]};
+            }
+        }
+        iVar8 = iVar7;
+        iVar9 = (iVar8 * 2) + 1;
+        iVar10 = 1;
+        while ((iVar10) AND (iVar9 < iParam1))
+        {
+            if ((iVar9 + 1) < iParam1)
+            {
+                if (((uParam0^)[iVar9 + 1]._fU8) > (uParam0^)[iVar9]._fU8)
+                {
+                    iVar9++;
+                }
+            }
+            if ((uParam0^)[iVar9]._fU8 > uVar4._fU8)
+            {
+                (uParam0^)[iVar8] = {(uParam0^)[iVar9]};
+                iVar8 = iVar9;
+                iVar9 = (iVar8 * 2) + 1;
+            }
+            else
+            {
+                iVar10 = 0;
+            }
+        }
+        (uParam0^)[iVar8] = {uVar4};
+    }
+    return;
+}
+
+/* SEV_MP_SPAWN_GETSPAWNPOINTFROMRULES_VISIBILITYCHECKS */ int sub_28868(unknown uParam0, int iParam1, int iParam2, unknown uParam3, unknown uParam4)
+{
+    int Result;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+
+    if ((iParam2->_fU76 <= 0) AND (NOT iParam2->_fU4))
+    {
+        DISPLAYF( "No players to check for visibility - bargainous!", 0 );
+        return 0;
+    }
+    for ( Result = 0; Result < iParam1; Result++ )
+    {
+        uVar8 = { /* SEV_MP_GETLEVELDATAPOSITIONBYNODE */ sub_8179( (uParam3^)[Result]._fU0 )};
+        if (NOT ( /* SEV_MP_SPAWN_ISPOSTOOCLOSETOOTHERPLAYERS */ sub_29060( uParam0, uVar8, iParam2 + 276 )))
+        {
+            uVar8._fU8 += 1.50000000;
+            if (NOT ( /* SEV_MP_SPAWN_ISPOSVISIBLETOPLAYERARRAY */ sub_29424( uParam0, uVar8, iParam2 + 8, iParam2->_fU76, iParam2 + 80, uParam4 )))
+            {
+                return Result;
+            }
+            else
+            {
+                 /* SEV_YIELD_IF */ sub_8875( uParam4 );
+                DISPLAYF( "[SpawnDebug] == Spawn {}{} (#{}) failed visibility checks", 4, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( (uParam3^)[Result]._fU0 ), 1281, ref g_U3274, 513, Result, 1537, "                           " );
+            }
+        }
+        else
+        {
+            DISPLAYF( "[SpawnDebug] == Spawn {}{} (#{}) failed proximity checks", 4, 1537,  /* SEV_MP_GETLEVELDATANAMEBYNODE */ sub_8299( (uParam3^)[Result]._fU0 ), 1281, ref g_U3274, 513, Result, 1537, "                           " );
+        }
+    }
+     /* MP_SPAWNDEBUG_REPORTERROR */ sub_15219( uParam0, 0 );
+    return 0;
+}
+
+/* SEV_MP_SPAWN_ISPOSTOOCLOSETOOTHERPLAYERS */ int sub_29060(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    int I;
+
+    for ( I = 0; I < 16; I++ )
+    {
+        if (iParam4->_fU0[I])
+        {
+            if ( /* SEV_MP_AREPLAYERSONSAMETEAM_TRUSTEDINDICES */ sub_29143( I, uParam0 ))
+            {
+                if ((VDIST2( iParam4->_fU68[I], uParam1 )) < 25.00000000)
+                {
+                    return 1;
+                }
+            }
+            else if ((VDIST2( iParam4->_fU68[I], uParam1 )) < 56.25000000)
+            {
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+/* SEV_MP_AREPLAYERSONSAMETEAM_TRUSTEDINDICES */ int sub_29143(unknown uParam0, unknown uParam1)
+{
+    if (g_U179[uParam0]._fU124 == -1)
+    {
+        return 0;
+    }
+    if (g_U179[uParam0]._fU124 == g_U179[uParam1]._fU124)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* SEV_MP_SPAWN_ISPOSVISIBLETOPLAYERARRAY */ int sub_29424(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, int iParam5, unknown uParam6, unknown uParam7)
+{
+    if (SEV_IS_SPHERE_VISIBLE_TO_PLAYER_LIST( uParam0, uParam4, uParam1, 1.00000000, 0, 1, 1, 1 ))
+    {
+        DISPLAYF( "Returning true is visible to player", 0 );
+        return 1;
+    }
+    if (iParam5 > 0)
+    {
+         /* SEV_YIELD_IF */ sub_8875( uParam7 );
+        DISPLAYF( "[SpawnDebug2] Also testing against {} extra positions for visibility ({}, {}, {}, ...)", 4, 513, iParam5, 1027, (uParam6^)[0], 1027, (uParam6^)[1], 1027, (uParam6^)[2] );
+        if (SEV_IS_POINT_VISIBLE_TO_POSITION_LIST( uParam6, uParam1 ))
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* UPDATE_RESPAWN_BUTTON */ void sub_30373()
+{
+    boolean bVar2;
+
+    if ( /* SHOULD_DISABLE_RESPAWN_BUTTON */ sub_6775())
+    {
+        g_U4929 = 0;
+    }
+    else if (g_U4929 == 1)
+    {
+        if (NOT IS_PAUSE_MENU_ACTIVE())
+        {
+            if (IS_CONTROL_JUST_PRESSED( 0, 94 ))
+            {
+                g_U4929 = 2;
+                PLAY_SOUND_FRONTEND( -1, "FRONTEND_MENU_SPAWN_READY" );
+                if ( /* RESPAWN_MEANS_SPECTATE */ sub_1520())
+                {
+                     /* SET_UP_SPECTATE_SCREEN */ sub_30521();
+                     /* SEV_MP_PLAYERSETSPECTATOR */ sub_30627( l_U0._fU8 );
+                    UI_SET( 0, 2, 513, -234436332, 257, 1 );
+                    DISPLAYF( "[Spectator] Local player requested to spectate", 0 );
+                }
+                else
+                {
+                     /* SEV_MP_SPAWN_SENDRESPAWNEVENTWITHSPAWNDETAILS */ sub_7454( l_U0._fU8 );
+                    l_U0._fU32 = GET_NETWORK_TIMER();
+                    DISPLAYF( "[Spectator] Local player requested respawn at time {}", 1, 513, l_U0._fU32 );
+                }
+            }
+        }
+    }
+    else if ((NOT ( /* RESPAWN_MEANS_SPECTATE */ sub_1520())) AND (g_U4929 == 2))
+    {
+        DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 );
+        if ((GET_NETWORK_TIMER() - l_U0._fU32) > 5000)
+        {
+             /* SEV_MP_SPAWN_SENDRESPAWNEVENTWITHSPAWNDETAILS */ sub_7454( l_U0._fU8 );
+            l_U0._fU32 = GET_NETWORK_TIMER();
+            DISPLAYF( "[Spectator] Local player re-requested respawn at time {}", 1, 513, l_U0._fU32 );
+        }
+    };;;
+    bVar2 = g_U4929 == 1;
+    if ( /* DO_IF_DIFF */ sub_6447( ref l_U14, bVar2 ))
+    {
+        UI_SET( 0, 2, 513, 305109691, 257, bVar2 );
+    }
+    return;
+}
+
+/* SET_UP_SPECTATE_SCREEN */ void sub_30521()
+{
+    DISPLAYF( "[Spectator] SET_UP_SPECTATE_SCREEN()", 0 );
+     /* RESET_EVERYTHING */ sub_1069();
+    l_U0._fU4 = 3;
+    return;
+}
+
+/* SEV_MP_PLAYERSETSPECTATOR */ void sub_30627(unknown uParam0)
+{
+    SEV_ISOLATE();
+    if ( /* SEV_MP_ISTHISMYPLAYER */ sub_7521( uParam0 ))
+    {
+         /* SEV_MP_ENABLESTREAMING */ sub_30685( 1 );
+        INVOKE_SPECTATOR_CAM();
+    }
+    SEV_ISOLATE_OFF();
+    return;
+}
+
+/* SEV_MP_ENABLESTREAMING */ void sub_30685(unknown uParam0)
+{
+    return;
+}
+
+/* UPDATE_VENDETTA_BUTTON */ void sub_31223()
+{
+    boolean bVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    bVar2 = (g_U4929 != 2) AND ((g_U4917) AND (g_U3550[l_U0._fU8]._fU4 == 5));
+    if ( /* DO_IF_DIFF */ sub_6447( ref l_U13, bVar2 ))
+    {
+        UI_SET( 0, 2, 513, 780621739, 257, bVar2 );
+    }
+    if ((g_U4917) AND (NOT g_U179[l_U0._fU8]._fU8))
+    {
+        if (g_U3550[l_U0._fU8]._fU4 == 5)
+        {
+            if ((NOT IS_PAUSE_MENU_ACTIVE()) AND (IS_CONTROL_JUST_PRESSED( 0, 93 )))
+            {
+                UI_SET( 0, 2, 513, 1912280222, 257, 1 );
+                UI_SET( 0, 2, 513, -1871370562, 257, 1 );
+                UI_SET( 15, 2, 513, -1871370562, 257, 1 );
+                 /* MP_VENDETTA_SETMYNEMESIS */ sub_31472( l_U0._fU12 );
+                g_U4917 = 0;
+                uVar3 = { /* MP_VENDETTA_GETNEMESISEVENT */ sub_31773( 0 )};
+                SEV_INDUCE_LOCAL_EVENT_ARGS( g_U3547, ref uVar3, 3 );
+                DISPLAYF( "Local player chose new nemesis - ", 2, 513,  /* MP_VENDETTA_GETMYNEMESIS */ sub_31647(), 1281, ref g_U179[ /* MP_VENDETTA_GETMYNEMESIS */ sub_31647()]._fU76 );
+            }
+        }
+        else if (g_U3550[l_U0._fU8]._fU4 == 3)
+        {
+            if (NOT l_U0._fU28)
+            {
+                l_U0._fU28 = 1;
+                DISPLAYF( "Local player lost his Vendetta.", 0 );
+                UI_SET( 0, 2, 513, 1527115010, 257, 1 );
+                UI_SET( 0, 2, 513, 2038485066, 257, 1 );
+                UI_SET( 0, 2, 513, -1871370562, 257, 1 );
+                UI_SET( 15, 2, 513, -1871370562, 257, 1 );
+            }
+        }
+    }
+    return;
+}
+
+/* MP_VENDETTA_SETMYNEMESIS */ void sub_31472(unknown uParam0)
+{
+    unknown uVar3;
+
+    DISPLAYF( "Setting nemesis to player ", 1, 513, uParam0 );
+    uVar3 =  /* SEV_MP_GETMYPLAYER */ sub_110();
+    if (NOT ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( uVar3, 0, 0 )))
+    {
+        DISPLAYF( "Except I don't have a valid player, so bailing!", 0 );
+        return;
+    }
+    g_U3550[uVar3]._fU0 = uParam0;
+    if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168(  /* MP_VENDETTA_GETMYNEMESIS */ sub_31647(), 0, 0 ))
+    {
+        HUD_SCOREBOARD_SETPLAYERVALUES_VENDETTA(  /* SEV_MP_GETLOCALPLAYERINDEX */ sub_3517(  /* MP_VENDETTA_GETMYNEMESIS */ sub_31647() ), 1 );
+    }
+    return;
+}
+
+/* MP_VENDETTA_GETMYNEMESIS */ int sub_31647()
+{
+    unknown uVar2;
+
+    uVar2 =  /* SEV_MP_GETMYPLAYER */ sub_110();
+    if ( /* SEV_MP_ISPLAYERINDEXVALID */ sub_168( uVar2, 0, 0 ))
+    {
+        return g_U3550[uVar2]._fU0;
+    }
+    return -1;
+}
+
+/* MP_VENDETTA_GETNEMESISEVENT */ void sub_31773(unknown uParam0)
+{
+    unknown Result;
+    unknown uVar4;
+    unknown uVar5;
+
+    Result._fU0 =  /* SEV_MP_GETMYPLAYER */ sub_110();
+    Result._fU4 =  /* MP_VENDETTA_GETMYNEMESIS */ sub_31647();
+    Result._fU8 = uParam0;
+    return Result;
+}
+

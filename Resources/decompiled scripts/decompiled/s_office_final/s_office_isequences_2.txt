@@ -1,0 +1,27 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U5 = 0;
+    l_U7 = 0;
+    l_U8 = 0;
+    l_U9 = 1500;
+    StrCopy( ref l_U19, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref l_U27, "DEFAULT_SPLINE_CAMERA", 32 );
+    sub_148( "SP", "Script s_office_isequences_2 is starting...", 0 );
+    sub_148( "SP", "Script s_office_isequences_2 is terminating...", 0 );
+    return;
+}
+
+void sub_148(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+

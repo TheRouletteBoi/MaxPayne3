@@ -1,0 +1,1426 @@
+void main()
+{
+    unknown uVar2;
+
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U2 = 0;
+    l_U3 = 1;
+    l_U4 = 0;
+    l_U5 = 1.00000000;
+    l_U6 = -5.00000000;
+    l_U7 = 0;
+    l_U8 = 0;
+    l_U9 = 0;
+    l_U13 = 42;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 0;
+    l_U18 = 0;
+    l_U19 = 90.00000000;
+    l_U20 = {0.00000000, 0.00000000, 0.00000000};
+    l_U23 = {0.00000000, 0.00000000, 0.00000000};
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = 0;
+    l_U31 = 0;
+    l_U32 = nil;
+    l_U33 = {0.00000000, 0.00000000, 0.00000000};
+    l_U36 = 0;
+    l_U37 = 0;
+    l_U38 = 0;
+    l_U39 = -1;
+    l_U40 = {64536, 64536, 64536};
+    l_U89 = "PED_DEF";
+    l_U131 = 1.00000000;
+    l_U143 = 0;
+    l_U184 = 0;
+    l_U204 = 1;
+    l_U1212 = 1.00000000;
+    l_U1213 = 0;
+    l_U1214 = 0;
+    l_U1215 = {51.00000000, -14.00000000, 50.00000000};
+    l_U1218 = {75.00000000, -48.00000000, 65.00000000};
+    l_U1221 = {-19.45000000, 0.00000000, 49.15000000};
+    l_U1224 = {-23.00000000, 0.00000000, 48.00000000};
+    l_U1227 = 50.00000000;
+    l_U1228 = 13500;
+    l_U1229 = 0;
+    l_U1301 = 1;
+    l_U1302 = 0;
+    l_U1303 = 0;
+    l_U1304 = 0;
+    l_U1305 = 0;
+    l_U1306 = 0;
+    l_U1307 = 0;
+    l_U1308 = 0;
+    l_U1309 = 0;
+    l_U1310 = 0;
+    l_U1311 = 0;
+     /* P_FADE_OUT_AND_WAIT */ sub_481( 0 );
+     /* INIT_FX_LIST */ sub_637();
+    uVar2 =  /* MAL_GIVEPEDWEAPON */ sub_2213(  /* PLAYER_PED_ID */ sub_2109(), -862236369, 25000, 0, 0 );
+     /* MAL_TOGGLEWEAPONATTACHMENTTOWEAPON */ sub_2515( ref uVar2, 8, 1 );
+     /* P_INITIALIZE_BUIDLING_COMPONENTS */ sub_2653();
+     /* P_LOAD_COLLAPSE_ASSETS */ sub_5073( 1 );
+     /* P_CREATE_COLLAPSE_OBJECTS */ sub_5676();
+    if ( /* IS_MAX_VALID */ sub_7516())
+    {
+        SET_PED_INVINCIBLE(  /* PLAYER_PED_ID */ sub_2109(), 1 );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2109(), 1 );
+    }
+    if (g_U1009)
+    {
+        l_U1213 = 1;
+        l_U1213 = 1;
+        l_U1212 = 0.66600000;
+        l_U1228 = 13500;
+    }
+    else
+    {
+         /* P_FADE_IN_AND_WAIT */ sub_7706( 500 );
+    }
+    while (true)
+    {
+         /* P_HANDLE_COLLAPSE_WIDGET */ sub_7866();
+        WAIT( 0 );
+    }
+    return;
+}
+
+/* P_FADE_OUT_AND_WAIT */ void sub_481(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade out... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* INIT_FX_LIST */ void sub_637()
+{
+    int I;
+
+    for ( I = 0; I < l_U205; I++ )
+    {
+        l_U205[I]._fU0 = nil;
+        l_U205[I]._fU4 = {0.00000000, 0.00000000, 0.00000000};
+        l_U205[I]._fU16 = {0.00000000, 0.00000000, 0.00000000};
+        l_U205[I]._fU64 = 0;
+    }
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 34.00000000, 48.00000000, 36.00000000, 0, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 34.00000000, 29.00000000, 35.00000000, 200, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 20.00000000, 17.00000000, 33.00000000, 800, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 15.00000000, -0.20000000, 33.00000000, 1000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 17.00000000, 11.00000000, 33.00000000, 1500, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 35.00000000, 28.00000000, 20.00000000, 4500, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_01_S", 22.00000000, -2.00000000, 24.00000000, 4500, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_02_S", 30.00000000, 49.00000000, 38.00000000, 475, 0.00000000, -5.00000000, 25.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_02_S", 30.00000000, 45.00000000, 24.00000000, 1050, 0.00000000, 0.00000000, 65511 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_03_S", 28.00000000, 39.00000000, 34.00000000, 5500, 60.00000000, -20.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_03_S", -8.00000000, 8.50000000, 34.00000000, 7000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_05_S", -9.00000000, 14.00000000, 41.00000000, 800, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "Ho_Collapse_Explo_05_S", 13.00000000, 38.00000000, 41.00000000, 400, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", 1.00000000, 22.00000000, 34.00000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", -8.00000000, 8.50000000, 34.00000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", 0.30000000, 3.50000000, 30.00000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", 7.30000000, 32.50000000, 29.80000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", 1.60000000, 20.80000000, 29.80000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+     /* ADD_FX_ENTRY */ sub_826( "HO_collapse_fire_01", 5.60000000, 33.80000000, 34.80000000, 3000, 0.00000000, 0.00000000, 0.00000000 );
+    return;
+}
+
+/* ADD_FX_ENTRY */ void sub_826(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7)
+{
+    int I;
+
+    for ( I = 0; I < l_U205; I++ )
+    {
+        if (IS_STRING_NULL( l_U205[I]._fU0 ))
+        {
+            l_U205[I]._fU0 = uParam0;
+            l_U205[I]._fU4 = {uParam1};
+            l_U205[I]._fU64 = uParam4;
+            l_U205[I]._fU16 = {uParam5};
+            return;
+        }
+    }
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_2109()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_2147() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_2147()
+{
+    return GET_PLAYER_ID();
+}
+
+/* MAL_GIVEPEDWEAPON */ void sub_2213(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, boolean bParam4)
+{
+    unknown Result;
+
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (bParam4)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                 /* MAL_WRITESCRIPTLOG */ sub_2381( "MAL_GivePedWeapon waiting for weapon to exist" );
+            }
+        }
+        return Result;
+    }
+    return nil;
+}
+
+/* MAL_WRITESCRIPTLOG */ void sub_2381(unknown uParam0)
+{
+    unknown uVar3;
+
+    uVar3 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar3, 1537, "MSWW", 1537, uParam0, 1537, "###" );
+    return;
+}
+
+/* MAL_TOGGLEWEAPONATTACHMENTTOWEAPON */ void sub_2515(unknown uParam0, unknown uParam1, boolean bParam2)
+{
+    if (GET_DOES_WEAPON_EXIST( (uParam0^) ))
+    {
+        if (bParam2)
+        {
+            ENABLE_WEAPON_ATTACHMENT( (uParam0^), uParam1, bParam2 );
+            TOGGLE_WEAPON_ATTACHMENT( (uParam0^), uParam1, bParam2 );
+        }
+        else
+        {
+            TOGGLE_WEAPON_ATTACHMENT( (uParam0^), uParam1, bParam2 );
+            ENABLE_WEAPON_ATTACHMENT( (uParam0^), uParam1, bParam2 );
+        }
+    }
+    return;
+}
+
+/* P_INITIALIZE_BUIDLING_COMPONENTS */ void sub_2653()
+{
+    l_U750._fU4 = {12, 27, 10};
+    l_U750._fU16 = 1.00000000;
+    l_U750._fU20 = 0;
+    l_U750._fU60 = "ho_an_flr002_aa_h";
+    l_U750._fU64 = 0;
+    l_U767._fU4 = {12, 27, 15};
+    l_U767._fU16 = 1.00000000;
+    l_U767._fU20 = 0;
+    l_U767._fU60 = "ho_an_flr003_aa_h";
+    l_U767._fU64 = 0;
+    l_U784._fU4 = {12, 27, 20};
+    l_U784._fU16 = 1.00000000;
+    l_U784._fU20 = 0;
+    l_U784._fU60 = "ho_an_flr004_aa_h";
+    l_U784._fU64 = 0;
+    l_U801._fU4 = {12, 27, 25};
+    l_U801._fU16 = 1.00000000;
+    l_U801._fU20 = 0;
+    l_U801._fU60 = "ho_an_flr005_aa_h";
+    l_U801._fU64 = 0;
+    l_U818[0]._fU4 = {12, 27, 30};
+    l_U818[0]._fU16 = 1.00000000;
+    l_U818[0]._fU20 = 0;
+    l_U818[0]._fU60 = "ho_an_flr006_aa_h";
+    l_U818[0]._fU64 = 0;
+    l_U818[1]._fU4 = {12, 27, 30};
+    l_U818[1]._fU16 = 1.00000000;
+    l_U818[1]._fU20 = 0;
+    l_U818[1]._fU60 = "ho_an_flr006_ab_h";
+    l_U818[1]._fU64 = 0;
+    l_U818[2]._fU4 = {12, 27, 30};
+    l_U818[2]._fU16 = 1.00000000;
+    l_U818[2]._fU20 = 0;
+    l_U818[2]._fU60 = "ho_an_flr006_ac_h";
+    l_U818[2]._fU64 = 0;
+    l_U818[3]._fU4 = {12, 27, 30};
+    l_U818[3]._fU16 = 1.00000000;
+    l_U818[3]._fU20 = 0;
+    l_U818[3]._fU60 = "ho_an_flr006_ad_h";
+    l_U818[3]._fU64 = 0;
+    l_U818[4]._fU4 = {18, 47, 31.21900000};
+    l_U818[4]._fU16 = 1.00000000;
+    l_U818[4]._fU20 = 0;
+    l_U818[4]._fU60 = "p_an_winfrm_aa_h";
+    l_U818[4]._fU64 = 0;
+    l_U818[5]._fU4 = {18, 47, 31.21900000};
+    l_U818[5]._fU16 = 1.00000000;
+    l_U818[5]._fU20 = 0;
+    l_U818[5]._fU60 = "p_an_winfrm_ab_h";
+    l_U818[5]._fU64 = 0;
+    l_U818[6]._fU4 = {18, 47, 31.21900000};
+    l_U818[6]._fU16 = 1.00000000;
+    l_U818[6]._fU20 = 0;
+    l_U818[6]._fU60 = "p_an_winfrm_ac_h";
+    l_U818[6]._fU64 = 0;
+    l_U818[7]._fU4 = {18, 47, 31.21900000};
+    l_U818[7]._fU16 = 1.00000000;
+    l_U818[7]._fU20 = 0;
+    l_U818[7]._fU60 = "p_an_winfrm_ad_h";
+    l_U818[7]._fU64 = 0;
+    l_U955[0]._fU4 = {12, 27, 35};
+    l_U955[0]._fU16 = 1.00000000;
+    l_U955[0]._fU20 = 0;
+    l_U955[0]._fU60 = "ho_an_flr007_aa_h";
+    l_U955[0]._fU64 = 0;
+    l_U955[1]._fU4 = {12, 27, 35};
+    l_U955[1]._fU16 = 1.00000000;
+    l_U955[1]._fU20 = 0;
+    l_U955[1]._fU60 = "ho_an_flr007_ab_h";
+    l_U955[1]._fU64 = 0;
+    l_U955[2]._fU4 = {12, 27, 35};
+    l_U955[2]._fU16 = 1.00000000;
+    l_U955[2]._fU20 = 0;
+    l_U955[2]._fU60 = "ho_an_flr007_ac_h";
+    l_U955[2]._fU64 = 0;
+    l_U955[3]._fU4 = {12, 27, 35};
+    l_U955[3]._fU16 = 1.00000000;
+    l_U955[3]._fU20 = 0;
+    l_U955[3]._fU60 = "ho_an_flr007_ad_h";
+    l_U955[3]._fU64 = 0;
+    l_U955[4]._fU4 = {12, 27, 35};
+    l_U955[4]._fU16 = 1.00000000;
+    l_U955[4]._fU20 = 0;
+    l_U955[4]._fU60 = "ho_an_flr007_ae_h";
+    l_U955[4]._fU64 = 0;
+    l_U955[5]._fU4 = {12, 27, 35};
+    l_U955[5]._fU16 = 1.00000000;
+    l_U955[5]._fU20 = 0;
+    l_U955[5]._fU60 = "ho_an_flr007_af_h";
+    l_U955[5]._fU64 = 0;
+    l_U955[6]._fU4 = {12, 27, 35};
+    l_U955[6]._fU16 = 1.00000000;
+    l_U955[6]._fU20 = 0;
+    l_U955[6]._fU60 = "ho_an_flr007_ag_h";
+    l_U955[6]._fU64 = 0;
+    l_U955[7]._fU4 = {18, 47, 36};
+    l_U955[7]._fU16 = 1.00000000;
+    l_U955[7]._fU20 = 0;
+    l_U955[7]._fU60 = "p_an_winfrm_aa_h";
+    l_U955[7]._fU64 = 0;
+    l_U955[8]._fU4 = {18, 47, 36};
+    l_U955[8]._fU16 = 1.00000000;
+    l_U955[8]._fU20 = 0;
+    l_U955[8]._fU60 = "p_an_winfrm_ab_h";
+    l_U955[8]._fU64 = 0;
+    l_U955[9]._fU4 = {18, 47, 36};
+    l_U955[9]._fU16 = 1.00000000;
+    l_U955[9]._fU20 = 0;
+    l_U955[9]._fU60 = "p_an_winfrm_ac_h";
+    l_U955[9]._fU64 = 0;
+    l_U955[10]._fU4 = {18, 47, 36};
+    l_U955[10]._fU16 = 1.00000000;
+    l_U955[10]._fU20 = 0;
+    l_U955[10]._fU60 = "p_an_winfrm_ad_h";
+    l_U955[10]._fU64 = 0;
+    l_U1143[0]._fU4 = {12, 27, 41};
+    l_U1143[0]._fU16 = 1.00000000;
+    l_U1143[0]._fU20 = 0;
+    l_U1143[0]._fU60 = "ho_an_flrrof_aa_h";
+    l_U1143[0]._fU64 = 0;
+    l_U1143[1]._fU4 = {12, 27, 41};
+    l_U1143[1]._fU16 = 1.00000000;
+    l_U1143[1]._fU20 = 0;
+    l_U1143[1]._fU60 = "ho_an_flrrof_ab_h";
+    l_U1143[1]._fU64 = 0;
+    l_U1143[2]._fU4 = {12, 27, 41};
+    l_U1143[2]._fU16 = 1.00000000;
+    l_U1143[2]._fU20 = 0;
+    l_U1143[2]._fU60 = "ho_an_flrrof_ac_h";
+    l_U1143[2]._fU64 = 0;
+    l_U1143[3]._fU4 = {12, 27, 41};
+    l_U1143[3]._fU16 = 1.00000000;
+    l_U1143[3]._fU20 = 0;
+    l_U1143[3]._fU60 = "ho_an_flrrof_ad_h";
+    l_U1143[3]._fU64 = 0;
+    return;
+}
+
+/* P_LOAD_COLLAPSE_ASSETS */ void sub_5073(unknown uParam0)
+{
+     /* LOADMODEL */ sub_5115( -732347608, uParam0 );
+     /* LOADMODEL */ sub_5115( 243792242, uParam0 );
+     /* LOADMODEL */ sub_5115( -1037534607, uParam0 );
+     /* LOADMODEL */ sub_5115( 1973799339, uParam0 );
+     /* LOADMODEL */ sub_5115( 67436979, uParam0 );
+     /* LOADMODEL */ sub_5115( -1618467083, uParam0 );
+     /* LOADMODEL */ sub_5115( -721108783, uParam0 );
+     /* LOADMODEL */ sub_5115( -2091080413, uParam0 );
+     /* LOADMODEL */ sub_5115( 910452449, uParam0 );
+     /* LOADMODEL */ sub_5115( 1652823720, uParam0 );
+     /* LOADMODEL */ sub_5115( -1077107170, uParam0 );
+     /* LOADMODEL */ sub_5115( -863152154, uParam0 );
+     /* LOADMODEL */ sub_5115( -1683029998, uParam0 );
+     /* LOADMODEL */ sub_5115( 601604623, uParam0 );
+     /* LOADMODEL */ sub_5115( -2117158730, uParam0 );
+     /* LOADMODEL */ sub_5115( 508806708, uParam0 );
+     /* LOADMODEL */ sub_5115( 2124107981, uParam0 );
+     /* LOADMODEL */ sub_5115( 677554510, uParam0 );
+     /* LOADMODEL */ sub_5115( 1704523747, uParam0 );
+     /* LOADMODEL */ sub_5115( 1085034612, uParam0 );
+     /* LOADMODEL */ sub_5115( -246844569, uParam0 );
+     /* LOADMODEL */ sub_5115( -875689657, uParam0 );
+     /* LOADMODEL */ sub_5115( 286256608, uParam0 );
+    return;
+}
+
+/* LOADMODEL */ void sub_5115(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_5232( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* WRITE_STRING */ void sub_5232(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* P_CREATE_COLLAPSE_OBJECTS */ void sub_5676()
+{
+     /* P_RESET_ALL_COLLAPSE_COMPONENTS */ sub_5714();
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U750._fU0, -732347608, l_U750._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U767._fU0, 243792242, l_U767._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U784._fU0, -1037534607, l_U784._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U801._fU0, 1973799339, l_U801._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[0]._fU0, 67436979, l_U818[0]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[1]._fU0, -1618467083, l_U818[1]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[2]._fU0, -721108783, l_U818[2]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[3]._fU0, -2091080413, l_U818[3]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[4]._fU0, 1085034612, l_U818[4]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[5]._fU0, -246844569, l_U818[5]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[6]._fU0, -875689657, l_U818[6]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U818[7]._fU0, 286256608, l_U818[7]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[0]._fU0, 910452449, l_U955[0]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[1]._fU0, 1652823720, l_U955[1]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[2]._fU0, -1077107170, l_U955[2]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[3]._fU0, -863152154, l_U955[3]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[4]._fU0, -1683029998, l_U955[4]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[5]._fU0, 601604623, l_U955[5]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[6]._fU0, -2117158730, l_U955[6]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[7]._fU0, 1085034612, l_U955[7]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[8]._fU0, -246844569, l_U955[8]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[9]._fU0, -875689657, l_U955[9]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U955[10]._fU0, 286256608, l_U955[10]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U1143[0]._fU0, 508806708, l_U1143[0]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U1143[1]._fU0, 2124107981, l_U1143[1]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U1143[2]._fU0, 677554510, l_U1143[2]._fU4, 1, 1 );
+     /* MAL_RECREATEOBJECTWITHNOROTATION */ sub_6188( ref l_U1143[3]._fU0, 1704523747, l_U1143[3]._fU4, 1, 1 );
+    return;
+}
+
+/* P_RESET_ALL_COLLAPSE_COMPONENTS */ void sub_5714()
+{
+     /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U750 );
+     /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U767 );
+     /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U784 );
+     /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U801 );
+     /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U818 );
+     /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U955 );
+     /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U1143 );
+    return;
+}
+
+/* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ void sub_5762(int iParam0)
+{
+     /* CREATETIMER */ sub_5822( iParam0 + 24, iParam0->_fU20, 1, 0 );
+    iParam0->_fU64 = 0;
+    return;
+}
+
+/* CREATETIMER */ void sub_5822(int iParam0, unknown uParam1, boolean bParam2, int iParam3)
+{
+    if (bParam2)
+    {
+        iParam0->_fU0 = TIMERA();
+    }
+    else
+    {
+        iParam0->_fU0 = TIMERB();
+    }
+    if (iParam3 == 1)
+    {
+        iParam0->_fU0 = TIMERSYSTEM();
+    }
+    iParam0->_fU4 = iParam0->_fU0;
+    iParam0->_fU12 = uParam1;
+    iParam0->_fU16 = 0;
+    iParam0->_fU20 = 0;
+    iParam0->_fU24 = 0;
+    iParam0->_fU28 = bParam2;
+    iParam0->_fU32 = iParam3;
+    iParam0->_fU8 = 0;
+    return;
+}
+
+/* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ void sub_6015(unknown uParam0)
+{
+    int I;
+
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+         /* CREATETIMER */ sub_5822( ref (uParam0^)[I]._fU24, (uParam0^)[I]._fU20, 1, 0 );
+        (uParam0^)[I]._fU64 = 0;
+    }
+    return;
+}
+
+/* MAL_RECREATEOBJECTWITHNOROTATION */ void sub_6188(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6)
+{
+     /* MAL_RECREATEOBJECT */ sub_6250( uParam0, uParam1, uParam2, g_U657, uParam5, uParam6 );
+    return;
+}
+
+/* MAL_RECREATEOBJECT */ void sub_6250(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9)
+{
+     /* CLEANOBJECT */ sub_6284( (uParam0^) );
+    (uParam0^) =  /* CREATEOBJECTNOOFFSET */ sub_6351( uParam1, uParam2, uParam5, 0, uParam9, 0 );
+    FREEZE_OBJECT_POSITION( (uParam0^), uParam8 );
+    return;
+}
+
+/* CLEANOBJECT */ void sub_6284(unknown uParam0)
+{
+    if (DOES_OBJECT_EXIST( uParam0 ))
+    {
+        DELETE_OBJECT( ref uParam0 );
+    }
+    return;
+}
+
+/* CREATEOBJECTNOOFFSET */ void sub_6351(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, boolean bParam7, int iParam8, unknown uParam9)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a object with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_5115( uParam0, 1 );
+    }
+    Result = CREATE_OBJECT_NO_OFFSET( uParam0, uParam1, NOT bParam7, uParam9 );
+    if (iParam8 == 1)
+    {
+        while ((DOES_OBJECT_EXIST( Result )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for an object to exist: {!f1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    if ((DOES_OBJECT_EXIST( Result )) == 1)
+    {
+        SET_OBJECT_ROTATION( Result, uParam4 );
+    }
+    return Result;
+}
+
+/* IS_MAX_VALID */ int sub_7516()
+{
+    if ( /* IS_PED_VALID */ sub_7546(  /* PLAYER_PED_ID */ sub_2109() ))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* IS_PED_VALID */ int sub_7546(unknown uParam0)
+{
+    if ((NOT (IS_PED_DEAD( uParam0 ))) AND (DOES_PED_EXIST( uParam0 )))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_7706(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_HANDLE_COLLAPSE_WIDGET */ void sub_7866()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    char[64] cVar49;
+    int I;
+
+    if (l_U1301)
+    {
+        l_U1301 = 0;
+        START_WIDGET_GROUP( "Hotel Collapse" );
+        START_WIDGET_GROUP( "Camera controls" );
+         /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U1215, "Starting position", 1036831949 );
+         /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U1221, "Starting rotation", 1036831949 );
+         /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U1218, "Ending position", 1036831949 );
+         /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U1224, "Ending rotation", 1036831949 );
+        ADD_WIDGET_FLOAT_SLIDER( "FOV", ref l_U1227, 0, 360.00000000, 1 );
+        ADD_WIDGET_INT_SLIDER( "Camera time", ref l_U1228, 0, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        ADD_WIDGET_BOOL( "Print all delays", ref l_U1311 );
+        ADD_WIDGET_BOOL( "Recreate Props", ref l_U1302 );
+        ADD_WIDGET_BOOL( "Play All Animations", ref l_U1303 );
+        ADD_WIDGET_FLOAT_SLIDER( "Global Speed", ref l_U1212, 0, 1, 0.10000000 );
+        ADD_WIDGET_BOOL( "Play With Global Speed", ref l_U1213 );
+        ADD_WIDGET_BOOL( "Do Camera pan", ref l_U1214 );
+        ADD_WIDGET_INT_SLIDER( "Camera pan time", ref l_U1228, 0, 50000, 500 );
+        START_WIDGET_GROUP( "Particle FX" );
+        ADD_WIDGET_BOOL( "Play FX", ref l_U204 );
+         /* ADD_FX_WIDGETS */ sub_8582();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "2nd Floor" );
+        ADD_WIDGET_BOOL( "Floor 2 Anim", ref l_U1304 );
+        ADD_WIDGET_FLOAT_SLIDER( "Floor 2 anim speed", ref l_U750._fU16, 0, 1, 0.10000000 );
+        ADD_WIDGET_INT_SLIDER( "Floor 2 delay", ref l_U750._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "3rd Floor" );
+        ADD_WIDGET_BOOL( "Floor 3 Anim", ref l_U1305 );
+        ADD_WIDGET_FLOAT_SLIDER( "Floor 3 anim speed", ref l_U767._fU16, 0, 1, 0.10000000 );
+        ADD_WIDGET_INT_SLIDER( "Floor 3 delay", ref l_U767._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "4th Floor" );
+        ADD_WIDGET_BOOL( "Floor 4 Anim", ref l_U1306 );
+        ADD_WIDGET_FLOAT_SLIDER( "Floor 4 anim speed", ref l_U784._fU16, 0, 1, 0.10000000 );
+        ADD_WIDGET_INT_SLIDER( "Floor 4 delay", ref l_U784._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "5th Floor" );
+        ADD_WIDGET_BOOL( "Floor 5 Anim", ref l_U1307 );
+        ADD_WIDGET_FLOAT_SLIDER( "Floor 5 anim speed", ref l_U801._fU16, 0, 1, 0.10000000 );
+        ADD_WIDGET_INT_SLIDER( "Floor 5 delay", ref l_U801._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "6th Floor" );
+        ADD_WIDGET_BOOL( "Floor 6 Anim", ref l_U1308 );
+        START_WIDGET_GROUP( "6th Floor Components" );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[0]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[0]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[0]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[0]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[1]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[1]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[1]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[1]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[2]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[2]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[2]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[2]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[3]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[3]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[3]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[3]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[4]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[4]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[4]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[4]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[5]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[5]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[5]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[5]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[6]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[6]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[6]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[6]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[7]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U818[7]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U818[7]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U818[7]._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "7th Floor" );
+        ADD_WIDGET_BOOL( "Floor 7 Anim", ref l_U1309 );
+        START_WIDGET_GROUP( "7th Floor Components" );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[0]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[0]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[0]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[0]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[1]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[1]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[1]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[1]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[2]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[2]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[2]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[2]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[3]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[3]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[3]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[3]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[4]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[4]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[4]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[4]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[5]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[5]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[5]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[5]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[6]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[6]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[6]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[6]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[7]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[7]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[7]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[7]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[8]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[8]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[8]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[8]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[9]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[9]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[9]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[9]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[10]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U955[10]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U955[10]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U955[10]._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Roof" );
+        ADD_WIDGET_BOOL( "Roof Anim", ref l_U1310 );
+        START_WIDGET_GROUP( "Roof Components" );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[0]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U1143[0]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[0]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U1143[0]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[1]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U1143[1]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[1]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U1143[1]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[2]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U1143[2]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[2]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U1143[2]._fU20, 35536, 30000, 1 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[3]._fU60, "Speed" )};
+        ADD_WIDGET_FLOAT_SLIDER( ref uVar2, ref l_U1143[3]._fU16, 0, 1, 0.10000000 );
+        uVar2 = { /* P_MAKE_DEBUG_MESSAGE */ sub_9448( l_U1143[3]._fU60, "Delay" )};
+        ADD_WIDGET_INT_SLIDER( ref uVar2, ref l_U1143[3]._fU20, 35536, 30000, 1 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+    }
+    if (g_U1009)
+    {
+         /* PLAY_LOOPING_COLLAPSE */ sub_12170();
+    }
+    else if (l_U1302)
+    {
+         /* P_CREATE_COLLAPSE_OBJECTS */ sub_5676();
+         /* NIS_CREATE_STATIC_CAM */ sub_12464( ref uVar18, 76.49222000, 0.09993600, 79.37492000, -40.16498000, -0.00003200, 77.89156000, 1110704128, 1000 );
+         /* NIS_PLAY_STATIC_CAMERA */ sub_12730( ref uVar18 );
+        l_U1302 = 0;
+    }
+    if (l_U1303)
+    {
+        if ( /* F_PLAY_ANIMS */ sub_15294( l_U1213, l_U1214 ))
+        {
+             /* P_RESET_ALL_COLLAPSE_COMPONENTS */ sub_5714();
+            l_U1303 = 0;
+        }
+    }
+    if (l_U1304)
+    {
+        if ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U750, 0 ))
+        {
+             /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U750 );
+            l_U1304 = 0;
+        }
+    }
+    if (l_U1305)
+    {
+        if ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U767, 0 ))
+        {
+             /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U767 );
+            l_U1305 = 0;
+        }
+    }
+    if (l_U1306)
+    {
+        if ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U784, 0 ))
+        {
+             /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U784 );
+            l_U1306 = 0;
+        }
+    }
+    if (l_U1307)
+    {
+        if ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U801, 0 ))
+        {
+             /* P_RESET_BUILDING_COLLAPSE_COMPONENTS */ sub_5762( ref l_U801 );
+            l_U1307 = 0;
+        }
+    }
+    if (l_U1308)
+    {
+        if ( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U818, 0 ))
+        {
+             /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U818 );
+            l_U1308 = 0;
+        }
+    }
+    if (l_U1309)
+    {
+        if ( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U955, 0 ))
+        {
+             /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U955 );
+            l_U1309 = 0;
+        }
+    }
+    if (l_U1310)
+    {
+        if ( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U1143, 0 ))
+        {
+             /* P_RESET_BUILDING_COMPLEX_COLLAPSE_COMPONENTS */ sub_6015( ref l_U1143 );
+            l_U1310 = 0;
+        }
+    }
+    if (l_U1311)
+    {
+        StrCopy( ref cVar49, l_U750._fU60, 64 );
+        ConcatString(ref cVar49, " delay: ", 64);
+        ConcatString(ref cVar49, l_U750._fU20, 64);
+        PRINTSTRING( ref cVar49 );
+        PRINTNL();
+        StrCopy( ref cVar49, l_U767._fU60, 64 );
+        ConcatString(ref cVar49, " delay: ", 64);
+        ConcatString(ref cVar49, l_U767._fU20, 64);
+        PRINTSTRING( ref cVar49 );
+        PRINTNL();
+        StrCopy( ref cVar49, l_U784._fU60, 64 );
+        ConcatString(ref cVar49, " delay: ", 64);
+        ConcatString(ref cVar49, l_U784._fU20, 64);
+        PRINTSTRING( ref cVar49 );
+        PRINTNL();
+        StrCopy( ref cVar49, l_U801._fU60, 64 );
+        ConcatString(ref cVar49, " delay: ", 64);
+        ConcatString(ref cVar49, l_U801._fU20, 64);
+        PRINTSTRING( ref cVar49 );
+        PRINTNL();
+        for ( I = 0; I < l_U818; I++ )
+        {
+            StrCopy( ref cVar49, l_U818[I]._fU60, 64 );
+            ConcatString(ref cVar49, " delay: ", 64);
+            ConcatString(ref cVar49, l_U818[I]._fU20, 64);
+            PRINTSTRING( ref cVar49 );
+            PRINTNL();
+        }
+        for ( I = 0; I < l_U955; I++ )
+        {
+            StrCopy( ref cVar49, l_U955[I]._fU60, 64 );
+            ConcatString(ref cVar49, " delay: ", 64);
+            ConcatString(ref cVar49, l_U955[I]._fU20, 64);
+            PRINTSTRING( ref cVar49 );
+            PRINTNL();
+        }
+        for ( I = 0; I < l_U1143; I++ )
+        {
+            StrCopy( ref cVar49, l_U1143[I]._fU60, 64 );
+            ConcatString(ref cVar49, " delay: ", 64);
+            ConcatString(ref cVar49, l_U1143[I]._fU20, 64);
+            PRINTSTRING( ref cVar49 );
+            PRINTNL();
+        }
+        l_U1311 = 0;
+    }
+    return;
+}
+
+/* P_ADD_WIDGET_VECTOR_SLIDER */ void sub_7999(int iParam0, unknown uParam1, unknown uParam2)
+{
+    START_WIDGET_GROUP( uParam1 );
+    ADD_WIDGET_FLOAT_SLIDER( "x", iParam0 + 0, 60536, 5000, uParam2 );
+    ADD_WIDGET_FLOAT_SLIDER( "y", iParam0 + 4, 60536, 5000, uParam2 );
+    ADD_WIDGET_FLOAT_SLIDER( "z", iParam0 + 8, 60536, 5000, uParam2 );
+    STOP_WIDGET_GROUP();
+    return;
+}
+
+/* ADD_FX_WIDGETS */ void sub_8582()
+{
+    int I;
+
+    for ( I = 0; I < l_U205; I++ )
+    {
+        if (NOT (IS_STRING_NULL( l_U205[I]._fU0 )))
+        {
+            START_WIDGET_GROUP( l_U205[I]._fU0 );
+             /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U205[I]._fU4, "FX Position", 1036831949 );
+             /* P_ADD_WIDGET_VECTOR_SLIDER */ sub_7999( ref l_U205[I]._fU16, "FX Orientation", 1036831949 );
+            ADD_WIDGET_INT_SLIDER( "FX delay", ref l_U205[I]._fU64, 0, 50000, 1 );
+            STOP_WIDGET_GROUP();
+        }
+    }
+    return;
+}
+
+/* P_MAKE_DEBUG_MESSAGE */ void sub_9448(unknown uParam0, unknown uParam1)
+{
+    char[64] Result;
+
+    StrCopy( ref Result, uParam0, 64 );
+    ConcatString(ref Result, " ", 64);
+    ConcatString(ref Result, uParam1, 64);
+    return Result;
+}
+
+/* PLAY_LOOPING_COLLAPSE */ void sub_12170()
+{
+    switch (l_U1229)
+    {
+        case 0:
+         /* NIS_PRE_SETUP */ sub_12260( 1, 0, 0, 1 );
+         /* P_CREATE_COLLAPSE_OBJECTS */ sub_5676();
+         /* NIS_CREATE_STATIC_CAM */ sub_12464( ref l_U1230, l_U1215, l_U1221, l_U1227, 2000 );
+         /* NIS_CREATE_STATIC_CAM */ sub_12464( ref l_U1261, l_U1218, l_U1224, l_U1227, l_U1228 );
+         /* NIS_PLAY_STATIC_CAMERA */ sub_12730( ref l_U1230 );
+        DO_SCREEN_FADE_IN( 500 );
+        l_U1229 = 1;
+        break;
+        case 1:
+        if (IS_SCREEN_FADED_IN())
+        {
+            if ( /* NIS_IS_SHOT_FINISHED */ sub_13001( ref l_U1230, 1 ))
+            {
+                if (l_U204)
+                {
+                     /* START_COLLAPSE_FX */ sub_13342();
+                }
+                 /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U750, 1 );
+                 /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U767, 1 );
+                 /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U784, 1 );
+                 /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U801, 1 );
+                 /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U818, 1 );
+                 /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U955, 1 );
+                 /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U1143, 1 );
+                 /* NIS_PLAY_INTERP_WITH_STATIC_CAMS */ sub_14465( ref l_U1230, ref l_U1261, l_U1261._fU84, 1, 1 );
+                l_U1229 = 2;
+            }
+        }
+        break;
+        case 2:
+         /* HANDLE_COLLAPSE_FX */ sub_14605();
+        if ( /* NIS_IS_SHOT_FINISHED */ sub_13001( ref l_U1261, 1 ))
+        {
+            DO_SCREEN_FADE_OUT( 500 );
+            l_U1229 = 3;
+        }
+        break;
+        case 3:
+        if (IS_SCREEN_FADED_OUT())
+        {
+             /* P_CREATE_AND_START_TIMER */ sub_13837( ref l_U1292, 1000 );
+            l_U1229 = 4;
+        }
+        break;
+        case 4:
+        if ( /* ISTIMERDONE */ sub_13062( ref l_U1292 ))
+        {
+             /* NIS_POST_SETUP */ sub_14871( 1, 1 );
+            l_U1229 = 0;
+        }
+        break;
+    }
+    return;
+}
+
+/* NIS_PRE_SETUP */ void sub_12260(int iParam0, int iParam1, unknown uParam2, boolean bParam3)
+{
+    END_POSTFX_BLENDER( 12, 0 );
+    if (bParam3)
+    {
+        STOP_ALL_IMAGEFX( 0 );
+    }
+    SET_WIDESCREEN_BORDERS( 1, 500 );
+    DISPLAY_HUD( 0 );
+    if (iParam0 == 1)
+    {
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2109() )))
+        {
+            SET_PLAYER_CONTROL(  /* PLAYER_ID */ sub_2147(), 0, uParam2 );
+            SET_PED_DUCKING(  /* PLAYER_PED_ID */ sub_2109(), 0 );
+            if (iParam1 == 1)
+            {
+                CLEAR_PED_TASKS_IMMEDIATELY(  /* PLAYER_PED_ID */ sub_2109() );
+            }
+            SET_PED_INVINCIBLE(  /* PLAYER_PED_ID */ sub_2109(), 1 );
+        }
+    }
+    DEACTIVATE_BULLET_TIME( 1, 0 );
+    return;
+}
+
+/* NIS_CREATE_STATIC_CAM */ void sub_12464(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8)
+{
+    iParam0->_fU4 = {uParam4};
+    iParam0->_fU16 = {uParam1};
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU32 = 0;
+    iParam0->_fU36 = 0;
+    iParam0->_fU84 = uParam8;
+    iParam0->_fU88 = 0;
+    iParam0->_fU92 = 0;
+    iParam0->_fU40 = 0;
+    iParam0->_fU44 = 0;
+    iParam0->_fU100 = 1;
+    iParam0->_fU104 = 1;
+    iParam0->_fU96 = 0;
+     /* CREATETIMER */ sub_5822( iParam0 + 48, uParam8, 1, 0 );
+    iParam0->_fU0 = CREATE_CAM_WITH_PARAMS( ref g_U724, iParam0->_fU16, iParam0->_fU4, iParam0->_fU28, 1 );
+    SET_CAM_PARAMS( iParam0->_fU0, iParam0->_fU16, iParam0->_fU4, iParam0->_fU28, 0, 1, 1 );
+    return;
+}
+
+/* NIS_PLAY_STATIC_CAMERA */ void sub_12730(int iParam0)
+{
+    RENDER_SCRIPT_CAMS( 0, 0, 3000, 0 );
+    SET_CAM_ACTIVE( iParam0->_fU0, 1 );
+    RENDER_SCRIPT_CAMS( 1, 0, 3000, 0 );
+     /* STARTTIMER */ sub_12810( iParam0 + 48 );
+    iParam0->_fU32 = 1;
+    iParam0->_fU40 = 1;
+    return;
+}
+
+/* STARTTIMER */ void sub_12810(int iParam0)
+{
+    if (NOT iParam0->_fU20)
+    {
+        iParam0->_fU20 = 1;
+        iParam0->_fU16 = 0;
+        if (iParam0->_fU28)
+        {
+            iParam0->_fU0 = TIMERA();
+        }
+        else
+        {
+            iParam0->_fU0 = TIMERB();
+        }
+        if (iParam0->_fU32 == 1)
+        {
+            iParam0->_fU0 = TIMERSYSTEM();
+        }
+        iParam0->_fU4 = iParam0->_fU0;
+    }
+    return;
+}
+
+/* NIS_IS_SHOT_FINISHED */ int sub_13001(int iParam0, boolean bParam1)
+{
+    if (bParam1 == 1)
+    {
+        if (NOT iParam0->_fU44)
+        {
+            if ((ref iParam0->_fU48->_fU16) || ( /* ISTIMERDONE */ sub_13062( iParam0 + 48 )))
+            {
+                iParam0->_fU44 = 1;
+                iParam0->_fU36 = 1;
+                return 1;
+            }
+        }
+    }
+    if (NOT bParam1)
+    {
+        if ((ref iParam0->_fU48->_fU16) || ( /* ISTIMERDONE */ sub_13062( iParam0 + 48 )))
+        {
+            iParam0->_fU36 = 1;
+            return 1;
+        }
+    }
+    return 0;
+}
+
+/* ISTIMERDONE */ int sub_13062(int iParam0)
+{
+    if (iParam0->_fU16)
+    {
+        return 0;
+    }
+    else if (NOT iParam0->_fU20)
+    {
+        return 0;
+    }
+    if (iParam0->_fU28)
+    {
+        iParam0->_fU4 = TIMERA();
+    }
+    else
+    {
+        iParam0->_fU4 = TIMERB();
+    }
+    if (iParam0->_fU32 == 1)
+    {
+        iParam0->_fU4 = TIMERSYSTEM();
+    }
+    if ((iParam0->_fU4 - iParam0->_fU0) >= iParam0->_fU12)
+    {
+        iParam0->_fU16 = 1;
+        iParam0->_fU20 = 0;
+        return 1;
+        break;
+    }
+    return 0;
+}
+
+/* START_COLLAPSE_FX */ void sub_13342()
+{
+    int I;
+
+    for ( I = 0; I < l_U205; I++ )
+    {
+        if (l_U205[I]._fU64 > 0)
+        {
+             /* CREATETIMER */ sub_5822( ref l_U205[I]._fU28, l_U205[I]._fU64, 1, 0 );
+             /* STARTTIMER */ sub_12810( ref l_U205[I]._fU28 );
+        }
+        else if ((IS_STRING_NULL( l_U205[I]._fU0 )) == 0)
+        {
+             /* WRITESCRIPTLOG */ sub_13526( "BSW", "playing collapse FX without timer", 0 );
+            START_PARTICLE_FX_NON_LOOPED_AT_COORD( l_U205[I]._fU0, l_U205[I]._fU4, l_U205[I]._fU16, 1065353216 );
+        }
+    }
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_13526(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* F_HANDLE_SIMPLE_EXPLOSION */ int sub_13716(int iParam0, boolean bParam1)
+{
+    char[64] cVar4;
+    unknown uVar20;
+
+    StrCopy( ref cVar4, "Playing anim : ", 64 );
+    if (bParam1)
+    {
+        uVar20 = l_U1212;
+    }
+    else
+    {
+        uVar20 = iParam0->_fU16;
+    }
+    if (iParam0->_fU20 > 0)
+    {
+        if (NOT (ref iParam0->_fU24->_fU20))
+        {
+             /* P_CREATE_AND_START_TIMER */ sub_13837( iParam0 + 24, iParam0->_fU20 );
+        }
+        else if ( /* ISTIMERDONE */ sub_13062( iParam0 + 24 ))
+        {
+             /* WRITESCRIPTLOG */ sub_13526( "AT", "Delay timer is done!", 0 );
+            ConcatString(ref cVar4, iParam0->_fU60, 64);
+            PRINTSTRING( ref cVar4 );
+            PRINTNL();
+             /* MAL_PLAYOBJECTANIM */ sub_14009( iParam0->_fU0, iParam0->_fU60, "ho_anim_coll", uVar20, 0 );
+            iParam0->_fU64 = 1;
+        }
+    }
+    else if (NOT iParam0->_fU64)
+    {
+        ConcatString(ref cVar4, iParam0->_fU60, 64);
+        PRINTSTRING( ref cVar4 );
+        PRINTNL();
+         /* MAL_PLAYOBJECTANIM */ sub_14009( iParam0->_fU0, iParam0->_fU60, "ho_anim_coll", uVar20, 0 );
+        iParam0->_fU64 = 1;
+    }
+    if (NOT iParam0->_fU64)
+    {
+        return 0;
+    }
+    return 1;
+}
+
+/* P_CREATE_AND_START_TIMER */ void sub_13837(unknown uParam0, unknown uParam1)
+{
+     /* CREATETIMER */ sub_5822( uParam0, uParam1, 1, 0 );
+     /* STARTTIMER */ sub_12810( uParam0 );
+    return;
+}
+
+/* MAL_PLAYOBJECTANIM */ void sub_14009(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (DOES_OBJECT_EXIST( uParam0 ))
+    {
+        PLAY_OBJECT_ANIM( uParam0, uParam1, uParam2, 0.00000000, 0, 1 );
+        SET_OBJECT_ANIM_CURRENT_TIME( uParam0, uParam1, uParam2, uParam4 );
+        SET_OBJECT_ANIM_SPEED( uParam0, uParam1, uParam2, uParam3 );
+    }
+    return;
+}
+
+/* F_HANDLE_COMPLEX_EXPLOSION */ int sub_14273(unknown uParam0, unknown uParam1)
+{
+    int I;
+
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+        if (NOT (uParam0^)[I]._fU64)
+        {
+             /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref (uParam0^)[I], uParam1 );
+        }
+    }
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+        if (NOT (uParam0^)[I]._fU64)
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+/* NIS_PLAY_INTERP_WITH_STATIC_CAMS */ void sub_14465(int iParam0, int iParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    RENDER_SCRIPT_CAMS( 0, 0, 3000, 0 );
+    SET_CAM_ACTIVE_WITH_INTERP( iParam1->_fU0, iParam0->_fU0, uParam2, uParam3, uParam4 );
+    RENDER_SCRIPT_CAMS( 1, 0, 3000, 0 );
+     /* STARTTIMER */ sub_12810( iParam1 + 48 );
+    iParam1->_fU32 = 1;
+    iParam1->_fU40 = 1;
+    return;
+}
+
+/* HANDLE_COLLAPSE_FX */ void sub_14605()
+{
+    int I;
+
+    for ( I = 0; I < l_U205; I++ )
+    {
+        if ( /* ISTIMERDONE */ sub_13062( ref l_U205[I]._fU28 ))
+        {
+             /* WRITESCRIPTLOG */ sub_13526( "BSW", "playing collapse FX with timer", 0 );
+            START_PARTICLE_FX_NON_LOOPED_AT_COORD( l_U205[I]._fU0, l_U205[I]._fU4, l_U205[I]._fU16, 1065353216 );
+        }
+    }
+    return;
+}
+
+/* NIS_POST_SETUP */ void sub_14871(boolean bParam0, boolean bParam1)
+{
+    SET_WIDESCREEN_BORDERS( 0, 500 );
+    DISPLAY_HUD( 1 );
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2109() )))
+    {
+        SET_PLAYER_CONTROL(  /* PLAYER_ID */ sub_2147(), 1, 0 );
+        SET_PED_INVINCIBLE(  /* PLAYER_PED_ID */ sub_2109(), 0 );
+        if (bParam0)
+        {
+             /* P_MAX_RELOAD_WEAPONS */ sub_14969();
+        }
+    }
+    PULSE_CROSSHAIR( 1 );
+    if (bParam1)
+    {
+        DESTROY_ALL_CAMS();
+    }
+    return;
+}
+
+/* P_MAX_RELOAD_WEAPONS */ void sub_14969()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2109() )) == 0)
+    {
+        uVar2 = GET_WEAPON_FROM_HAND(  /* PLAYER_PED_ID */ sub_2109(), 0, 0 );
+        uVar3 = GET_WEAPON_FROM_HAND(  /* PLAYER_PED_ID */ sub_2109(), 1, 0 );
+        if ((GET_DOES_WEAPON_EXIST( uVar2 )) == 1)
+        {
+            uVar4 = GET_MAX_AMMO_IN_HAND_CLIP_MP(  /* PLAYER_PED_ID */ sub_2109(), 0 );
+            SET_WEAPON_AMMO_IN_CLIP( uVar2, uVar4 );
+        }
+        if ((GET_DOES_WEAPON_EXIST( uVar3 )) == 1)
+        {
+            uVar5 = GET_MAX_AMMO_IN_HAND_CLIP_MP(  /* PLAYER_PED_ID */ sub_2109(), 1 );
+            SET_WEAPON_AMMO_IN_CLIP( uVar3, uVar5 );
+        }
+    }
+    return;
+}
+
+/* F_PLAY_ANIMS */ int sub_15294(boolean bParam0, boolean bParam1)
+{
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+    unknown uVar60;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+
+    if (bParam1)
+    {
+         /* NIS_CREATE_STATIC_CAM */ sub_12464( ref uVar4, l_U1215, l_U1221, 1110704128, 1000 );
+         /* NIS_CREATE_STATIC_CAM */ sub_12464( ref uVar35, l_U1218, l_U1224, l_U1227, l_U1228 );
+         /* NIS_PLAY_INTERP_WITH_STATIC_CAMS */ sub_14465( ref uVar4, ref uVar35, uVar35._fU84, 1, 1 );
+    }
+    if (bParam0)
+    {
+        if (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U1143, 1 )) AND (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U955, 1 )) AND (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U818, 1 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U801, 1 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U784, 1 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U767, 1 )) AND ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U750, 1 ))))))))
+        {
+             /* P_RESET_ALL_COLLAPSE_COMPONENTS */ sub_5714();
+            return 1;
+        }
+    }
+    else if (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U1143, 0 )) AND (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U955, 0 )) AND (( /* F_HANDLE_COMPLEX_EXPLOSION */ sub_14273( ref l_U818, 0 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U801, 0 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U784, 0 )) AND (( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U767, 0 )) AND ( /* F_HANDLE_SIMPLE_EXPLOSION */ sub_13716( ref l_U750, 0 ))))))))
+    {
+         /* P_RESET_ALL_COLLAPSE_COMPONENTS */ sub_5714();
+        return 1;
+    }
+    return 0;
+}
+

@@ -1,0 +1,290 @@
+void main()
+{
+    unknown[28] uVar2;
+    unknown uVar31;
+    unknown[28] uVar32;
+    int iVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+    unknown uVar66;
+    unknown uVar67;
+
+    array(ref uVar2, 28);
+    array(ref uVar32, 28);
+    DEBUG_GET_BG_SCRIPT_NAME( l_U0._fU0, 24, ref uVar62 );
+    sub_43( ref uVar2, ref uVar32 );
+    while (NOT IS_EXITFLAG_SET())
+    {
+        if (sub_451( ref uVar2 ))
+        {
+            if (HAS_ACHIEVEMENT_HASH( l_U0._fU0 ))
+            {
+                uVar31 = GET_ACHIEVEMENT_HASH( l_U0._fU0 );
+                iVar61 = sub_561( uVar31 );
+                if (iVar61 == 47)
+                {
+                    SCRIPT_ASSERT( "Unknown achievement for script {}", 1, 1281, ref uVar62 );
+                }
+                if (NOT (HAS_ACHIEVEMENT_BEEN_PASSED( iVar61 )))
+                {
+                    GIVE_ACHIEVEMENT_TO_PLAYER( iVar61 );
+                }
+                SET_GRIND_PROGRESS( l_U0._fU0, 28 );
+            }
+        }
+        WAIT( 500 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+void sub_43(unknown uParam0, unknown uParam1)
+{
+    int I;
+
+    sub_55( uParam1 );
+    for ( I = 0; I <= ((uParam0^) - 1); I++ )
+    {
+        (uParam0^)[I] = GET_SCRIPT_ID_FROM_NAME_HASH( (uParam1^)[I] );
+    }
+    return;
+}
+
+void sub_55(unknown uParam0)
+{
+    (uParam0^)[0] = -1733301529;
+    (uParam0^)[1] = -435428571;
+    (uParam0^)[2] = -1499059243;
+    (uParam0^)[3] = -390543117;
+    (uParam0^)[4] = -854701902;
+    (uParam0^)[5] = 1158949725;
+    (uParam0^)[6] = -1010064967;
+    (uParam0^)[7] = 739826901;
+    (uParam0^)[8] = -431080321;
+    (uParam0^)[9] = 2044703942;
+    (uParam0^)[10] = 717658837;
+    (uParam0^)[11] = -623635282;
+    (uParam0^)[12] = 46460285;
+    (uParam0^)[13] = 199411518;
+    (uParam0^)[14] = -1975867433;
+    (uParam0^)[15] = -23180153;
+    (uParam0^)[16] = 1688037373;
+    (uParam0^)[17] = -37895048;
+    (uParam0^)[18] = 510436827;
+    (uParam0^)[19] = 358497722;
+    (uParam0^)[20] = 839673535;
+    (uParam0^)[21] = -1735871600;
+    (uParam0^)[22] = -73513104;
+    (uParam0^)[23] = -148729342;
+    (uParam0^)[24] = -1062873302;
+    (uParam0^)[25] = 1824016594;
+    (uParam0^)[26] = 2045290584;
+    (uParam0^)[27] = 1127937291;
+    return;
+}
+
+int sub_451(unknown uParam0)
+{
+    int I;
+
+    for ( I = 0; I <= ((uParam0^) - 1); I++ )
+    {
+        if (NOT (IS_GRIND_COMPLETE( (uParam0^)[I] )))
+        {
+            return 0;
+        }
+    }
+    return 1;
+}
+
+int sub_561(int iParam0)
+{
+    if (-1146414694 == iParam0)
+    {
+        return 6;
+    }
+    else if (-2020874284 == iParam0)
+    {
+        return 7;
+    }
+    else if (-1072992620 == iParam0)
+    {
+        return 8;
+    }
+    else if (-1138021227 == iParam0)
+    {
+        return 9;
+    }
+    else if (1169930204 == iParam0)
+    {
+        return 12;
+    }
+    else if (894380494 == iParam0)
+    {
+        return 13;
+    }
+    else if (-1887648597 == iParam0)
+    {
+        return 19;
+    }
+    else if (250384686 == iParam0)
+    {
+        return 22;
+    }
+    else if (-236216889 == iParam0)
+    {
+        return 23;
+    }
+    else if (-908204842 == iParam0)
+    {
+        return 25;
+    }
+    else if (-1910574457 == iParam0)
+    {
+        return 26;
+    }
+    else if (-1380517188 == iParam0)
+    {
+        return 27;
+    }
+    else if (-2087186069 == iParam0)
+    {
+        return 28;
+    }
+    else if (798653872 == iParam0)
+    {
+        return 29;
+    }
+    else if (856759581 == iParam0)
+    {
+        return 30;
+    }
+    else if (-2033733138 == iParam0)
+    {
+        return 31;
+    }
+    else if (1750766993 == iParam0)
+    {
+        return 33;
+    }
+    else if (190577917 == iParam0)
+    {
+        return 34;
+    }
+    else if (445628010 == iParam0)
+    {
+        return 36;
+    }
+    else if (-1418889567 == iParam0)
+    {
+        return 37;
+    }
+    else if (-1937661411 == iParam0)
+    {
+        return 38;
+    }
+    else if (1471909938 == iParam0)
+    {
+        return 39;
+    }
+    else if (295131503 == iParam0)
+    {
+        return 40;
+    }
+    else if (-1840089745 == iParam0)
+    {
+        return 41;
+    }
+    else if (413701081 == iParam0)
+    {
+        return 55;
+    }
+    else if (1919330772 == iParam0)
+    {
+        return 56;
+    }
+    else if (-776312476 == iParam0)
+    {
+        return 57;
+    }
+    else if (-354656819 == iParam0)
+    {
+        return 67;
+    }
+    else if (-131886825 == iParam0)
+    {
+        return 68;
+    }
+    else if (2072137184 == iParam0)
+    {
+        return 69;
+    }
+    else if (1990685410 == iParam0)
+    {
+        return 70;
+    }
+    else if (-1964575224 == iParam0)
+    {
+        return 71;
+    }
+    else if (1936540661 == iParam0)
+    {
+        return 73;
+    }
+    else if (-853320383 == iParam0)
+    {
+        return 75;
+    }
+    else if (1487702713 == iParam0)
+    {
+        return 76;
+    }
+    else if (451740120 == iParam0)
+    {
+        return 77;
+    }
+    else if (-1902093201 == iParam0)
+    {
+        return 78;
+    }
+    else if (1703837976 == iParam0)
+    {
+        return 79;
+    }
+    else if (1160683219 == iParam0)
+    {
+        return 81;
+    }
+    else if (-399526276 == iParam0)
+    {
+        return 82;
+    }
+    else if (1503261217 == iParam0)
+    {
+        return 83;
+    }
+    else if (314440369 == iParam0)
+    {
+        return 84;
+    }
+    else if (-1308373012 == iParam0)
+    {
+        return 85;
+    }
+    else if (2047625315 == iParam0)
+    {
+        return 86;
+    }
+    else if (162128598 == iParam0)
+    {
+        return 87;
+    }
+    else if (1561056854 == iParam0)
+    {
+        return 89;
+    };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    return 47;
+}
+

@@ -1,0 +1,311 @@
+void main()
+{
+    sub_10();
+    g_U5603 = {0, 0, 8};
+    StrCopy( ref g_U5606, "", 24 );
+    FREEZE_TIME_OF_DAY( 12, 0 );
+    SET_WEATHER_TYPE_NOW_PERSIST( "SNOW_LIGHT" );
+    return;
+}
+
+void sub_10()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+
+    NETWORK_DUMP_STORED_QUERIES();
+    NETWORK_REQUIRE_STORED_QUERIES( "common:/data/networkleveldata_queries.txt" );
+    g_U5593 = sub_82( 0, 0, 0 );
+    g_U5595 = sub_82( 3, 0, 0 );
+    g_U5601 = sub_82( 10, 0, 0 );
+    g_U5596 = sub_82( 20, 0, 0 );
+    g_U5599 = sub_82( 22, 0, 0 );
+    g_U5600 = sub_82( 2, 0, 0 );
+    g_U5598 = sub_82( 51, 0, 0 );
+    g_U5597 = sub_82( 24, 0, 0 );
+    g_U5594 = sub_82( 42, 0, 0 );
+    g_U5602 = sub_82( 14, 0, 0 );
+    uVar7 = sub_275( 38, 0, 0 );
+    sub_317( uVar7, ref uVar2, ref uVar3 );
+    SET_TIME_OF_DAY( uVar2, 0 );
+    FREEZE_TIME_OF_DAY( uVar2, 0 );
+    CLEAR_WEATHER_TYPE_PERSIST();
+    g_U4337 = {uVar3};
+    SET_WEATHER_TYPE_NOW_PERSIST( ref g_U4337 );
+    sub_452( ref g_U4063._fU16, ref g_U4063._fU0 );
+    g_U4063._fU32 = GET_HASH_KEY( ref g_U4063._fU16 );
+    sub_565( ref g_U4063._fU16 );
+    sub_583();
+    return;
+}
+
+void sub_82(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    return sub_103( g_U2544, uParam0, uParam1, uParam2 );
+}
+
+void sub_103(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    return NETWORK_LEVEL_DATA_RUN_STORED_QUERY_COUNT( uParam0, uParam1, uParam2, uParam3 );
+}
+
+void sub_275(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    return NETWORK_LEVEL_DATA_RUN_STORED_QUERY_NODE( g_U2544, uParam0, uParam1, uParam2 );
+}
+
+int sub_317(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    if (NETWORK_LEVEL_DATA_GET_INT_FROM_NODE( uParam1, ":hour", uParam0 ))
+    {
+        if (NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 16, uParam2, ":weather", uParam0 ))
+        {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void sub_452(unknown uParam0, unknown uParam1)
+{
+    unknown uVar4;
+
+    uVar4 = sub_275( 30, 0, 0 );
+    NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 16, uParam0, ":levelName", uVar4 );
+    NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 16, uParam1, ":levelNameShort", uVar4 );
+    return;
+}
+
+void sub_565(unknown uParam0)
+{
+    return;
+}
+
+void sub_583()
+{
+    int iVar2;
+    int iVar3;
+    int J;
+    int I;
+    unknown uVar6;
+    unknown uVar7;
+    int iVar8;
+    int iVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    int iVar13;
+    int iVar14;
+    unknown uVar15;
+    char[32] cVar16;
+    int iVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+
+    for ( J = 0; J < g_U5594; J++ )
+    {
+        iVar2 = sub_275( 42, J, 0 );
+        if (iVar2 != g_U2544)
+        {
+            if (NETWORK_LEVEL_DATA_GET_HASH_FROM_NODE( ref uVar6, ":model", iVar2 ))
+            {
+                uVar10 = {sub_661( iVar2 )};
+                uVar15 = sub_706( iVar2 );
+                if (NETWORK_LEVEL_DATA_GET_BOOL_FROM_NODE( ref uVar7, ":autospawn", iVar2 ))
+                {
+                    iVar13 = sub_781( uVar7 );
+                }
+                else
+                {
+                    iVar13 = 0;
+                }
+                if (NETWORK_LEVEL_DATA_GET_BOOL_FROM_NODE( ref uVar7, ":nodestroy", iVar2 ))
+                {
+                    iVar14 = sub_781( uVar7 );
+                }
+                else
+                {
+                    iVar14 = 0;
+                }
+                if (NOT (NETWORK_LEVEL_DATA_GET_STRING_FROM_NODE( 32, ref cVar16, ":milo", iVar2 )))
+                {
+                    StrCopy( ref cVar16, "", 32 );
+                }
+                if (NOT (NETWORK_LEVEL_DATA_GET_INT_FROM_NODE( ref iVar9, ":colour", iVar2 )))
+                {
+                    iVar9 = -1;
+                }
+                if (NETWORK_LEVEL_DATA_GET_BOOL_FROM_NODE( ref uVar7, ":frozen", iVar2 ))
+                {
+                    iVar24 = sub_781( uVar7 );
+                }
+                else
+                {
+                    iVar24 = 0;
+                }
+                g_U5612[J] = {sub_1008( J, "", uVar10, uVar15, iVar9, iVar13, iVar14, ref cVar16, iVar24 )};
+                g_U5612[J]._fU20 = uVar6;
+                iVar8 = sub_103( iVar2, 44, 0, 0 );
+                for ( I = 0; I < iVar8; I++ )
+                {
+                    if (NETWORK_LEVEL_DATA_RUN_STORED_QUERY_INT( ref uVar7, iVar2, 44, I, 0 ))
+                    {
+                        sub_1296( J, uVar7 );
+                    }
+                }
+                if (NETWORK_LEVEL_DATA_GET_HASH_FROM_NODE( ref uVar6, ":name", iVar2 ))
+                {
+                    iVar3 = sub_275( 45, uVar6, 0 );
+                    if (iVar3 != g_U2544)
+                    {
+                        iVar8 = sub_103( iVar3, 41, 0, 0 );
+                        for ( I = 0; I < iVar8; I++ )
+                        {
+                            if (g_U5612[J]._fU108 < 4)
+                            {
+                                if (sub_1448( iVar3, I, ref uVar25 ))
+                                {
+                                    g_U5612[J]._fU56[g_U5612[J]._fU108] = {uVar25};
+                                    g_U5612[J]._fU108++;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return;
+}
+
+void sub_661(unknown uParam0)
+{
+    unknown Result;
+    unknown uVar4;
+    unknown uVar5;
+
+    NETWORK_LEVEL_DATA_GET_VECTOR_FROM_NODE( ref Result, ":pos", uParam0 );
+    return Result;
+}
+
+void sub_706(unknown uParam0)
+{
+    unknown Result;
+
+    NETWORK_LEVEL_DATA_GET_FLOAT_FROM_NODE( ref Result, ":heading", uParam0 );
+    return Result;
+}
+
+int sub_781(int iParam0)
+{
+    if (iParam0 > 0)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void sub_1008(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    unknown Result;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+
+    array(ref Result._fU56, 4);
+    ref Result;
+    uParam1 = uParam1;
+    Result._fU0 = sub_1039( iParam0 + 300 );
+    Result._fU4 = {uParam2};
+    Result._fU16 = uParam5 - 90;
+    Result._fU24 = -1;
+    Result._fU36 = uParam10;
+    Result._fU28 = 0;
+    Result._fU32 = uParam6;
+    Result._fU40 = uParam7;
+    Result._fU44 = 0;
+    Result._fU48 = uParam8;
+    if (NOT (ARE_STRINGS_EQUAL( uParam9, "" )))
+    {
+        Result._fU52 = GET_HASH_KEY( uParam9 );
+    }
+    else
+    {
+        Result._fU52 = 0;
+    }
+    Result._fU108 = 0;
+    return Result;
+}
+
+void sub_1039(unknown uParam0)
+{
+    return SEV_ID_TO_INDEX( uParam0 );
+}
+
+void sub_1296(unknown uParam0, unknown uParam1)
+{
+    SET_BIT( ref g_U5612[uParam0]._fU28, uParam1 );
+    return;
+}
+
+int sub_1448(unknown uParam0, unknown uParam1, int iParam2)
+{
+    int iVar5;
+    unknown uVar6;
+
+    iVar5 = sub_1466( uParam0, 41, uParam1, 0 );
+    if (iVar5 != g_U2544)
+    {
+        if (NETWORK_LEVEL_DATA_GET_HASH_FROM_NODE( iParam2 + 4, ":sectionID", iVar5 ))
+        {
+            if (NETWORK_LEVEL_DATA_GET_HASH_FROM_NODE( iParam2 + 0, ":uid", iVar5 ))
+            {
+                if (NETWORK_LEVEL_DATA_GET_BOOL_FROM_NODE( ref uVar6, ":enable", iVar5 ))
+                {
+                    iParam2->_fU8 = sub_781( uVar6 );
+                }
+                else
+                {
+                    iParam2->_fU8 = 0;
+                }
+                return 1;
+            }
+        }
+    }
+    return 0;
+}
+
+void sub_1466(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    return NETWORK_LEVEL_DATA_RUN_STORED_QUERY_NODE( uParam0, uParam1, uParam2, uParam3 );
+}
+

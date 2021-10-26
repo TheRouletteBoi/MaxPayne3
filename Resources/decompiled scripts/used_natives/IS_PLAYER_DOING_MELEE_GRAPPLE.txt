@@ -1,0 +1,18 @@
+if ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_9388() ))) AND ((NOT IS_LAST_MAN_STANDING_ACTIVE()) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))) // s_cemet_chapel
+if ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_9388() ))) AND ((NOT (IS_PED_DEAD( g_U824 ))) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))) // s_cemet_chapel
+if ((IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_1806() )) || (IS_PED_LOS_CLEAR_TO_TARGET_PED( l_U534,  /* PLAYER_PED_ID */ sub_1768() ))) // s_cemet_mausoleum
+if ((IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_1806() )) || (IS_LAST_MAN_STANDING_ACTIVE())) // s_cemet_mausoleum
+if ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_7895() ))) AND ((NOT IS_LAST_MAN_STANDING_ACTIVE()) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))) // s_cemet_chapel
+if ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_7895() ))) AND ((NOT (IS_PED_DEAD( g_U824 ))) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))) // s_cemet_chapel
+if ((IS_PLAYER_DOING_MELEE_GRAPPLE( sub_1612() )) || (IS_PED_LOS_CLEAR_TO_TARGET_PED( l_U534, sub_1590() ))) // s_cemet_mausoleum
+if ((IS_PLAYER_DOING_MELEE_GRAPPLE( sub_1612() )) || (IS_LAST_MAN_STANDING_ACTIVE())) // s_cemet_mausoleum
+if ((IS_PED_IN_MELEE_COMBAT(  /* PLAYER_PED_ID */ sub_1233() )) || (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_1271() ))) // s_fire_fire_cub
+if ((IS_PED_IN_MELEE_COMBAT(  /* PLAYER_PED_ID */ sub_3100() )) || (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_3138() ))) // s_fire_isequences_3
+if ((NOT (IS_PED_IN_MELEE_COMBAT(  /* PLAYER_PED_ID */ sub_3100() ))) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_3138() ))) AND (IS_PED_DEAD( l_U1184 )))) // s_fire_isequences_3
+if ((IS_PED_IN_MELEE_COMBAT( sub_1111() )) || (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_1133() ))) // s_fire_fire_cub
+if ((IS_PED_IN_MELEE_COMBAT( sub_3021() )) || (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_3043() ))) // s_fire_isequences_3
+if ((NOT (IS_PED_IN_MELEE_COMBAT( sub_3021() ))) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_3043() ))) AND (IS_PED_DEAD( l_U1184 )))) // s_fire_isequences_3
+if ((NOT ( /* F_ISPLAYERINTRIGGERBOX */ sub_56920( l_U1306 ))) AND ((TIME_SINCE_LAST_MONOLOGUE() > 5000) AND ((NOT ( /* IS_ANY_SPEECH_CURRENTLY_PLAYING */ sub_62404())) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_11416() ))) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))))) // s_nyc2_rooftops
+if ((NOT (sub_50397( l_U1306 ))) AND ((TIME_SINCE_LAST_MONOLOGUE() > 5000) AND ((NOT sub_55307()) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_10216() ))) AND (NOT (IS_BULLET_CAMERA_RUNNING( 0 ))))))) // s_nyc2_rooftops
+if (( /* MAL_COMPAREPLAYERPOSAXIS */ sub_70950( "Y", "Less", -2.75000000 )) AND ((( /* GET_DISTANCE_BETWEEN_PEDS */ sub_78648(  /* PLAYER_PED_ID */ sub_1262(), l_U1129, 0 )) > 4) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE(  /* PLAYER_ID */ sub_1300() ))) AND ((NOT (IS_PED_DEAD( g_U4392 ))) AND ((NOT (IS_BULLET_CAMERA_RUNNING( 0 ))) AND (NOT (IS_PED_DEAD( l_U1129 )))))))) // stad_mediastairwell
+if ((sub_54867( "Y", "Less", -2.75000000 )) AND (((sub_61414( sub_1132(), l_U1129, 0 )) > 4) AND ((NOT (IS_PLAYER_DOING_MELEE_GRAPPLE( sub_1154() ))) AND ((NOT (IS_PED_DEAD( g_U4392 ))) AND ((NOT (IS_BULLET_CAMERA_RUNNING( 0 ))) AND (NOT (IS_PED_DEAD( l_U1129 )))))))) // stad_mediastairwell

@@ -1,0 +1,1102 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U28 = 1;
+    l_U29 = 1;
+    l_U30 = 1;
+    l_U31 = 1;
+    l_U32 = 1;
+    l_U33 = 1;
+    l_U35 = {35.78562000, 156.48830000, 1.56016000};
+    l_U38 = 37.52304000;
+    l_U98 = {28.92252000, 207.79350000, 0.00000000};
+    l_U101 = 64.79273000;
+    l_U203 = {18.34688000, 213.01700000, 0.00000000};
+    l_U206 = 0.00000000;
+    l_U266 = {6.80808700, 207.53860000, 0.00000000};
+    l_U269 = 134.43620000;
+    l_U329 = {-16.80943000, 184.23540000, 1.60013100};
+    l_U332 = 307.81310000;
+    l_U378 = {-16.79693000, 174.59700000, 1.49515300};
+    l_U381 = 285.26510000;
+     /* WRITESCRIPTLOG */ sub_300( "AT", "Script s_marina_vehicleTest.sc is starting...", 0 );
+     /* P_LOAD_DEBUG_ASSETS */ sub_418();
+     /* P_CREATE_DEBUG_STATIC_DATA */ sub_1389();
+    while (true)
+    {
+         /* P_HANDLE_VEHICLE_DEBUG_WIDGET */ sub_2210();
+        WAIT( 0 );
+    }
+     /* P_UNLOAD_DEBUG_ASSETS */ sub_13928();
+     /* WRITESCRIPTLOG */ sub_300( "AT", "Script s_marina_vehicleTest.sc is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_300(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* P_LOAD_DEBUG_ASSETS */ void sub_418()
+{
+     /* WRITESCRIPTLOG */ sub_300( "SP", "P_LOAD_DEBUG_ASSETS", 0 );
+     /* BLOCKLOADMODEL */ sub_488( 43800727 );
+     /* BLOCKLOADMODEL */ sub_488( g_U1038 );
+     /* BLOCKLOADMODEL */ sub_488( 557810561 );
+     /* BLOCKLOADMODEL */ sub_488( 2121457570 );
+     /* BLOCKLOADMODEL */ sub_488( g_U1042 );
+     /* BLOCKLOADMODEL */ sub_488( -838056405 );
+     /* BLOCKLOADMODEL */ sub_488( 1751023925 );
+     /* BLOCKLOADMODEL */ sub_488( 170939170 );
+     /* LOADACTIONTREE */ sub_1039( "LEVEL/S_MARINA/s_marina_drv.act", 1 );
+     /* LOADANIMDICT */ sub_1215( "level_s_marina_rs", 0, 1 );
+    return;
+}
+
+/* BLOCKLOADMODEL */ void sub_488(unknown uParam0)
+{
+    DISPLAYF( "[MSWW]### Trying to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_690( "[SP]### ERROR! (BlockLoadModel) Trying to block load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    LOAD_ALL_OBJECTS_NOW();
+    while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        LOAD_ALL_OBJECTS_NOW();
+        DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+        WAIT( 0 );
+    }
+    DISPLAYF( "[MSWW]### Has loaded model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+    return;
+}
+
+/* WRITE_STRING */ void sub_690(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* LOADACTIONTREE */ void sub_1039(unknown uParam0, int iParam1)
+{
+    ACTION_TREE_LOAD( uParam0 );
+    if (iParam1 == 1)
+    {
+        while ((IS_ACTION_TREE_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for an Action Tree to be loaded: {} ###", 1, 1537, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* LOADANIMDICT */ void sub_1215(unknown uParam0, unknown uParam1, int iParam2)
+{
+    REQUEST_ANIM_DICT( uParam0, uParam1 );
+    "[doubled result, dropped if not asigned]";
+    if (iParam2 == 1)
+    {
+        while ((HAS_ANIM_DICT_LOADED( uParam0, uParam1 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for an animation dictionary to be loaded: {} ###", 1, 1537, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_CREATE_DEBUG_STATIC_DATA */ void sub_1389()
+{
+    int I;
+
+    for ( I = 0; I < 4; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U39[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    for ( I = 0; I < 4; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U102[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    for ( I = 0; I < 4; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U207[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    for ( I = 0; I < 4; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U270[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    for ( I = 0; I < 3; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U333[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    for ( I = 0; I < 10; I++ )
+    {
+         /* P_CREATEPEDSTRUCT */ sub_1478( ref l_U382[I], 0.00000000, 0.00000000, 0.00000000, 0.00000000, 43800727, 7, 3, 2, 0, 0 );
+    }
+    l_U524[0] = {30.27272000, 154.11000000, 1.48715000};
+    l_U524[1] = {10.18065000, 185.31630000, 3.43014600};
+    l_U524[2] = {-23.23346000, 186.59600000, 3.43014600};
+    l_U534[0] = 355.44250000;
+    l_U534[1] = 16.65111000;
+    l_U534[2] = 268.50740000;
+    l_U160[0] = {-0.20000000, 0.06000000, 1.05000000};
+    l_U160[1] = {-0.46200000, -1.36300000, 0.96000000};
+    l_U160[2] = {0.57900000, -1.12600000, 1.07000000};
+    l_U170[0] = {-0.37300000, 0.06000000, 1.09100000};
+    l_U170[1] = {-0.57300000, -0.97100000, 1.05000000};
+    l_U170[2] = {0.63000000, -1.31000000, 1.05000000};
+    return;
+}
+
+/* P_CREATEPEDSTRUCT */ void sub_1478(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU16 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* P_HANDLE_VEHICLE_DEBUG_WIDGET */ void sub_2210()
+{
+    vector vVar2;
+    int I;
+    int J;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+
+    if (l_U2 == 0)
+    {
+        START_WIDGET_GROUP( "Vehicle Debug" );
+        ADD_WIDGET_STRING( "Create a helicopter, car, and boat and load them up with passengers." );
+        ADD_WIDGET_BOOL( "Create All With Maximum Passengers", ref l_U3 );
+        START_WIDGET_GROUP( "Helicopters" );
+        ADD_WIDGET_BOOL( "Teleport Player to Helicopter Area", ref l_U19 );
+        START_WIDGET_GROUP( "CS Helicopter" );
+        ADD_WIDGET_BOOL( "Create Helicopter", ref l_U5 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U28, 1, 4, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Create Peds in Helicopter", ref l_U6 );
+        ADD_WIDGET_BOOL( "Destroy Helicopter", ref l_U22 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Boats" );
+        ADD_WIDGET_BOOL( "Create All Boats", ref l_U7 );
+        ADD_WIDGET_BOOL( "Create Max Peds in All Boats", ref l_U11 );
+        ADD_WIDGET_BOOL( "Teleport Player to Boat Area", ref l_U20 );
+        START_WIDGET_GROUP( "Mini Boat" );
+        ADD_WIDGET_BOOL( "Create Mini Boat", ref l_U8 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U29, 1, 4, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Facing Forward", ref l_U193 );
+        ADD_WIDGET_BOOL( "Create Peds in Mini Boat", ref l_U12 );
+        ADD_WIDGET_BOOL( "Destroy Mini Boat", ref l_U23 );
+        ADD_WIDGET_BOOL( "Run Test Recording", ref l_U197 );
+        ADD_WIDGET_BOOL( "Stop Test Recording", ref l_U198 );
+        ADD_WIDGET_BOOL( "Reload Action Tree", ref l_U195 );
+        START_WIDGET_GROUP( "Actions" );
+        ADD_WIDGET_BOOL( "Mini Boat Peds Bail", ref l_U194 );
+        ADD_WIDGET_BOOL( "Kill Ped 1", ref l_U199 );
+        ADD_WIDGET_BOOL( "Kill Ped 2", ref l_U200 );
+        ADD_WIDGET_BOOL( "Kill Ped 3", ref l_U201 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "FRONT LEFT" );
+        START_WIDGET_GROUP( "Facing Front" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U160[0]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U160[0]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U160[0]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Facing Back" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U170[0]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U170[0]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U170[0]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "BACK LEFT" );
+        START_WIDGET_GROUP( "Facing Front" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U160[1]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U160[1]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U160[1]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Facing Back" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U170[1]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U170[1]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U170[1]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "BACK RIGHT" );
+        START_WIDGET_GROUP( "Facing Front" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U160[2]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U160[2]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U160[2]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Facing Back" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U170[2]._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U170[2]._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U170[2]._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Drug Boat" );
+        ADD_WIDGET_BOOL( "Create Drug Boat", ref l_U9 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U30, 1, 4, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Create Peds in Drug Boat", ref l_U13 );
+        ADD_WIDGET_BOOL( "Destroy Drug Boat", ref l_U24 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Chase Boat" );
+        ADD_WIDGET_BOOL( "Create Chase Boat", ref l_U10 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U31, 1, 4, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Create Peds in Chase Boat", ref l_U14 );
+        ADD_WIDGET_BOOL( "Destroy Chase Boat", ref l_U25 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Cars" );
+        ADD_WIDGET_BOOL( "Teleport Player to Car Area", ref l_U21 );
+        START_WIDGET_GROUP( "Truck" );
+        ADD_WIDGET_BOOL( "Create Truck", ref l_U17 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U32, 1, 3, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Create Peds in Truck", ref l_U18 );
+        ADD_WIDGET_BOOL( "Destroy Truck", ref l_U26 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Car" );
+        ADD_WIDGET_BOOL( "Create Car", ref l_U15 );
+        ADD_WIDGET_INT_SLIDER( "Select Number of Passengers", ref l_U33, 1, 10, 1 );
+        ADD_WIDGET_STRING( "If only one ped spawned, ped will default to driver's seat." );
+        ADD_WIDGET_BOOL( "Create Peds in Car", ref l_U16 );
+        ADD_WIDGET_BOOL( "Destroy Car", ref l_U27 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        ADD_WIDGET_BOOL( "Destroy All", ref l_U4 );
+        STOP_WIDGET_GROUP();
+        l_U2 = 1;
+    }
+    if (l_U20)
+    {
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_5433() )))
+        {
+             /* TELEPORTPED */ sub_5562(  /* PLAYER_PED_ID */ sub_5433(), l_U524[1], l_U534[1] );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( 0, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( 0, 1065353216, 0 );
+        l_U20 = 0;
+    }
+    if (l_U21)
+    {
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_5433() )))
+        {
+             /* TELEPORTPED */ sub_5562(  /* PLAYER_PED_ID */ sub_5433(), l_U524[2], l_U534[2] );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( 0, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( 0, 1065353216, 0 );
+        l_U21 = 0;
+    }
+    if (l_U19)
+    {
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_5433() )))
+        {
+             /* TELEPORTPED */ sub_5562(  /* PLAYER_PED_ID */ sub_5433(), l_U524[0], l_U534[0] );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( 0, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( 0, 1065353216, 0 );
+        l_U19 = 0;
+    }
+    if (l_U5)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U34, 2121457570, ref l_U92, l_U35, l_U38 );
+        l_U5 = 0;
+    }
+    if (l_U6)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U34 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U34, 2121457570, ref l_U92, l_U35, l_U38 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U39, ref l_U92, l_U34, l_U28 );
+        l_U6 = 0;
+    }
+    if (l_U8)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U97, -838056405, ref l_U155, l_U98, l_U101 );
+        l_U8 = 0;
+    }
+    if (l_U12)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U97 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U97, -838056405, ref l_U155, l_U98, l_U101 );
+        }
+         /* P_CREATE_PASSENGERS_IN_MINIBOAT */ sub_7868( ref l_U102, ref l_U155, l_U97, l_U29 );
+        l_U12 = 0;
+    }
+    if (l_U195 == 1)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U155 );
+         /* CLEANVEHICLE */ sub_6055( l_U97 );
+         /* UNLOADACTIONTREE */ sub_10372( "LEVEL/S_MARINA/s_marina_drv.act" );
+         /* UNLOADANIMDICT */ sub_10439( "level_s_marina_rs" );
+         /* LOADACTIONTREE */ sub_1039( "LEVEL/S_MARINA/s_marina_drv.act", 1 );
+         /* LOADANIMDICT */ sub_1215( "level_s_marina_rs", 0, 1 );
+        l_U195 = 0;
+    }
+    if (l_U197 == 1)
+    {
+        RENDER_SCRIPT_CAMS( 0, 0, 3000, 0 );
+         /* CLEANCAMERA */ sub_10586( ref l_U196 );
+         /* LOADVEHICLERECORDING */ sub_10682( 37, 1 );
+        vVar2 = {8.00000000, -8.00000000, 5.00000000};
+        if (((IS_VEHICLE_DEAD( l_U97 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U97 )) == 1))
+        {
+            START_PLAYBACK_RECORDED_VEHICLE( l_U97, 37 );
+            l_U196 = CREATE_CAM( "DEFAULT_SCRIPTED_CAMERA", 0 );
+            ATTACH_CAM_TO_VEHICLE( l_U196, l_U97, vVar2, 1 );
+            SET_CAM_ACTIVE( l_U196, 1 );
+            RENDER_SCRIPT_CAMS( 1, 0, 3000, 0 );
+        }
+        l_U197 = 0;
+    }
+    if ((DOES_CAM_EXIST( l_U196 )) == 1)
+    {
+        if ((IS_CAM_ACTIVE( l_U196 )) == 1)
+        {
+            if (((IS_VEHICLE_DEAD( l_U97 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U97 )) == 1))
+            {
+                POINT_CAM_AT_VEHICLE( l_U196, l_U97, 0.00000000, 0.00000000, 0.00000000, 1 );
+            }
+        }
+    }
+    if (l_U198 == 1)
+    {
+        RENDER_SCRIPT_CAMS( 0, 0, 3000, 0 );
+         /* CLEANCAMERA */ sub_10586( ref l_U196 );
+        if (((IS_VEHICLE_DEAD( l_U97 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U97 )) == 1))
+        {
+            if ((IS_PLAYBACK_GOING_ON_FOR_VEHICLE( l_U97 )) == 1)
+            {
+                STOP_PLAYBACK_RECORDED_VEHICLE( l_U97 );
+            }
+        }
+        l_U198 = 0;
+    }
+    if (l_U199 == 1)
+    {
+        if (((IS_PED_DEAD( l_U155[1] )) == 0) AND ((DOES_PED_EXIST( l_U155[1] )) == 1))
+        {
+            SET_PED_HEALTH( l_U155[1], 0, 0 );
+        }
+        l_U199 = 0;
+    }
+    if (l_U200 == 1)
+    {
+        if (((IS_PED_DEAD( l_U155[2] )) == 0) AND ((DOES_PED_EXIST( l_U155[2] )) == 1))
+        {
+            SET_PED_HEALTH( l_U155[2], 0, 0 );
+        }
+        l_U200 = 0;
+    }
+    if (l_U201 == 1)
+    {
+        if (((IS_PED_DEAD( l_U155[3] )) == 0) AND ((DOES_PED_EXIST( l_U155[3] )) == 1))
+        {
+            SET_PED_HEALTH( l_U155[3], 0, 0 );
+        }
+        l_U201 = 0;
+    }
+    if (l_U194 == 1)
+    {
+        for ( I = 1; I <= (l_U155 - 1); I++ )
+        {
+            if (((IS_PED_DEAD( l_U155[I] )) == 0) AND ((DOES_PED_EXIST( l_U155[I] )) == 1))
+            {
+                 /* WRITESCRIPTLOG */ sub_300( "SP", "Mini Boat Peds Bail 01 - Start Bail", 0 );
+                 /* WRITE_INT */ sub_11561( I );
+                PED_SET_ACTION_INTENTION( l_U155[I], 47, 1000, 0.00000000, 0.00000000, 0.00000000 );
+            }
+        }
+        l_U194 = 0;
+    }
+    if (((IS_VEHICLE_DEAD( l_U97 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U97 )) == 1))
+    {
+        for ( J = 1; J <= (l_U155 - 1); J++ )
+        {
+            if (((IS_PED_DEAD( l_U155[J] )) == 0) AND ((DOES_PED_EXIST( l_U155[J] )) == 1))
+            {
+                if ((PED_GET_ACTION_INTENTION_STATUS( l_U155[J], 55 )) == 3)
+                {
+                     /* WRITESCRIPTLOG */ sub_300( "SP", "Mini Boat Peds Bail - Off Boat", 0 );
+                     /* WRITE_INT */ sub_11561( J );
+                    SET_PED_COLLISION( l_U155[J], 0 );
+                    SET_USE_ANIMATED_VELOCITY( l_U155[J], 0 );
+                    "[doubled result, dropped if not asigned]";
+                    "[doubled result, dropped if not asigned]";
+                    SET_APPLY_WATER_PHYSICS_TO_RAGDOLL( l_U155[J], 0 );
+                    SET_PED_FREEZE_ORIENTATION( l_U155[J], 1 );
+                    DETACH_PED( l_U155[J], 1 );
+                    SET_PED_COLLISION( l_U155[J], 0 );
+                    uVar7 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_VEHICLE_SPEED_VECTOR( l_U97, 0 )};
+                     /* WRITE_VECTOR */ sub_11956( uVar7 );
+                    SET_PED_VELOCITY( l_U155[J], uVar7 );
+                    PED_FINISH_ACTION_INTENTION( l_U155[J], 55 );
+                }
+            }
+            if (((IS_PED_DEAD( l_U155[J] )) == 0) AND ((DOES_PED_EXIST( l_U155[J] )) == 1))
+            {
+                if ((PED_GET_ACTION_INTENTION_STATUS( l_U155[J], 56 )) == 3)
+                {
+                     /* WRITESCRIPTLOG */ sub_300( "SP", "Mini Boat Peds Bail - Death", 0 );
+                     /* WRITE_INT */ sub_11561( J );
+                    uVar10 = {((vector( "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_BONE_COORDS( l_U155[J], 49176, 0.00000000, 0.00000000, 0.00000000 ))) - l_U180[J]) / GET_FRAME_TIME()};
+                    SET_PED_VELOCITY( l_U155[J], uVar10 );
+                    SET_PED_TO_RAGDOLL( l_U155[J], 1000, 1000, 0, 0, 0, 1, -1056964608 );
+                    PED_FINISH_ACTION_INTENTION( l_U155[J], 56 );
+                }
+            }
+            if (((IS_PED_DEAD( l_U155[J] )) == 0) AND ((DOES_PED_EXIST( l_U155[J] )) == 1))
+            {
+                l_U180[J] = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_BONE_COORDS( l_U155[J], 49176, 0.00000000, 0.00000000, 0.00000000 )};
+            }
+        }
+    }
+    if (l_U9)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U202, 1751023925, ref l_U260, l_U203, l_U206 );
+        l_U9 = 0;
+    }
+    if (l_U13)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U202 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U202, 1751023925, ref l_U260, l_U203, l_U206 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U207, ref l_U260, l_U202, l_U30 );
+        l_U13 = 0;
+    }
+    if (l_U10)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U265, 170939170, ref l_U323, l_U266, l_U269 );
+        l_U10 = 0;
+    }
+    if (l_U14)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U265 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U265, 170939170, ref l_U323, l_U266, l_U269 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U270, ref l_U323, l_U265, l_U31 );
+        l_U14 = 0;
+    }
+    if (l_U7)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U97, -838056405, ref l_U155, l_U98, l_U101 );
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U202, 1751023925, ref l_U260, l_U203, l_U206 );
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U265, 170939170, ref l_U323, l_U266, l_U269 );
+        l_U7 = 0;
+    }
+    if (l_U11)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U97 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U97, -838056405, ref l_U155, l_U98, l_U101 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U202 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U202, 1751023925, ref l_U260, l_U203, l_U206 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U265 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U265, 170939170, ref l_U323, l_U266, l_U269 );
+        }
+         /* P_CREATE_PASSENGERS_IN_MINIBOAT */ sub_7868( ref l_U102, ref l_U155, l_U97, 4 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U207, ref l_U260, l_U202, 4 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U270, ref l_U323, l_U265, 4 );
+        l_U11 = 0;
+    }
+    if (l_U17)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U328, g_U1038, ref l_U373, l_U329, l_U332 );
+        l_U17 = 0;
+    }
+    if (l_U18)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U328 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U328, g_U1038, ref l_U373, l_U329, l_U332 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U333, ref l_U373, l_U328, l_U32 );
+        l_U18 = 0;
+    }
+    if (l_U15)
+    {
+         /* P_CREATE_VEHICLE */ sub_5867( ref l_U377, 557810561, ref l_U513, l_U378, l_U381 );
+        l_U15 = 0;
+    }
+    if (l_U16)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U377 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U377, 557810561, ref l_U513, l_U378, l_U381 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U382, ref l_U513, l_U377, l_U33 );
+        l_U16 = 0;
+    }
+    if (l_U3)
+    {
+        if (NOT (DOES_VEHICLE_EXIST( l_U34 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U34, 2121457570, ref l_U92, l_U35, l_U38 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U97 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U97, -838056405, ref l_U155, l_U98, l_U101 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U202 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U202, 1751023925, ref l_U260, l_U203, l_U206 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U265 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U265, 170939170, ref l_U323, l_U266, l_U269 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U328 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U328, g_U1038, ref l_U373, l_U329, l_U332 );
+        }
+        if (NOT (DOES_VEHICLE_EXIST( l_U377 )))
+        {
+             /* P_CREATE_VEHICLE */ sub_5867( ref l_U377, 557810561, ref l_U513, l_U378, l_U381 );
+        }
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U39, ref l_U92, l_U34, 4 );
+         /* P_CREATE_PASSENGERS_IN_MINIBOAT */ sub_7868( ref l_U102, ref l_U155, l_U97, 4 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U207, ref l_U260, l_U202, 4 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U270, ref l_U323, l_U265, 4 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U333, ref l_U373, l_U328, 3 );
+         /* P_CREATE_PASSENGERS_IN_VEHICLE */ sub_6775( ref l_U382, ref l_U513, l_U377, 10 );
+        l_U3 = 0;
+    }
+    if (l_U22)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U92 );
+         /* CLEANVEHICLE */ sub_6055( l_U34 );
+        l_U22 = 0;
+    }
+    if (l_U23)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U155 );
+         /* CLEANVEHICLE */ sub_6055( l_U97 );
+        l_U23 = 0;
+    }
+    if (l_U24)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U260 );
+         /* CLEANVEHICLE */ sub_6055( l_U202 );
+        l_U24 = 0;
+    }
+    if (l_U25)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U323 );
+         /* CLEANVEHICLE */ sub_6055( l_U265 );
+        l_U25 = 0;
+    }
+    if (l_U26)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U373 );
+         /* CLEANVEHICLE */ sub_6055( l_U328 );
+        l_U26 = 0;
+    }
+    if (l_U27)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U513 );
+         /* CLEANVEHICLE */ sub_6055( l_U377 );
+        l_U27 = 0;
+    }
+    if (l_U4)
+    {
+         /* CLEANPEDARRAY */ sub_5898( ref l_U92 );
+         /* CLEANVEHICLE */ sub_6055( l_U34 );
+         /* CLEANPEDARRAY */ sub_5898( ref l_U155 );
+         /* CLEANVEHICLE */ sub_6055( l_U97 );
+         /* CLEANPEDARRAY */ sub_5898( ref l_U260 );
+         /* CLEANVEHICLE */ sub_6055( l_U202 );
+         /* CLEANPEDARRAY */ sub_5898( ref l_U323 );
+         /* CLEANVEHICLE */ sub_6055( l_U265 );
+         /* CLEANPEDARRAY */ sub_5898( ref l_U373 );
+         /* CLEANVEHICLE */ sub_6055( l_U328 );
+         /* CLEANPEDARRAY */ sub_5898( ref l_U513 );
+         /* CLEANVEHICLE */ sub_6055( l_U377 );
+        l_U4 = 0;
+    }
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_5433()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_5471() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_5471()
+{
+    return GET_PLAYER_ID();
+}
+
+/* TELEPORTPED */ void sub_5562(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_CREATE_VEHICLE */ void sub_5867(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, float fParam6)
+{
+     /* CLEANPEDARRAY */ sub_5898( uParam2 );
+     /* CLEANVEHICLE */ sub_6055( (uParam0^) );
+    fParam6 = 0.00000000;
+    (uParam0^) =  /* CREATEVEHICLE */ sub_6141( uParam1, uParam3, fParam6, 0, 0, 0 );
+    return;
+}
+
+/* CLEANPEDARRAY */ void sub_5898(unknown uParam0)
+{
+    int I;
+
+    I = 0;
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+         /* CLEANPED */ sub_5948( (uParam0^)[I] );
+    }
+    return;
+}
+
+/* CLEANPED */ void sub_5948(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+/* CLEANVEHICLE */ void sub_6055(unknown uParam0)
+{
+    if (IS_VEHICLE_DEAD( uParam0 ))
+    {
+        ;
+    }
+    if (DOES_VEHICLE_EXIST( uParam0 ))
+    {
+        DELETE_VEHICLE( ref uParam0 );
+    }
+    return;
+}
+
+/* CREATEVEHICLE */ void sub_6141(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, int iParam5, unknown uParam6, unknown uParam7)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a vehicle with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_6268( uParam0, 1 );
+    }
+    Result = CREATE_VEHICLE( uParam0, uParam1, uParam4, uParam6, uParam7 );
+    if (iParam5 == 1)
+    {
+        while ((DOES_VEHICLE_EXIST( Result )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for vehicle to exist: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    if (DOES_VEHICLE_EXIST( Result ))
+    {
+        SET_PETROLTANK_BURN_RATE( Result, 125.00000000 );
+    }
+    return Result;
+}
+
+/* LOADMODEL */ void sub_6268(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_690( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_CREATE_PASSENGERS_IN_VEHICLE */ void sub_6775(unknown uParam0, unknown uParam1, unknown uParam2, int iParam3)
+{
+    int I;
+    int iVar7;
+
+     /* CLEANPEDARRAY */ sub_5898( uParam1 );
+    for ( I = 0; I < iParam3; I++ )
+    {
+         /* WRITESCRIPTLOG */ sub_300( "AT", "Creating ped in vehicle.", 0 );
+        if (I == 0)
+        {
+             /* WRITESCRIPTLOG */ sub_300( "AT", "Creating a driver.", 0 );
+            iVar7 = -1;
+        }
+        else
+        {
+             /* WRITESCRIPTLOG */ sub_300( "AT", "Creating a passenger.", 0 );
+            iVar7 = -2;
+        }
+        (uParam1^)[I] =  /* CREATEPEDINVEHICLE */ sub_6975( ref (uParam0^)[I], uParam2, iVar7, 0, 0 );
+    }
+    return;
+}
+
+/* CREATEPEDINVEHICLE */ void sub_6975(int iParam0, unknown uParam1, unknown uParam2, int iParam3, unknown uParam4)
+{
+    if ((HAS_MODEL_LOADED( iParam0->_fU16 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_6268( iParam0->_fU16, 1 );
+    }
+    if (((IS_VEHICLE_DEAD( uParam1 )) == 0) AND ((DOES_VEHICLE_EXIST( uParam1 )) == 1))
+    {
+        iParam0->_fU40 = CREATE_PED_INSIDE_VEHICLE( uParam1, iParam0->_fU24, iParam0->_fU16, uParam2, uParam4, iParam0->_fU48 );
+    }
+    else
+    {
+        SCRIPT_ASSERT( "The vehicle your trying to create a ped inside of is not valid!!!", 0 );
+    }
+    if (iParam3 == 1)
+    {
+        while ((DOES_PED_EXIST( iParam0->_fU40 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for ped created inside a vehicle to exist... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+     /* SETPEDDEFAULTSTATS */ sub_7385( iParam0->_fU40 );
+     /* SETPEDDEFAULTTEMPLATE */ sub_7486( iParam0->_fU40 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        iParam0->_fU44 = 1;
+    }
+    return iParam0->_fU40;
+}
+
+/* SETPEDDEFAULTSTATS */ void sub_7385(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+/* SETPEDDEFAULTTEMPLATE */ void sub_7486(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+
+/* P_CREATE_PASSENGERS_IN_MINIBOAT */ void sub_7868(unknown uParam0, unknown uParam1, unknown uParam2, int iParam3)
+{
+    int I;
+    float fVar7;
+
+    for ( I = 0; I < iParam3; I++ )
+    {
+        fVar7 = 180.00000000;
+        if (l_U193 == 1)
+        {
+            fVar7 = 0.00000000;
+        }
+        if (I == 0)
+        {
+             /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat driver.", 0 );
+             /* CLEANPED */ sub_5948( (uParam1^)[I] );
+            (uParam1^)[I] =  /* CREATEPEDINVEHICLE */ sub_6975( ref (uParam0^)[I], uParam2, -1, 0, 0 );
+        }
+        else
+        {
+             /* CLEANPED */ sub_5948( (uParam1^)[I] );
+            (uParam1^)[I] =  /* CREATEPED */ sub_8057( ref (uParam0^)[I] );
+            if (((IS_PED_DEAD( (uParam1^)[I] )) == 0) AND ((DOES_PED_EXIST( (uParam1^)[I] )) == 1))
+            {
+                SET_PED_COLLISION( l_U155[I], 0 );
+                SET_USE_ANIMATED_VELOCITY( l_U155[I], 0 );
+                "[doubled result, dropped if not asigned]";
+                "[doubled result, dropped if not asigned]";
+                SET_APPLY_WATER_PHYSICS_TO_RAGDOLL( l_U155[I], 0 );
+            }
+            if (I == 1)
+            {
+                 /* F_GIVEPEDWEAPON */ sub_8705( (uParam1^)[I], -1074756423, 25000, 0, 0 );
+                if (((IS_PED_DEAD( (uParam1^)[I] )) == 0) AND ((DOES_PED_EXIST( (uParam1^)[I] )) == 1))
+                {
+                    if (l_U193 == 1)
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 3 FL - facing foward.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U160[0], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_FWD/CS_1/COMBAT" );
+                    }
+                    else
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 1 BL - facing back.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U170[1], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_BACK/CS_1/COMBAT" );
+                    }
+                }
+            }
+            else if (I == 2)
+            {
+                 /* F_GIVEPEDWEAPON */ sub_8705( (uParam1^)[I], 1194438308, 25000, 0, 0 );
+                if (((IS_PED_DEAD( (uParam1^)[I] )) == 0) AND ((DOES_PED_EXIST( (uParam1^)[I] )) == 1))
+                {
+                    if (l_U193 == 1)
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 3 BL - facing foward.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U160[1], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_FWD/CS_2/COMBAT" );
+                    }
+                    else
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 2 BR - facing back.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U170[2], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_BACK/CS_2/COMBAT" );
+                    }
+                }
+            }
+            else if (I == 3)
+            {
+                 /* F_GIVEPEDWEAPON */ sub_8705( (uParam1^)[I], -1074756423, 25000, 0, 0 );
+                if (((IS_PED_DEAD( (uParam1^)[I] )) == 0) AND ((DOES_PED_EXIST( (uParam1^)[I] )) == 1))
+                {
+                    if (l_U193 == 1)
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 3 BR - facing foward.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U160[2], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_FWD/CS_3/COMBAT" );
+                    }
+                    else
+                    {
+                         /* WRITESCRIPTLOG */ sub_300( "SP", "Creating miniboat Enemy 3 FL - facing back.", 0 );
+                        ATTACH_PED_TO_VEHICLE( (uParam1^)[I], uParam2, 0, l_U170[0], fVar7, 360.00000000, 1, 1, 0, 1 );
+                        PED_ACTION_TREE_PLAY_NODE( (uParam1^)[I], "/Global/s_marina_drv/CS_AIM_BACK/CS_3/COMBAT" );
+                    }
+                }
+            };;;
+        }
+    }
+    return;
+}
+
+/* CREATEPED */ void sub_8057(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = 0;
+    if (iParam0->_fU16 == 0)
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            iVar3 = GET_SCENE_PED_MODEL( iParam0->_fU20 );
+        }
+    }
+    else
+    {
+        iVar3 = iParam0->_fU16;
+    }
+    if ((HAS_MODEL_LOADED( iVar3 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_6268( iParam0->_fU16, 1 );
+    }
+    iParam0->_fU40 = CREATE_PED( iParam0->_fU24, iParam0->_fU16, iParam0->_fU0, iParam0->_fU12, 1, iParam0->_fU48 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( iParam0->_fU40, 1 );
+        SET_PED_COORDS_NO_OFFSET( iParam0->_fU40, "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( iParam0->_fU40 ) );
+        SET_PED_HEADING( iParam0->_fU40, iParam0->_fU12 );
+        iParam0->_fU44 = 1;
+    }
+    else
+    {
+        SCRIPT_ASSERT( "Error: The ped you created doesn't exist or is dead!", 0 );
+    }
+     /* SETPEDDEFAULTSTATS */ sub_7385( iParam0->_fU40 );
+     /* SETPEDDEFAULTTEMPLATE */ sub_7486( iParam0->_fU40 );
+    return iParam0->_fU40;
+}
+
+/* F_GIVEPEDWEAPON */ void sub_8705(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                    DISPLAYF( "[SP]### Waiting for a weapon to exist: {} ###", 1, 513, uParam1 );
+                }
+            }
+        }
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_690( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+/* UNLOADACTIONTREE */ void sub_10372(unknown uParam0)
+{
+    ACTION_TREE_UNLOAD( uParam0 );
+    return;
+}
+
+/* UNLOADANIMDICT */ void sub_10439(unknown uParam0)
+{
+    REMOVE_ANIM_DICT( uParam0, 0 );
+    return;
+}
+
+/* CLEANCAMERA */ void sub_10586(unknown uParam0)
+{
+    if ((DOES_CAM_EXIST( (uParam0^) )) == 1)
+    {
+        if ((IS_CAM_ACTIVE( (uParam0^) )) == 1)
+        {
+            SET_CAM_ACTIVE( (uParam0^), 0 );
+        }
+        DESTROY_CAM( (uParam0^) );
+    }
+    (uParam0^) = nil;
+    return;
+}
+
+/* LOADVEHICLERECORDING */ void sub_10682(unknown uParam0, int iParam1)
+{
+    REQUEST_VEHICLE_RECORDING( uParam0 );
+    if (iParam1 == 1)
+    {
+        while ((HAS_VEHICLE_RECORDING_BEEN_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for a recording to be loaded: Rec# {} ###", 1, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* WRITE_INT */ void sub_11561(unknown uParam0)
+{
+    PRINTINT( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* WRITE_VECTOR */ void sub_11956(unknown uParam0, unknown uParam1, unknown uParam2)
+{
+    PRINTVECTOR( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* P_UNLOAD_DEBUG_ASSETS */ void sub_13928()
+{
+     /* WRITESCRIPTLOG */ sub_300( "SP", "P_LOAD_DEBUG_ASSETS", 0 );
+     /* UNLOADMODEL */ sub_14000( 43800727 );
+     /* UNLOADMODEL */ sub_14000( g_U1038 );
+     /* UNLOADMODEL */ sub_14000( 557810561 );
+     /* UNLOADMODEL */ sub_14000( 2121457570 );
+     /* UNLOADMODEL */ sub_14000( g_U1042 );
+     /* UNLOADMODEL */ sub_14000( -838056405 );
+     /* UNLOADMODEL */ sub_14000( 1751023925 );
+     /* UNLOADMODEL */ sub_14000( 170939170 );
+     /* UNLOADACTIONTREE */ sub_10372( "LEVEL/S_MARINA/s_marina_drv.act" );
+     /* UNLOADANIMDICT */ sub_10439( "level_s_marina_rs" );
+    return;
+}
+
+/* UNLOADMODEL */ void sub_14000(unknown uParam0)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 1)
+    {
+        SET_MODEL_AS_NO_LONGER_NEEDED( uParam0 );
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_690( "[SP]### ERROR! (UnloadModel) Trying to unload a model that isn't in the img! ###" );
+    }
+    return;
+}
+

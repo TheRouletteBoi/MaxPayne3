@@ -1,0 +1,24 @@
+void main()
+{
+    l_U0 = 0;
+    sub_14();
+    while (NOT IS_EXITFLAG_SET())
+    {
+        if (l_U0)
+        {
+            l_U0 = 0;
+        }
+        WAIT( 100 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+void sub_14()
+{
+    START_WIDGET_GROUP( "Utility background script 1" );
+    ADD_WIDGET_BOOL( "Do Write", ref l_U0 );
+    STOP_WIDGET_GROUP();
+    return;
+}
+

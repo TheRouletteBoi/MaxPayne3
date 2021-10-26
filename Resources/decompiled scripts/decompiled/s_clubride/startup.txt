@@ -1,0 +1,1789 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    StrCopy( ref l_U2, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref l_U10, "DEFAULT_SPLINE_CAMERA", 32 );
+    l_U18 = 0;
+    l_U19 = 1;
+    l_U20 = 0;
+    l_U21 = 1.00000000;
+    l_U22 = -5.00000000;
+    l_U23 = 0;
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U29 = 42;
+    l_U30 = 0;
+    l_U31 = 0;
+    l_U32 = 0;
+    l_U33 = 0;
+    l_U34 = 0;
+    l_U35 = 90.00000000;
+    l_U36 = {0.00000000, 0.00000000, 0.00000000};
+    l_U39 = {0.00000000, 0.00000000, 0.00000000};
+    l_U42 = 0;
+    l_U43 = 0;
+    l_U44 = 0;
+    l_U45 = 0;
+    l_U46 = 0;
+    l_U47 = 0;
+    l_U48 = nil;
+    l_U49 = {0.00000000, 0.00000000, 0.00000000};
+    l_U52 = 0;
+    l_U53 = 0;
+    l_U54 = 0;
+    l_U55 = 0;
+    g_U0 = 1;
+    g_U648 = 0;
+     /* WRITESCRIPTLOG */ sub_363( "SP", "Script s_clubride startup.sc is starting...", 0 );
+    l_U55 = 1;
+    while (IS_EXITFLAG_SET() == 0)
+    {
+        switch (l_U55)
+        {
+            case 0: break;
+            case 1:
+             /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_SETUP", 0 );
+            SET_STREAMING( 0 );
+            SET_DEBUG_ACTIVE( 0 );
+            SET_RANDOM_SEED( GET_GAME_TIMER() );
+            DO_SCREEN_FADE_OUT( 0 );
+            g_U649 = GET_CHECKPOINT_SELECTED();
+            g_U650 = g_U649;
+             /* P_SETUP_TIME_OF_DAY */ sub_659();
+             /* P_SETUP_START_POSITIONS */ sub_842();
+             /* P_CREATE_PLAYER */ sub_1118();
+            SET_CAM_VIEW_MODE( 1 );
+            if (g_U649 < 1)
+            {
+                l_U55 = 3;
+                 /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_START_GAMEPLAY", 0 );
+            }
+            else
+            {
+                l_U55 = 2;
+                 /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_START_DEBUG", 0 );
+            }
+            break;
+            case 2:
+             /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_START_DEBUG", 0 );
+            SET_STREAMING( 1 );
+             /* P_LOAD_AREA */ sub_15130();
+            DO_SCREEN_FADE_IN( 0 );
+            if (g_U649 == 21)
+            {
+                 /* LOADNEWSCRIPTFILE */ sub_15425( "s_clubride_ImgMetrics", 1536 );
+            }
+            l_U55 = 5;
+             /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_RUNNING", 0 );
+            break;
+            case 3:
+             /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_START_GAMEPLAY", 0 );
+             /* P_SETUP_LEVEL_FLOW */ sub_15721();
+            SET_STREAMING( 1 );
+             /* P_LOAD_AREA */ sub_15130();
+            l_U55 = 5;
+             /* WRITESCRIPTLOG */ sub_363( "SP", "eScriptState = SCRIPT_RUNNING", 0 );
+            break;
+            case 5:
+             /* P_HANDLE_DEBUG */ sub_16104();
+            if (g_U649 < 1)
+            {
+                 /* P_HANDLE_CHECKPOINT_THREADS */ sub_18269( ref g_U651, 1 );
+            }
+            break;
+        }
+        WAIT( 0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+     /* WRITESCRIPTLOG */ sub_363( "SP", "Script s_clubride startup.sc is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_363(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* P_SETUP_TIME_OF_DAY */ void sub_659()
+{
+     /* WRITESCRIPTLOG */ sub_363( "SP", "P_SETUP_TIME_OF_DAY", 0 );
+    switch (g_U649)
+    {
+        case 0:
+        case 20:
+        case 21:
+        RELEASE_TIME_OF_DAY();
+        SET_WEATHER_TYPE_NOW_PERSIST( "CLOUDY" );
+        FREEZE_TIME_OF_DAY( 0, 0 );
+        break;
+        default:
+        RELEASE_TIME_OF_DAY();
+        SET_WEATHER_TYPE_NOW_PERSIST( "CLOUDY" );
+        FREEZE_TIME_OF_DAY( 0, 0 );
+        break;
+    }
+    return;
+}
+
+/* P_SETUP_START_POSITIONS */ void sub_842()
+{
+     /* WRITESCRIPTLOG */ sub_363( "SP", "P_SETUP_START_POSITIONS", 0 );
+    g_U664[0] = {48.43000000, -26.53000000, 94.25630000};
+    g_U731[0] = 162.90480000;
+    g_U754[0] = 17.45799000;
+    g_U777[0] = -0.05189300;
+    g_U664[20] = {48.43000000, -26.53000000, 94.25630000};
+    g_U731[20] = 162.90480000;
+    g_U754[20] = 17.45799000;
+    g_U777[20] = -0.05189300;
+    g_U664[21] = {48.43000000, -26.53000000, 94.25630000};
+    g_U731[21] = 162.90480000;
+    g_U754[21] = 17.45799000;
+    g_U777[21] = -0.05189300;
+    return;
+}
+
+/* P_CREATE_PLAYER */ void sub_1118()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+     /* WRITESCRIPTLOG */ sub_363( "SP", "P_CREATE_PLAYER", 0 );
+    uVar2 = {g_U664[g_U649]};
+    uVar5 = g_U731[g_U649];
+     /* F_GETMEMAX */ sub_1210( 5, uVar2, 0 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1247() )) == 0)
+    {
+        SET_PED_SWEAT(  /* PLAYER_PED_ID */ sub_1247(), 0.00000000, 0.00000000 );
+         /* LOADCOLLISIONFORPED */ sub_14725(  /* PLAYER_PED_ID */ sub_1247() );
+        SET_PED_COORDS(  /* PLAYER_PED_ID */ sub_1247(), uVar2, 1 );
+        SET_PED_HEADING(  /* PLAYER_PED_ID */ sub_1247(), uVar5 );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1247(), 1 );
+    }
+    return;
+}
+
+/* F_GETMEMAX */ void sub_1210(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    unknown Result;
+    unknown uVar8;
+
+    Result = CREATE_PLAYER( uParam4, uParam1 );
+    uVar8 =  /* PLAYER_PED_ID */ sub_1247();
+    switch (uParam0)
+    {
+        case 0:
+         /* P_MAKEINTROMAX_A */ sub_1740( uVar8 );
+        break;
+        case 1:
+         /* P_MAKEINTROMAX_B */ sub_2001( uVar8 );
+        break;
+        case 2:
+         /* P_MAKEINTROMAX_C */ sub_2262( uVar8 );
+        break;
+        case 3:
+         /* P_MAKEROOFTOPPARTYMAX */ sub_2523( uVar8 );
+        break;
+        case 4:
+         /* P_MAKEROOFTOPPARTYWETMAX */ sub_2794( uVar8 );
+        break;
+        case 5:
+         /* P_MAKENIGHTCLUBMAX */ sub_3071( uVar8 );
+        break;
+        case 6:
+         /* P_MAKENIGHTCLUBHELIHANGMAX */ sub_3336( uVar8 );
+        break;
+        case 8:
+         /* P_MAKESTADIUMMAX */ sub_3617( uVar8 );
+        break;
+        case 9:
+         /* P_MAKESTADIUMBMAX */ sub_3878( uVar8 );
+        break;
+        case 10:
+         /* P_MAKESTADIUMCMAX */ sub_4141( uVar8 );
+        break;
+        case 11:
+         /* P_MAKENY_TRIPMAX */ sub_4404( uVar8 );
+        break;
+        case 12:
+         /* P_MAKENYBARMAX */ sub_4665( uVar8 );
+        break;
+        case 13:
+         /* P_MAKEDOCKSMAX */ sub_4922( uVar8 );
+        break;
+        case 14:
+         /* P_MAKEDOCKSRSV1MAX */ sub_5179( uVar8 );
+        break;
+        case 15:
+         /* P_MAKEDOCKSRSV2MAX */ sub_5444( uVar8 );
+        break;
+        case 16:
+         /* P_MAKEOFFICEMAX */ sub_5709( uVar8 );
+        break;
+        case 17:
+         /* P_MAKEOFFICEFIREMAX */ sub_5968( uVar8 );
+        break;
+        case 18:
+         /* P_MAKEFAVELA1V1MAX */ sub_6235( uVar8 );
+        break;
+        case 19:
+         /* P_MAKEFAVELA1V2MAX */ sub_6500( uVar8 );
+        break;
+        case 20:
+         /* P_MAKECEMETARYMAX */ sub_6765( uVar8 );
+        break;
+        case 21:
+         /* P_MAKEFAVELA2V1MAX */ sub_7028( uVar8 );
+        break;
+        case 22:
+         /* P_MAKEFAVELA2V2MAX */ sub_7293( uVar8 );
+        break;
+        case 23:
+         /* P_MAKEFAVELA2V3MAX */ sub_7558( uVar8 );
+        break;
+        case 24:
+         /* P_MAKEBUSDEPOTV1MAX */ sub_7823( uVar8 );
+        break;
+        case 25:
+         /* P_MAKEBUSDEPOTV2MAX */ sub_8090( uVar8 );
+        break;
+        case 26:
+         /* P_MAKEPANAMAMAX */ sub_8357( uVar8 );
+        break;
+        case 27:
+         /* P_MAKEHOTELMAX */ sub_8616( uVar8 );
+        break;
+        case 28:
+         /* P_MAKEHOTELMAXWITHBAG */ sub_8873( uVar8 );
+        break;
+        case 29:
+         /* P_MAKEPOLICEBINKMAX */ sub_9144( uVar8 );
+        break;
+        case 30:
+         /* P_MAKEPOLICEPRECINCTV1MAX */ sub_9411( uVar8 );
+        break;
+        case 31:
+         /* P_MAKEPOLICEPRECINCTV2MAX */ sub_9690( uVar8 );
+        break;
+        case 32:
+         /* P_MAKEPOLICEPRECINCTWITHVESTMAX */ sub_9969( uVar8 );
+        break;
+        case 33:
+         /* P_MAKEAIRPORTMAXA */ sub_10260( uVar8 );
+        break;
+        case 34:
+         /* P_MAKEAIRPORTMAXB */ sub_10523( uVar8 );
+        break;
+        case 35:
+         /* P_MAKEAIRPORTMAXC */ sub_10786( uVar8 );
+        break;
+        case 36:
+         /* P_MAKEAIRPORTMAXD */ sub_11049( uVar8 );
+        break;
+        case 37:
+         /* P_MAKEBEACHMAX */ sub_11312( uVar8 );
+        break;
+        case 38:
+         /* P_MAKEPILLZNBOOZEPART1MAX */ sub_11584( uVar8 );
+        break;
+        case 39:
+         /* P_MAKEPILLZNBOOZEPART2V1MAX */ sub_11863( uVar8 );
+        break;
+        case 40:
+         /* P_MAKEPILLZNBOOZEPART2V2MAX */ sub_12146( uVar8 );
+        break;
+        case 41:
+         /* P_MAKEPILLZNBOOZEPART3MAX */ sub_12429( uVar8 );
+        break;
+        case 42:
+         /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_12708( uVar8 );
+        break;
+        case 43:
+         /* P_MAKEPILLZNBOOZEPART4V2MAX */ sub_12991( uVar8 );
+        break;
+        case 44:
+         /* P_MAKEMAXPAYNE1COLORMAX */ sub_13276(  /* PLAYER_PED_ID */ sub_1247() );
+        break;
+        case 45:
+         /* P_MAKEMAXPAYNE1BLACKWHITEMAX */ sub_13555(  /* PLAYER_PED_ID */ sub_1247() );
+        break;
+        case 46:
+         /* P_MAKEMAXPAYNE2COLORMAX */ sub_13844(  /* PLAYER_PED_ID */ sub_1247() );
+        break;
+        case 47:
+         /* P_MAKEMAXPAYNE2BLACKWHITEMAX */ sub_14123(  /* PLAYER_PED_ID */ sub_1247() );
+        break;
+        case 48:
+         /* P_MAKE16BITMAX */ sub_14412(  /* PLAYER_PED_ID */ sub_1247() );
+        break;
+    }
+    return Result;
+}
+
+/* PLAYER_PED_ID */ int sub_1247()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_1285() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_1285()
+{
+    return GET_PLAYER_ID();
+}
+
+/* P_MAKEINTROMAX_A */ void sub_1740(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeIntroMax_A", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEINTROMAX_B */ void sub_2001(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeIntroMax_B", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 29, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEINTROMAX_C */ void sub_2262(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeIntroMax_C", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEROOFTOPPARTYMAX */ void sub_2523(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeRooftopPartyMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEROOFTOPPARTYWETMAX */ void sub_2794(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeRooftopPartyWetMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 17, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 27, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 8, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKENIGHTCLUBMAX */ void sub_3071(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeNightclubMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKENIGHTCLUBHELIHANGMAX */ void sub_3336(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeNightclubHeliHangMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 24, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKESTADIUMMAX */ void sub_3617(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeStadiumMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKESTADIUMBMAX */ void sub_3878(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeStadiumBMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKESTADIUMCMAX */ void sub_4141(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeStadiumCMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKENY_TRIPMAX */ void sub_4404(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeNY_TripMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 28, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKENYBARMAX */ void sub_4665(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeNYBarMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEDOCKSMAX */ void sub_4922(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeDocksMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 17, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEDOCKSRSV1MAX */ void sub_5179(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeDocksRSV1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 16, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 23, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEDOCKSRSV2MAX */ void sub_5444(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeDocksRSV2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 16, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 23, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 11, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEOFFICEMAX */ void sub_5709(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeOfficeMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEOFFICEFIREMAX */ void sub_5968(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeOfficeFireMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 6, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEFAVELA1V1MAX */ void sub_6235(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeFavela1V1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 9, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEFAVELA1V2MAX */ void sub_6500(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeFavela1V2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 13, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKECEMETARYMAX */ void sub_6765(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeCemetaryMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEFAVELA2V1MAX */ void sub_7028(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeFavela2V1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEFAVELA2V2MAX */ void sub_7293(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeFavela2V2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEFAVELA2V3MAX */ void sub_7558(unknown uParam0)
+{
+    DISPLAYF( "[rw] P_MakeFavela2V3Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 30, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEBUSDEPOTV1MAX */ void sub_7823(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeBusDepotV1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 4, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEBUSDEPOTV2MAX */ void sub_8090(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeBusDepotV2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 4, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPANAMAMAX */ void sub_8357(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePanamaMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 18, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEHOTELMAX */ void sub_8616(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeHotelMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEHOTELMAXWITHBAG */ void sub_8873(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeHotelMaxWithBag", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPOLICEBINKMAX */ void sub_9144(unknown uParam0)
+{
+    DISPLAYF( "[rw] P_MakePoliceBinkMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPOLICEPRECINCTV1MAX */ void sub_9411(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePolicePrecinctV1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPOLICEPRECINCTV2MAX */ void sub_9690(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePolicePrecinctV2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 10, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 21, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPOLICEPRECINCTWITHVESTMAX */ void sub_9969(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePolicePrecinctWithVestMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 11, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 20, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 1, 0 );
+    }
+    return;
+}
+
+/* P_MAKEAIRPORTMAXA */ void sub_10260(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeAirportMaxA", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 12, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 25, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEAIRPORTMAXB */ void sub_10523(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeAirportMaxB", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 12, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 15, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEAIRPORTMAXC */ void sub_10786(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeAirportMaxC", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 19, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 22, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 17, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 1, 0 );
+    }
+    return;
+}
+
+/* P_MAKEAIRPORTMAXD */ void sub_11049(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeAirportMaxC", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 7, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 17, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 2, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEBEACHMAX */ void sub_11312(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeBeachMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 18, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 19, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+        SET_PED_PROP_INDEX( uParam0, 0, 0, 0, 255 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART1MAX */ void sub_11584(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART2V1MAX */ void sub_11863(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart2V1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART2V2MAX */ void sub_12146(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart2V2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART3MAX */ void sub_12429(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart3Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 26, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART4V1MAX */ void sub_12708(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart4V1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 8, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART4V2MAX */ void sub_12991(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart4V2Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 8, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEMAXPAYNE1COLORMAX */ void sub_13276(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeMaxPayne1ColorMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 34, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 19, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 4, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEMAXPAYNE1BLACKWHITEMAX */ void sub_13555(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeMaxPayne1BlackWhiteMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 13, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 34, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 19, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 4, 1, 0 );
+    }
+    return;
+}
+
+/* P_MAKEMAXPAYNE2COLORMAX */ void sub_13844(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeMaxPayne2ColorMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 32, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 18, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEMAXPAYNE2BLACKWHITEMAX */ void sub_14123(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeMaxPayne2BlackWhiteMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 32, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 18, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 11, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 1, 0 );
+    }
+    return;
+}
+
+/* P_MAKE16BITMAX */ void sub_14412(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_Make16BitMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 33, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 15, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* LOADCOLLISIONFORPED */ void sub_14725(unknown uParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        uVar3 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( uParam0 )};
+        SET_LOAD_COLLISION_FOR_PED_FLAG( uParam0, 1 );
+        SET_PED_COORDS_NO_OFFSET( uParam0, uVar3 );
+        FREEZE_PED_POSITION( uParam0, 1 );
+        REQUEST_COLLISION_AT_COORD( uVar3 );
+        if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+        {
+            FREEZE_PED_POSITION( uParam0, 0 );
+        }
+    }
+    return;
+}
+
+/* P_LOAD_AREA */ void sub_15130()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    int iVar6;
+    unknown uVar7;
+
+     /* WRITESCRIPTLOG */ sub_363( "SP", "P_LOAD_AREA", 0 );
+    uVar2 = {g_U664[g_U649]};
+    uVar5 = g_U731[g_U649];
+    iVar6 = -1;
+    if (iVar6 == -1)
+    {
+        LOAD_SCENE( uVar2 );
+    }
+    else
+    {
+        SET_INTERIOR_ACTIVE( uVar7, 1, 0 );
+        LOAD_SCENE_FOR_ROOM_BY_KEY( uVar7, iVar6 );
+    }
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1247() )) == 0)
+    {
+        SET_PED_COORDS(  /* PLAYER_PED_ID */ sub_1247(), uVar2, 1 );
+        SET_PED_HEADING(  /* PLAYER_PED_ID */ sub_1247(), uVar5 );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1247(), 0 );
+    }
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U754[g_U649], 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U754[g_U649], 1065353216, 0 );
+    return;
+}
+
+/* LOADNEWSCRIPTFILE */ void sub_15425(unknown uParam0, unknown uParam1)
+{
+    REQUEST_SCRIPT( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    while ((HAS_SCRIPT_LOADED( uParam0 )) == 0)
+    {
+        DISPLAYF( "[SP]### Waiting for a script to be loaded: {} ###", 1, 1537, uParam0 );
+        WAIT( 0 );
+    }
+    DISPLAYF( "[SP]### Script loaded! ###", 0 );
+    START_NEW_SCRIPT( uParam0, uParam1 );
+    return;
+}
+
+/* P_SETUP_LEVEL_FLOW */ void sub_15721()
+{
+     /* WRITESCRIPTLOG */ sub_363( "SP", "P_SETUP_LEVEL_FLOW", 0 );
+     /* P_SETUP_CHECKPOINT_THREAD */ sub_15814( ref g_U651[0], "s_clubride_start", 8192, 1 );
+     /* P_INIT_CHECKPOINT_THREAD_ARRAY */ sub_15913( ref g_U651, g_U649, 1 );
+    return;
+}
+
+/* P_SETUP_CHECKPOINT_THREAD */ void sub_15814(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    StrCopy( ref iParam0->_fU0, uParam1, 32 );
+    iParam0->_fU32 = nil;
+    iParam0->_fU40 = 0;
+    iParam0->_fU44 = uParam2;
+    iParam0->_fU36 = uParam3;
+    return;
+}
+
+/* P_INIT_CHECKPOINT_THREAD_ARRAY */ void sub_15913(unknown uParam0, int iParam1, int iParam2)
+{
+    int I;
+
+    for ( I = 0; I <= (iParam2 - 1); I++ )
+    {
+        if (iParam1 == I)
+        {
+            (uParam0^)[I]._fU36 = 1;
+        }
+        else
+        {
+            (uParam0^)[I]._fU36 = 0;
+        }
+    }
+    return;
+}
+
+/* P_HANDLE_DEBUG */ void sub_16104()
+{
+     /* P_DEBUG_TOGGLE */ sub_16131();
+     /* P_DEBUG_OUTPUT_PLAYER_POSITION */ sub_16297();
+     /* P_DEBUG_CHECK_FOR_KILL_KEY */ sub_17649();
+     /* P_DEBUG_HANDLE_KILL_RADIUS */ sub_17749( 1097859072 );
+    return;
+}
+
+/* P_DEBUG_TOGGLE */ void sub_16131()
+{
+    if (IS_KEYBOARD_KEY_JUST_PRESSED( 38 ))
+    {
+        if (l_U18)
+        {
+            l_U18 = 0;
+            SET_DEBUG_ACTIVE( 0 );
+            PRINTSTRING( "debug off" );
+            PRINTNL();
+        }
+        else
+        {
+            l_U18 = 1;
+            SET_DEBUG_ACTIVE( 1 );
+            PRINTSTRING( "debug on" );
+            PRINTNL();
+        }
+        while (IS_KEYBOARD_KEY_PRESSED( 38 ))
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_DEBUG_OUTPUT_PLAYER_POSITION */ void sub_16297()
+{
+    int iVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+
+    iVar2 = 0;
+    if (DOES_PAD_EXIST( 0 ))
+    {
+        iVar2 = IS_BUTTON_JUST_PRESSED( 0, 8 );
+    }
+    if ((IS_KEYBOARD_KEY_JUST_PRESSED( 25 )) || (iVar2))
+    {
+        uVar3 =  /* PLAYER_PED_ID */ sub_1247();
+        if (NOT (IS_PED_DEAD( uVar3 )))
+        {
+            uVar4 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( uVar3 )};
+            uVar7 = GET_PED_HEADING( uVar3 );
+            uVar8 = GET_DEBUG_CAM();
+            uVar9 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_CAM_COORD( uVar8 )};
+            uVar12 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_CAM_ROT( uVar8 )};
+            uVar15 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_GAMEPLAY_CAM_COORD()};
+            uVar18 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_GAMEPLAY_CAM_ROT()};
+            uVar21 = GET_GAMEPLAY_CAM_RELATIVE_HEADING();
+            uVar22 = GET_GAMEPLAY_CAM_RELATIVE_PITCH();
+            uVar24 = GET_GROUND_Z_FOR_3D_COORD( uVar4, ref uVar23 );
+            PRINTNL();
+            PRINTSTRING( "[SP] players position = <<" );
+            PRINTFLOAT( uVar4._fU0 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar4._fU4 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar23 );
+            PRINTSTRING( ">>" );
+            PRINTNL();
+            PRINTSTRING( "[SP] players heading = " );
+            PRINTFLOAT( uVar7 );
+            PRINTSTRING( "" );
+            PRINTNL();
+            PRINTSTRING( "[SP] Gameplay camera relative heading = " );
+            PRINTFLOAT( uVar21 );
+            PRINTNL();
+            PRINTSTRING( "[SP] Gameplay camera relative pitch = " );
+            PRINTFLOAT( uVar22 );
+            PRINTNL();
+            if ((IS_PED_IN_ANY_VEHICLE( uVar3 )) == 1)
+            {
+                 /* GET_PED_VEHICLE */ sub_16853( uVar3, ref uVar25, 1 );
+                uVar26 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_VEHICLE_COORDS( uVar25 )};
+                uVar29 = GET_VEHICLE_HEADING( uVar25 );
+                PRINTSTRING( "[SP] vehicle position = <<" );
+                PRINTFLOAT( uVar26._fU0 );
+                PRINTSTRING( ", " );
+                PRINTFLOAT( uVar26._fU4 );
+                PRINTSTRING( ", " );
+                PRINTFLOAT( uVar26._fU8 );
+                PRINTSTRING( ">>" );
+                PRINTNL();
+                PRINTSTRING( "[SP] vehicle heading = " );
+                PRINTFLOAT( uVar29 );
+                PRINTSTRING( "" );
+                PRINTNL();
+            }
+            PRINTSTRING( "[SP] Debug camera position = <<" );
+            PRINTFLOAT( uVar9._fU0 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar9._fU4 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar9._fU8 );
+            PRINTSTRING( ">>" );
+            PRINTNL();
+            PRINTSTRING( "[SP] Debug camera rotation = <<" );
+            PRINTFLOAT( uVar12._fU0 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar12._fU4 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar12._fU8 );
+            PRINTSTRING( ">>" );
+            PRINTNL();
+            PRINTSTRING( "[SP] Gameplay camera position = <<" );
+            PRINTFLOAT( uVar15._fU0 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar15._fU4 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar15._fU8 );
+            PRINTSTRING( ">>" );
+            PRINTNL();
+            PRINTSTRING( "[SP] Gameplay camera rotation = <<" );
+            PRINTFLOAT( uVar18._fU0 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar18._fU4 );
+            PRINTSTRING( ", " );
+            PRINTFLOAT( uVar18._fU8 );
+            PRINTSTRING( ">>" );
+            PRINTNL();
+        }
+    }
+    return;
+}
+
+/* GET_PED_VEHICLE */ int sub_16853(unknown uParam0, unknown uParam1, boolean bParam2)
+{
+    if (bParam2)
+    {
+        if (NOT (IS_PED_SITTING_IN_ANY_VEHICLE( uParam0 )))
+        {
+            return 0;
+        }
+    }
+    else if (NOT (IS_PED_IN_ANY_VEHICLE( uParam0 )))
+    {
+        return 0;
+    }
+    (uParam1^) = GET_VEHICLE_PED_IS_IN( uParam0 );
+    return 1;
+}
+
+/* P_DEBUG_CHECK_FOR_KILL_KEY */ void sub_17649()
+{
+    if ((IS_KEYBOARD_KEY_PRESSED( 20 )) == 1)
+    {
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1247() )) == 0)
+        {
+            SET_PED_HEALTH(  /* PLAYER_PED_ID */ sub_1247(), 0, 0 );
+        }
+    }
+    return;
+}
+
+/* P_DEBUG_HANDLE_KILL_RADIUS */ void sub_17749(unknown uParam0)
+{
+    int iVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    int iVar8;
+
+    if ((IS_KEYBOARD_KEY_JUST_PRESSED( 37 )) == 1)
+    {
+         /* WRITE_STRING */ sub_17843( "[SP]### KILL ALL PEDS IN RADIUS ###" );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1247() )) == 0)
+        {
+            iVar3 = 0;
+            uVar5 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS(  /* PLAYER_PED_ID */ sub_1247() )};
+            iVar8 = 1;
+            while (iVar8 == 1)
+            {
+                if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1247() )) == 0)
+                {
+                    iVar8 = GET_CLOSEST_ENEMY_PED(  /* PLAYER_PED_ID */ sub_1247(), uVar5, uParam0, 1, 1, 0, 1, 0, 1, ref uVar4 );
+                    if (iVar8 == 1)
+                    {
+                        if (((GET_PED_HEALTH( uVar4 )) > 1) AND (((IS_PED_DEAD( uVar4 )) == 0) AND ((DOES_PED_EXIST( uVar4 )) == 1)))
+                        {
+                             /* WRITE_STRING */ sub_17843( "[SP]### thunderdome killing a ped ###" );
+                             /* P_KILL_PED */ sub_18086( uVar4 );
+                            SET_PED_GENERATES_DEAD_BODY_EVENTS( uVar4, 1 );
+                            iVar3++;
+                        }
+                    }
+                }
+                WAIT( 0 );
+            }
+            PRINTSTRING( "[SP] num killed: " );
+            PRINTINT( iVar3 );
+            PRINTNL();
+        }
+    }
+    return;
+}
+
+/* WRITE_STRING */ void sub_17843(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* P_KILL_PED */ void sub_18086(unknown uParam0)
+{
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        STOP_PED_SPEAKING( uParam0, 1 );
+        SET_PED_HEALTH( uParam0, 0, 0 );
+        SET_PED_CORPSE( uParam0, 0 );
+    }
+    return;
+}
+
+/* P_HANDLE_CHECKPOINT_THREADS */ void sub_18269(unknown uParam0, int iParam1)
+{
+    int J;
+    int I;
+    int iVar6;
+
+    for ( J = 0; J <= (iParam1 - 1); J++ )
+    {
+        if (((uParam0^)[J]._fU40 == 0) AND ((uParam0^)[J]._fU36 == 1))
+        {
+            DISPLAYF( "[SP]### Loading a new script thread: {} ###", 1, 1281, ref (uParam0^)[J]._fU0 );
+            (uParam0^)[J]._fU40 = 1;
+        }
+        if ((uParam0^)[J]._fU40 == 0)
+        {
+            ;
+        }
+        else if ((uParam0^)[J]._fU40 == 1)
+        {
+            DISPLAYF( "[SP]### Script: {} threadState = TS_REQUESTED ###", 1, 1281, ref (uParam0^)[J]._fU0 );
+            iVar6 = 0;
+            for ( I = 0; I <= (iParam1 - 1); I++ )
+            {
+                if (((uParam0^)[I]._fU40 < 4) AND ((uParam0^)[I]._fU40 > 0))
+                {
+                    if ((IS_THREAD_ACTIVE( (uParam0^)[I]._fU32 )) == 1)
+                    {
+                        iVar6++;
+                    }
+                }
+            }
+            if (iVar6 < 2)
+            {
+                if ((DOES_SCRIPT_EXIST( ref (uParam0^)[J]._fU0 )) == 1)
+                {
+                    if ((HAS_SCRIPT_LOADED( ref (uParam0^)[J]._fU0 )) == 0)
+                    {
+                        REQUEST_SCRIPT( ref (uParam0^)[J]._fU0 );
+                        "[doubled result, dropped if not asigned]";
+                    }
+                    (uParam0^)[J]._fU40 = 2;
+                }
+                else
+                {
+                    SCRIPT_ASSERT( "[SP] Error: Trying to load a script that doesn't exist!", 0 );
+                    (uParam0^)[J]._fU40 = 0;
+                }
+            }
+            else
+            {
+                SCRIPT_ASSERT( "[SP] Error: Attempting to start another thread when 2 are already running...", 0 );
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 2)
+        {
+            DISPLAYF( "[SP]### Script: {} threadState = TS_LOADING ###", 1, 1281, ref (uParam0^)[J]._fU0 );
+            if ((HAS_SCRIPT_LOADED( ref (uParam0^)[J]._fU0 )) == 1)
+            {
+                DISPLAYF( "[SP]### Starting new script thread: {} ###", 1, 1281, ref (uParam0^)[J]._fU0 );
+                (uParam0^)[J]._fU32 = START_NEW_SCRIPT( ref (uParam0^)[J]._fU0, (uParam0^)[J]._fU44 );
+                (uParam0^)[J]._fU40 = 3;
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 3)
+        {
+            if ((IS_THREAD_ACTIVE( (uParam0^)[J]._fU32 )) == 0)
+            {
+                DISPLAYF( "[SP]### Script: {} was running but is no longer active ###", 1, 1281, ref (uParam0^)[J]._fU0 );
+                (uParam0^)[J]._fU40 = 4;
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 4)
+        {
+            ;
+        };;;;;
+    }
+    return;
+}
+

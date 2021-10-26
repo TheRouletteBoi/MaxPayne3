@@ -1,0 +1,358 @@
+void main()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    int iVar9;
+
+    DEBUG_GET_BG_SCRIPT_NAME( l_U0._fU0, 24, ref uVar2 );
+    GIVE_BG_SCRIPT_AWARD( l_U0._fU0, 0 );
+    if (HAS_ACHIEVEMENT_HASH( l_U0._fU0 ))
+    {
+        uVar8 = GET_ACHIEVEMENT_HASH( l_U0._fU0 );
+        iVar9 = sub_72( uVar8 );
+        if (iVar9 == 47)
+        {
+            SCRIPT_ASSERT( "Unknown achievement for script {}", 1, 1281, ref uVar2 );
+        }
+        if (NOT (HAS_ACHIEVEMENT_BEEN_PASSED( iVar9 )))
+        {
+            GIVE_ACHIEVEMENT_TO_PLAYER( iVar9 );
+        }
+    }
+    else
+    {
+        sub_1265( l_U0._fU0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+int sub_72(int iParam0)
+{
+    if (-1146414694 == iParam0)
+    {
+        return 6;
+    }
+    else if (-2020874284 == iParam0)
+    {
+        return 7;
+    }
+    else if (-1072992620 == iParam0)
+    {
+        return 8;
+    }
+    else if (-1138021227 == iParam0)
+    {
+        return 9;
+    }
+    else if (1169930204 == iParam0)
+    {
+        return 12;
+    }
+    else if (894380494 == iParam0)
+    {
+        return 13;
+    }
+    else if (-1887648597 == iParam0)
+    {
+        return 19;
+    }
+    else if (250384686 == iParam0)
+    {
+        return 22;
+    }
+    else if (-236216889 == iParam0)
+    {
+        return 23;
+    }
+    else if (-908204842 == iParam0)
+    {
+        return 25;
+    }
+    else if (-1910574457 == iParam0)
+    {
+        return 26;
+    }
+    else if (-1380517188 == iParam0)
+    {
+        return 27;
+    }
+    else if (-2087186069 == iParam0)
+    {
+        return 28;
+    }
+    else if (798653872 == iParam0)
+    {
+        return 29;
+    }
+    else if (856759581 == iParam0)
+    {
+        return 30;
+    }
+    else if (-2033733138 == iParam0)
+    {
+        return 31;
+    }
+    else if (1750766993 == iParam0)
+    {
+        return 33;
+    }
+    else if (190577917 == iParam0)
+    {
+        return 34;
+    }
+    else if (445628010 == iParam0)
+    {
+        return 36;
+    }
+    else if (-1418889567 == iParam0)
+    {
+        return 37;
+    }
+    else if (-1937661411 == iParam0)
+    {
+        return 38;
+    }
+    else if (1471909938 == iParam0)
+    {
+        return 39;
+    }
+    else if (295131503 == iParam0)
+    {
+        return 40;
+    }
+    else if (-1840089745 == iParam0)
+    {
+        return 41;
+    }
+    else if (413701081 == iParam0)
+    {
+        return 55;
+    }
+    else if (1919330772 == iParam0)
+    {
+        return 56;
+    }
+    else if (-776312476 == iParam0)
+    {
+        return 57;
+    }
+    else if (-354656819 == iParam0)
+    {
+        return 67;
+    }
+    else if (-131886825 == iParam0)
+    {
+        return 68;
+    }
+    else if (2072137184 == iParam0)
+    {
+        return 69;
+    }
+    else if (1990685410 == iParam0)
+    {
+        return 70;
+    }
+    else if (-1964575224 == iParam0)
+    {
+        return 71;
+    }
+    else if (1936540661 == iParam0)
+    {
+        return 73;
+    }
+    else if (-853320383 == iParam0)
+    {
+        return 75;
+    }
+    else if (1487702713 == iParam0)
+    {
+        return 76;
+    }
+    else if (451740120 == iParam0)
+    {
+        return 77;
+    }
+    else if (-1902093201 == iParam0)
+    {
+        return 78;
+    }
+    else if (1703837976 == iParam0)
+    {
+        return 79;
+    }
+    else if (1160683219 == iParam0)
+    {
+        return 81;
+    }
+    else if (-399526276 == iParam0)
+    {
+        return 82;
+    }
+    else if (1503261217 == iParam0)
+    {
+        return 83;
+    }
+    else if (314440369 == iParam0)
+    {
+        return 84;
+    }
+    else if (-1308373012 == iParam0)
+    {
+        return 85;
+    }
+    else if (2047625315 == iParam0)
+    {
+        return 86;
+    }
+    else if (162128598 == iParam0)
+    {
+        return 87;
+    }
+    else if (1561056854 == iParam0)
+    {
+        return 89;
+    };;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    return 47;
+}
+
+void sub_1265(unknown uParam0)
+{
+    int iVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+
+    iVar3 = 1;
+    while (ISTOASTANIMATING())
+    {
+        WAIT( 0 );
+    }
+    UI_SET( 25, 2, 1537, "ToastEmblem", 1537, "ToastSPGrind" );
+    while (NOT (UI_GET( 3, 1, 513, -256890270 )))
+    {
+        WAIT( 0 );
+    }
+    uVar6 = GET_COMPLETED_GRIND_GOAL( uParam0 );
+    sub_1398( uParam0, 4 );
+    sub_1927( uParam0, ref uVar4, ref uVar5, ref uVar6 );
+    UI_SET( 3, 2, 1537, "ToastBigText", 513, uVar4 );
+    UI_SET( 6, 2, 1537, "ToastSmallText", 513, uVar6 );
+    UI_SET( 3, 2, 1537, "ToastSmallText", 513, uVar5 );
+    sub_2124();
+    while ((IS_PAUSE_MENU_ACTIVE()) || (ISTOASTANIMATING()))
+    {
+        if (IS_PAUSE_MENU_ACTIVE())
+        {
+            if (iVar3 != 0)
+            {
+                UI_SET( 0, 2, 1537, "frmToasts", 257, 0 );
+                UI_SET( 0, 2, 1537, "animToast", 257, 0 );
+                iVar3 = 0;
+            }
+        }
+        else if (iVar3 != 1)
+        {
+            UI_SET( 0, 2, 1537, "frmToasts", 257, 1 );
+            UI_SET( 0, 2, 1537, "animToast", 257, 1 );
+            iVar3 = 1;
+        }
+        WAIT( 0 );
+    }
+    return;
+}
+
+void sub_1398(unknown uParam0, unknown uParam1)
+{
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    int iVar7;
+    int iVar8;
+
+    uVar4 = GET_ICON_TEXTURE_FOR_BG_SCRIPT( uParam0 );
+    uVar5 = GET_ICON_TEXTURE_DICTIONARY_FOR_BG_SCRIPT( uParam0 );
+    GET_BG_TEXTURE_FOR_BG_SCRIPT( uParam0, ref uVar6, ref iVar7 );
+    iVar8 = 30;
+    switch (uParam1)
+    {
+        case 3:
+        iVar8 = 109;
+        break;
+        case 2:
+        iVar8 = 108;
+        break;
+        case 1:
+        iVar8 = 107;
+        break;
+        case 0:
+        iVar8 = 106;
+        break;
+        case 4:
+        if (IS_GRIND_COMPLETE( uParam0 ))
+        {
+            iVar8 = 109;
+        }
+        else
+        {
+            switch (GET_GRIND_LEVEL( uParam0 ))
+            {
+                case 2:
+                iVar8 = 106;
+                break;
+                case 3:
+                iVar8 = 107;
+                break;
+                case 4:
+                iVar8 = 108;
+                break;
+            }
+        }
+        break;
+    }
+    UI_SET( 11, 2, 1537, "ToastEmblem.img0", 513, iVar8 );
+    UI_SET( 26, 3, 1537, "ToastEmblem.img0", 513, uVar5, 513, uVar6 );
+    UI_SET( 26, 3, 1537, "ToastEmblem.img1", 513, uVar5, 513, uVar4 );
+    if (UI_DOES_FRAME_EXIST_HASH( 361494161 ))
+    {
+        if (iVar7 != 0)
+        {
+            UI_SET( 26, 3, 1537, "ToastEmblem.img0.5", 513, uVar5, 513, iVar7 );
+            UI_SET( 0, 2, 1537, "ToastEmblem.img0.5", 257, 1 );
+        }
+        else
+        {
+            UI_SET( 0, 2, 1537, "ToastEmblem.img0.5", 257, 0 );
+        }
+    }
+    return;
+}
+
+void sub_1927(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    (uParam1^) = GET_UI_NAME_FOR_BG_SCRIPT( uParam0 );
+    (uParam2^) = GET_UI_DESCRIPTION_FOR_BG_SCRIPT( uParam0 );
+    (uParam3^) = BG_SCRIPT_ADJUST_BY_UNIT( uParam0, (uParam3^) );
+    if ((uParam2^) == -648430869)
+    {
+        if (NOT (IS_GRIND_COMPLETE( uParam0 )))
+        {
+            (uParam2^) = 1942892881;
+        }
+    }
+    return;
+}
+
+void sub_2124()
+{
+    UI_SET( 15, 2, 1537, "animToast", 257, 1 );
+    UI_SET( 0, 2, 1537, "animToast", 257, 1 );
+    UI_SET( 0, 2, 1537, "frmToasts", 257, 1 );
+    return;
+}
+

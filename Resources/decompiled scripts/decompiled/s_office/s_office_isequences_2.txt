@@ -1,0 +1,244 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U5 = 0;
+    l_U7 = 0;
+    l_U8 = 0;
+    l_U9 = 1500;
+    StrCopy( ref l_U19, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref l_U27, "DEFAULT_SPLINE_CAMERA", 32 );
+    l_U35 = 0;
+    l_U36 = 0;
+    l_U37 = 0;
+    l_U38 = 0;
+    l_U39 = 0;
+    l_U40 = 0;
+    l_U41 = 0;
+    l_U43 = 0;
+     /* WRITESCRIPTLOG */ sub_206( "SP", "Script s_office_isequences_2 is starting...", 0 );
+    while (IS_EXITFLAG_SET() == 0)
+    {
+         /* P_DEBUG_HANDLE_SECURITY_MOVIE */ sub_338();
+        WAIT( 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_206( "SP", "Script s_office_isequences_2 is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_206(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* P_DEBUG_HANDLE_SECURITY_MOVIE */ void sub_338()
+{
+    vector vVar2;
+    float fVar5;
+    unknown uVar6;
+    unknown uVar7;
+    vector vVar8;
+    vector vVar11;
+
+    if (l_U43 == 0)
+    {
+        START_WIDGET_GROUP( "Security Movie Helper" );
+        ADD_WIDGET_STRING( "Movie to be played when enemies first invade the Office" );
+        ADD_WIDGET_BOOL( "Teleport to Rods Office", ref l_U35 );
+        ADD_WIDGET_BOOL( "Start Movie", ref l_U36 );
+        ADD_WIDGET_BOOL( "Stop Movie", ref l_U37 );
+        ADD_WIDGET_BOOL( "Restart Movie", ref l_U38 );
+        ADD_WIDGET_BOOL( "Set Movie Frame", ref l_U39 );
+        ADD_WIDGET_BOOL( "Release Movie and Clean Screen", ref l_U40 );
+        ADD_WIDGET_INT_SLIDER( "Movie Time", ref l_U41, 0, 999999, 1 );
+        STOP_WIDGET_GROUP();
+        l_U43 = 1;
+    }
+    if (l_U35 == 1)
+    {
+         /* P_FADE_OUT_AND_WAIT */ sub_742( 250 );
+        vVar2 = {17.30967000, 17.05840000, 5.30050100};
+        fVar5 = 129.33390000;
+         /* TELEPORTPED */ sub_1022(  /* PLAYER_PED_ID */ sub_923(), vVar2, fVar5 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_923() )) == 0)
+        {
+            SET_ROOM_FOR_PED_BY_NAME(  /* PLAYER_PED_ID */ sub_923(), ref g_U1109 );
+            FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_923(), 1 );
+        }
+        uVar6 = GET_HASH_KEY( ref g_U1109 );
+        uVar7 = GET_INTERIOR_FROM_NAME( ref g_U1045, 0 );
+        SET_INTERIOR_ACTIVE( uVar7, 1, 0 );
+        LOAD_SCENE_FOR_ROOM_BY_KEY( uVar7, uVar6 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_923() )) == 0)
+        {
+            FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_923(), 0 );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( -29.46664000, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -6.17677400, 1065353216, 0 );
+         /* P_FADE_IN_AND_WAIT */ sub_1263( 250 );
+        l_U35 = 0;
+    }
+    if (l_U36 == 1)
+    {
+        vVar8 = {15.19600000, 14.66500000, 7.72100000};
+        vVar11 = {0.00000000, 0.00000000, 90.00000000};
+        PRELOAD_MOVIE( 0, "ofc_lobby_cp", 0, 0 );
+         /* LOADMODEL */ sub_1504( g_U1416, 1 );
+         /* CLEANOBJECT */ sub_1798( l_U42 );
+        l_U42 =  /* CREATEOBJECTNOOFFSET */ sub_1868( g_U1416, vVar8, vVar11, 0, 0, 0 );
+        if ((DOES_OBJECT_EXIST( l_U42 )) == 1)
+        {
+            ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( l_U42, ref g_U1109 );
+            FREEZE_OBJECT_POSITION( l_U42, 1 );
+            SET_OBJECT_COLLISION( l_U42, 0 );
+        }
+        WAIT( 0 );
+        SET_MOVIE_LOOP( 0, 1 );
+        PLAY_MOVIE( 0, 0 );
+        l_U36 = 0;
+    }
+    if (l_U37 == 1)
+    {
+        STOP_MOVIE( 0 );
+        l_U37 = 0;
+    }
+    if (l_U38 == 1)
+    {
+        PLAY_MOVIE( 0, 0 );
+        l_U38 = 0;
+    }
+    if (l_U39 == 1)
+    {
+        SET_MOVIE_FRAME( 0, l_U41 );
+        l_U39 = 0;
+    }
+    if (l_U40 == 1)
+    {
+        STOP_MOVIE( 0 );
+        RELEASE_MOVIE( 0 );
+         /* CLEANOBJECT */ sub_1798( l_U42 );
+        l_U40 = 0;
+    }
+    return;
+}
+
+/* P_FADE_OUT_AND_WAIT */ void sub_742(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade out... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_923()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_961() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_961()
+{
+    return GET_PLAYER_ID();
+}
+
+/* TELEPORTPED */ void sub_1022(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_1263(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* LOADMODEL */ void sub_1504(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_1621( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* WRITE_STRING */ void sub_1621(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* CLEANOBJECT */ void sub_1798(unknown uParam0)
+{
+    if (DOES_OBJECT_EXIST( uParam0 ))
+    {
+        DELETE_OBJECT( ref uParam0 );
+    }
+    return;
+}
+
+/* CREATEOBJECTNOOFFSET */ void sub_1868(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, boolean bParam7, int iParam8, unknown uParam9)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a object with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_1504( uParam0, 1 );
+    }
+    Result = CREATE_OBJECT_NO_OFFSET( uParam0, uParam1, NOT bParam7, uParam9 );
+    if (iParam8 == 1)
+    {
+        while ((DOES_OBJECT_EXIST( Result )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for an object to exist: {!f1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    if ((DOES_OBJECT_EXIST( Result )) == 1)
+    {
+        SET_OBJECT_ROTATION( Result, uParam4 );
+    }
+    return Result;
+}
+

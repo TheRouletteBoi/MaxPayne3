@@ -1,0 +1,53 @@
+void main()
+{
+    int iVar2;
+    int iVar3;
+
+    l_U0 = 1;
+    iVar2 = GET_INDEX_OF_CURRENT_LEVEL();
+    iVar3 = GET_INDEX_OF_CURRENT_LEVEL();
+    while ((iVar2 == iVar3) AND (NOT IS_EXITFLAG_SET()))
+    {
+        WAIT( 110 );
+        iVar3 = GET_INDEX_OF_CURRENT_LEVEL();
+    }
+    if (SCRIPT_VAR_HASH_EXISTS( 1701971384 ))
+    {
+        SCRIPT_VAR_HASH_SET_INT( 1701971384, 0 );
+    }
+    sub_105();
+    sub_451();
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+void sub_105()
+{
+    END_CONTEXT( "M_3_L_7" );
+    END_CONTEXT( "M_5_L_13" );
+    END_CONTEXT( "M_6_L_14" );
+    END_CONTEXT( "M_7_L_5" );
+    END_CONTEXT( "M_8_L_8" );
+    END_CONTEXT( "M_9_L_9" );
+    END_CONTEXT( "M_10_L_7" );
+    END_CONTEXT( "M_11_L_7" );
+    END_CONTEXT( "M_12_L_4" );
+    END_CONTEXT( "M_13_L_3" );
+    END_CONTEXT( "M_14_L_12" );
+    END_CONTEXT( "M_15_L_10" );
+    END_CONTEXT( "M_16_L_10" );
+    END_CONTEXT( "M_17_L_13" );
+    END_CONTEXT( "M_18_L_11" );
+    END_CONTEXT( "M_19_L_10" );
+    END_CONTEXT( "M_20_L_18" );
+    END_CONTEXT( "M_21_L_13" );
+    return;
+}
+
+void sub_451()
+{
+    END_CONTEXT( "PART2" );
+    END_CONTEXT( "LEVEL" );
+    return;
+}
+

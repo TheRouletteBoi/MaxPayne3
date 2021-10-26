@@ -1,0 +1,480 @@
+void main()
+{
+    vector vVar2;
+    float fVar5;
+    float fVar6;
+    float fVar7;
+
+    l_U0 = 0;
+    l_U1 = 1;
+    l_U2 = 0;
+    l_U3 = 1.00000000;
+    l_U4 = -5.00000000;
+    l_U5 = 0;
+    l_U6 = 0;
+    l_U7 = 0;
+    l_U11 = 42;
+    l_U12 = 0;
+    l_U13 = 0;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 90.00000000;
+    l_U18 = {0.00000000, 0.00000000, 0.00000000};
+    l_U21 = {0.00000000, 0.00000000, 0.00000000};
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = nil;
+    l_U31 = {0.00000000, 0.00000000, 0.00000000};
+    l_U34 = 0;
+    l_U35 = 0;
+    l_U36 = 0;
+    l_U37 = 0;
+    l_U38 = 0;
+    l_U39 = 0;
+    l_U40 = 0;
+    l_U41 = "S_MAR_VIG_17";
+    l_U46 = {-0.60000000, -1.20000000, 0.99000000};
+    l_U49 = 0.00000000;
+    l_U50 = {0.57000000, -0.41000000, 0.19000000};
+    l_U53 = 0.00000000;
+    sub_352( "SP", "Script ISequenceTest_3.sc is starting...", "###" );
+    sub_423( "level_s_marina_rs", 0, 1 );
+    sub_522( "Vehicle/Vehicle_Boat.act", 1 );
+    sub_594( 43800727, 1 );
+    sub_848( sub_772(), 427207702, 25000, 0, 0 );
+    vVar2 = {-12.04056000, -1550.60100000, 2.40381100};
+    fVar5 = 196.45090000;
+    fVar6 = -19.42148000;
+    fVar7 = -3.69616400;
+    sub_1223( sub_772(), vVar2, fVar5 );
+    LOAD_SCENE( "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( sub_772() ) );
+    SET_WEATHER_TYPE_NOW_PERSIST( "CLOUDY" );
+    FREEZE_TIME_OF_DAY( 12, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( fVar6, 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( fVar7, 1065353216, 0 );
+    while (true)
+    {
+        sub_1360();
+        WAIT( 0 );
+    }
+    sub_352( "SP", "Script ISequenceTest_3.sc is terminating...", "###" );
+    return;
+}
+
+void sub_352(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+
+void sub_423(unknown uParam0, unknown uParam1, int iParam2)
+{
+    REQUEST_ANIM_DICT( uParam0, uParam1 );
+    "[doubled result, dropped if not asigned]";
+    if (iParam2 == 1)
+    {
+        while ((HAS_ANIM_DICT_LOADED( uParam0, uParam1 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_522(unknown uParam0, int iParam1)
+{
+    ACTION_TREE_LOAD( uParam0 );
+    if (iParam1 == 1)
+    {
+        while ((IS_ACTION_TREE_LOADED( uParam0 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_594(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+        sub_699( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_699(unknown uParam0)
+{
+    return;
+}
+
+int sub_772()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED( sub_794() );
+    }
+    return 0;
+}
+
+void sub_794()
+{
+    return GET_PLAYER_ID();
+}
+
+void sub_848(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                }
+            }
+        }
+    }
+    else
+    {
+        sub_699( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+void sub_1223(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+void sub_1360()
+{
+    vector vVar2;
+    float fVar5;
+    vector vVar6;
+    float fVar9;
+    vector vVar10;
+    float fVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+
+    if (NOT l_U37)
+    {
+        START_WIDGET_GROUP( "S_MAR_VIG_17" );
+        ADD_WIDGET_STRING( "Max and Passos VIG 17" );
+        ADD_WIDGET_BOOL( "Teleport player to the Sequence", ref l_U38 );
+        ADD_WIDGET_BOOL( "Start Sequence", ref l_U39 );
+        ADD_WIDGET_BOOL( "Kill Sequence", ref l_U40 );
+        START_WIDGET_GROUP( "VIG17" );
+        START_WIDGET_GROUP( "Max Boat Attach" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U46._fU0, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U46._fU4, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U46._fU8, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Heading", ref l_U49, -360.00000000, 360.00000000, 0.10000000 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Passos Boat Attach" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U50._fU0, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U50._fU4, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U50._fU8, -5000.00000000, 5000.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Heading", ref l_U53, -360.00000000, 360.00000000, 0.10000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        l_U37 = 1;
+    }
+    if (l_U38)
+    {
+        vVar2 = {313.01700000, -646.84250000, 2.01444800};
+        fVar5 = 230.59560000;
+        sub_1223( sub_772(), vVar2, fVar5 );
+        if (NOT (IS_PED_DEAD( sub_772() )))
+        {
+            FREEZE_PED_POSITION( sub_772(), 1 );
+        }
+        LOAD_SCENE( vVar2 );
+        sub_1223( sub_772(), vVar2, fVar5 );
+        if (NOT (IS_PED_DEAD( sub_772() )))
+        {
+            FREEZE_PED_POSITION( sub_772(), 0 );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( 9.73796400, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -20.97883000, 1065353216, 0 );
+        sub_2144( 1000 );
+        l_U38 = 0;
+    }
+    if (l_U39)
+    {
+        I_SEQUENCE_UNREGISTER_ENTITY( l_U41, "max_vig_17" );
+        I_SEQUENCE_UNREGISTER_ENTITY( l_U41, "pas_vig_17" );
+        sub_2294( l_U41, 1 );
+        sub_594( 434129791, 1 );
+        sub_594( -1995706958, 1 );
+        sub_2403( l_U41, 1 );
+        vVar6 = {334.17370000, -660.46690000, -0.09342200};
+        fVar9 = 296.47290000;
+        sub_2518( l_U55 );
+        l_U55 = sub_2586( 434129791, vVar6, fVar9, 0, 0, 0 );
+        if (((IS_VEHICLE_DEAD( l_U55 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U55 )) == 1))
+        {
+            SET_VEHICLE_ON_GROUND_PROPERLY( l_U55 );
+        }
+        vVar10 = {334.00000000, -660.00000000, 10.00000000};
+        fVar13 = 0.00000000;
+        sub_2902( ref uVar14, vVar10, fVar13, -1995706958, 7, 3, 2, 0, 0 );
+        sub_3000( l_U54 );
+        l_U54 = sub_3084( ref uVar14, l_U55, -1, 0, 0 );
+        if (NOT (IS_PED_DEAD( l_U54 )))
+        {
+            sub_848( l_U54, 68019059, 25000, 0, 0 );
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U54, 1 );
+        }
+        if ((NOT (IS_VEHICLE_DEAD( l_U55 ))) AND (NOT (IS_PED_DEAD( l_U54 ))))
+        {
+            ATTACH_PED_TO_VEHICLE( l_U54, l_U55, 0, l_U50, l_U53, 360.00000000, 0, 0, 0, 1 );
+        }
+        if (NOT (IS_PED_DEAD( sub_772() )))
+        {
+            SET_PLAYER_CONTROL( sub_794(), 0, 0 );
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( sub_772(), 1 );
+            ATTACH_PED_TO_VEHICLE( sub_772(), l_U55, 0, l_U46, l_U49, 360.00000000, 0, 0, 0, 1 );
+        }
+        I_SEQUENCE_REGISTER_ENTITY( l_U41, "pas_vig_17", l_U54, 0 );
+        I_SEQUENCE_REGISTER_ENTITY( l_U41, "max_vig_17", sub_772(), 0 );
+        I_SEQUENCE_START( l_U41 );
+        l_U39 = 0;
+    }
+    if (l_U40)
+    {
+        I_SEQUENCE_UNREGISTER_ENTITY( l_U41, "pas_vig_17" );
+        I_SEQUENCE_UNREGISTER_ENTITY( l_U41, "max_vig_17" );
+        sub_2294( l_U41, 1 );
+        sub_3000( l_U54 );
+        if (NOT (IS_PED_DEAD( sub_772() )))
+        {
+            DETACH_PED( sub_772(), 1 );
+        }
+        sub_2518( l_U55 );
+        if (NOT (IS_PED_DEAD( sub_772() )))
+        {
+            CLEAR_PED_TASKS_IMMEDIATELY( sub_772() );
+            SET_PLAYER_CONTROL( sub_794(), 1, 0 );
+        }
+        l_U38 = 1;
+        l_U40 = 0;
+    }
+    return;
+}
+
+void sub_2144(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_2294(unknown uParam0, int iParam1)
+{
+    if ((I_SEQUENCE_IS_LOADED( uParam0 )) == 1)
+    {
+        I_SEQUENCE_TERMINATE( uParam0 );
+    }
+    if (iParam1 == 1)
+    {
+        while ((I_SEQUENCE_IS_LOADED( uParam0 )) == 1)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_2403(unknown uParam0, int iParam1)
+{
+    if ((I_SEQUENCE_IS_LOADED( uParam0 )) == 0)
+    {
+        I_SEQUENCE_LOAD_DATA( uParam0 );
+        if (iParam1 == 1)
+        {
+            while ((I_SEQUENCE_QUERY_STATE( uParam0, 1 )) == 1)
+            {
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+void sub_2518(unknown uParam0)
+{
+    if (IS_VEHICLE_DEAD( uParam0 ))
+    {
+        ;
+    }
+    if (DOES_VEHICLE_EXIST( uParam0 ))
+    {
+        DELETE_VEHICLE( ref uParam0 );
+    }
+    return;
+}
+
+void sub_2586(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, int iParam5, unknown uParam6, unknown uParam7)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a vehicle with MUST BE PRELOADED!!!!", 0 );
+        sub_594( uParam0, 1 );
+    }
+    Result = CREATE_VEHICLE( uParam0, uParam1, uParam4, uParam6, uParam7 );
+    if (iParam5 == 1)
+    {
+        while ((DOES_VEHICLE_EXIST( Result )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    if (DOES_VEHICLE_EXIST( Result ))
+    {
+        SET_PETROLTANK_BURN_RATE( Result, 125.00000000 );
+    }
+    return Result;
+}
+
+void sub_2902(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU16 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+void sub_3000(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+void sub_3084(int iParam0, unknown uParam1, unknown uParam2, int iParam3, unknown uParam4)
+{
+    if ((HAS_MODEL_LOADED( iParam0->_fU16 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+        sub_594( iParam0->_fU16, 1 );
+    }
+    if (((IS_VEHICLE_DEAD( uParam1 )) == 0) AND ((DOES_VEHICLE_EXIST( uParam1 )) == 1))
+    {
+        iParam0->_fU40 = CREATE_PED_INSIDE_VEHICLE( uParam1, iParam0->_fU24, iParam0->_fU16, uParam2, uParam4, iParam0->_fU48 );
+    }
+    else
+    {
+        SCRIPT_ASSERT( "The vehicle your trying to create a ped inside of is not valid!!!", 0 );
+    }
+    if (iParam3 == 1)
+    {
+        while ((DOES_PED_EXIST( iParam0->_fU40 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    sub_3398( iParam0->_fU40 );
+    sub_3478( iParam0->_fU40 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        iParam0->_fU44 = 1;
+    }
+    return iParam0->_fU40;
+}
+
+void sub_3398(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+void sub_3478(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+

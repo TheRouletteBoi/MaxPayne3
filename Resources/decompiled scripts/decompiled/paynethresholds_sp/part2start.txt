@@ -1,0 +1,18 @@
+void main()
+{
+    l_U0 = 1;
+    if (SCRIPT_VAR_HASH_EXISTS( 1701971384 ))
+    {
+        SCRIPT_VAR_HASH_SET_INT( 1701971384, 0 );
+    }
+    END_CONTEXT( "PART2" );
+    WAIT( 300 );
+    START_CONTEXT( "PART2" );
+    while (NOT IS_EXITFLAG_SET())
+    {
+        WAIT( 180 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+

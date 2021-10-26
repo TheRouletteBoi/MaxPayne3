@@ -1,0 +1,29 @@
+void main()
+{
+    l_U0 = 1;
+    if (SCRIPT_VAR_HASH_EXISTS( 1701971384 ))
+    {
+        SCRIPT_VAR_HASH_SET_INT( 1701971384, 0 );
+    }
+    if (IS_IN_STORY_MODE())
+    {
+        STAT_SET_INT( "SP_PILLS_TAKEN_THIS_LEVEL", 0 );
+    }
+    sub_92();
+    WAIT( 300 );
+    START_CONTEXT( "LEVEL" );
+    while (NOT IS_EXITFLAG_SET())
+    {
+        WAIT( 180 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+void sub_92()
+{
+    END_CONTEXT( "PART2" );
+    END_CONTEXT( "LEVEL" );
+    return;
+}
+

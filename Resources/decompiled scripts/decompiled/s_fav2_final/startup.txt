@@ -1,0 +1,3215 @@
+void main()
+{
+    l_U0 = 0;
+    l_U1 = 1;
+    l_U2 = 0;
+    l_U3 = 1.00000000;
+    l_U4 = -5.00000000;
+    l_U5 = 0;
+    l_U6 = 0;
+    l_U7 = 0;
+    l_U11 = 42;
+    l_U12 = 0;
+    l_U13 = 0;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 90.00000000;
+    l_U18 = {0.00000000, 0.00000000, 0.00000000};
+    l_U21 = {0.00000000, 0.00000000, 0.00000000};
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = nil;
+    l_U31 = {0.00000000, 0.00000000, 0.00000000};
+    l_U34 = 0;
+    l_U35 = 0;
+    l_U36 = 0;
+    l_U37 = 0;
+    l_U44 = {-8.73186400, 52.88707000, 34.02030000};
+    l_U47 = 359.06140000;
+    l_U49 = {-8.73186400, 52.88707000, 45.00000000};
+    l_U52 = {-0.40000000, 2.40000000, -0.13000000};
+    l_U55 = {0.00000000, 0.00000000, 0.00000000};
+    StrCopy( ref l_U58, "f2_anim_hlgt", 32 );
+    StrCopy( ref l_U66, "p_mi_searchlite", 32 );
+    l_U74 = 0;
+    l_U75 = 0;
+    l_U76 = 0;
+    l_U77 = 0;
+    l_U78 = 0;
+    l_U79 = 0;
+    l_U80 = 0;
+    l_U81 = "SpeechMain";
+    g_U0 = 1;
+    g_U648 = 0;
+    StrCopy( ref g_U649, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref g_U657, "DEFAULT_SPLINE_CAMERA", 32 );
+    g_U665 = 1;
+    g_U666 = 144;
+    g_U775 = 724512418;
+    g_U776 = -763691721;
+    g_U777 = -1123233189;
+    g_U778 = -392431712;
+    g_U779 = -707112419;
+    g_U780 = -897074312;
+    g_U1039 = 0;
+    g_U1040 = 0;
+    g_U1041 = 0;
+    g_U1042 = 0;
+    g_U1043 = 0;
+    g_U1044 = 0;
+    g_U1045 = 0;
+    g_U1046 = 0;
+    g_U1047 = 0;
+    StrCopy( ref g_U1048, "Gta_MILO_home", 32 );
+    StrCopy( ref g_U1056, "GtaMloRoom_top", 32 );
+    StrCopy( ref g_U1064, "GtaMloRoom_lower", 32 );
+    StrCopy( ref g_U1258, "room_fav2_intro_a", 32 );
+    g_U1308 = 1308526797;
+    g_U1309 = 57534114;
+    g_U1310 = 68019059;
+    g_U1311 = -1404433099;
+    sub_782( "SP", "Script s_fav2 startup.sc is starting...", 0 );
+    l_U37 = 1;
+    if (IS_DEATH_PANEL_WIPE_ALLOWED())
+    {
+        ENABLE_BULLET_CAMERA_WIPE( 1 );
+    }
+    while (IS_EXITFLAG_SET() == 0)
+    {
+        switch (l_U37)
+        {
+            case 0: break;
+            case 1:
+            DO_SCREEN_FADE_OUT( 0 );
+            SET_DEBUG_ACTIVE( 0 );
+            SET_STREAMING( 0 );
+            SET_MAX_WANTED_LEVEL( 0 );
+            STOP_MUSIC();
+            SET_DAMAGE_TO_PLAYER_MULTIPLIER( 1.10000000 );
+            SET_DAMAGE_FROM_PLAYER_MULTIPLIER( 0.95000000 );
+            g_U781 = GET_CHECKPOINT_SELECTED();
+            g_U782 = g_U781;
+            sub_1042( g_U782 );
+            sub_1715();
+            sub_6290();
+            sub_8446();
+            sub_20864();
+            sub_21033();
+            SET_CAM_VIEW_MODE( 1 );
+            SET_STREAMING( 1 );
+            l_U38._fU0 = 2;
+            l_U38._fU8 = 8;
+            SET_RICH_PRESENCE( ref l_U38 );
+            if (g_U781 < 11)
+            {
+                if ((g_U781 == 0) || (g_U781 == 1))
+                {
+                    sub_782( "NS", "HACK: for bug 425931 as per SEGERI, start this level with no pills", 0 );
+                    SET_PAYNEKILLER_AMT( 0 );
+                }
+                else if (g_U781 == 3)
+                {
+                    if (IS_ARCADE_MODE_ACTIVE() == 1)
+                    {
+                        SET_PAYNEKILLER_AMT( 2 );
+                    }
+                }
+                l_U37 = 3;
+                sub_782( "NS", "eScriptState = SCRIPT_START_GAMEPLAY", 0 );
+            }
+            else
+            {
+                l_U37 = 2;
+                sub_782( "NS", "eScriptState = SCRIPT_START_DEBUG", 0 );
+            }
+            break;
+            case 2:
+            sub_21517();
+            DO_SCREEN_FADE_IN( 0 );
+            if ((g_U781 <= 40) AND (g_U781 >= 20))
+            {
+                sub_21861( sub_8570(), g_U1310, 200, 0, 0 );
+            }
+            if (g_U781 == 31)
+            {
+                sub_22229( "fav2_iSequences", 1536 );
+            }
+            else if (g_U781 == 32)
+            {
+                sub_22229( "fav2_iSequences2", 1536 );
+            }
+            else if (g_U781 == 33)
+            {
+                sub_22229( "fav2_iSequences3", 1536 );
+            }
+            else if (g_U781 == 34)
+            {
+                sub_22229( "fav2_iSequences4", 1536 );
+            }
+            else if (g_U781 == 35)
+            {
+                sub_22229( "fav2_iSequences5", 1536 );
+            }
+            else if (g_U781 == 36)
+            {
+                sub_22229( "fav2_iSequences6", 1536 );
+            }
+            else if (g_U781 == 37)
+            {
+                sub_22229( "fav2_iSequences7", 1536 );
+            }
+            else if (g_U781 == 38)
+            {
+                sub_22229( "fav2_iSequencesBoss", 1536 );
+            }
+            else if (g_U781 == 41)
+            {
+                sub_22229( "fav2_ImgMetrics", 8192 );
+            }
+            else if (g_U781 == 40)
+            {
+                sub_22229( "fav2_ai_test", 1536 );
+            }
+            else if (g_U781 == 39)
+            {
+                ;
+            };;;;;;;;;;;
+            sub_22730();
+            l_U37 = 5;
+            break;
+            case 3:
+            sub_23111();
+            sub_23661();
+            if (g_U781 != 10)
+            {
+                sub_22730();
+            }
+            sub_21517();
+            sub_24026();
+            if ((DOES_SCRIPT_EXIST( l_U81 )) == 1)
+            {
+                REQUEST_SCRIPT( l_U81 );
+                "[doubled result, dropped if not asigned]";
+                l_U37 = 4;
+                sub_782( "SP", "eScriptState = SCRIPT_LOADING_SPEECHMAIN", 0 );
+            }
+            else
+            {
+                SCRIPT_ASSERT( "[SP] Error: SpeechMain.sc doesn't exist on the disc!!!", 0 );
+            }
+            break;
+            case 4:
+            sub_782( "NS", "eScriptState = SCRIPT_LOADING_SPEECHMAIN", 0 );
+            if ((HAS_SCRIPT_LOADED( l_U81 )) == 1)
+            {
+                LOAD_ADDITIONAL_TEXT( "MAXAUD", 2 );
+                l_U82 = START_NEW_SCRIPT( l_U81, 128 );
+                l_U37 = 6;
+                sub_782( "SP", "eScriptState = SCRIPT_LOADING_ASSETS_GAMEPLAY", 0 );
+            }
+            break;
+            case 5:
+            if (sub_24552())
+            {
+                l_U37 = 7;
+            }
+            break;
+            case 6:
+            if (sub_24933() == 1)
+            {
+                if (g_U781 == 10)
+                {
+                    l_U37 = 7;
+                    sub_782( "NS", "eScriptState = SCRIPT_RUNNING", 0 );
+                }
+                else if (sub_24552() == 1)
+                {
+                    l_U37 = 7;
+                    sub_782( "NS", "eScriptState = SCRIPT_RUNNING", 0 );
+                }
+            }
+            break;
+            case 7:
+            sub_25215();
+            if (g_U781 < 20)
+            {
+                sub_31793( ref g_U1312, 11 );
+                sub_32448();
+                if (g_U1047 == 1)
+                {
+                    sub_32573();
+                    g_U1047 = 0;
+                }
+            }
+            else if (g_U781 == 41)
+            {
+                if (g_U1047 == 1)
+                {
+                    sub_32573();
+                    g_U1047 = 0;
+                }
+            }
+            break;
+        }
+        WAIT( 0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    sub_782( "SP", "Script s_fav2 startup.sc is terminating...", 0 );
+    return;
+}
+
+void sub_782(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    return;
+}
+
+void sub_1042(unknown uParam0)
+{
+    sub_782( "CO", "P_SETUP_INITIAL_TIMECYCLE", 0 );
+    switch (uParam0)
+    {
+        case 0:
+        case 1:
+        case 2:
+        SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+        FREEZE_TIME_OF_DAY( 19, 0 );
+        break;
+        case 3:
+        SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+        FREEZE_TIME_OF_DAY( 20, 0 );
+        break;
+        case 4:
+        SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+        FREEZE_TIME_OF_DAY( 20, 10 );
+        break;
+        case 5:
+        if (g_U1046 == 1)
+        {
+            sub_782( "kja", "MCE_UFE_RUN bTimeofDayReleased = TRUE", 0 );
+            FREEZE_TIME_OF_DAY( 20, 10 );
+            break;
+        }
+        sub_782( "kja", "MCE_UFE_RUN bTimeofDayReleased = FALSE: SO WE're SETTING WEATHER AND TOD TO 20:20", 0 );
+        SET_WEATHER_TYPE_NOW_PERSIST( "DRIZZLE" );
+        SET_PUDDLES( 0.11000000, 0.07000000, 0.11000000, 0.51300000 );
+        FREEZE_TIME_OF_DAY( 20, 10 );
+        case 6:
+        case 7:
+        case 8:
+        if (g_U1046 == 1)
+        {
+            ;
+        }
+        else
+        {
+            SET_WEATHER_TYPE_NOW_PERSIST( "DRIZZLE" );
+            SET_PUDDLES( 0.11000000, 0.07000000, 0.11000000, 0.51300000 );
+            FREEZE_TIME_OF_DAY( 21, 0 );
+        }
+        break;
+        case 9:
+        SET_WEATHER_TYPE_NOW_PERSIST( "DRIZZLE" );
+        SET_PUDDLES( 0.11000000, 0.07000000, 0.11000000, 0.51300000 );
+        FREEZE_TIME_OF_DAY( 21, 0 );
+        break;
+        case 10:
+        SET_WEATHER_TYPE_NOW_PERSIST( "DRIZZLE" );
+        SET_PUDDLES( 0.11000000, 0.07000000, 0.11000000, 0.51300000 );
+        FREEZE_TIME_OF_DAY( 22, 0 );
+        break;
+        default:
+        FREEZE_TIME_OF_DAY( 19, 0 );
+        break;
+    }
+    return;
+}
+
+void sub_1715()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+
+    sub_782( "SP", "P_SETUP_FAV2_DOORS", 0 );
+    sub_1796( ref g_U1072, 729926863, 15.01210000, 62.11330000, 39.46660000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1079, -1006708222, -81.04610000, 60.17150000, 28.14240000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1086, -1006708222, -80.88930000, 60.05990000, 28.18160000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1093, -1006708222, -156.92600000, 185.45000000, 8.75600000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1989( ref g_U1093, -85.00000000, 0.00000000 );
+    sub_1796( ref g_U1198, -1006708222, -163.72760000, 194.24080000, 8.65039000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1205, 694578091, -166.47110000, 191.09970000, 8.62740000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1989( ref g_U1205, -65.00000000, 0.00000000 );
+    sub_1796( ref g_U1212, -1006708222, -132.41510000, 199.42410000, 4.27978000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1100, 694578091, -159.29500000, 195.26600000, 4.50300000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1107, -417746690, -127.23800000, 117.50200000, 11.94700000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1114, -1006708222, -132.63780000, 131.29930000, 7.58130000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1114, 1 );
+    sub_1796( ref g_U1121, -1006708222, -130.91200000, 137.53200000, 8.16400000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1128, -1006708222, -132.10370000, 146.06230000, 8.15500000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1128, 1 );
+    sub_1796( ref g_U1142, 694578091, -132.54080000, 131.46270000, 10.19040000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1989( ref g_U1142, -100.00000000, 100 );
+    sub_1796( ref g_U1149, 694578091, -126.31000000, 122.85300000, 8.17900000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1149, 1 );
+    sub_1796( ref g_U1135, -417746690, -126.04000000, 159.46000000, 8.23000000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1135, 1 );
+    sub_1796( ref g_U1156, -417746690, -149.22900000, 158.79900000, 6.83500000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1156, 1 );
+    sub_1796( ref g_U1191, 10345122, -156.01910000, 166.28400000, 6.89770000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1191, 0 );
+    sub_1989( ref g_U1191, 0.00000000, 85.00000000 );
+    sub_1796( ref g_U1163, 10345122, -143.04500000, 448.97000000, -32.04400000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1163, 1 );
+    sub_1796( ref g_U1177, 10345122, -130.53020000, 564.16100000, -27.40010000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1177, 0 );
+    sub_3105( ref g_U1177, 1, 1, 0.75000000 );
+    sub_1796( ref g_U1170, 10345122, -127.94300000, 543.28100000, -31.30900000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1989( ref g_U1170, 0.00000000, 85.00000000 );
+    sub_1796( ref g_U1184, 10345122, -120.48120000, 285.92600000, -8.23010000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1989( ref g_U1184, -85.00000000, 0.00000000 );
+    sub_3387( ref g_U1184, 1 );
+    sub_1796( ref g_U1219, 729926863, -113.14200000, 352.83400000, -23.18000000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_1796( ref g_U1226, 10345122, -99.87140000, 324.72260000, -12.50020000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1226, 1 );
+    sub_1796( ref g_U1233, 10345122, -101.11100000, 319.82450000, -11.57380000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref g_U1233, 1 );
+    sub_1796( ref uVar2, 10345122, 19.21620000, 66.78560000, 39.54060000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, 3.52750000, 82.68560000, 40.18380000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -34.88190000, 83.71660000, 29.17410000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -37.58820000, 83.62150000, 29.17410000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -17.63890000, 80.11420000, 37.38800000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -23.75340000, 80.45330000, 35.29360000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -2056310819, -84.26350000, 65.71820000, 26.15810000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -87.05750000, 62.94630000, 26.52360000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -88.56810000, 64.30680000, 26.30680000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -79.60080000, 77.01290000, 22.43080000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 729926863, -82.52140000, 71.31560000, 25.73550000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -90.63800000, 87.23880000, 25.56700000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 729926863, -95.21690000, 85.99210000, 25.17200000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -121.70000000, 113.60000000, 16.76500000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -134.83100000, 113.99460000, 11.99930000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -140.91490000, 126.16780000, 9.00030000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -142.91260000, 130.46620000, 9.70720000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -138.13030000, 130.96800000, 8.09150000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -132.63790000, 131.29940000, 7.58130000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -132.63790000, 131.29940000, 7.58130000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -132.77180000, 147.79290000, 8.57460000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -126.04280000, 144.46790000, 8.63440000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -126.37200000, 122.84340000, 8.25460000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -130.36040000, 118.84960000, 8.68840000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -133.22310000, 118.37270000, 8.68840000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -136.01190000, 159.03680000, 8.01970000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -128.43090000, 137.91630000, 8.83490000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -126.04380000, 144.46450000, 8.63440000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1006708222, -132.10370000, 146.06230000, 8.15500000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -125.82380000, 151.09690000, 8.92320000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -128.50920000, 159.46190000, 8.77780000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -141.04120000, 161.79130000, 7.43810000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -158.66020000, 182.98280000, 9.50010000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -161.10600000, 199.22870000, 8.70440000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -148.39810000, 200.90250000, 4.56610000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -136.18270000, 201.35510000, 4.34140000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -117.83550000, 231.74690000, -3.54270000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -127.64450000, 240.36680000, -7.74110000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -136.89970000, 241.59030000, -9.30160000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -136.80040000, 236.93730000, -9.09160000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -139.29240000, 235.77440000, -9.91240000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -148.16210000, 236.06960000, -10.74380000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -153.63930000, 233.79570000, -9.44920000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -150.14460000, 247.03090000, -11.71890000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -163.27190000, 249.53340000, -15.23680000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -168.45460000, 256.15060000, -15.87710000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, -1239208525, -171.57760000, 261.30180000, -16.22290000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -137.58420000, 275.18420000, -14.13680000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 1391469520, -142.08880000, 285.10500000, -15.39210000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -123.13290000, 304.93800000, -8.59460000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -107.84200000, 330.37380000, -13.16960000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -120.21590000, 295.24890000, -8.77410000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    sub_1796( ref uVar2, 10345122, -112.79740000, 344.72470000, -23.19570000, 0.00000000, 0.00000000, 0.00000000 );
+    sub_2451( ref uVar2, 1 );
+    return;
+}
+
+void sub_1796(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7)
+{
+    iParam0->_fU0 = uParam1;
+    iParam0->_fU4 = {uParam2};
+    iParam0->_fU16 = {uParam5};
+    return;
+}
+
+void sub_1989(int iParam0, float fParam1, float fParam2)
+{
+    if ((sub_2001( iParam0 )) == 0)
+    {
+        sub_2067( iParam0 );
+    }
+    if (fParam1 > fParam2)
+    {
+        ;
+    }
+    else
+    {
+        DOOR_FIND_CLOSEST_SET_LIMIT_MIN( iParam0->_fU0, iParam0->_fU4, fParam1 );
+        DOOR_FIND_CLOSEST_SET_LIMIT_MAX( iParam0->_fU0, iParam0->_fU4, fParam2 );
+    }
+    return;
+}
+
+int sub_2001(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS( iParam0->_fU4, 1.00000000, iParam0->_fU0 );
+    if (iVar3 == 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+void sub_2067(unknown uParam0)
+{
+    (uParam0^) = {(uParam0^)};
+    return;
+}
+
+void sub_2451(int iParam0, int iParam1)
+{
+    int iVar4;
+    float fVar5;
+
+    if ((sub_2001( iParam0 )) == 0)
+    {
+        sub_2067( iParam0 );
+    }
+    if (iParam1 == 1)
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 1, 0.00000000 );
+    }
+    else
+    {
+        iVar4 = 0;
+        fVar5 = 0.00000000;
+        GET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, ref iVar4, ref fVar5 );
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, fVar5 );
+    }
+    return;
+}
+
+void sub_3105(int iParam0, int iParam1, int iParam2, unknown uParam3)
+{
+    float fVar6;
+
+    if ((sub_2001( iParam0 )) == 0)
+    {
+        sub_2067( iParam0 );
+    }
+    fVar6 = 0.00000000;
+    if (iParam1 == 1)
+    {
+        fVar6 = uParam3;
+    }
+    else
+    {
+        fVar6 = -uParam3;
+    }
+    if (iParam2 == 1)
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 1, fVar6 );
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, fVar6 );
+    }
+    else
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, fVar6 );
+    }
+    return;
+}
+
+void sub_3387(int iParam0, int iParam1)
+{
+    if ((sub_2001( iParam0 )) == 0)
+    {
+        sub_2067( iParam0 );
+    }
+    if (iParam1 == 1)
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 1, 0.00000000 );
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, 0.00000000 );
+    }
+    else
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, 0.00000000 );
+    }
+    return;
+}
+
+void sub_6290()
+{
+    sub_782( "SP", "P_SETUP_START_POSITIONS", 0 );
+    g_U783[0] = {18.56038000, 62.02882000, 38.37154000};
+    g_U910[0] = 133.95980000;
+    g_U953[0] = -5.47357700;
+    g_U996[0] = -2.41353200;
+    g_U783[1] = {15.23606000, 65.53494000, 38.30544000};
+    g_U910[1] = 148.50800000;
+    g_U953[1] = -0.16947100;
+    g_U996[1] = -4.90838800;
+    g_U783[2] = {-83.08267000, 61.92675000, 26.12789000};
+    g_U910[2] = 48.74247000;
+    g_U953[2] = -9.11902000;
+    g_U996[2] = -11.91088000;
+    g_U783[3] = {-128.74320000, 118.72030000, 10.84019000};
+    g_U910[3] = 1.09419800;
+    g_U953[3] = -7.44782200;
+    g_U996[3] = -10.35355000;
+    g_U783[4] = {-158.58350000, 187.00340000, 7.52688100};
+    g_U910[4] = 69.33121000;
+    g_U953[4] = -4.31363300;
+    g_U996[4] = -6.80226300;
+    g_U783[5] = {-166.48350000, 197.54790000, 7.54437400};
+    g_U910[5] = 345.12780000;
+    g_U953[5] = 9.32499100;
+    g_U996[5] = -8.10828700;
+    g_U783[6] = {-133.40200000, 203.28600000, 3.46688000};
+    g_U910[6] = -52.52230000;
+    g_U953[6] = 42.48300000;
+    g_U996[6] = 15.05100000;
+    g_U783[7] = {-132.93400000, 239.58680000, -10.65273000};
+    g_U910[7] = 84.59418000;
+    g_U953[7] = 21.51757000;
+    g_U996[7] = -13.08276000;
+    g_U783[8] = {-162.66010000, 267.63700000, -18.81271000};
+    g_U910[8] = 299.26760000;
+    g_U953[8] = -0.92174100;
+    g_U996[8] = -0.60389600;
+    g_U783[9] = {-117.95660000, 299.40340000, -10.11308000};
+    g_U910[9] = 356.11330000;
+    g_U953[9] = -32.01215000;
+    g_U996[9] = -5.08360000;
+    g_U783[10] = {-108.04000000, 438.52000000, -26.56000000};
+    g_U910[10] = 135.00000000;
+    g_U953[10] = 0.00000000;
+    g_U996[10] = -2.64875800;
+    g_U783[20] = {13.41769000, 64.57988000, 38.28456000};
+    g_U910[20] = 81.88910000;
+    g_U953[20] = -2.69745300;
+    g_U996[20] = -10.49784000;
+    g_U783[21] = {-83.08267000, 61.92675000, 26.12789000};
+    g_U910[21] = 48.74247000;
+    g_U953[21] = -9.11902000;
+    g_U996[21] = -11.91088000;
+    g_U783[22] = {-128.74320000, 118.72030000, 10.84019000};
+    g_U910[22] = 1.09419800;
+    g_U953[22] = -29.76465000;
+    g_U996[22] = -23.24882000;
+    g_U783[23] = {-159.74050000, 187.93100000, 7.52680400};
+    g_U910[23] = 70.88528000;
+    g_U953[23] = -1.46823600;
+    g_U996[23] = 1.95833200;
+    g_U783[24] = {-133.40200000, 203.28600000, 3.46688000};
+    g_U910[24] = -52.52230000;
+    g_U953[24] = -1.46823600;
+    g_U996[24] = 1.95833200;
+    g_U783[25] = {-132.93400000, 239.58680000, -10.65273000};
+    g_U910[25] = 84.59418000;
+    g_U953[25] = 21.51757000;
+    g_U996[25] = -13.08276000;
+    g_U783[26] = {-162.66010000, 267.63700000, -18.64793000};
+    g_U910[26] = 299.26760000;
+    g_U953[26] = -0.00023200;
+    g_U996[26] = 5.34906400;
+    g_U783[27] = {-117.91000000, 299.60000000, -9.11000000};
+    g_U910[27] = 340.55270000;
+    g_U953[27] = -51.87091000;
+    g_U996[27] = -9.36771000;
+    g_U783[28] = {-144.40000000, 446.55000000, -24.70000000};
+    g_U910[28] = 198.18320000;
+    g_U953[28] = 1.98690200;
+    g_U996[28] = -2.64875800;
+    g_U783[29] = {12.95165000, 64.62217000, 38.28456000};
+    g_U910[29] = 99.97498000;
+    g_U953[29] = -8.49062200;
+    g_U996[29] = -9.60738500;
+    g_U783[31] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[31] = 80.94959000;
+    g_U953[31] = 0.21661300;
+    g_U996[31] = -20.44620000;
+    g_U783[32] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[32] = 80.94959000;
+    g_U953[32] = 0.21661300;
+    g_U996[32] = -20.44620000;
+    g_U783[33] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[33] = 80.94959000;
+    g_U953[33] = 0.21661300;
+    g_U996[33] = -20.44620000;
+    g_U783[34] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[34] = 80.94959000;
+    g_U953[34] = 0.21661300;
+    g_U996[34] = -20.44620000;
+    g_U783[35] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[35] = 80.94959000;
+    g_U953[35] = 0.21661300;
+    g_U996[35] = -20.44620000;
+    g_U783[36] = {-133.27400000, 203.41300000, 3.49744000};
+    g_U910[36] = -52.12230000;
+    g_U953[36] = 0.21661300;
+    g_U996[36] = -20.44620000;
+    g_U783[37] = {-133.27400000, 203.41300000, 3.49744000};
+    g_U910[37] = -52.12230000;
+    g_U953[37] = 0.21661300;
+    g_U996[37] = -20.44620000;
+    g_U783[40] = {14.06603000, 63.16667000, 38.28504000};
+    g_U910[40] = 80.94959000;
+    g_U953[40] = 0.21661300;
+    g_U996[40] = -20.44620000;
+    g_U783[39] = {13.41769000, 64.57988000, 38.28456000};
+    g_U910[39] = 81.88910000;
+    g_U953[39] = -2.69745300;
+    g_U996[39] = -10.49784000;
+    g_U783[41] = {-125.63760000, 371.05510000, -25.01869000};
+    g_U910[41] = 356.38560000;
+    g_U953[41] = 6.03161900;
+    g_U996[41] = -4.57889700;
+    return;
+}
+
+void sub_8446()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+
+    sub_782( "SP", "P_CREATE_PLAYER", 0 );
+    uVar2 = {g_U783[g_U781]};
+    uVar5 = g_U910[g_U781];
+    if (IS_CUSTOM_PLAYER_VARIATION() == 0)
+    {
+        if (g_U781 < 7)
+        {
+            sub_8546( 21, uVar2, 0 );
+            if ((IS_PED_DEAD( sub_8570() )) == 0)
+            {
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 2, 8, 0, 0 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 3, 0, 3, 0 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 5, 5, 2, 0 );
+            }
+        }
+        else
+        {
+            sub_8546( 22, uVar2, 0 );
+        }
+        if (g_U781 < 11)
+        {
+            if ((IS_PED_DEAD( sub_8570() )) == 0)
+            {
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 0, 0, 20, 1 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 2, 30, 0, 2 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 3, 4, 0, 2 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 5, 5, 3, 2 );
+                PRELOAD_PLAYER_VARIATION( sub_8570(), 6, 0, 2, 2 );
+            }
+        }
+    }
+    else
+    {
+        uVar6 = sub_19364( GET_CUSTOM_PLAYER_VARIATION() );
+        sub_8546( uVar6, uVar2, 0 );
+        if ((sub_19772( uVar6 )) == 1)
+        {
+            SET_HOLSTER_VISIBLE( sub_8570(), 0, 1 );
+            SET_HOLSTER_VISIBLE( sub_8570(), 1, 1 );
+        }
+        else
+        {
+            SET_HOLSTER_VISIBLE( sub_8570(), 0, 0 );
+            SET_HOLSTER_VISIBLE( sub_8570(), 1, 0 );
+        }
+    }
+    if ((IS_PED_DEAD( sub_8570() )) == 0)
+    {
+        sub_20713( sub_8570(), uVar2, uVar5 );
+        FREEZE_PED_POSITION( sub_8570(), 1 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( sub_8570(), 1 );
+        REQUEST_COLLISION_AT_COORD( uVar2 );
+    }
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U953[g_U781], 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U996[g_U781], 1065353216, 0 );
+    return;
+}
+
+void sub_8546(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    unknown Result;
+    unknown uVar8;
+
+    Result = CREATE_PLAYER( uParam4, uParam1 );
+    uVar8 = sub_8570();
+    switch (uParam0)
+    {
+        case 0:
+        sub_9035( uVar8 );
+        break;
+        case 1:
+        sub_9245( uVar8 );
+        break;
+        case 2:
+        sub_9455( uVar8 );
+        break;
+        case 3:
+        sub_9665( uVar8 );
+        break;
+        case 4:
+        sub_9875( uVar8 );
+        break;
+        case 5:
+        sub_10085( uVar8 );
+        break;
+        case 6:
+        sub_10295( uVar8 );
+        break;
+        case 8:
+        sub_10505( uVar8 );
+        break;
+        case 9:
+        sub_10715( uVar8 );
+        break;
+        case 10:
+        sub_10925( uVar8 );
+        break;
+        case 11:
+        sub_11135( uVar8 );
+        break;
+        case 12:
+        sub_11345( uVar8 );
+        break;
+        case 13:
+        sub_11555( uVar8 );
+        break;
+        case 14:
+        sub_11765( uVar8 );
+        break;
+        case 15:
+        sub_11975( uVar8 );
+        break;
+        case 16:
+        sub_12185( uVar8 );
+        break;
+        case 17:
+        sub_12395( uVar8 );
+        break;
+        case 18:
+        sub_12605( uVar8 );
+        break;
+        case 19:
+        sub_12815( uVar8 );
+        break;
+        case 20:
+        sub_13025( uVar8 );
+        break;
+        case 21:
+        sub_13235( uVar8 );
+        break;
+        case 22:
+        sub_13445( uVar8 );
+        break;
+        case 23:
+        sub_13655( uVar8 );
+        break;
+        case 24:
+        sub_13865( uVar8 );
+        break;
+        case 25:
+        sub_14075( uVar8 );
+        break;
+        case 26:
+        sub_14285( uVar8 );
+        break;
+        case 27:
+        sub_14495( uVar8 );
+        break;
+        case 28:
+        sub_14705( uVar8 );
+        break;
+        case 29:
+        sub_14915( uVar8 );
+        break;
+        case 30:
+        sub_15125( uVar8 );
+        break;
+        case 31:
+        sub_15335( uVar8 );
+        break;
+        case 32:
+        sub_15545( uVar8 );
+        break;
+        case 33:
+        sub_15755( uVar8 );
+        break;
+        case 34:
+        sub_15965( uVar8 );
+        break;
+        case 35:
+        sub_16175( uVar8 );
+        break;
+        case 36:
+        sub_16385( uVar8 );
+        break;
+        case 37:
+        sub_16595( uVar8 );
+        break;
+        case 38:
+        sub_16820( uVar8 );
+        break;
+        case 39:
+        sub_17030( uVar8 );
+        break;
+        case 40:
+        sub_17240( uVar8 );
+        break;
+        case 41:
+        sub_17450( uVar8 );
+        break;
+        case 42:
+        sub_17660( uVar8 );
+        break;
+        case 43:
+        sub_17870( uVar8 );
+        break;
+        case 44:
+        sub_18082( sub_8570() );
+        break;
+        case 45:
+        sub_18296( sub_8570() );
+        break;
+        case 46:
+        sub_18510( sub_8570() );
+        break;
+        case 47:
+        sub_18724( sub_8570() );
+        break;
+        case 48:
+        sub_18938( sub_8570() );
+        break;
+    }
+    return Result;
+}
+
+int sub_8570()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED( sub_8592() );
+    }
+    return 0;
+}
+
+void sub_8592()
+{
+    return GET_PLAYER_ID();
+}
+
+void sub_9035(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_9245(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 29, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_9455(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_9665(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_9875(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 17, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 27, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 8, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_10085(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_10295(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 24, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_10505(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_10715(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_10925(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_11135(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 28, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_11345(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_11555(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 17, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_11765(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 16, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 23, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_11975(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 16, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 23, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 11, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_12185(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_12395(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 6, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_12605(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 9, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+void sub_12815(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 13, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+void sub_13025(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_13235(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 7, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+void sub_13445(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+void sub_13655(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 30, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 3, 0, 0 );
+    }
+    return;
+}
+
+void sub_13865(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 4, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_14075(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 14, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 4, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_14285(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 18, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_14495(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_14705(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 0, 5, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 0, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_14915(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_15125(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 15, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_15335(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 10, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 21, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 0, 0 );
+    }
+    return;
+}
+
+void sub_15545(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 11, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 20, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 1, 0 );
+    }
+    return;
+}
+
+void sub_15755(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 12, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 25, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_15965(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 12, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 15, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 3, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_16175(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 19, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 22, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 17, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 0, 1, 0 );
+    }
+    return;
+}
+
+void sub_16385(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 7, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 17, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 2, 0, 0 );
+    }
+    return;
+}
+
+void sub_16595(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 18, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 19, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+        SET_PED_PROP_INDEX( uParam0, 0, 0, 0, 255 );
+    }
+    return;
+}
+
+void sub_16820(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_17030(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_17240(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_17450(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 26, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_17660(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 8, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_17870(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 8, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_18082(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 34, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 19, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 4, 0, 0 );
+    }
+    return;
+}
+
+void sub_18296(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 13, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 34, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 19, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 7, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 4, 1, 0 );
+    }
+    return;
+}
+
+void sub_18510(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 32, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 18, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 10, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+void sub_18724(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 32, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 18, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 11, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 10, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 16, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 6, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 5, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 1, 0 );
+    }
+    return;
+}
+
+void sub_18938(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 33, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 11, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 15, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+int sub_19364(unknown uParam0)
+{
+    unknown uVar3;
+
+    uVar3 = uParam0;
+    switch (uVar3)
+    {
+        case 1:
+        return 44;
+        break;
+        case 2:
+        return 46;
+        break;
+        case 3:
+        return 3;
+        break;
+        case 4:
+        return 10;
+        break;
+        case 5:
+        return 15;
+        break;
+        case 6:
+        return 18;
+        break;
+        case 7:
+        return 20;
+        break;
+        case 8:
+        return 24;
+        break;
+        case 9:
+        return 26;
+        break;
+        case 10:
+        return 31;
+        break;
+        case 11:
+        return 36;
+        break;
+        case 12:
+        return 1;
+        break;
+        case 13:
+        return 16;
+        break;
+        case 14:
+        return 29;
+        break;
+        case 15:
+        return 32;
+        break;
+        case 16:
+        return 41;
+        break;
+        case 17:
+        return 37;
+        break;
+        case 18:
+        return 48;
+        break;
+        case 19:
+        return 45;
+        break;
+        case 20:
+        return 47;
+        break;
+    }
+    return 49;
+}
+
+int sub_19772(unknown uParam0)
+{
+    switch (uParam0)
+    {
+        case 0:
+        return 0;
+        break;
+        case 1:
+        return 0;
+        break;
+        case 2:
+        return 0;
+        break;
+        case 3:
+        return 0;
+        break;
+        case 4:
+        return 0;
+        break;
+        case 5:
+        return 0;
+        break;
+        case 6:
+        return 0;
+        break;
+        case 8:
+        return 1;
+        break;
+        case 9:
+        return 1;
+        break;
+        case 10:
+        return 1;
+        break;
+        case 11:
+        return 0;
+        break;
+        case 12:
+        return 0;
+        break;
+        case 13:
+        return 1;
+        break;
+        case 14:
+        return 1;
+        break;
+        case 15:
+        return 1;
+        break;
+        case 16:
+        return 0;
+        break;
+        case 17:
+        return 0;
+        break;
+        case 18:
+        return 1;
+        break;
+        case 19:
+        return 1;
+        break;
+        case 20:
+        return 0;
+        break;
+        case 21:
+        return 1;
+        break;
+        case 22:
+        return 1;
+        break;
+        case 23:
+        return 1;
+        break;
+        case 24:
+        return 1;
+        break;
+        case 25:
+        return 1;
+        break;
+        case 26:
+        return 1;
+        break;
+        case 27:
+        return 1;
+        break;
+        case 28:
+        return 1;
+        break;
+        case 29:
+        return 0;
+        break;
+        case 30:
+        return 1;
+        break;
+        case 31:
+        return 1;
+        break;
+        case 32:
+        return 1;
+        break;
+        case 33:
+        return 0;
+        break;
+        case 34:
+        return 1;
+        break;
+        case 35:
+        return 1;
+        break;
+        case 36:
+        return 1;
+        break;
+        case 37:
+        return 0;
+        break;
+        case 38:
+        return 0;
+        break;
+        case 39:
+        return 0;
+        break;
+        case 40:
+        return 0;
+        break;
+        case 41:
+        return 0;
+        break;
+        case 42:
+        return 0;
+        break;
+        case 43:
+        return 0;
+        break;
+        case 44:
+        return 0;
+        break;
+        case 45:
+        return 0;
+        break;
+        case 46:
+        return 0;
+        break;
+        case 47:
+        return 0;
+        break;
+        case 48:
+        return 0;
+        break;
+    }
+    return 0;
+}
+
+void sub_20713(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+void sub_20864()
+{
+    sub_782( "SP", "P_SETUP_PLAYER_SWEAT", 0 );
+    switch (g_U781)
+    {
+        case 0:
+        case 1:
+        SET_PED_SWEAT( sub_8570(), 0.00000000, 0.00000000 );
+        break;
+        case 29:
+        SET_PED_SWEAT( sub_8570(), 0.00000000, 0.00000000 );
+        break;
+        default:
+        SET_PED_SWEAT( sub_8570(), 0.00000000, 0.00000000 );
+        break;
+    }
+    return;
+}
+
+void sub_21033()
+{
+    sub_782( "SP", "P_SETUP_PLAYER_RELATIONSHIPS", 0 );
+    if ((IS_PED_DEAD( sub_8570() )) == 0)
+    {
+        SET_PED_RELATIONSHIP( sub_8570(), 0, 1 );
+        SET_PED_RELATIONSHIP( sub_8570(), 0, 2 );
+        SET_PED_RELATIONSHIP( sub_8570(), 2, 3 );
+        SET_PED_RELATIONSHIP( sub_8570(), 2, 4 );
+        SET_PED_RELATIONSHIP( sub_8570(), 2, 6 );
+        SET_PED_RELATIONSHIP( sub_8570(), 2, 7 );
+    }
+    return;
+}
+
+void sub_21517()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    int iVar7;
+
+    sub_782( "SP", "P_LOAD_AREA", 0 );
+    uVar2 = {g_U783[g_U781]};
+    uVar5 = g_U910[g_U781];
+    iVar7 = -1;
+    switch (g_U781)
+    {
+        case 4:
+        case 23:
+        uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1048, 0 );
+        iVar7 = GET_HASH_KEY( ref g_U1056 );
+        if ((IS_PED_DEAD( sub_8570() )) == 0)
+        {
+            SET_ROOM_FOR_PED_BY_NAME( sub_8570(), ref g_U1056 );
+        }
+        break;
+    }
+    if (iVar7 == -1)
+    {
+        LOAD_SCENE( uVar2 );
+    }
+    else
+    {
+        SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+        LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, iVar7 );
+    }
+    if ((IS_PED_DEAD( sub_8570() )) == 0)
+    {
+        FREEZE_PED_POSITION( sub_8570(), 0 );
+    }
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U953[g_U781], 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U996[g_U781], 1065353216, 0 );
+    return;
+}
+
+void sub_21861(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                }
+            }
+        }
+    }
+    else
+    {
+        sub_22167( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+void sub_22167(unknown uParam0)
+{
+    return;
+}
+
+void sub_22229(unknown uParam0, unknown uParam1)
+{
+    REQUEST_SCRIPT( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    while ((HAS_SCRIPT_LOADED( uParam0 )) == 0)
+    {
+        WAIT( 0 );
+    }
+    START_NEW_SCRIPT( uParam0, uParam1 );
+    return;
+}
+
+void sub_22730()
+{
+    sub_782( "NS", "P_REQUEST_CORE_PLAYER_ANIMS", 0 );
+    REQUEST_ANIM_DICT( "MPED_PSTL_CORE", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_RIFLE_CORE", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_PSTL_COVER", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_RIFLE_COVER", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_DFLT_COVER", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_DUAL_COVER", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_SIDEARM_COVER", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_PSTL_MELEE", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_DUAL_CORE", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_DFLT_CORE", 0 );
+    "[doubled result, dropped if not asigned]";
+    REQUEST_ANIM_DICT( "MPED_SIDEARM_CORE", 0 );
+    "[doubled result, dropped if not asigned]";
+    return;
+}
+
+void sub_23111()
+{
+    sub_782( "SP", "P_SETUP_LEVEL_FLOW", 0 );
+    sub_23177( ref g_U1312[0], "fav2_start", 8192, 1 );
+    sub_23177( ref g_U1312[1], "fav2_start", 8192, 0 );
+    sub_23177( ref g_U1312[2], "fav2_deepFavela", 8192, 0 );
+    sub_23177( ref g_U1312[3], "fav2_favRaid", 8192, 0 );
+    sub_23177( ref g_U1312[4], "fav2_OldLadyApt", 8192, 0 );
+    sub_23177( ref g_U1312[5], "fav2_UfeRun", 8192, 0 );
+    sub_23177( ref g_U1312[6], "fav2_FavelaMPM", 8192, 0 );
+    sub_23177( ref g_U1312[7], "fav2_CavieraoIntro", 8192, 0 );
+    sub_23177( ref g_U1312[8], "fav2_RoundUp", 8192, 0 );
+    sub_23177( ref g_U1312[9], "fav2_bridgeFight", 8192, 0 );
+    sub_23177( ref g_U1312[10], "fav2_Boss", 8192, 0 );
+    sub_23570( ref g_U1312, g_U781, 11 );
+    return;
+}
+
+void sub_23177(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3)
+{
+    StrCopy( ref iParam0->_fU0, uParam1, 32 );
+    iParam0->_fU32 = nil;
+    iParam0->_fU40 = 0;
+    iParam0->_fU44 = uParam2;
+    iParam0->_fU36 = uParam3;
+    return;
+}
+
+void sub_23570(unknown uParam0, int iParam1, int iParam2)
+{
+    int I;
+
+    for ( I = 0; I <= (iParam2 - 1); I++ )
+    {
+        if (iParam1 == I)
+        {
+            (uParam0^)[I]._fU36 = 1;
+        }
+        else
+        {
+            (uParam0^)[I]._fU36 = 0;
+        }
+    }
+    return;
+}
+
+void sub_23661()
+{
+    sub_782( "SP", "P_REQUEST_PERSISTENT_ASSETS", 0 );
+    sub_23718( -346844275, 0 );
+    sub_23889( g_U1308, 0 );
+    sub_23889( g_U1309, 0 );
+    sub_23889( g_U1310, 0 );
+    sub_23889( g_U1311, 0 );
+    sub_23718( -1409914275, 0 );
+    return;
+}
+
+void sub_23718(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+        sub_22167( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_23889(unknown uParam0, boolean bParam1)
+{
+    REQUEST_WEAPON( uParam0 );
+    if (bParam1)
+    {
+        while ((HAS_WEAPON_LOADED( uParam0 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_24026()
+{
+    LOAD_TEXTURE_DICT( "gg_s_fav2" );
+    sub_782( "CO", "Starting the S_FV2_GG_97 context...", 0 );
+    START_CONTEXT( "S_FV2_GG_97" );
+    sub_782( "CO", "Starting the S_FV2_GG_D5 context...", 0 );
+    START_CONTEXT( "S_FV2_GG_D5" );
+    return;
+}
+
+int sub_24552()
+{
+    if ((HAS_ANIM_DICT_LOADED( "MPED_SIDEARM_CORE", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_DFLT_CORE", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_DUAL_CORE", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_PSTL_MELEE", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_SIDEARM_COVER", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_DUAL_COVER", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_DFLT_COVER", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_RIFLE_COVER", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_PSTL_COVER", 0 )) AND ((HAS_ANIM_DICT_LOADED( "MPED_RIFLE_CORE", 0 )) AND (HAS_ANIM_DICT_LOADED( "MPED_PSTL_CORE", 0 ))))))))))))
+    {
+        sub_782( "NS", "CORE_PLAYER_ANIMS_LOADED", 0 );
+        return 1;
+    }
+    return 0;
+}
+
+int sub_24933()
+{
+    if ((HAS_MODEL_LOADED( -1409914275 )) AND ((HAS_WEAPON_LOADED( g_U1311 )) AND ((HAS_WEAPON_LOADED( g_U1310 )) AND ((HAS_WEAPON_LOADED( g_U1309 )) AND ((HAS_WEAPON_LOADED( g_U1308 )) AND (HAS_MODEL_LOADED( -346844275 )))))))
+    {
+        sub_782( "NS", "PERSISTENT_ASSETS_LOADED", 0 );
+        return 1;
+    }
+    return 0;
+}
+
+void sub_25215()
+{
+    sub_25225();
+    sub_25323();
+    sub_25654();
+    sub_25897();
+    sub_25963();
+    sub_26210( 1097859072 );
+    sub_26576();
+    sub_29684();
+    return;
+}
+
+void sub_25225()
+{
+    if (IS_KEYBOARD_KEY_JUST_PRESSED( 38 ))
+    {
+        if (l_U0)
+        {
+            l_U0 = 0;
+            SET_DEBUG_ACTIVE( 0 );
+        }
+        else
+        {
+            l_U0 = 1;
+            SET_DEBUG_ACTIVE( 1 );
+        }
+        while (IS_KEYBOARD_KEY_PRESSED( 38 ))
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_25323()
+{
+    int iVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+
+    iVar2 = 0;
+    if (DOES_PAD_EXIST( 0 ))
+    {
+        iVar2 = IS_BUTTON_JUST_PRESSED( 0, 8 );
+    }
+    if ((IS_KEYBOARD_KEY_JUST_PRESSED( 25 )) || (iVar2))
+    {
+        uVar3 = sub_8570();
+        if (NOT (IS_PED_DEAD( uVar3 )))
+        {
+            uVar4 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( uVar3 )};
+            uVar7 = GET_PED_HEADING( uVar3 );
+            uVar8 = GET_DEBUG_CAM();
+            uVar9 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_CAM_COORD( uVar8 )};
+            uVar12 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_CAM_ROT( uVar8 )};
+            uVar15 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_GAMEPLAY_CAM_COORD()};
+            uVar18 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_GAMEPLAY_CAM_ROT()};
+            uVar21 = GET_GAMEPLAY_CAM_RELATIVE_HEADING();
+            uVar22 = GET_GAMEPLAY_CAM_RELATIVE_PITCH();
+            uVar24 = GET_GROUND_Z_FOR_3D_COORD( uVar4, ref uVar23 );
+            if ((IS_PED_IN_ANY_VEHICLE( uVar3 )) == 1)
+            {
+                sub_25537( uVar3, ref uVar25, 1 );
+                uVar26 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_VEHICLE_COORDS( uVar25 )};
+                uVar29 = GET_VEHICLE_HEADING( uVar25 );
+            }
+        }
+    }
+    return;
+}
+
+int sub_25537(unknown uParam0, unknown uParam1, boolean bParam2)
+{
+    if (bParam2)
+    {
+        if (NOT (IS_PED_SITTING_IN_ANY_VEHICLE( uParam0 )))
+        {
+            return 0;
+        }
+    }
+    else if (NOT (IS_PED_IN_ANY_VEHICLE( uParam0 )))
+    {
+        return 0;
+    }
+    (uParam1^) = GET_VEHICLE_PED_IS_IN( uParam0 );
+    return 1;
+}
+
+void sub_25654()
+{
+    if (l_U1 == 1)
+    {
+        if (l_U5 == 0)
+        {
+            START_WIDGET_GROUP( "Scripted Cameras" );
+            ADD_WIDGET_BOOL( "bUpdateDebugCamStuff", ref l_U2 );
+            ADD_WIDGET_FLOAT_SLIDER( "fDebugCamHeading", ref l_U3, -360.00000000, 360.00000000, 1.00000000 );
+            ADD_WIDGET_FLOAT_SLIDER( "fDebugCamPitch", ref l_U4, -180.00000000, 180.00000000, 1.00000000 );
+            STOP_WIDGET_GROUP();
+            l_U5 = 1;
+        }
+    }
+    if (l_U2 == 1)
+    {
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( l_U3, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( l_U4, 1065353216, 0 );
+        l_U2 = 0;
+    }
+    return;
+}
+
+void sub_25897()
+{
+    if ((IS_KEYBOARD_KEY_PRESSED( 20 )) == 1)
+    {
+        if ((IS_PED_DEAD( sub_8570() )) == 0)
+        {
+            SET_PED_HEALTH( sub_8570(), 0, 0 );
+        }
+    }
+    return;
+}
+
+void sub_25963()
+{
+    if ((IS_KEYBOARD_KEY_PRESSED( 19 )) == 1)
+    {
+        sub_25989( 0 );
+    }
+    return;
+}
+
+void sub_25989(int iParam0)
+{
+    if (((IS_PLAYER_DEAD( sub_8592() )) == 0) AND ((IS_PED_DEAD( sub_8570() )) == 0))
+    {
+        if (iParam0 == 1)
+        {
+            SET_PED_EMOTION_STATE( sub_8570(), 4 );
+            SET_PED_FORCED_TO_WALK( sub_8570(), 1 );
+        }
+        else
+        {
+            SET_PED_EMOTION_STATE( sub_8570(), 3 );
+        }
+        CLEAR_PED_TASKS( sub_8570() );
+        CLEAR_PED_DEFAULT_AIM( sub_8570() );
+        PED_ACTION_TREE_PLAY_NODE( sub_8570(), "/Global/Player/PlayerLoco/PlayerLoco_IDLE/RELAXED/relaxed_modes" );
+    }
+    return;
+}
+
+void sub_26210(unknown uParam0)
+{
+    int iVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    int iVar8;
+
+    if ((IS_KEYBOARD_KEY_JUST_PRESSED( 37 )) == 1)
+    {
+        sub_22167( "[SP]### KILL ALL PEDS IN RADIUS ###" );
+        if ((IS_PED_DEAD( sub_8570() )) == 0)
+        {
+            iVar3 = 0;
+            uVar5 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( sub_8570() )};
+            iVar8 = 1;
+            while (iVar8 == 1)
+            {
+                if ((IS_PED_DEAD( sub_8570() )) == 0)
+                {
+                    iVar8 = GET_CLOSEST_ENEMY_PED( sub_8570(), uVar5, uParam0, 1, 1, 0, 1, 0, 1, ref uVar4 );
+                    if (iVar8 == 1)
+                    {
+                        if (((GET_PED_HEALTH( uVar4 )) > 1) AND (((IS_PED_DEAD( uVar4 )) == 0) AND ((DOES_PED_EXIST( uVar4 )) == 1)))
+                        {
+                            sub_22167( "[SP]### thunderdome killing a ped ###" );
+                            sub_26474( uVar4 );
+                            SET_PED_GENERATES_DEAD_BODY_EVENTS( uVar4, 1 );
+                            iVar3++;
+                        }
+                    }
+                }
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+void sub_26474(unknown uParam0)
+{
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        STOP_PED_SPEAKING( uParam0, 1 );
+        SET_PED_HEALTH( uParam0, 0, 0 );
+        SET_PED_CORPSE( uParam0, 0 );
+    }
+    return;
+}
+
+void sub_26576()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    char[8] cVar10;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    char[8] cVar20;
+    char[8] cVar22;
+
+    if (l_U25 == 0)
+    {
+        START_WIDGET_GROUP( "Placement Helper" );
+        START_NEW_WIDGET_COMBO();
+        ADD_TO_WIDGET_COMBO( "HEALTH_STANDARD" );
+        ADD_TO_WIDGET_COMBO( "ARMOUR_STANDARD" );
+        ADD_TO_WIDGET_COMBO( "ARMOUR_HELMET" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_BEANBAG_LAUNCHER" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_GRENADE_LAUNCHER" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_LAW" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_MG_21E" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_MG_RPD" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_38" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_COLT1911" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_DEAGLE" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_GLOCK18" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_PT92" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_PISTOL_TAURUS608" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_97LC" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_AK47" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_FAL" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_FAL_RUBBER" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_G36K" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIFLE_RUG30" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RIOT_SHIELD" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_RPG" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SHOTGUN_BENELLIM3" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SHOTGUN_DOUBLEBARREL" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SHOTGUN_MOSSBERG590" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SHOTGUN_SPAS15" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SHOTGUN_WINCHESTERSX3" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SMG_FAMAEMT40" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SMG_MAC10" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SMG_MP5" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SMG_PM12" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SMG_UZI" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SNIPER_M82" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_SNIPER_SG1" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_TASER" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_FLASH" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_GRENADE" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_INCENDIARY" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_SMOKE" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_TEAR_GAS" );
+        ADD_TO_WIDGET_COMBO( "WEAPON_THROWN_TIN_CAN" );
+        ADD_TO_WIDGET_COMBO( "INVENT_AMMOBAG" );
+        ADD_TO_WIDGET_COMBO( "INVENT_PAYNE_KILLER" );
+        ADD_TO_WIDGET_COMBO( "INVENT_AMMOBAG_CARRIED" );
+        ADD_TO_WIDGET_COMBO( "INVENT_MPBAG_CARRIED" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_STEALTH_BOOTS" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_WALKIE_TALKIE" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_MONOCULAR" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_FIRST_AID_KIT" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_HYPO" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_SUNGLASSES" );
+        ADD_TO_WIDGET_COMBO( "MP_SPECIAL_NIGHTVISION" );
+        ADD_TO_WIDGET_COMBO( "ARMOUR_HEAVY" );
+        ADD_TO_WIDGET_COMBO( "ARMOUR_MAX" );
+        l_U9 = STOP_WIDGET_COMBO( "PICKUP TYPE", ref l_U11 );
+        ADD_WIDGET_BOOL( "Grab Player Position", ref l_U12 );
+        ADD_WIDGET_BOOL( "Create Pickup", ref l_U13 );
+        ADD_WIDGET_BOOL( "Output Placement Function", ref l_U14 );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos X", ref l_U18._fU0, -5000.00000000, 5000.00000000, 0.10000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos Y", ref l_U18._fU4, -5000.00000000, 5000.00000000, 0.10000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos Z", ref l_U18._fU8, -5000.00000000, 5000.00000000, 0.10000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot X", ref l_U21._fU0, -360.00000000, 360.00000000, 0.10000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot Y", ref l_U21._fU4, -360.00000000, 360.00000000, 0.10000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot Z", ref l_U21._fU8, -360.00000000, 360.00000000, 0.10000000 );
+        ADD_WIDGET_BOOL( "Fixed", ref l_U15 );
+        ADD_WIDGET_BOOL( "Limit Pickup Angle", ref l_U16 );
+        ADD_WIDGET_FLOAT_SLIDER( "Half Angle", ref l_U17, 0.00000000, 360.00000000, 1.00000000 );
+        ADD_WIDGET_BOOL( "Is placement in an Interior?", ref l_U24 );
+        l_U10 = ADD_TEXT_WIDGET( "Interior Room Name" );
+        SET_CONTENTS_OF_TEXT_WIDGET( l_U10, "" );
+        STOP_WIDGET_GROUP();
+        l_U25 = 1;
+    }
+    if (l_U13 == 1)
+    {
+        sub_28710( l_U8 );
+        l_U8 = sub_29388( sub_28756( l_U11 ), l_U18, l_U21, l_U15, 1, l_U16, l_U17 );
+        if (l_U24 == 1)
+        {
+            GET_CONTENTS_OF_TEXT_WIDGET( 32, ref uVar2, l_U10 );
+            ADD_PLACEMENT_TO_INTERIOR_ROOM_BY_NAME( l_U8, ref uVar2 );
+        }
+        l_U13 = 0;
+    }
+    if (l_U12 == 1)
+    {
+        if ((IS_PED_DEAD( sub_8570() )) == 0)
+        {
+            l_U18 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( sub_8570() )};
+        }
+        l_U12 = 0;
+    }
+    if (l_U14 == 1)
+    {
+        StrCopy( ref cVar10, "PICKUP_", 8 );
+        GET_CONTENTS_OF_COMBO_WIDGET_SELECTION( 32, ref uVar12, l_U9 );
+        StrCopy( ref cVar20, "FALSE", 8 );
+        if (l_U15 == 1)
+        {
+            StrCopy( ref cVar20, "TRUE", 8 );
+        }
+        StrCopy( ref cVar22, "FALSE", 8 );
+        if (l_U16 == 1)
+        {
+            StrCopy( ref cVar22, "TRUE", 8 );
+        }
+        l_U14 = 0;
+    }
+    return;
+}
+
+void sub_28710(unknown uParam0)
+{
+    if ((DOES_PLACEMENT_EXIST( uParam0 )) == 1)
+    {
+        REMOVE_PLACEMENT( uParam0 );
+    }
+    return;
+}
+
+void sub_28756(unknown uParam0)
+{
+    int[54] iVar3;
+
+    array(ref iVar3, 54);
+    iVar3[0] = -1888453608;
+    iVar3[1] = 1274757841;
+    iVar3[2] = -1322620191;
+    iVar3[3] = 1360803098;
+    iVar3[4] = -64228399;
+    iVar3[5] = 1468647706;
+    iVar3[6] = 809028259;
+    iVar3[7] = -217311068;
+    iVar3[8] = -1377271918;
+    iVar3[9] = -343443786;
+    iVar3[10] = -2029912234;
+    iVar3[11] = 426620576;
+    iVar3[12] = 39142315;
+    iVar3[13] = 525284907;
+    iVar3[14] = 1676080365;
+    iVar3[15] = 584407306;
+    iVar3[16] = -46756431;
+    iVar3[17] = -1601242092;
+    iVar3[18] = 3711131;
+    iVar3[19] = 1216559076;
+    iVar3[20] = -597978297;
+    iVar3[21] = 1295434569;
+    iVar3[22] = -1138829373;
+    iVar3[23] = -1141160886;
+    iVar3[24] = 1699359515;
+    iVar3[25] = -2117698134;
+    iVar3[26] = -514108743;
+    iVar3[27] = -579469575;
+    iVar3[28] = 211733796;
+    iVar3[29] = 280965399;
+    iVar3[30] = -535211597;
+    iVar3[31] = 843762214;
+    iVar3[32] = 465100219;
+    iVar3[33] = 750210207;
+    iVar3[34] = 1160251115;
+    iVar3[35] = 413078994;
+    iVar3[36] = -527347232;
+    iVar3[37] = 1675234620;
+    iVar3[38] = 2088230095;
+    iVar3[39] = -591863731;
+    iVar3[40] = 1192708175;
+    iVar3[41] = -1484798391;
+    iVar3[42] = -4072149;
+    iVar3[43] = 255084111;
+    iVar3[44] = -547949121;
+    iVar3[45] = -853563202;
+    iVar3[46] = 455124134;
+    iVar3[47] = -189960753;
+    iVar3[48] = -718604917;
+    iVar3[49] = -1126973237;
+    iVar3[50] = 1528601552;
+    iVar3[51] = -847977410;
+    iVar3[52] = 2018389501;
+    iVar3[53] = 865801398;
+    return iVar3[uParam0];
+}
+
+void sub_29388(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, int iParam8, unknown uParam9, unknown uParam10)
+{
+    unknown Result;
+
+    Result = CREATE_PLACEMENT_ROTATE( uParam0, uParam1, uParam4, uParam7, 0, uParam9, uParam10 );
+    if (iParam8 == 1)
+    {
+        while ((DOES_PLACEMENT_EXIST( Result )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return Result;
+}
+
+void sub_29684()
+{
+    vector vVar2;
+    float fVar5;
+
+    if (l_U74 == 0)
+    {
+        START_WIDGET_GROUP( "Heli Spotlight Helper" );
+        ADD_WIDGET_BOOL( "Teleport to Test", ref l_U75 );
+        ADD_WIDGET_BOOL( "Create Heli", ref l_U76 );
+        ADD_WIDGET_BOOL( "Delete Heli", ref l_U77 );
+        ADD_WIDGET_BOOL( "Attach Spotlight", ref l_U78 );
+        ADD_WIDGET_BOOL( "Play Spotlight Anim", ref l_U79 );
+        ADD_WIDGET_BOOL( "Cleanup Test", ref l_U80 );
+        START_WIDGET_GROUP( "Helicopter" );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos X", ref l_U44._fU0, -5000.00000000, 5000.00000000, 0.50000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos Y", ref l_U44._fU4, -5000.00000000, 5000.00000000, 0.50000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Pos Z", ref l_U44._fU8, -5000.00000000, 5000.00000000, 0.50000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Heading", ref l_U47, -360.00000000, 360.00000000, 1.00000000 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Spotlight" );
+        ADD_WIDGET_FLOAT_SLIDER( "Attach X", ref l_U52._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Attach Y", ref l_U52._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Attach Z", ref l_U52._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot X", ref l_U55._fU0, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot Y", ref l_U55._fU4, -100.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Rot Z", ref l_U55._fU8, -100.00000000, 100.00000000, 0.01000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        l_U74 = 1;
+    }
+    if (l_U75 == 1)
+    {
+        vVar2 = {-14.73208000, 59.39081000, 33.24015000};
+        fVar5 = 228.04210000;
+        sub_30411( 500 );
+        sub_20713( sub_8570(), vVar2, fVar5 );
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( -0.26393200, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -11.73220000, 1065353216, 0 );
+        LOAD_SCENE( vVar2 );
+        sub_30555( 500 );
+        l_U75 = 0;
+    }
+    if (l_U76 == 1)
+    {
+        sub_23718( 1232833631, 1 );
+        sub_30667( l_U43 );
+        l_U43 = sub_30740( 1232833631, l_U44, 0.00000000, 0, 0, 0 );
+        if (((IS_VEHICLE_DEAD( l_U43 )) == 0) AND ((DOES_VEHICLE_EXIST( l_U43 )) == 1))
+        {
+            SET_VEHICLE_PROOFS( l_U43, 1, 1, 1, 1, 1 );
+            SET_VEHICLE_ENGINE_ON( l_U43, 1, 1 );
+            SET_HELI_BLADES_FULL_SPEED( l_U43 );
+            SET_VEHICLE_INTERIORLIGHT( l_U43, 1 );
+            SET_VEHICLE_COLOUR_COMBINATION( l_U43, 0 );
+        }
+        l_U76 = 0;
+    }
+    if (l_U77 == 1)
+    {
+        sub_30667( l_U43 );
+        l_U77 = 0;
+    }
+    if (l_U78 == 1)
+    {
+        sub_23718( 572505350, 1 );
+        sub_31128( ref l_U58, 0, 1 );
+        sub_31204( l_U48 );
+        l_U48 = sub_31273( 572505350, l_U49, 0.00000000, 0.00000000, 0.00000000, 0, 1, 0 );
+        if ((DOES_OBJECT_EXIST( l_U48 )) == 1)
+        {
+            SET_OBJECT_LIGHTS( l_U48, 1 );
+            FREEZE_OBJECT_POSITION( l_U48, 1 );
+        }
+        if (((IS_VEHICLE_DEAD( l_U43 )) == 0) AND (((DOES_VEHICLE_EXIST( l_U43 )) == 1) AND ((DOES_OBJECT_EXIST( l_U48 )) == 1)))
+        {
+            ATTACH_OBJECT_TO_VEHICLE( l_U48, l_U43, 0, l_U52, l_U55 );
+        }
+        if ((DOES_OBJECT_EXIST( l_U48 )) == 1)
+        {
+            FREEZE_OBJECT_POSITION( l_U48, 0 );
+        }
+        l_U78 = 0;
+    }
+    if (l_U79 == 1)
+    {
+        if ((DOES_OBJECT_EXIST( l_U48 )) == 1)
+        {
+            PLAY_OBJECT_ANIM( l_U48, ref l_U66, ref l_U58, 0.00000000, 0, 1 );
+        }
+        l_U79 = 0;
+    }
+    if (l_U80 == 1)
+    {
+        sub_31204( l_U48 );
+        sub_30667( l_U43 );
+        l_U80 = 0;
+    }
+    return;
+}
+
+void sub_30411(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_30555(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_30667(unknown uParam0)
+{
+    if (IS_VEHICLE_DEAD( uParam0 ))
+    {
+        ;
+    }
+    if (DOES_VEHICLE_EXIST( uParam0 ))
+    {
+        DELETE_VEHICLE( ref uParam0 );
+    }
+    return;
+}
+
+void sub_30740(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, int iParam5, unknown uParam6, unknown uParam7)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a vehicle with MUST BE PRELOADED!!!!", 0 );
+        sub_23718( uParam0, 1 );
+    }
+    Result = CREATE_VEHICLE( uParam0, uParam1, uParam4, uParam6, uParam7 );
+    if (iParam5 == 1)
+    {
+        while ((DOES_VEHICLE_EXIST( Result )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    if (DOES_VEHICLE_EXIST( Result ))
+    {
+        SET_PETROLTANK_BURN_RATE( Result, 125.00000000 );
+    }
+    return Result;
+}
+
+void sub_31128(unknown uParam0, unknown uParam1, int iParam2)
+{
+    REQUEST_ANIM_DICT( uParam0, uParam1 );
+    "[doubled result, dropped if not asigned]";
+    if (iParam2 == 1)
+    {
+        while ((HAS_ANIM_DICT_LOADED( uParam0, uParam1 )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+void sub_31204(unknown uParam0)
+{
+    if (DOES_OBJECT_EXIST( uParam0 ))
+    {
+        DELETE_OBJECT( ref uParam0 );
+    }
+    return;
+}
+
+void sub_31273(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, boolean bParam7, int iParam8, unknown uParam9)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a object with MUST BE PRELOADED!!!!", 0 );
+        sub_23718( uParam0, 1 );
+    }
+    Result = CREATE_OBJECT( uParam0, uParam1, NOT bParam7, uParam9 );
+    if (iParam8 == 1)
+    {
+        while ((DOES_OBJECT_EXIST( Result )) == 0)
+        {
+            WAIT( 0 );
+        }
+    }
+    if ((DOES_OBJECT_EXIST( Result )) == 1)
+    {
+        SET_OBJECT_ROTATION( Result, uParam4 );
+    }
+    return Result;
+}
+
+void sub_31793(unknown uParam0, int iParam1)
+{
+    int J;
+    int I;
+    int iVar6;
+
+    for ( J = 0; J <= (iParam1 - 1); J++ )
+    {
+        if (((uParam0^)[J]._fU40 == 0) AND ((uParam0^)[J]._fU36 == 1))
+        {
+            (uParam0^)[J]._fU40 = 1;
+        }
+        if ((uParam0^)[J]._fU40 == 0)
+        {
+            ;
+        }
+        else if ((uParam0^)[J]._fU40 == 1)
+        {
+            iVar6 = 0;
+            for ( I = 0; I <= (iParam1 - 1); I++ )
+            {
+                if (((uParam0^)[I]._fU40 < 4) AND ((uParam0^)[I]._fU40 > 0))
+                {
+                    if ((IS_THREAD_ACTIVE( (uParam0^)[I]._fU32 )) == 1)
+                    {
+                        iVar6++;
+                    }
+                }
+            }
+            if (iVar6 < 2)
+            {
+                if ((DOES_SCRIPT_EXIST( ref (uParam0^)[J]._fU0 )) == 1)
+                {
+                    if ((HAS_SCRIPT_LOADED( ref (uParam0^)[J]._fU0 )) == 0)
+                    {
+                        REQUEST_SCRIPT( ref (uParam0^)[J]._fU0 );
+                        "[doubled result, dropped if not asigned]";
+                    }
+                    (uParam0^)[J]._fU40 = 2;
+                }
+                else
+                {
+                    SCRIPT_ASSERT( "[SP] Error: Trying to load a script that doesn't exist!", 0 );
+                    (uParam0^)[J]._fU40 = 0;
+                }
+            }
+            else
+            {
+                SCRIPT_ASSERT( "[SP] Error: Attempting to start another thread when 2 are already running...", 0 );
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 2)
+        {
+            if ((HAS_SCRIPT_LOADED( ref (uParam0^)[J]._fU0 )) == 1)
+            {
+                (uParam0^)[J]._fU32 = START_NEW_SCRIPT( ref (uParam0^)[J]._fU0, (uParam0^)[J]._fU44 );
+                (uParam0^)[J]._fU40 = 3;
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 3)
+        {
+            if ((IS_THREAD_ACTIVE( (uParam0^)[J]._fU32 )) == 0)
+            {
+                (uParam0^)[J]._fU40 = 4;
+            }
+        }
+        else if ((uParam0^)[J]._fU40 == 4)
+        {
+            ;
+        };;;;;
+    }
+    return;
+}
+
+void sub_32448()
+{
+    if (NOT (IS_PED_DEAD( sub_8570() )))
+    {
+        if ((GET_PED_SWEAT( sub_8570() )) > 0.00000000)
+        {
+            sub_782( "SA", "Max sweat achieved", 0 );
+            SET_PED_SWEAT( sub_8570(), 0.00000000, 0.00000000 );
+        }
+    }
+    return;
+}
+
+void sub_32573()
+{
+    sub_782( "NS", "P_UNLOAD_CORE_PLAYER_ANIMS", 0 );
+    REMOVE_ANIM_DICT( "MPED_PSTL_CORE", 0 );
+    REMOVE_ANIM_DICT( "MPED_RIFLE_CORE", 0 );
+    REMOVE_ANIM_DICT( "MPED_PSTL_COVER", 0 );
+    REMOVE_ANIM_DICT( "MPED_RIFLE_COVER", 0 );
+    REMOVE_ANIM_DICT( "MPED_DFLT_COVER", 0 );
+    REMOVE_ANIM_DICT( "MPED_DUAL_COVER", 0 );
+    REMOVE_ANIM_DICT( "MPED_SIDEARM_COVER", 0 );
+    REMOVE_ANIM_DICT( "MPED_PSTL_MELEE", 0 );
+    REMOVE_ANIM_DICT( "MPED_DUAL_CORE", 0 );
+    REMOVE_ANIM_DICT( "MPED_DFLT_CORE", 0 );
+    REMOVE_ANIM_DICT( "MPED_SIDEARM_CORE", 0 );
+    return;
+}
+

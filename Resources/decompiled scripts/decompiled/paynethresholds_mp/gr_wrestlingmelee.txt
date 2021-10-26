@@ -1,0 +1,280 @@
+void main()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    int iVar18;
+
+    uVar2 = {sub_12( ref l_U0 )};
+    iVar18 = STAT_HASH_GET_INT( 503802428 );
+    while (NOT IS_EXITFLAG_SET())
+    {
+        sub_681( ref uVar2 );
+        if (PLAYER_HAS_MP_SPECIAL_ITEM( 0, 21 ))
+        {
+            if ((STAT_HASH_GET_INT( 503802428 )) > iVar18)
+            {
+                iVar18 = STAT_HASH_GET_INT( 503802428 );
+                SET_GRIND_PROGRESS( uVar2._fU0, (GET_GRIND_PROGRESS( uVar2._fU0 )) + 1 );
+            }
+        }
+        WAIT( 0 );
+    }
+    SET_EXITFLAG_RESPONSE();
+    return;
+}
+
+void sub_12(int iParam0)
+{
+    unknown Result;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    int iVar19;
+    int I;
+    unknown uVar21;
+    unknown uVar22;
+    boolean bVar23;
+    boolean bVar24;
+
+    Result._fU0 = iParam0->_fU0;
+    Result._fU8 = iParam0->_fU4;
+    Result._fU28 = GET_GRIND_PROGRESS( Result._fU0 );
+    DEBUG_GET_BG_SCRIPT_NAME( iParam0->_fU0, 24, ref Result._fU40 );
+    Result._fU36 = -1;
+    if (DOES_LAUNCH_PARAM_EXIST( Result._fU0, "IncrementOnly" ))
+    {
+        if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1)
+        {
+            Result._fU36 = sub_147( ref Result );
+        }
+    }
+    else if (DOES_LAUNCH_PARAM_EXIST( Result._fU0, "requiredItem" ))
+    {
+        Result._fU36 = sub_147( ref Result );
+    }
+    iVar19 = sub_147( ref Result );
+    if (iVar19 != Result._fU28)
+    {
+        Result._fU28 = iVar19;
+    }
+    for ( I = 0; I < 10; I++ )
+    {
+        if (NOT bVar23)
+        {
+            STRING_FORMAT( 8, ref uVar21, "level{}", 1, 513, I + 1 );
+            if (DOES_LAUNCH_PARAM_EXIST( Result._fU0, ref uVar21 ))
+            {
+                Result._fU16 = I + 1;
+                Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 );
+                if (NOT bVar24)
+                {
+                    if (COMPARE_AGAINST_SCORE_PARAM( Result._fU0, Result._fU28, ref uVar21 ))
+                    {
+                        Result._fU12 = I + 1;
+                    }
+                    else
+                    {
+                        Result._fU20 = {uVar21};
+                        bVar24 = true;
+                    }
+                }
+            }
+            else
+            {
+                bVar23 = true;
+            }
+        }
+    }
+    if (Result._fU28 > Result._fU32)
+    {
+        Result._fU28 = Result._fU32;
+    }
+    SET_GRIND_PROGRESS( Result._fU0, iVar19 );
+    if (Result._fU12 == Result._fU16)
+    {
+        Result._fU4 = 1;
+    }
+    return Result;
+}
+
+void sub_147(int iParam0)
+{
+    if (DOES_LAUNCH_PARAM_EXIST( iParam0->_fU0, "primarySource" ))
+    {
+        if (iParam0->_fU36 > -1)
+        {
+            return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36);
+        }
+        else
+        {
+            return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" );
+        }
+        break;
+    }
+    return GET_GRIND_PROGRESS( iParam0->_fU0 );
+}
+
+void sub_681(int iParam0)
+{
+    int iVar3;
+
+    if (iParam0->_fU4)
+    {
+        return;
+    }
+    iVar3 = sub_147( iParam0 );
+    if (iVar3 > iParam0->_fU28)
+    {
+        if (sub_730( iParam0, iVar3 ))
+        {
+            sub_958( iParam0, 0, 0 );
+        }
+    }
+    return;
+}
+
+int sub_730(int iParam0, unknown uParam1)
+{
+    iParam0->_fU28 = uParam1;
+    if (iParam0->_fU28 > iParam0->_fU32)
+    {
+        iParam0->_fU28 = iParam0->_fU32;
+    }
+    SET_GRIND_PROGRESS( iParam0->_fU0, iParam0->_fU28 );
+    if (iParam0->_fU12 >= iParam0->_fU16)
+    {
+        return 0;
+        break;
+    }
+    if (COMPARE_AGAINST_SCORE_PARAM( iParam0->_fU0, iParam0->_fU28, iParam0 + 20 ))
+    {
+        iParam0->_fU12++;
+        if (iParam0->_fU12 < iParam0->_fU16)
+        {
+            STRING_FORMAT( 8, iParam0 + 20, "level{}", 1, 513, iParam0->_fU12 + 1 );
+        }
+        else
+        {
+            iParam0->_fU4 = 1;
+        }
+        GIVE_BG_SCRIPT_AWARD( iParam0->_fU0, 0 );
+        return 1;
+        break;
+    }
+    return 0;
+}
+
+void sub_958(int iParam0, boolean bParam1, boolean bParam2)
+{
+    int iVar5;
+
+    iVar5 = 0;
+    if ((sub_976( 979805897 )) == -1)
+    {
+        iVar5 = 1;
+    }
+    else if ((sub_976( 1847786293 )) == -1)
+    {
+        iVar5 = 2;
+    }
+    else if (bParam2)
+    {
+        iVar5 = 1;
+    };;;
+    if (iVar5 > 0)
+    {
+        if (iVar5 == 1)
+        {
+            sub_1105( 979805897, iParam0->_fU0, 0 );
+            sub_1105( -24484267, sub_1233( (iParam0^) ), 0 );
+            if (bParam1)
+            {
+                sub_1105( 983652344, GET_GRIND_PROGRESS( iParam0->_fU0 ), 0 );
+            }
+            else
+            {
+                sub_1105( 983652344, GET_COMPLETED_GRIND_GOAL( iParam0->_fU0 ), 0 );
+            }
+        }
+        else
+        {
+            sub_1105( 1847786293, iParam0->_fU0, 0 );
+            sub_1105( -854133973, sub_1233( (iParam0^) ), 0 );
+            if (bParam1)
+            {
+                sub_1105( 1976648753, GET_GRIND_PROGRESS( iParam0->_fU0 ), 0 );
+            }
+            else
+            {
+                sub_1105( 1976648753, GET_COMPLETED_GRIND_GOAL( iParam0->_fU0 ), 0 );
+            }
+        }
+    }
+    return;
+}
+
+int sub_976(unknown uParam0)
+{
+    if (SCRIPT_VAR_HASH_EXISTS( uParam0 ))
+    {
+        return SCRIPT_VAR_HASH_GET_INT( uParam0 );
+        break;
+    }
+    return -1;
+}
+
+void sub_1105(unknown uParam0, int iParam1, int iParam2)
+{
+    boolean bVar5;
+
+    bVar5 = true;
+    if (NOT (SCRIPT_VAR_HASH_EXISTS( uParam0 )))
+    {
+        SCRIPT_VAR_HASH_ADD_INT( uParam0 );
+    }
+    else if (iParam2 == 1)
+    {
+        bVar5 = (SCRIPT_VAR_HASH_GET_INT( uParam0 )) < iParam1;
+    }
+    else if (iParam2 == 2)
+    {
+        bVar5 = (SCRIPT_VAR_HASH_GET_INT( uParam0 )) > iParam1;
+    };;;
+    if (bVar5)
+    {
+        SCRIPT_VAR_HASH_SET_INT( uParam0, iParam1 );
+    }
+    return;
+}
+
+int sub_1233(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15)
+{
+    return 4;
+}
+

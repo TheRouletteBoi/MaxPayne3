@@ -1,0 +1,182 @@
+void main()
+{
+    StrCopy( ref l_U0, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref l_U8, "DEFAULT_SPLINE_CAMERA", 32 );
+    l_U19 = 0;
+    l_U20 = 0;
+    l_U21 = 0;
+    l_U22 = 0;
+    l_U23 = 1;
+    l_U24 = 22;
+    l_U25 = 0;
+     /* WRITESCRIPTLOG */ sub_156( "[SA]", "Script s_office_cutscene is starting...", 0 );
+     /* TELEPORTPED */ sub_389(  /* PLAYER_PED_ID */ sub_274(), g_U817[32], g_U926[32] );
+    LOAD_SCENE( g_U817[32] );
+     /* P_FADE_IN_AND_WAIT */ sub_481( 1000 );
+    while (true)
+    {
+         /* P_HANDLE_CUTSCENE_WIDGET */ sub_641();
+        WAIT( 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_156( "[SA]", "Script s_office_cutscene is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_156(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_274()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_312() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_312()
+{
+    return GET_PLAYER_ID();
+}
+
+/* TELEPORTPED */ void sub_389(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_481(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_HANDLE_CUTSCENE_WIDGET */ void sub_641()
+{
+    if (l_U20 == 0)
+    {
+        l_U20 = 1;
+        START_WIDGET_GROUP( "03_01_STADIUM_PT1" );
+        ADD_WIDGET_BOOL( "Start cutscene 03_01_STADIUM_PT1", ref l_U21 );
+        ADD_WIDGET_BOOL( "Record 03_01_STADIUM_PT1", ref l_U22 );
+        ADD_WIDGET_BOOL( "Blue Suit Max", ref l_U23 );
+        ADD_WIDGET_INT_SLIDER( "Time of day: hour", ref l_U24, 0, 24, 1 );
+        ADD_WIDGET_INT_SLIDER( "Time of day: minute", ref l_U25, 0, 59, 1 );
+        STOP_WIDGET_GROUP();
+    }
+    if (l_U21)
+    {
+        l_U21 = 0;
+         /* P_PLAY_03_01_STADIUM_PT1 */ sub_917();
+    }
+    return;
+}
+
+/* P_PLAY_03_01_STADIUM_PT1 */ void sub_917()
+{
+     /* WRITESCRIPTLOG */ sub_156( "[SA]", "Starting 03_01_STADIUM_PT1", 0 );
+     /* LOADSEAMLESSCUTSCENE */ sub_1017( "03_01_STADIUM_PT1", 1 );
+    FREEZE_TIME_OF_DAY( l_U24, l_U25 );
+    if (l_U22)
+    {
+         /* WRITESCRIPTLOG */ sub_156( "[SA]", "Start recording 03_01_STADIUM_PT1", 0 );
+        START_CUTSCENE_CAPTURE( "03_01_STADIUM_PT1" );
+    }
+    START_SEAMLESS_CUTSCENE();
+    if (l_U23 == 1)
+    {
+        WAIT( 50 );
+         /* P_MAKENIGHTCLUBMAX */ sub_1486(  /* PLAYER_PED_ID */ sub_274() );
+        SET_PED_COMPONENT_VARIATION(  /* PLAYER_PED_ID */ sub_274(), 2, 12, 1, 0 );
+        SET_PED_COMPONENT_VARIATION(  /* PLAYER_PED_ID */ sub_274(), 3, 9, 1, 0 );
+    }
+    else
+    {
+        WAIT( 1 );
+    }
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+         /* WRITESCRIPTLOG */ sub_156( "SP", "Waiting for cutscene to finish...", 0 );
+        WAIT( 0 );
+    }
+    if (l_U22)
+    {
+        STOP_CUTSCENE_CAPTURE();
+         /* WRITESCRIPTLOG */ sub_156( "[SA]", "Finished recording 03_01_STADIUM_PT1", 0 );
+    }
+    RELEASE_TIME_OF_DAY();
+    while (NOT HAS_CUTSCENE_UNLOADED())
+    {
+        WAIT( 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_156( "[SA]", "Finished 03_01_STADIUM_PT1", 0 );
+    return;
+}
+
+/* LOADSEAMLESSCUTSCENE */ void sub_1017(unknown uParam0, int iParam1)
+{
+    if (HAS_CUTSCENE_LOADED())
+    {
+        if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+        {
+            SCRIPT_ASSERT( "Another cutscene is already loaded.  You can only load one cutscene into memory.  Your current cutscene will not load into memory.", 0 );
+        }
+    }
+    if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+    {
+        PRE_STREAM_SEAMLESS_CUTSCENE( uParam0 );
+        if (iParam1 == 1)
+        {
+            while ((CUTSCENE_IS_LOADED( uParam0 )) == 0)
+            {
+                DISPLAYF( "[SP]### Waiting for seamless cutscene to load: {} ###", 1, 1537, uParam0 );
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+/* P_MAKENIGHTCLUBMAX */ void sub_1486(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeNightclubMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 12, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+

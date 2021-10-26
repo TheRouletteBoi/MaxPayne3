@@ -1,0 +1,2361 @@
+void main()
+{
+    unknown uVar2;
+
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U2 = 1;
+    l_U3 = 0;
+    l_U4 = 0;
+    l_U5 = 0;
+    l_U6 = 0;
+    l_U7 = 0;
+    l_U8 = 0;
+    l_U9 = 0;
+    l_U10 = 0;
+    l_U11 = 0;
+    l_U12 = 0;
+    l_U13 = 0;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 0;
+    l_U18 = 0;
+    l_U19 = 0;
+    l_U20 = 0;
+    l_U21 = 0;
+    l_U22 = 0;
+    l_U23 = 0;
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U606 = 0;
+    l_U1250 = 3;
+    l_U1251 = 0;
+    l_U1252 = 0;
+    l_U1253 = 200;
+    l_U1254 = 10.00000000;
+    l_U1255 = 1.75000000;
+    l_U1256 = 0;
+    l_U1296 = 0;
+    l_U1297 = 0;
+    l_U1337 = 0;
+    l_U1377 = 0;
+    l_U1378 = 0;
+    l_U1379 = 0;
+    l_U1380 = 0;
+    l_U1381 = 0;
+    l_U1382 = 0;
+    l_U1383 = 0;
+    l_U1384 = 0.50000000;
+    l_U1385 = 0.50000000;
+    l_U1386 = 0.50000000;
+    l_U1387 = 2;
+    l_U1388 = 11;
+    l_U1389 = 0;
+    l_U1390 = 0;
+    l_U1391 = 0;
+    l_U1392 = 1;
+     /* WRITESCRIPTLOG */ sub_361( "SK", "Script s_Fav1_bCamTest is starting...", "###" );
+     /* P_SETUP_STATIC_DATA */ sub_479();
+    LOAD_SCENE( g_U1050[37] );
+    SET_PLAYER_INVINCIBLE(  /* PLAYER_ID */ sub_2032(), 1 );
+    SET_ADRENALINE_AMT( 100.00000000 );
+    uVar2 =  /* F_GIVEPEDWEAPON */ sub_2161(  /* PLAYER_PED_ID */ sub_2089(), 456708483, 25000, 0, 1 );
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U1216[37], 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U1258[37], 1065353216, 0 );
+     /* P_INIT_TEMPLATE_TEST_WIDGET */ sub_2609();
+    WAIT( 30 );
+    while (true)
+    {
+         /* P_UPDATE_TEMPLATE_TESTING */ sub_7304();
+         /* P_HANDLE_BUTTONS */ sub_26569();
+        WAIT( 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_361( "SK", "Script s_Fav1_bCamTest is terminating...", "###" );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_361(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* P_SETUP_STATIC_DATA */ void sub_479()
+{
+    int I;
+
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U49, "TRIG_START_BRIDGE", -11.68000000, -46.71000000, 15.00000000, 3.00000000, 3.00000000, 7.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U112, "TRIG_SETUP_FOUNTAIN", -49.17000000, -79.32000000, 13.78000000, 10.00000000, 7.00000000, 7.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U70, "TRIG_FOUNTAIN_ACTION", -54.53000000, -78.65000000, 12.00000000, 10.00000000, 3.00000000, 5.00000000, 0.00000000, 0.00000000, 17.31000000, 1 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U91, "TRIG_FOUNTAIN_BACKUP", -55.71000000, -71.20000000, 11.33000000, 12.00000000, 4.00000000, 4.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U343, "TETH_BRIDGE_GUARD", -24.57000000, -49.08000000, 16.20000000, 10.69000000, 10.16000000, 7.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U344, "TETH_ROOF_ENEMY_01", -58.69000000, -58.39000000, 16.51000000, 8.00000000, 3.00000000, 3.00000000, 21.83310000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U345, "TETH_ROOF_ENEMY_02", -63.86000000, -57.08000000, 17.01000000, 6.00000000, 6.00000000, 3.00000000, 21.83230000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U346, "TETH_FOUNTAIN_HOUSE_WINDOWS", -59.00000000, -58.28000000, 12.52000000, 4.00000000, 3.00000000, 4.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U347, "TETH_FOUNTAIN_HOUSE_BACK", -59.38000000, -52.13000000, 13.03000000, 13.70000000, 3.80000000, 4.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_SETUP_FOUNTAIN", 0 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_FOUNTAIN_ACTION", 0 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_FOUNTAIN_BACKUP", 0 );
+    l_U602[0] = 43800727;
+    l_U602[1] = 43800727;
+    l_U602[2] = 43800727;
+    for ( I = 0; I <= 2; I++ )
+    {
+         /* BLOCKLOADMODEL */ sub_1549( l_U602[I] );
+    }
+    return;
+}
+
+/* P_CREATETRIGGERBOX */ void sub_583(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11)
+{
+    StrCopy( ref iParam0->_fU0, uParam1, 64 );
+    iParam0->_fU64 = 0;
+    iParam0->_fU68 = 0;
+    iParam0->_fU72 = {uParam2};
+    GAMEPLAY_HELPER_BOX_ANGLED_CREATE( 1, iParam0 + 0, uParam2, uParam5, uParam6, uParam7, uParam8, uParam11 );
+    return;
+}
+
+/* P_CREATETETHERBOX */ void sub_996(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11)
+{
+    iParam0->_fU0 = uParam1;
+    GAMEPLAY_HELPER_BOX_ANGLED_CREATE( 2, iParam0->_fU0, uParam2, uParam5, uParam6, uParam7, uParam8, uParam11 );
+    return;
+}
+
+/* BLOCKLOADMODEL */ void sub_1549(unknown uParam0)
+{
+    DISPLAYF( "[MSWW]### Trying to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_1751( "[SP]### ERROR! (BlockLoadModel) Trying to block load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    LOAD_ALL_OBJECTS_NOW();
+    while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        LOAD_ALL_OBJECTS_NOW();
+        DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+        WAIT( 0 );
+    }
+    DISPLAYF( "[MSWW]### Has loaded model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+    return;
+}
+
+/* WRITE_STRING */ void sub_1751(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* PLAYER_ID */ void sub_2032()
+{
+    return GET_PLAYER_ID();
+}
+
+/* PLAYER_PED_ID */ int sub_2089()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_2032() );
+    }
+    return 0;
+}
+
+/* F_GIVEPEDWEAPON */ void sub_2161(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                    DISPLAYF( "[SP]### Waiting for a weapon to exist: {} ###", 1, 513, uParam1 );
+                }
+            }
+        }
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_1751( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+/* P_INIT_TEMPLATE_TEST_WIDGET */ void sub_2609()
+{
+    int I;
+    unknown uVar3;
+
+     /* WRITESCRIPTLOG */ sub_361( "jmac", "AI Test for Fav1", "###" );
+    StrCopy( ref l_U1263[0], "AIT_NOVICE", 32 );
+    StrCopy( ref l_U1263[1], "AIT_NORMAL", 32 );
+    StrCopy( ref l_U1263[2], "AIT_EXPERT", 32 );
+    StrCopy( ref l_U1263[3], "AIT_SNIPER", 32 );
+    StrCopy( ref l_U1344[0], "AIT_NOVICE", 32 );
+    StrCopy( ref l_U1344[1], "AIT_NORMAL", 32 );
+    StrCopy( ref l_U1344[2], "AIT_EXPERT", 32 );
+    StrCopy( ref l_U1344[3], "AIT_SNIPER", 32 );
+    StrCopy( ref l_U1304[0], "AIT_NOVICE", 32 );
+    StrCopy( ref l_U1304[1], "AIT_NORMAL", 32 );
+    StrCopy( ref l_U1304[2], "AIT_EXPERT", 32 );
+    StrCopy( ref l_U1304[3], "AIT_SNIPER", 32 );
+    l_U1257[0] = 43800727;
+    l_U1257[1] = -2139704145;
+    l_U1257[2] = -2139704145;
+    l_U1257[3] = -2139704145;
+    l_U1257[4] = -2139704145;
+    l_U1338[0] = 2017283496;
+    l_U1338[1] = -1651176930;
+    l_U1338[2] = 2017283496;
+    l_U1338[3] = -1651176930;
+    l_U1338[4] = 2017283496;
+    l_U1298[0] = -229120983;
+    l_U1298[1] = 43800727;
+    l_U1298[2] = 43800727;
+    l_U1298[3] = 43800727;
+    l_U870[0]._fU0 = 456708483;
+    StrCopy( ref l_U870[0]._fU4, "pistol - DESERT EAGLE", 32 );
+    l_U870[1]._fU0 = -612753081;
+    StrCopy( ref l_U870[1]._fU4, "pistol - TAURUS .357", 32 );
+    l_U870[2]._fU0 = 68019059;
+    StrCopy( ref l_U870[2]._fU4, "pistol - TAURUS PT92", 32 );
+    l_U870[3]._fU0 = -862236369;
+    StrCopy( ref l_U870[3]._fU4, "pistol - COLT 1911 A1", 32 );
+    l_U870[4]._fU0 = -1464892298;
+    StrCopy( ref l_U870[4]._fU4, "pistol - GLOCK 18C", 32 );
+    l_U870[5]._fU0 = 406496141;
+    StrCopy( ref l_U870[5]._fU4, "pistol - .38 REVOLVER", 32 );
+    l_U870[6]._fU0 = -168327769;
+    StrCopy( ref l_U870[6]._fU4, "shotgun - MOSSBERG 590", 32 );
+    l_U870[7]._fU0 = 434544317;
+    StrCopy( ref l_U870[7]._fU4, "shotgun - BENELLI SUPER90", 32 );
+    l_U870[8]._fU0 = 514118749;
+    StrCopy( ref l_U870[8]._fU4, "shotgun - WINCHESTER SX3", 32 );
+    l_U870[9]._fU0 = -184942895;
+    StrCopy( ref l_U870[9]._fU4, "shotgun - SPAS15", 32 );
+    l_U870[10]._fU0 = 1845102363;
+    StrCopy( ref l_U870[10]._fU4, "shotgun - DOUBLE BARREL SHOTGUN", 32 );
+    l_U870[11]._fU0 = 1194438308;
+    StrCopy( ref l_U870[11]._fU4, "SMG - MINI UZI", 32 );
+    l_U870[12]._fU0 = -691403429;
+    StrCopy( ref l_U870[12]._fU4, "SMG - MAC10", 32 );
+    l_U870[13]._fU0 = -1404433099;
+    StrCopy( ref l_U870[13]._fU4, "SMG - BERRETTA PM12", 32 );
+    l_U870[14]._fU0 = 1478009203;
+    StrCopy( ref l_U870[14]._fU4, "SMG - H&K MP5", 32 );
+    l_U870[15]._fU0 = -1074756423;
+    StrCopy( ref l_U870[15]._fU4, "ASLT RIFLE - AK-47", 32 );
+    l_U870[16]._fU0 = 1308526797;
+    StrCopy( ref l_U870[16]._fU4, "ASLT RIFLE - FAL", 32 );
+    l_U870[17]._fU0 = -1013714740;
+    StrCopy( ref l_U870[17]._fU4, "ASLT RIFLE - MD-97LC", 32 );
+    l_U870[18]._fU0 = 57534114;
+    StrCopy( ref l_U870[18]._fU4, "ASLT RIFLE - G36K", 32 );
+    l_U870[19]._fU0 = 57534114;
+    StrCopy( ref l_U870[19]._fU4, "ASLT RIFLE - MT40 - missing", 32 );
+    l_U870[20]._fU0 = 724901397;
+    StrCopy( ref l_U870[20]._fU4, "RIFLE - MINI-30", 32 );
+    l_U870[21]._fU0 = -110877124;
+    StrCopy( ref l_U870[21]._fU4, "MACHINE GUN - RPD", 32 );
+    l_U870[22]._fU0 = 319712764;
+    StrCopy( ref l_U870[22]._fU4, "MACHINE GUN - 21E", 32 );
+    l_U870[23]._fU0 = 10648147;
+    StrCopy( ref l_U870[23]._fU4, "SNIPER RILFE - SG1", 32 );
+    l_U870[24]._fU0 = 1224272620;
+    StrCopy( ref l_U870[24]._fU4, "SNIPER RILFE - M82", 32 );
+    l_U870[25]._fU0 = -1312131151;
+    StrCopy( ref l_U870[25]._fU4, "EXPLOSIVE - RPG", 32 );
+    l_U870[26]._fU0 = -1659006841;
+    StrCopy( ref l_U870[26]._fU4, "SNIPER RILFE - M82", 32 );
+    l_U870[27]._fU0 = 1545805694;
+    StrCopy( ref l_U870[27]._fU4, "THROWN - MOLOTOV", 32 );
+    l_U870[28]._fU0 = -378310276;
+    StrCopy( ref l_U870[28]._fU4, "THROWN - FRAG GRENADE", 32 );
+    l_U870[29]._fU0 = -1986694060;
+    StrCopy( ref l_U870[29]._fU4, "THROWN - SMOKE GRENADE", 32 );
+    l_U870[30]._fU0 = -1629340685;
+    StrCopy( ref l_U870[30]._fU4, "THROWN - TEAR GAS", 32 );
+    l_U870[31]._fU0 = -1258125182;
+    StrCopy( ref l_U870[31]._fU4, "THROWN - FLASH GRENADE", 32 );
+    l_U1159[0]._fU0 = 1545805694;
+    StrCopy( ref l_U1159[0]._fU4, "THROWN - MOLOTOV", 32 );
+    l_U1159[1]._fU0 = -378310276;
+    StrCopy( ref l_U1159[1]._fU4, "THROWN - FRAG GRENADE", 32 );
+    l_U1159[2]._fU0 = -1986694060;
+    StrCopy( ref l_U1159[2]._fU4, "THROWN - SMOKE GRENADE", 32 );
+    l_U1159[3]._fU0 = -1629340685;
+    StrCopy( ref l_U1159[3]._fU4, "THROWN - TEAR GAS", 32 );
+    l_U1159[4]._fU0 = -1258125182;
+    StrCopy( ref l_U1159[4]._fU4, "THROWN - FLASH GRENADE", 32 );
+    START_WIDGET_GROUP( "AI Testing" );
+    START_WIDGET_GROUP( "Player settings" );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 31; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U870[I]._fU4 );
+    }
+    STOP_WIDGET_COMBO( "Player Weapon", ref l_U1387 );
+    ADD_WIDGET_BOOL( "Give Player Weapon", ref l_U2 );
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "Enemy Settings" );
+    START_WIDGET_GROUP( "General Enemy Settings" );
+    ADD_WIDGET_BOOL( "Use actual Fav1 spawn positions", ref l_U9 );
+    ADD_WIDGET_BOOL( "Spawn enemies", ref l_U1380 );
+    ADD_WIDGET_BOOL( "Delete enemies", ref l_U11 );
+    ADD_WIDGET_INT_SLIDER( "Enemy health value", ref l_U1253, 0, 2000, 10 );
+    ADD_WIDGET_BOOL( "Make enemy stationary", ref l_U1381 );
+    ADD_WIDGET_BOOL( "Force surrender", ref l_U1382 );
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "Fav1 enemy settings" );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 3; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U1344[I] );
+    }
+    STOP_WIDGET_COMBO( "Template to test", ref l_U1296 );
+    START_WIDGET_GROUP( "Fav1 setup tunables" );
+    START_WIDGET_GROUP( "Fav1 location teleport settings" );
+    ADD_WIDGET_BOOL( "Warp to Bridge and Stairs", ref l_U3 );
+    ADD_WIDGET_BOOL( "Warp to Fountain", ref l_U4 );
+    ADD_WIDGET_BOOL( "Warp to Hogan's Alley", ref l_U5 );
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "Bridge and Stairs Enemy Control" );
+    ADD_WIDGET_BOOL( "Spawn Upper Bridge Peds", ref l_U13 );
+    ADD_WIDGET_BOOL( "Spawn Downer Bridge Peds", ref l_U14 );
+    ADD_WIDGET_BOOL( "Upstairs Ped Shoots", ref l_U15 );
+    ADD_WIDGET_BOOL( "Downstair Ped Shoots", ref l_U16 );
+    ADD_WIDGET_BOOL( "Spawn In-Game Peds", ref l_U17 );
+    ADD_WIDGET_BOOL( "Spawn Stairs Ped", ref l_U18 );
+    ADD_WIDGET_BOOL( "Spawn Bridge Peds", ref l_U19 );
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "Fountain Enemy Control" );
+    ADD_WIDGET_BOOL( "All enemies", ref l_U20 );
+    ADD_WIDGET_BOOL( "Interior enemies only", ref l_U23 );
+    ADD_WIDGET_BOOL( "Outside enemies only", ref l_U22 );
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "Free spawn enemy settings" );
+    ADD_WIDGET_FLOAT_SLIDER( "Distance Spawned from Player", ref l_U1254, 1.00000000, 100.00000000, 1.00000000 );
+    ADD_WIDGET_FLOAT_SLIDER( "Distance Apart from each other", ref l_U1255, 1.00000000, 100.00000000, 1.00000000 );
+    ADD_WIDGET_FLOAT_SLIDER( "Ratio of concurrent shooters (target visible)", ref l_U1386, 0, 1.00000000, 0.25000000 );
+    ADD_WIDGET_FLOAT_SLIDER( "Ratio of concurrent shooters (target not visible)", ref l_U1385, 0, 1.00000000, 0.25000000 );
+    START_WIDGET_GROUP( "CS Settings" );
+    ADD_WIDGET_INT_SLIDER( "Enemy count in CS group", ref l_U1250, 0, 8, 1 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 3; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U1263[I] );
+    }
+    STOP_WIDGET_COMBO( "Template to test", ref l_U1256 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 31; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U870[I]._fU4 );
+    }
+    STOP_WIDGET_COMBO( "Enemy weapon", ref l_U1388 );
+    START_WIDGET_GROUP( "Projectile settings" );
+    ADD_WIDGET_BOOL( "Equip enemy with projectiles", ref l_U1383 );
+    ADD_WIDGET_INT_SLIDER( "Number of projectiles", ref l_U1392, 1, 9, 1 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 4; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U1159[I]._fU4 );
+    }
+    STOP_WIDGET_COMBO( "Projectile weapons", ref l_U1389 );
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "CP Settings" );
+    ADD_WIDGET_INT_SLIDER( "Enemy count in CP group", ref l_U1251, 0, 8, 1 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 3; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U1344[I] );
+    }
+    STOP_WIDGET_COMBO( "Template to test", ref l_U1337 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 31; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U870[I]._fU4 );
+    }
+    STOP_WIDGET_COMBO( "Enemy weapon", ref l_U1390 );
+    STOP_WIDGET_GROUP();
+    START_WIDGET_GROUP( "UFE Settings" );
+    ADD_WIDGET_INT_SLIDER( "Enemy count in UFE group", ref l_U1252, 0, 8, 1 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 3; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U1304[I] );
+    }
+    STOP_WIDGET_COMBO( "Template to test", ref l_U1297 );
+    START_NEW_WIDGET_COMBO();
+    for ( I = 0; I <= 31; I++ )
+    {
+        ADD_TO_WIDGET_COMBO( ref l_U870[I]._fU4 );
+    }
+    STOP_WIDGET_COMBO( "Enemy weapon", ref l_U1391 );
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    STOP_WIDGET_GROUP();
+    l_U7 = 1;
+    if (l_U2 == 1)
+    {
+        uVar3 =  /* F_GIVEPEDWEAPON */ sub_2161(  /* PLAYER_PED_ID */ sub_2089(), l_U870[l_U1387]._fU0, 25000, 0, 0 );
+        l_U2 = 0;
+    }
+    return;
+}
+
+/* P_UPDATE_TEMPLATE_TESTING */ void sub_7304()
+{
+    int I;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    vector vVar26;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    float fVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    vector vVar42;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    float fVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    vector vVar58;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    float fVar64;
+    unknown uVar65;
+
+    if (l_U2 == 1)
+    {
+        uVar3 =  /* F_GIVEPEDWEAPON */ sub_2161(  /* PLAYER_PED_ID */ sub_2089(), l_U870[l_U1387]._fU0, 25000, 0, 0 );
+        l_U2 = 0;
+    }
+    if (l_U9 == 1)
+    {
+         /* P_BRIDGE */ sub_7397();
+         /* P_FOUNTAIN */ sub_13771();
+         /* P_LOWERFAV */ sub_20146();
+    }
+    else if (l_U1380 == 1)
+    {
+         /* P_SETUP_AI_GROUP */ sub_15208( ref l_U1214, l_U1386, 0 );
+         /* P_SETUP_AI_GROUP */ sub_15208( ref l_U1229, l_U1386, 0 );
+         /* P_SETUP_AI_GROUP */ sub_15208( ref l_U1244, l_U1386, 0 );
+        for ( I = 0; I <= (l_U1250 - 1); I++ )
+        {
+            uVar4 = l_U1257[0];
+            uVar18 = {l_U1263[l_U1256]};
+            vVar26 = {0.00000000, 0.00000000, -1.00000000};
+            if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+            {
+                fVar32 = (-(l_U1250 * l_U1255) / 2.00000000) + (l_U1255 * (TO_FLOAT( I )));
+                uVar29 = {fVar32, l_U1254, 0.00000000};
+                vVar26 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_OFFSET_FROM_PED_IN_WORLD_COORDS(  /* PLAYER_PED_ID */ sub_2089(), uVar29 )};
+            }
+             /* P_CREATEPEDSTRUCT */ sub_9200( ref uVar5, vVar26, 0.00000000, uVar4, 7, 3, 2, 0, 0 );
+             /* CLEANPED */ sub_9459( l_U1205[I] );
+             /* LOADMODEL */ sub_9932( uVar4, 1 );
+            l_U1205[I] =  /* CREATEPED */ sub_9750( ref uVar5 );
+            if (((IS_PED_DEAD( l_U1205[I] )) == 0) AND ((DOES_PED_EXIST( l_U1205[I] )) == 1))
+            {
+                if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+                {
+                    uVar33 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U1205[I], l_U870[l_U1388]._fU0, 25000, 0, 0 );
+                    if (l_U1383 == 1)
+                    {
+                         /* F_GIVEPEDWEAPONTOHOLSTER */ sub_24584( l_U1205[I], l_U1159[l_U1389]._fU0, 5, l_U1392, 1 );
+                    }
+                    if (l_U1381 == 1)
+                    {
+                        SET_PED_COMBAT_MOVEMENT( l_U1205[I], 0 );
+                    }
+                    PRINTSTRING( "Spawning enemy with template - " );
+                    PRINTSTRING( ref uVar18 );
+                    PRINTNL();
+                    SET_PED_AI_TEMPLATE( l_U1205[I], ref uVar18 );
+                    TASK_TURN_PED_TO_FACE_PED( l_U1205[I],  /* PLAYER_PED_ID */ sub_2089(), 0, 1085905306 );
+                    SET_PED_HEALTH( l_U1205[I], l_U1253, 0 );
+                }
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U1205[I], ref l_U1214 );
+        }
+        for ( I = 0; I <= (l_U1252 - 1); I++ )
+        {
+            uVar4 = l_U1298[0];
+            uVar34 = {l_U1304[l_U1297]};
+            vVar42 = {0.00000000, 0.00000000, -1.00000000};
+            if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+            {
+                fVar48 = (-(l_U1252 * l_U1255) / 2.00000000) + (l_U1255 * (TO_FLOAT( I )));
+                uVar45 = {fVar48, l_U1254, 0.00000000};
+                vVar42 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_OFFSET_FROM_PED_IN_WORLD_COORDS(  /* PLAYER_PED_ID */ sub_2089(), uVar45 )};
+            }
+             /* P_CREATEPEDSTRUCT */ sub_9200( ref uVar5, vVar42, 0.00000000, uVar4, 7, 3, 2, 0, 0 );
+             /* CLEANPED */ sub_9459( l_U1235[I] );
+             /* LOADMODEL */ sub_9932( uVar4, 1 );
+            l_U1235[I] =  /* CREATEPED */ sub_9750( ref uVar5 );
+            if (((IS_PED_DEAD( l_U1235[I] )) == 0) AND ((DOES_PED_EXIST( l_U1235[I] )) == 1))
+            {
+                if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+                {
+                    uVar49 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U1235[I], l_U870[l_U1391]._fU0, 25000, 0, 0 );
+                    if (l_U1381 == 1)
+                    {
+                        SET_PED_COMBAT_MOVEMENT( l_U1235[I], 0 );
+                    }
+                    PRINTSTRING( "Spawning enemy with template - " );
+                    PRINTSTRING( ref uVar34 );
+                    PRINTNL();
+                    SET_PED_AI_TEMPLATE( l_U1235[I], ref uVar34 );
+                    TASK_TURN_PED_TO_FACE_PED( l_U1235[I],  /* PLAYER_PED_ID */ sub_2089(), 0, 1085905306 );
+                    SET_PED_HEALTH( l_U1235[I], l_U1253, 0 );
+                }
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U1205[I], ref l_U1214 );
+        }
+        for ( I = 0; I <= (l_U1251 - 1); I++ )
+        {
+            uVar4 = l_U1338[0];
+            uVar50 = {l_U1344[l_U1337]};
+            vVar58 = {0.00000000, 0.00000000, -1.00000000};
+            if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+            {
+                fVar64 = (-(l_U1251 * l_U1255) / 2.00000000) + (l_U1255 * (TO_FLOAT( I )));
+                uVar61 = {fVar64, l_U1254, 0.00000000};
+                vVar58 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_OFFSET_FROM_PED_IN_WORLD_COORDS(  /* PLAYER_PED_ID */ sub_2089(), uVar61 )};
+            }
+             /* P_CREATEPEDSTRUCT */ sub_9200( ref uVar5, vVar58, 0.00000000, uVar4, 7, 3, 2, 0, 0 );
+             /* CLEANPED */ sub_9459( l_U1220[I] );
+             /* LOADMODEL */ sub_9932( uVar4, 1 );
+            l_U1220[I] =  /* CREATEPED */ sub_9750( ref uVar5 );
+            if (((IS_PED_DEAD( l_U1220[I] )) == 0) AND ((DOES_PED_EXIST( l_U1220[I] )) == 1))
+            {
+                if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+                {
+                    uVar65 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U1220[I], l_U870[l_U1390]._fU0, 25000, 0, 0 );
+                    if (l_U1381 == 1)
+                    {
+                        SET_PED_COMBAT_MOVEMENT( l_U1220[I], 0 );
+                    }
+                    PRINTSTRING( "Spawning enemy with template - " );
+                    PRINTSTRING( ref uVar50 );
+                    PRINTNL();
+                    SET_PED_AI_TEMPLATE( l_U1220[I], ref uVar50 );
+                    TASK_TURN_PED_TO_FACE_PED( l_U1220[I],  /* PLAYER_PED_ID */ sub_2089(), 0, 1085905306 );
+                    SET_PED_HEALTH( l_U1220[I], l_U1253, 0 );
+                }
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U1220[I], ref l_U1229 );
+        }
+         /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U1214._fU0, l_U1386, l_U1385 );
+         /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U1229._fU0, l_U1386, l_U1385 );
+         /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U1244._fU0, l_U1386, l_U1385 );
+        l_U1380 = 0;
+    }
+    if (l_U1382 == 1)
+    {
+        for ( I = 0; I <= (l_U1250 - 1); I++ )
+        {
+            if (((IS_PED_DEAD( l_U1205[I] )) == 0) AND ((DOES_PED_EXIST( l_U1205[I] )) == 1))
+            {
+                PRINTSTRING( "forcing surrender" );
+                PRINTNL();
+                SET_PED_ALLOWED_TO_SURRENDER( l_U1205[I], 1 );
+                TASK_SURRENDER( l_U1205[I],  /* PLAYER_PED_ID */ sub_2089(), 1103626240 );
+                SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U1205[I], 1 );
+            }
+            else
+            {
+                PRINTSTRING( "ped check failed, surrender not happening" );
+                PRINTNL();
+            }
+        }
+        l_U1382 = 0;
+    }
+    if (l_U11 == 1)
+    {
+         /* P_CLEAN_ALL */ sub_9322();
+        l_U11 = 0;
+    }
+    return;
+}
+
+/* P_BRIDGE */ void sub_7397()
+{
+    if (l_U3 == 1)
+    {
+         /* WRITESCRIPTLOG */ sub_361( "SK", "Teleporting player to Bridge and Stairs section", "###" );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 1 );
+         /* P_FADE_OUT_AND_WAIT */ sub_7510( 1000 );
+        CLEAR_PED_TASKS_IMMEDIATELY(  /* PLAYER_PED_ID */ sub_2089() );
+         /* TELEPORTPED */ sub_7704(  /* PLAYER_PED_ID */ sub_2089(), g_U1050[37], g_U1174[37] );
+        LOAD_SCENE( g_U1050[37] );
+        if (l_U6 == 0)
+        {
+            WAIT( 2500 );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U1216[37], 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U1258[37], 1065353216, 0 );
+        GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_START_BRIDGE", 0 );
+        GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_START_BRIDGE", 1 );
+         /* P_FADE_IN_AND_WAIT */ sub_7918( 1000 );
+        l_U3 = 0;
+        l_U6 = 1;
+        l_U7 = 0;
+        l_U8 = 0;
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 0 );
+    }
+    if (l_U6 == 1)
+    {
+        if ( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U49, 0 ))
+        {
+             /* P_START_BRIDGE_SHOOTOUT */ sub_8318();
+        }
+        if (l_U1380 == 1)
+        {
+            GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_START_BRIDGE", 0 );
+            GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_START_BRIDGE", 1 );
+             /* P_BRIDGE_DOWN */ sub_9035( 0 );
+             /* P_BRIDGE_DOWN_SHOOT */ sub_11154();
+             /* P_BRIDGE_LIVE */ sub_11402( 0 );
+             /* P_START_BRIDGE_STAIRS */ sub_12409();
+            l_U1380 = 0;
+        }
+        if (l_U13 == 1)
+        {
+             /* P_BRIDGE_UP */ sub_12754( 1 );
+            l_U13 = 0;
+        }
+        if (l_U15 == 1)
+        {
+             /* P_BRIDGE_UP */ sub_12754( 1 );
+             /* P_BRIDGE_UP_SHOOT */ sub_13379();
+            l_U15 = 0;
+        }
+        if (l_U14 == 1)
+        {
+             /* P_BRIDGE_DOWN */ sub_9035( 1 );
+            l_U14 = 0;
+        }
+        if (l_U16 == 1)
+        {
+             /* P_BRIDGE_DOWN */ sub_9035( 1 );
+             /* P_BRIDGE_DOWN_SHOOT */ sub_11154();
+            l_U16 = 0;
+        }
+        if (l_U17 == 1)
+        {
+             /* P_BRIDGE_LIVE */ sub_11402( 1 );
+            l_U17 = 0;
+        }
+        if (l_U18 == 1)
+        {
+             /* P_START_BRIDGE_STAIRS */ sub_12409();
+            l_U18 = 0;
+        }
+        if (l_U19 == 1)
+        {
+             /* P_START_BRIDGE_SHOOTOUT */ sub_8318();
+            l_U19 = 0;
+        }
+        if (l_U15 == 1)
+        {
+             /* P_BRIDGE_UP */ sub_12754( 1 );
+             /* P_BRIDGE_UP_SHOOT */ sub_13379();
+            l_U15 = 0;
+        }
+        if (l_U16 == 1)
+        {
+             /* P_BRIDGE_DOWN */ sub_9035( 1 );
+             /* P_BRIDGE_DOWN_SHOOT */ sub_11154();
+            l_U16 = 0;
+        }
+    }
+    return;
+}
+
+/* P_FADE_OUT_AND_WAIT */ void sub_7510(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade out... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* TELEPORTPED */ void sub_7704(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_7918(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ void sub_8116(int iParam0, unknown uParam1)
+{
+    if (iParam0->_fU64 == 1)
+    {
+        return 0;
+    }
+    else
+    {
+        iParam0->_fU64 =  /* F_ISPEDINTRIGGERBOX */ sub_8192(  /* PLAYER_PED_ID */ sub_2089(), (iParam0^) );
+        if ((iParam0->_fU64) AND (uParam1))
+        {
+            GAMEPLAY_HELPER_BOX_SET_ENABLED( iParam0 + 0, 0 );
+        }
+    }
+    return iParam0->_fU64;
+}
+
+/* F_ISPEDINTRIGGERBOX */ int sub_8192(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15, unknown uParam16, unknown uParam17, unknown uParam18, unknown uParam19, unknown uParam20, unknown uParam21)
+{
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        return IS_PED_IN_GAMEPLAY_HELPER_BOX( uParam0, ref uParam1._fU0 );
+    }
+    return 0;
+}
+
+/* P_START_BRIDGE_SHOOTOUT */ void sub_8318()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    int I;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_START_BRIDGE_SHOOTOUT", "###" );
+    uVar2 = {l_U1263[l_U1296]};
+    for ( I = 0; I <= 3; I++ )
+    {
+        if (((IS_PED_DEAD( l_U446[I] )) == 0) AND ((DOES_PED_EXIST( l_U446[I] )) == 1))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U446[I], 0 );
+            SET_PED_PROOFS( l_U446[I], 0, 0, 0, 0, 0 );
+            SET_PED_AI_TEMPLATE( l_U377[I], ref uVar2 );
+            TASK_COMBAT_PED( l_U446[I],  /* PLAYER_PED_ID */ sub_2089() );
+        }
+    }
+    if (((IS_PED_DEAD( l_U446[2] )) == 0) AND ((DOES_PED_EXIST( l_U446[2] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, -19.23000000, -50.23000000, 16.53000000,  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+            TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), 4000, 0, 0, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U446[2], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    if (((IS_PED_DEAD( l_U446[1] )) == 0) AND ((DOES_PED_EXIST( l_U446[1] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_STAND_STILL( 0, 1500 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, -21.73000000, -49.89000000, 16.68000000,  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+            TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), 2000, 0, 0, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U446[1], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_BRIDGE_DOWN */ void sub_9035(int iParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+
+    uVar3 = {l_U1263[l_U1296]};
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U379[0], -11.80000000, -55.71000000, 12.48000000, 0.00000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+    if (iParam0 == 1)
+    {
+         /* P_CLEAN_ALL */ sub_9322();
+    }
+     /* CLEANPED */ sub_9459( l_U377[0] );
+    l_U377[0] =  /* CREATEPED */ sub_9750( ref l_U379[0] );
+    if ((IS_PED_DEAD( l_U377[0] )) AND (DOES_PED_EXIST( l_U377[0] )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U377[0], 1 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U377[0], 1 );
+        SET_PED_ALERTNESS( l_U377[0], 1 );
+        SET_PED_EMOTION_STATE( l_U377[0], 8 );
+        SET_PED_COMBAT_RANGE_MIN( l_U377[0], 1.00000000 );
+        SET_PED_COMBAT_RANGE_MAX( l_U377[0], 25.00000000 );
+        SET_PED_ACCURACY( l_U377[0], -1467320974 );
+        SET_PED_AI_TEMPLATE( l_U377[0], ref uVar3 );
+    }
+     /* P_BRIDGE_DOWN_ACTION */ sub_10882();
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U377[0], 68019059, 25000, 0, 0 );
+    return;
+}
+
+/* F_GETRANDOMBULLETENEMY */ void sub_9106()
+{
+    unknown Result;
+
+    Result = l_U602[l_U606];
+    l_U606++;
+    if (l_U606 >= 1)
+    {
+        l_U606 = 0;
+    }
+    return Result;
+}
+
+/* P_CREATEPEDSTRUCT */ void sub_9200(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU16 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* P_CLEAN_ALL */ void sub_9322()
+{
+     /* WRITESCRIPTLOG */ sub_361( "jmac", "Deleting Fav1 AI Test peds", "###" );
+    SET_ADRENALINE_AMT( 100.00000000 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U377 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U361 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U446 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U478 );
+     /* CLEANPEDARRAY */ sub_9409( ref g_U876 );
+     /* CLEANPED */ sub_9459( l_U662 );
+     /* CLEANPED */ sub_9459( l_U676 );
+     /* CLEANPED */ sub_9459( l_U696 );
+     /* CLEANPED */ sub_9459( l_U710 );
+     /* CLEANPED */ sub_9459( l_U724 );
+     /* CLEANPED */ sub_9459( l_U738 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U792 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U481 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U511 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U555 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U1205 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U1220 );
+     /* CLEANPEDARRAY */ sub_9409( ref l_U1235 );
+    return;
+}
+
+/* CLEANPEDARRAY */ void sub_9409(unknown uParam0)
+{
+    int I;
+
+    I = 0;
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+         /* CLEANPED */ sub_9459( (uParam0^)[I] );
+    }
+    return;
+}
+
+/* CLEANPED */ void sub_9459(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+/* CREATEPED */ void sub_9750(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = 0;
+    if (iParam0->_fU16 == 0)
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            iVar3 = GET_SCENE_PED_MODEL( iParam0->_fU20 );
+        }
+    }
+    else
+    {
+        iVar3 = iParam0->_fU16;
+    }
+    if ((HAS_MODEL_LOADED( iVar3 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_9932( iParam0->_fU16, 1 );
+    }
+    iParam0->_fU40 = CREATE_PED( iParam0->_fU24, iParam0->_fU16, iParam0->_fU0, iParam0->_fU12, 1, iParam0->_fU48 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( iParam0->_fU40, 1 );
+        SET_PED_COORDS_NO_OFFSET( iParam0->_fU40, "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( iParam0->_fU40 ) );
+        SET_PED_HEADING( iParam0->_fU40, iParam0->_fU12 );
+        iParam0->_fU44 = 1;
+    }
+    else
+    {
+        SCRIPT_ASSERT( "Error: The ped you created doesn't exist or is dead!", 0 );
+    }
+     /* SETPEDDEFAULTSTATS */ sub_10481( iParam0->_fU40 );
+     /* SETPEDDEFAULTTEMPLATE */ sub_10582( iParam0->_fU40 );
+    return iParam0->_fU40;
+}
+
+/* LOADMODEL */ void sub_9932(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_1751( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* SETPEDDEFAULTSTATS */ void sub_10481(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+/* SETPEDDEFAULTTEMPLATE */ void sub_10582(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+
+/* P_BRIDGE_DOWN_ACTION */ void sub_10882()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+    uVar2 = {l_U1263[l_U1296]};
+    SET_PED_AI_TEMPLATE( l_U377[0], ref uVar2 );
+    if (((IS_PED_DEAD( l_U377[0] )) == 0) AND ((DOES_PED_EXIST( l_U377[0] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+        {
+            TASK_FOLLOW_NAV_MESH_TO_COORD( 0, -11.70000000, -46.98000000, 16.50000000, 3, 20000, 1048576000, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U377[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_BRIDGE_DOWN_SHOOT */ void sub_11154()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+    uVar2 = {l_U1263[l_U1296]};
+    SET_PED_AI_TEMPLATE( l_U377[0], ref uVar2 );
+    if (((IS_PED_DEAD( l_U377[0] )) == 0) AND ((DOES_PED_EXIST( l_U377[0] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+        {
+            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, -11.70000000, -46.98000000, 16.50000000,  /* PLAYER_PED_ID */ sub_2089(), 2, 1, 0.00000000, 0.00000000, 1, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U377[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_BRIDGE_LIVE */ void sub_11402(int iParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    int I;
+
+    uVar3 = {l_U1263[l_U1296]};
+    SET_ADRENALINE_AMT( 100.00000000 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref g_U863, -11.63000000, -64.47000000, 12.50000000, -1.41000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U393[0], -25.04000000, -48.27000000, 16.82000000, -94.81000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U393[1], -27.38000000, -55.01000000, 16.82000000, 55.32000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U393[2], -28.61000000, -55.17000000, 16.82000000, 18.28000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U393[3], -28.43000000, -56.80000000, 16.82000000, 42.06000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U451[0], -27.25000000, -56.50000000, 16.82000000, 29.57000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+    if (iParam0 == 1)
+    {
+         /* P_CLEAN_ALL */ sub_9322();
+    }
+     /* CLEANPED */ sub_9459( g_U876[0] );
+    g_U876[0] =  /* CREATEPED */ sub_9750( ref g_U863 );
+    if (((IS_PED_DEAD( g_U876[0] )) == 0) AND ((DOES_PED_EXIST( g_U876[0] )) == 1))
+    {
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( g_U876[0], 1 );
+        SET_PED_NAME_DEBUG( g_U876[0], "piBridgeStairsEnemy" );
+        SET_PED_AI_TEMPLATE( g_U876[0], ref uVar3 );
+    }
+    for ( I = 0; I <= 3; I++ )
+    {
+         /* CLEANPED */ sub_9459( l_U446[I] );
+        l_U446[I] =  /* CREATEPED */ sub_9750( ref l_U393[I] );
+        if (((IS_PED_DEAD( l_U446[I] )) == 0) AND ((DOES_PED_EXIST( l_U446[I] )) == 1))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U446[I], 1 );
+            SET_PED_CAN_TRIGGER_BULLET_CAM( l_U446[I], 1 );
+            SET_PED_AI_TEMPLATE( l_U446[I], ref uVar3 );
+        }
+         /* P_TETHERPED */ sub_12038( ref l_U343, l_U446[I], 1 );
+    }
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U446[0], 1194438308, 25000, 0, 0 );
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U446[1], 1194438308, 25000, 0, 0 );
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U446[2], -862236369, 25000, 0, 0 );
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U446[3], 1845102363, 25000, 0, 0 );
+     /* F_GIVEPEDWEAPON */ sub_2161( g_U876[0], 1194438308, 25000, 0, 0 );
+     /* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ sub_12279( ref l_U446, "piBridgeEnemies_" );
+     /* P_START_BRIDGE_STAIRS */ sub_12409();
+    return;
+}
+
+/* P_TETHERPED */ void sub_12038(int iParam0, unknown uParam1, unknown uParam2)
+{
+    if (((IS_PED_DEAD( uParam1 )) == 0) AND ((DOES_PED_EXIST( uParam1 )) == 1))
+    {
+        SET_PED_TETHERING_ADD_BOX( uParam1, iParam0->_fU0 );
+        SET_PED_TETHERING_OPTION( uParam1, uParam2 );
+    }
+    return;
+}
+
+/* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ void sub_12279(unknown uParam0, unknown uParam1)
+{
+    int I;
+    char[32] cVar5;
+
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+        if (DOES_PED_EXIST( (uParam0^)[I] ))
+        {
+            StrCopy( ref cVar5, uParam1, 32 );
+            ConcatString(ref cVar5, " ", 32);
+            ConcatString(ref cVar5, I, 32);
+            SET_PED_NAME_DEBUG( (uParam0^)[I], ref cVar5 );
+        }
+    }
+    return;
+}
+
+/* P_START_BRIDGE_STAIRS */ void sub_12409()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_START_BRIDGE_STAIRS", "###" );
+    uVar2 = {l_U1263[l_U1296]};
+    SET_PED_AI_TEMPLATE( g_U876[0], ref uVar2 );
+    if (((IS_PED_DEAD( g_U876[0] )) == 0) AND ((DOES_PED_EXIST( g_U876[0] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_STAND_STILL( 0, 1000 );
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+        {
+            TASK_FOLLOW_NAV_MESH_TO_COORD( 0, -15.05000000, -49.91000000, 16.50000000, 3, 20000, 1048576000, 0, 0 );
+        }
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_2089() );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( g_U876[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_BRIDGE_UP */ void sub_12754(int iParam0)
+{
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+
+    uVar3 = {l_U1263[l_U1296]};
+    SET_ADRENALINE_AMT( 100.00000000 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U363[0], -11.70000000, -46.98000000, 16.50000000, 0.00000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+    if (iParam0 == 1)
+    {
+         /* P_CLEAN_ALL */ sub_9322();
+    }
+     /* CLEANPED */ sub_9459( l_U361[0] );
+    l_U361[0] =  /* CREATEPED */ sub_9750( ref l_U363[0] );
+    if ((IS_PED_DEAD( l_U361[0] )) AND (DOES_PED_EXIST( l_U361[0] )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U361[0], 1 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U361[0], 1 );
+        SET_PED_ALERTNESS( l_U361[0], 1 );
+        SET_PED_EMOTION_STATE( l_U361[0], 1 );
+        SET_PED_COMBAT_RANGE_MIN( l_U361[0], 1.00000000 );
+        SET_PED_COMBAT_RANGE_MAX( l_U361[0], 25.00000000 );
+        SET_PED_ACCURACY( l_U361[0], -1467320974 );
+        SET_PED_CAN_TRIGGER_BULLET_CAM( l_U361[0], 1 );
+        SET_PED_AI_TEMPLATE( l_U361[0], ref uVar3 );
+    }
+     /* P_BRIDGE_UP_ACTION */ sub_13089();
+     /* F_GIVEPEDWEAPON */ sub_2161( l_U361[0], 68019059, 25000, 0, 0 );
+    return;
+}
+
+/* P_BRIDGE_UP_ACTION */ void sub_13089()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+    uVar2 = {l_U1263[l_U1296]};
+    SET_PED_AI_TEMPLATE( l_U361[0], ref uVar2 );
+    if (((IS_PED_DEAD( l_U361[0] )) == 0) AND ((DOES_PED_EXIST( l_U361[0] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+        {
+            TASK_FOLLOW_NAV_MESH_TO_COORD( 0, -11.80000000, -55.71000000, 12.48000000, 3, 20000, 1048576000, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U361[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_BRIDGE_UP_SHOOT */ void sub_13379()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+    uVar2 = {l_U1263[l_U1296]};
+    SET_PED_AI_TEMPLATE( l_U377[0], ref uVar2 );
+    if (((IS_PED_DEAD( l_U361[0] )) == 0) AND ((DOES_PED_EXIST( l_U361[0] )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, -11.80000000, -55.71000000, 12.48000000,  /* PLAYER_PED_ID */ sub_2089(), 2, 1, 0.00000000, 0.00000000, 1, 0 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U361[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_FOUNTAIN */ void sub_13771()
+{
+    if (l_U4 == 1)
+    {
+         /* WRITESCRIPTLOG */ sub_361( "SK", "Teleporting player to Fountain section", "###" );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 1 );
+         /* P_FADE_OUT_AND_WAIT */ sub_7510( 1000 );
+         /* P_CLEAN_ALL */ sub_9322();
+        CLEAR_PED_TASKS_IMMEDIATELY(  /* PLAYER_PED_ID */ sub_2089() );
+         /* TELEPORTPED */ sub_7704(  /* PLAYER_PED_ID */ sub_2089(), g_U1050[8], g_U1174[8] );
+        if (l_U7 == 0)
+        {
+            LOAD_SCENE( g_U1050[8] );
+            WAIT( 2500 );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U1216[8], 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U1258[8], 1065353216, 0 );
+        SET_PLAYER_USING_COVER(  /* PLAYER_ID */ sub_2032(), 0 );
+         /* P_FADE_IN_AND_WAIT */ sub_7918( 1000 );
+        l_U4 = 0;
+        l_U7 = 1;
+        l_U6 = 0;
+        l_U8 = 0;
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 0 );
+    }
+    if (l_U7 == 1)
+    {
+        if (l_U22 == 1)
+        {
+            if (l_U25 == 0)
+            {
+                 /* P_CLEAN_ALL */ sub_9322();
+                 /* P_INITIALIZE_SCRIPT_DATA */ sub_14089();
+                 /* P_FOUNTAIN_SPAWN */ sub_14626();
+                 /* P_SETUP_FOUNTAIN_ENEMIES */ sub_14909();
+                 /* P_SETUP_ROOF_ENEMY_01 */ sub_16237();
+                 /* P_SETUP_ROOF_ENEMY_02 */ sub_16626();
+                 /* P_ACTIVATE_FOUNTAIN_ENEMIES */ sub_17028();
+                 /* P_SETUP_FOUNTAIN_BACKUP */ sub_17473();
+                l_U25 = 1;
+            }
+            if (( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U112, 0 )) == 1)
+            {
+                 /* P_SETUP_FOUNTAIN_ENEMIES */ sub_14909();
+            }
+            if (( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U70, 0 )) == 1)
+            {
+                 /* P_ACTIVATE_FOUNTAIN_ENEMIES */ sub_17028();
+                 /* P_SETUP_ROOF_ENEMY_01 */ sub_16237();
+                 /* CREATETIMER */ sub_18206( ref l_U31, 5000, 1, 0 );
+                 /* STARTTIMER */ sub_18354( ref l_U31 );
+                 /* CREATETIMER */ sub_18206( ref l_U40, 10000, 1, 0 );
+                 /* STARTTIMER */ sub_18354( ref l_U40 );
+            }
+            if (( /* ISTIMERDONE */ sub_18508( ref l_U31 )) == 1)
+            {
+                 /* P_SETUP_ROOF_ENEMY_02 */ sub_16626();
+            }
+            if (l_U24 == 0)
+            {
+                if ((( /* F_ISPLAYERINTRIGGERBOX */ sub_18722( l_U91 )) == 1) || (( /* ISTIMERDONE */ sub_18508( ref l_U40 )) == 1))
+                {
+                     /* P_SETUP_FOUNTAIN_BACKUP */ sub_17473();
+                    l_U24 = 1;
+                }
+            }
+        }
+        if (l_U23 == 1)
+        {
+             /* P_FOUNTAIN_INTERIOUR_SPAWN */ sub_18805();
+             /* P_FOUNTAIN_INTERIOUR_SHOOT */ sub_19294();
+            l_U23 = 0;
+        }
+        if (l_U1380 == 1)
+        {
+             /* P_INITIALIZE_SCRIPT_DATA */ sub_14089();
+             /* P_FOUNTAIN_SPAWN */ sub_14626();
+             /* P_SETUP_FOUNTAIN_ENEMIES */ sub_14909();
+             /* P_SETUP_ROOF_ENEMY_01 */ sub_16237();
+             /* P_SETUP_ROOF_ENEMY_02 */ sub_16626();
+             /* P_ACTIVATE_FOUNTAIN_ENEMIES */ sub_17028();
+             /* P_SETUP_FOUNTAIN_BACKUP */ sub_17473();
+            l_U22 = 1;
+            l_U1380 = 0;
+        }
+        if (l_U20 == 1)
+        {
+             /* P_FOUNTAIN_SPAWN */ sub_14626();
+             /* P_SETUP_FOUNTAIN_ENEMIES */ sub_14909();
+             /* P_SETUP_ROOF_ENEMY_01 */ sub_16237();
+             /* P_SETUP_ROOF_ENEMY_02 */ sub_16626();
+             /* P_ACTIVATE_FOUNTAIN_ENEMIES */ sub_17028();
+             /* P_SETUP_FOUNTAIN_BACKUP */ sub_17473();
+            l_U20 = 0;
+        }
+    }
+    return;
+}
+
+/* P_INITIALIZE_SCRIPT_DATA */ void sub_14089()
+{
+     /* WRITESCRIPTLOG */ sub_361( "SP", "INITIALIZE_SCRIPT_DATA", "###" );
+    l_U24 = 0;
+     /* RESETTIMER */ sub_14173( ref l_U31 );
+     /* RESETTIMER */ sub_14173( ref l_U40 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_SETUP_FOUNTAIN", 0 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_FOUNTAIN_ACTION", 0 );
+    GAMEPLAY_HELPER_BOX_SET_ENABLED( "TRIG_FOUNTAIN_BACKUP", 0 );
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = 0;
+    l_U599 = {89.65000000, -163.59000000, 1.01000000};
+    l_U607[0] = {90.16000000, -164.90000000, -2.62000000};
+    l_U607[1] = {91.51000000, -160.84000000, 1.57000000};
+    l_U614[0] = {114.20000000, -161.91000000, -2.07000000};
+    l_U614[1] = {111.15000000, -165.06000000, -2.26000000};
+    l_U621[0] = {118.42000000, -164.82000000, 1.39000000};
+    l_U621[1] = {122.92000000, -163.57000000, 3.92000000};
+    l_U621[2] = {122.11000000, -152.36000000, 2.41000000};
+    return;
+}
+
+/* RESETTIMER */ void sub_14173(int iParam0)
+{
+    if (iParam0->_fU28)
+    {
+        iParam0->_fU0 = TIMERA();
+    }
+    else
+    {
+        iParam0->_fU0 = TIMERB();
+    }
+    if (iParam0->_fU32 == 1)
+    {
+        iParam0->_fU0 = TIMERSYSTEM();
+    }
+    iParam0->_fU4 = iParam0->_fU0;
+    iParam0->_fU16 = 0;
+    iParam0->_fU20 = 0;
+    iParam0->_fU24 = 0;
+    return;
+}
+
+/* P_FOUNTAIN_SPAWN */ void sub_14626()
+{
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U649, -57.38605000, -48.19279000, 18.69818000, 177.49620000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U663, -60.11547000, -47.77013000, 18.69830000, 178.75840000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U683, -67.94984000, -70.19060000, 12.47122000, 278.70210000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U697, -48.82462000, -61.74516000, 13.83007000, 180.86850000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U711, -55.98311000, -52.51805000, 13.83007000, 88.97557000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U725, -70.78747000, -47.65159000, 13.63540000, 180.04260000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+    return;
+}
+
+/* P_SETUP_FOUNTAIN_ENEMIES */ void sub_14909()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_SETUP_FOUNTAIN_ENEMIES", "###" );
+    uVar2 = {l_U1263[l_U1296]};
+     /* CLEANPED */ sub_9459( l_U696 );
+    l_U696 =  /* CREATEPED */ sub_9750( ref l_U683 );
+     /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U696, ref l_U677 );
+     /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U677._fU0, l_U1386, l_U1385 );
+    if (((IS_PED_DEAD( l_U696 )) == 0) AND ((DOES_PED_EXIST( l_U696 )) == 1))
+    {
+        SET_PED_NAME_DEBUG( l_U696, "piFountainEnemy01" );
+        uVar10 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U696, 1845102363, 25000, 0, 0 );
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U696, 1 );
+        SET_PED_AI_TEMPLATE( l_U696, ref uVar2 );
+        SET_PED_HEALTH( l_U696, l_U1253, 0 );
+    }
+     /* CLEANPED */ sub_9459( l_U710 );
+    l_U710 =  /* CREATEPED */ sub_9750( ref l_U697 );
+     /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U710, ref l_U677 );
+     /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U677._fU0, l_U1386, l_U1385 );
+    if (((IS_PED_DEAD( l_U710 )) == 0) AND ((DOES_PED_EXIST( l_U710 )) == 1))
+    {
+        SET_PED_NAME_DEBUG( l_U710, "piFountainEnemy02" );
+        uVar11 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U710, -862236369, 25000, 0, 0 );
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U710, 1 );
+        SET_PED_AI_TEMPLATE( l_U710, ref uVar2 );
+    }
+    return;
+}
+
+/* P_QUICK_ADD_PED_TO_GROUP */ void sub_15038(unknown uParam0, int iParam1)
+{
+    int iVar4;
+    unknown uVar5;
+
+    if ((DOES_GROUP_EXIST( iParam1->_fU0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_1751( "[SP]### Warning!!! Group does not exist. Creating new group specified attributes. ###" );
+        if (iParam1->_fU4 > 0)
+        {
+             /* P_SETUP_AI_GROUP */ sub_15208( iParam1, iParam1->_fU4, 0 );
+        }
+        else
+        {
+             /* P_SETUP_AI_GROUP */ sub_15208( iParam1, 1056964608, 0 );
+        }
+    }
+    else
+    {
+        PRINTSTRING( "[MSWW]### P_QUICK_ADD_PED_TO_GROUP adding ped to group with ID: " );
+        PRINTINT( iParam1->_fU0 );
+        PRINTNL();
+    }
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        GET_GROUP_SIZE( iParam1->_fU0, ref iVar4, ref uVar5 );
+        if (iVar4 == 0)
+        {
+            SET_PED_AS_GROUP_LEADER( uParam0, iParam1->_fU0 );
+        }
+        else
+        {
+            SET_PED_AS_GROUP_MEMBER( uParam0, iParam1->_fU0 );
+        }
+        SET_PED_NEVER_LEAVES_GROUP( uParam0, 1 );
+    }
+    return;
+}
+
+/* P_SETUP_AI_GROUP */ void sub_15208(int iParam0, unknown uParam1, boolean bParam2)
+{
+    iParam0->_fU4 = uParam1;
+    iParam0->_fU0 = CREATE_GROUP( 3, 1 );
+    if (bParam2)
+    {
+        PRINTSTRING( "[MSWW]### P_SETUP_AI_GROUP TOLD TO WAIT FOR GROUP TO EXIST ###" );
+        PRINTNL();
+        while (NOT (DOES_GROUP_EXIST( iParam0->_fU0 )))
+        {
+            WAIT( 0 );
+            PRINTSTRING( "[MSWW]### GROUP ###" );
+            PRINTNL();
+        }
+        PRINTSTRING( "[MSWW]### P_SETUP_AI_GROUP created group with ID: " );
+        PRINTINT( iParam0->_fU0 );
+        PRINTNL();
+    }
+    SET_GROUP_RATIO_FIRING_AT_VISIBLE( iParam0->_fU0, iParam0->_fU4 );
+    SET_GROUP_RATIO_FIRING_AT_INVISIBLE( iParam0->_fU0, iParam0->_fU4 );
+    if (iParam0->_fU8)
+    {
+        SET_GROUP_FORMATION( iParam0->_fU0, iParam0->_fU12 );
+        SET_GROUP_FORMATION_SPACING( iParam0->_fU0, iParam0->_fU16 );
+        SET_GROUP_FORMATION_MAX_MOVE_SPEED( iParam0->_fU0, iParam0->_fU20 );
+    }
+    return;
+}
+
+/* P_SET_GROUP_FIRING_RATIOS */ void sub_15816(int iParam0, unknown uParam1, unknown uParam2)
+{
+    if (iParam0 != nil)
+    {
+        SET_GROUP_RATIO_FIRING_AT_VISIBLE( iParam0, uParam1 );
+        SET_GROUP_RATIO_FIRING_AT_INVISIBLE( iParam0, uParam2 );
+        PRINTSTRING( "Firing ratios set" );
+    }
+    return;
+}
+
+/* P_SETUP_ROOF_ENEMY_01 */ void sub_16237()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    vector vVar10;
+    unknown uVar13;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_SETUP_ROOF_ENEMY_01", "###" );
+    uVar2 = {l_U1263[l_U1296]};
+    vVar10 = {-56.61974000, -58.78480000, 18.25486000};
+     /* CLEANPED */ sub_9459( l_U662 );
+    l_U662 =  /* CREATEPED */ sub_9750( ref l_U649 );
+     /* P_TETHERPED */ sub_12038( ref l_U344, l_U662, 3 );
+     /* P_TETHERPED */ sub_12038( ref l_U345, l_U662, 3 );
+    if (((IS_PED_DEAD( l_U662 )) == 0) AND ((DOES_PED_EXIST( l_U662 )) == 1))
+    {
+        uVar13 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U662, -1074756423, 25000, 0, 0 );
+         /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U662, ref l_U631 );
+         /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U631._fU0, l_U1386, l_U1385 );
+        SET_PED_AI_TEMPLATE( l_U662, ref uVar2 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_FOLLOW_NAV_MESH_TO_COORD( 0, vVar10, 3, -1, 1048576000, 0, 0 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            ;
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U662, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_SETUP_ROOF_ENEMY_02 */ void sub_16626()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    vector vVar10;
+    unknown uVar13;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_SETUP_ROOF_ENEMY_02", "###" );
+    uVar2 = {l_U1263[l_U1296]};
+    vVar10 = {-64.04620000, -56.75750000, 19.07265000};
+    SET_PED_AI_TEMPLATE( l_U662, ref uVar2 );
+     /* CLEANPED */ sub_9459( l_U676 );
+    l_U676 =  /* CREATEPED */ sub_9750( ref l_U663 );
+     /* P_TETHERPED */ sub_12038( ref l_U344, l_U676, 3 );
+     /* P_TETHERPED */ sub_12038( ref l_U345, l_U676, 3 );
+    if (((IS_PED_DEAD( l_U676 )) == 0) AND ((DOES_PED_EXIST( l_U676 )) == 1))
+    {
+        uVar13 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U676, -1074756423, 25000, 0, 0 );
+         /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U676, ref l_U631 );
+         /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U631._fU0, l_U1386, l_U1385 );
+        SET_PED_AI_TEMPLATE( l_U676, ref uVar2 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_FOLLOW_NAV_MESH_TO_COORD( 0, vVar10, 3, -1, 1048576000, 0, 0 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            ;
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U676, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_ACTIVATE_FOUNTAIN_ENEMIES */ void sub_17028()
+{
+    vector vVar2;
+    vector vVar5;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_ACTIVATE_FOUNTAIN_ENEMIES", "###" );
+    vVar2 = {-67.17210000, -62.39354000, 12.37743000};
+    if (((IS_PED_DEAD( l_U696 )) == 0) AND ((DOES_PED_EXIST( l_U696 )) == 1))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U696, 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, vVar2,  /* PLAYER_PED_ID */ sub_2089(), 3, 0, 1056964608, 0, 1, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U696, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    vVar5 = {-56.66655000, -61.69790000, 12.41864000};
+    if (((IS_PED_DEAD( l_U710 )) == 0) AND ((DOES_PED_EXIST( l_U710 )) == 1))
+    {
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, vVar5,  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U710, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_SETUP_FOUNTAIN_BACKUP */ void sub_17473()
+{
+    vector vVar2;
+    unknown uVar5;
+    vector vVar6;
+    unknown uVar9;
+
+     /* WRITESCRIPTLOG */ sub_361( "SP", "P_SETUP_FOUNTAIN_BACKUP", "###" );
+    vVar2 = {-58.40917000, -58.47328000, 13.81813000};
+     /* CLEANPED */ sub_9459( l_U724 );
+    l_U724 =  /* CREATEPED */ sub_9750( ref l_U711 );
+     /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U724, ref l_U677 );
+     /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U677._fU0, l_U1386, l_U1385 );
+     /* P_TETHERPED */ sub_12038( ref l_U346, l_U738, 3 );
+    if (((IS_PED_DEAD( l_U724 )) == 0) AND ((DOES_PED_EXIST( l_U724 )) == 1))
+    {
+        SET_PED_NAME_DEBUG( l_U724, "piFountainBackup01" );
+        uVar5 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U724, 1194438308, 25000, 0, 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_FOLLOW_NAV_MESH_TO_COORD( 0, vVar2, 3, -1, 1048576000, 0, 0 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            ;
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U724, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    vVar6 = {-63.72724000, -52.41292000, 13.82744000};
+     /* CLEANPED */ sub_9459( l_U738 );
+    l_U738 =  /* CREATEPED */ sub_9750( ref l_U725 );
+     /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U738, ref l_U677 );
+     /* P_SET_GROUP_FIRING_RATIOS */ sub_15816( l_U677._fU0, l_U1386, l_U1385 );
+     /* P_TETHERPED */ sub_12038( ref l_U347, l_U738, 3 );
+    if (((IS_PED_DEAD( l_U738 )) == 0) AND ((DOES_PED_EXIST( l_U738 )) == 1))
+    {
+        SET_PED_NAME_DEBUG( l_U738, "piFountainBackup02" );
+        uVar9 =  /* F_GIVEPEDWEAPON */ sub_2161( l_U738, 1194438308, 25000, 0, 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        TASK_FOLLOW_NAV_MESH_TO_COORD( 0, vVar6, 3, -1, 1048576000, 0, 0 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            ;
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U738, l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* CREATETIMER */ void sub_18206(int iParam0, unknown uParam1, boolean bParam2, int iParam3)
+{
+    if (bParam2)
+    {
+        iParam0->_fU0 = TIMERA();
+    }
+    else
+    {
+        iParam0->_fU0 = TIMERB();
+    }
+    if (iParam3 == 1)
+    {
+        iParam0->_fU0 = TIMERSYSTEM();
+    }
+    iParam0->_fU4 = iParam0->_fU0;
+    iParam0->_fU12 = uParam1;
+    iParam0->_fU16 = 0;
+    iParam0->_fU20 = 0;
+    iParam0->_fU24 = 0;
+    iParam0->_fU28 = bParam2;
+    iParam0->_fU32 = iParam3;
+    iParam0->_fU8 = 0;
+    return;
+}
+
+/* STARTTIMER */ void sub_18354(int iParam0)
+{
+    if (NOT iParam0->_fU20)
+    {
+        iParam0->_fU20 = 1;
+        iParam0->_fU16 = 0;
+        if (iParam0->_fU28)
+        {
+            iParam0->_fU0 = TIMERA();
+        }
+        else
+        {
+            iParam0->_fU0 = TIMERB();
+        }
+        if (iParam0->_fU32 == 1)
+        {
+            iParam0->_fU0 = TIMERSYSTEM();
+        }
+        iParam0->_fU4 = iParam0->_fU0;
+    }
+    return;
+}
+
+/* ISTIMERDONE */ int sub_18508(int iParam0)
+{
+    if (iParam0->_fU16)
+    {
+        return 0;
+    }
+    else if (NOT iParam0->_fU20)
+    {
+        return 0;
+    }
+    if (iParam0->_fU28)
+    {
+        iParam0->_fU4 = TIMERA();
+    }
+    else
+    {
+        iParam0->_fU4 = TIMERB();
+    }
+    if (iParam0->_fU32 == 1)
+    {
+        iParam0->_fU4 = TIMERSYSTEM();
+    }
+    if ((iParam0->_fU4 - iParam0->_fU0) >= iParam0->_fU12)
+    {
+        iParam0->_fU16 = 1;
+        iParam0->_fU20 = 0;
+        return 1;
+        break;
+    }
+    return 0;
+}
+
+/* F_ISPLAYERINTRIGGERBOX */ void sub_18722(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11, unknown uParam12, unknown uParam13, unknown uParam14, unknown uParam15, unknown uParam16, unknown uParam17, unknown uParam18, unknown uParam19, unknown uParam20)
+{
+    return  /* F_ISPEDINTRIGGERBOX */ sub_8192(  /* PLAYER_PED_ID */ sub_2089(), uParam0 );
+}
+
+/* P_FOUNTAIN_INTERIOUR_SPAWN */ void sub_18805()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    int I;
+
+    uVar2 = {l_U1263[l_U1296]};
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U739[0], -56.36000000, -61.63000000, 12.57000000, -1.41000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U739[1], -70.99000000, -52.99000000, 13.82000000, -1.41000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U739[2], -56.09000000, -55.21000000, 14.00000000, -1.41000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U739[3], -57.18000000, -58.23000000, 13.82000000, -1.41000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+    for ( I = 0; I <= 3; I++ )
+    {
+         /* CLEANPED */ sub_9459( l_U792[I] );
+        l_U792[I] =  /* CREATEPED */ sub_9750( ref l_U739[I] );
+        if (((IS_PED_DEAD( l_U792[I] )) == 0) AND ((DOES_PED_EXIST( l_U792[I] )) == 1))
+        {
+            SET_PED_COMBAT_RANGE_MIN( l_U792[I], 1.00000000 );
+            SET_PED_COMBAT_RANGE_MAX( l_U792[I], 8.00000000 );
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U792[I], 1 );
+            SET_PED_AI_TEMPLATE( l_U792[I], ref uVar2 );
+             /* F_GIVEPEDWEAPON */ sub_2161( l_U792[I], 1194438308, 25000, 0, 0 );
+        }
+    }
+     /* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ sub_12279( ref l_U792, "piFOUNTAIN_ENEMIES" );
+    return;
+}
+
+/* P_FOUNTAIN_INTERIOUR_SHOOT */ void sub_19294()
+{
+    if (((IS_PED_DEAD( l_U792[0] )) == 0) AND ((DOES_PED_EXIST( l_U792[0] )) == 1))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U792[0], 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_PED_WHILE_AIMING_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(),  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 5.00000000, 5.00000000, 1, 1 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U792[0], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    if (((IS_PED_DEAD( l_U792[1] )) == 0) AND ((DOES_PED_EXIST( l_U792[1] )) == 1))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U792[1], 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_GO_TO_PED_WHILE_AIMING_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(),  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 5.00000000, 5.00000000, 1, 1 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U792[1], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    if (((IS_PED_DEAD( l_U792[2] )) == 0) AND ((DOES_PED_EXIST( l_U792[2] )) == 1))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U792[2], 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), 1, 0, 0, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U792[2], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    if (((IS_PED_DEAD( l_U792[3] )) == 0) AND ((DOES_PED_EXIST( l_U792[3] )) == 1))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U792[3], 0 );
+        OPEN_SEQUENCE_TASK( ref l_U360 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+        if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )) == 0)
+        {
+            TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), 1, 0, 0, 0, 0 );
+        }
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        CLOSE_SEQUENCE_TASK( l_U360 );
+        TASK_PERFORM_SEQUENCE( l_U792[3], l_U360 );
+        CLEAR_SEQUENCE_TASK( l_U360 );
+    }
+    return;
+}
+
+/* P_LOWERFAV */ void sub_20146()
+{
+    int I;
+
+    if (l_U5 == 1)
+    {
+         /* WRITESCRIPTLOG */ sub_361( "SK", "Teleporting player to Lower Favela section", "###" );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 1 );
+         /* P_FADE_OUT_AND_WAIT */ sub_7510( 1000 );
+         /* P_CLEAN_ALL */ sub_9322();
+        CLEAR_PED_TASKS_IMMEDIATELY(  /* PLAYER_PED_ID */ sub_2089() );
+         /* TELEPORTPED */ sub_7704(  /* PLAYER_PED_ID */ sub_2089(), 92.49310000, -176.32570000, -2.84520700, 119.51290000 );
+        if (l_U8 == 0)
+        {
+            LOAD_SCENE( 92.49310000, -176.32570000, -2.84520700 );
+            WAIT( 2500 );
+        }
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( 13.94753000, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -0.34972000, 1065353216, 0 );
+         /* P_FADE_IN_AND_WAIT */ sub_7918( 1000 );
+        l_U5 = 0;
+        l_U8 = 1;
+        l_U7 = 0;
+        l_U6 = 0;
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_2089(), 0 );
+    }
+    if (l_U1380 == 1)
+    {
+         /* P_INITIALIZE_SCRIPT_DATA */ sub_14089();
+         /* P_HOGAN_SPAWN */ sub_20445();
+         /* P_LOWER_SETUP_ENEMIES */ sub_21138();
+         /* TELEPORTPED */ sub_7704(  /* PLAYER_PED_ID */ sub_2089(), 92.49310000, -176.32570000, -2.84520700, 119.51290000 );
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( -54.36062000, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -3.80518700, 1065353216, 0 );
+        l_U1380 = 0;
+    }
+    if (l_U8 == 1)
+    {
+        if ( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U280, 0 ))
+        {
+             /* WRITESCRIPTLOG */ sub_361( "SA", "Starting Corner Enemy 0", "###" );
+            if (NOT (IS_PED_DEAD( l_U481[0] )))
+            {
+                OPEN_SEQUENCE_TASK( ref l_U360 );
+                TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                {
+                    TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, l_U607[I],  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+                    TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_2089() );
+                }
+                TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+                CLOSE_SEQUENCE_TASK( l_U360 );
+                TASK_PERFORM_SEQUENCE( l_U481[0], l_U360 );
+                CLEAR_SEQUENCE_TASK( l_U360 );
+            }
+        }
+        if (NOT l_U27)
+        {
+            if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+            {
+                if ((HAS_PED_CLEAR_LOS_TO_SPHERE(  /* PLAYER_PED_ID */ sub_2089(), l_U599, 1.00000000 )) AND ( /* F_ISPLAYERINTRIGGERBOX */ sub_18722( l_U280 )))
+                {
+                     /* WRITESCRIPTLOG */ sub_361( "SA", "Starting Corner Enemy 1", "###" );
+                    OPEN_SEQUENCE_TASK( ref l_U360 );
+                    TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                    {
+                        TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, l_U607[1],  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+                        TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), -1, 0, 0, 0, 0 );
+                    }
+                    CLOSE_SEQUENCE_TASK( l_U360 );
+                    if (NOT (IS_PED_DEAD( l_U481[1] )))
+                    {
+                        TASK_PERFORM_SEQUENCE( l_U481[1], l_U360 );
+                        CLEAR_SEQUENCE_TASK( l_U360 );
+                    }
+                    l_U27 = 1;
+                }
+            }
+        }
+        if ( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U301, 0 ))
+        {
+             /* WRITESCRIPTLOG */ sub_361( "SA", "Starting Alley Enemies Wave 1", "###" );
+            for ( I = 0; I < 3; I++ )
+            {
+                OPEN_SEQUENCE_TASK( ref l_U360 );
+                switch (I)
+                {
+                    case 0:
+                    case 1:
+                    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                    {
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                        TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, l_U614[I],  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+                        TASK_COMBAT_SNAP_TO_COVER_COORDS( 0, l_U614[I],  /* PLAYER_PED_ID */ sub_2089() );
+                        TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_2089() );
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+                    }
+                    break;
+                    case 2:
+                    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                    {
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                        TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), -1, 0, 0, 0, 0 );
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+                    }
+                    break;
+                }
+                CLOSE_SEQUENCE_TASK( l_U360 );
+                if (NOT (IS_PED_DEAD( l_U511[I] )))
+                {
+                    TASK_PERFORM_SEQUENCE( l_U511[I], l_U360 );
+                    CLEAR_SEQUENCE_TASK( l_U360 );
+                }
+            }
+        }
+        if (NOT l_U26)
+        {
+            if ((( /* F_GET_NUM_DEAD_PEDS_IN_ARRAY */ sub_23159( ref l_U511 )) > 1) || ( /* F_ISPLAYERINTRIGGERBOXFIRSTTIME */ sub_8116( ref l_U322, 0 )))
+            {
+                 /* WRITESCRIPTLOG */ sub_361( "SA", "Starting Alley Enemies Wave 2", "###" );
+                for ( I = 0; I < 3; I++ )
+                {
+                    OPEN_SEQUENCE_TASK( ref l_U360 );
+                    if (I == 0)
+                    {
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                        {
+                            TASK_GO_TO_COORD_WHILE_AIMING_AT_PED( 0, l_U621[I],  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1056964608, 0, 1, 0 );
+                            TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(), -1, 0, 0, 0, 0 );
+                        }
+                    }
+                    else if (I == 1)
+                    {
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_2089() )))
+                        {
+                            TASK_GO_TO_PED_WHILE_AIMING_AT_PED( 0,  /* PLAYER_PED_ID */ sub_2089(),  /* PLAYER_PED_ID */ sub_2089(), 3, 1, 1.00000000, 1.00000000, 1, 0 );
+                            TASK_MELEE_LITE( 0,  /* PLAYER_PED_ID */ sub_2089(), 1 );
+                            TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_2089() );
+                            TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+                        }
+                    }
+                    else
+                    {
+                        SET_PED_VISIBLE( l_U555[I], 1 );
+                        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 1 );
+                        TASK_FOLLOW_NAV_MESH_TO_COORD( 0, l_U621[1], 3, 20000, 1048576000, 0, 0 );
+                        TASK_GO_STRAIGHT_TO_COORD( 0, l_U621[2], 3, 20000 );
+                    }
+                    CLOSE_SEQUENCE_TASK( l_U360 );
+                    if (NOT (IS_PED_DEAD( l_U555[I] )))
+                    {
+                        TASK_PERFORM_SEQUENCE( l_U555[I], l_U360 );
+                        CLEAR_SEQUENCE_TASK( l_U360 );
+                    }
+                }
+                l_U26 = 1;
+            }
+        }
+         /* P_HANDLE_COVER_TARGETS */ sub_23725();
+    }
+    return;
+}
+
+/* P_HOGAN_SPAWN */ void sub_20445()
+{
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U484[0], 104.76000000, -163.72000000, -1.86000000, 88.04000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U484[1], 88.61000000, -159.75000000, 1.56000000, -84.05000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U515[0], 119.96000000, -155.59000000, -0.29000000, 177.35000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U515[1], 120.08000000, -153.31000000, -0.13000000, 176.55000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U515[2], 109.40000000, -160.51000000, 1.51000000, 89.55000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U559[0], 122.99000000, -163.48000000, 1.91000000, 87.07000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U559[1], 121.50000000, -153.74000000, -0.33000000, 153.49000000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_9200( ref l_U559[2], 120.73000000, -172.05000000, 4.79000000, -3.77999000,  /* F_GETRANDOMBULLETENEMY */ sub_9106(), 7, 3, 2, 0, 0 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U280, "TGR_CNR_ENEMIES", 88.95000000, -176.08000000, -9.86000000, 15.00000000, 15.00000000, 5.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U301, "TGR_ALLEY_ENEMIES_WV_1", 91.77000000, -162.73000000, -3.04000000, 6.00000000, 6.00000000, 6.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETRIGGERBOX */ sub_583( ref l_U322, "TGR_ALLEY_ENEMIES_WV_2", 107.76000000, -162.73000000, -3.04000000, 6.00000000, 6.00000000, 6.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+     /* P_CREATETETHERBOX */ sub_996( ref l_U349, "THR_BALCONY", 119.61000000, -163.51000000, 1.14000000, 6.00000000, 6.00000000, 2.00000000, 0.00000000, 0.00000000, 0.00000000, 1 );
+    return;
+}
+
+/* P_LOWER_SETUP_ENEMIES */ void sub_21138()
+{
+    int I;
+
+     /* WRITESCRIPTLOG */ sub_361( "SA", "P_LOWER_SETUP_ENEMIES", "###" );
+    for ( I = 0; I < 2; I++ )
+    {
+         /* CLEANPED */ sub_9459( l_U481[I] );
+        l_U481[I] =  /* CREATEPED */ sub_9750( ref l_U484[I] );
+        if (NOT (IS_PED_DEAD( l_U481[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U481[I], 1 );
+            SET_PED_CAN_TRIGGER_BULLET_CAM( l_U481[I], 1 );
+            SET_PED_AI_TEMPLATE( l_U481[I], "AIT_NORMAL" );
+            if (I == 0)
+            {
+                SET_PED_FLAG_ALWAYS_HIDE_WHEN_IN_COVER( l_U481[I], 0 );
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U481[I], -862236369, 25000, 0, 0 );
+            }
+            else
+            {
+                SET_PED_AS_ONE_SHOT_KILL( l_U481[I], 1 );
+                SET_PED_COMBAT_MOVEMENT( l_U481[I], 0 );
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U481[I], -1074756423, 25000, 0, 0 );
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U481[I], ref l_U643 );
+        }
+    }
+     /* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ sub_12279( ref l_U481, "EnemyCorner_" );
+    for ( I = 0; I < 3; I++ )
+    {
+         /* CLEANPED */ sub_9459( l_U511[I] );
+        l_U511[I] =  /* CREATEPED */ sub_9750( ref l_U515[I] );
+        if (NOT (IS_PED_DEAD( l_U511[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U511[I], 1 );
+            SET_PED_AI_TEMPLATE( l_U511[I], "AIT_NORMAL" );
+            SET_PED_CAN_TRIGGER_BULLET_CAM( l_U511[I], 1 );
+            if (I == 1)
+            {
+                SET_PED_FLAG_ALWAYS_HIDE_WHEN_IN_COVER( l_U511[I], 0 );
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U511[I], -862236369, 25000, 0, 0 );
+            }
+            else if (I == 2)
+            {
+                SET_PED_AS_ONE_SHOT_KILL( l_U511[I], 1 );
+                SET_PED_COMBAT_MOVEMENT( l_U511[I], 0 );
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U511[I], -1074756423, 25000, 0, 0 );
+            }
+            else
+            {
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U511[I], -862236369, 25000, 0, 0 );
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U511[I], ref l_U643 );
+        }
+    }
+     /* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ sub_12279( ref l_U511, "EnemyAlleyWave1_" );
+    for ( I = 0; I < 3; I++ )
+    {
+         /* CLEANPED */ sub_9459( l_U555[I] );
+        l_U555[I] =  /* CREATEPED */ sub_9750( ref l_U559[I] );
+        if (NOT (IS_PED_DEAD( l_U555[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U555[I], 1 );
+            SET_PED_AI_TEMPLATE( l_U555[I], "AIT_NORMAL" );
+            SET_PED_CAN_TRIGGER_BULLET_CAM( l_U555[I], 1 );
+            if (I == 0)
+            {
+                SET_PED_COMBAT_MOVEMENT( l_U555[I], 0 );
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U555[I], -1074756423, 25000, 0, 0 );
+                 /* P_TETHERPED */ sub_12038( ref l_U349, l_U555[I], 1 );
+            }
+            else if (I == 1)
+            {
+                 /* F_GIVEPEDWEAPON */ sub_2161( l_U555[I], 1194438308, 25000, 0, 0 );
+            }
+            else
+            {
+                SET_PED_VISIBLE( l_U555[I], 0 );
+                SET_PED_AS_ONE_SHOT_KILL( l_U555[I], 1 );
+            }
+             /* P_QUICK_ADD_PED_TO_GROUP */ sub_15038( l_U555[I], ref l_U643 );
+        }
+    }
+     /* GIVE_DEBUG_NAMES_TO_PEDS_IN_ARRAY */ sub_12279( ref l_U555, "EnemyAlleyWave2_" );
+    return;
+}
+
+/* F_GET_NUM_DEAD_PEDS_IN_ARRAY */ void sub_23159(unknown uParam0)
+{
+    int Result;
+    int I;
+    int iVar5;
+
+    Result = 0;
+    iVar5 = (uParam0^) - 1;
+    for ( I = 0; I <= iVar5; I++ )
+    {
+        if (DOES_PED_EXIST( (uParam0^)[I] ))
+        {
+            if (IS_PED_DEAD( (uParam0^)[I] ))
+            {
+                Result++;
+            }
+        }
+    }
+    return Result;
+}
+
+/* P_HANDLE_COVER_TARGETS */ void sub_23725()
+{
+    if (NOT l_U28)
+    {
+        if (NOT (IS_PED_DEAD( l_U481[0] )))
+        {
+            if (IS_PED_USING_MP3_COVER_TASK( l_U481[0] ))
+            {
+                 /* WRITESCRIPTLOG */ sub_361( "SA", "Setting EnemyCorner_0 Target Ped", "###" );
+                SET_PED_COVER_TARGET_PED( l_U481[0],  /* PLAYER_PED_ID */ sub_2089() );
+                l_U28 = 1;
+            }
+        }
+    }
+    if (NOT l_U29)
+    {
+        if (NOT (IS_PED_DEAD( l_U511[0] )))
+        {
+            if (IS_PED_USING_MP3_COVER_TASK( l_U511[0] ))
+            {
+                 /* WRITESCRIPTLOG */ sub_361( "SA", "Setting EnemyAlleyWave1_0 Target Ped", "###" );
+                SET_PED_COVER_TARGET_PED( l_U511[0],  /* PLAYER_PED_ID */ sub_2089() );
+                l_U29 = 1;
+            }
+        }
+    }
+    if (NOT l_U30)
+    {
+        if (NOT (IS_PED_DEAD( l_U511[1] )))
+        {
+            if (IS_PED_USING_MP3_COVER_TASK( l_U511[1] ))
+            {
+                 /* WRITESCRIPTLOG */ sub_361( "SA", "Setting EnemyAlleyWave1_1 Target Ped", "###" );
+                SET_PED_COVER_TARGET_PED( l_U511[1],  /* PLAYER_PED_ID */ sub_2089() );
+                l_U30 = 1;
+            }
+        }
+    }
+    return;
+}
+
+/* F_GIVEPEDWEAPONTOHOLSTER */ void sub_24584(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's holster MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HOLSTER( uParam0, uParam1, uParam3, uParam2 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HOLSTER( uParam0, uParam2 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HOLSTER( uParam0, uParam2 );
+                    DISPLAYF( "[SP]### Waiting for a weapon to exist: {} ###", 1, 513, uParam1 );
+                }
+            }
+        }
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_1751( "[SP]### (F_GivePedWeaponToHolster) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+/* P_HANDLE_BUTTONS */ void sub_26569()
+{
+    if (IS_BUTTON_PRESSED( 0, 11 ))
+    {
+        if (l_U6 == 1)
+        {
+            l_U4 = 1;
+        }
+        else if (l_U7 == 1)
+        {
+            l_U5 = 1;
+        }
+        else
+        {
+            l_U3 = 1;
+        }
+    }
+    if (IS_BUTTON_PRESSED( 0, 10 ))
+    {
+        if (l_U6 == 1)
+        {
+            l_U5 = 1;
+        }
+        else if (l_U8 == 1)
+        {
+            l_U4 = 1;
+        }
+        else
+        {
+            l_U3 = 1;
+        }
+    }
+    if ((IS_BUTTON_PRESSED( 0, 19 )) AND (IS_BUTTON_PRESSED( 0, 18 )))
+    {
+        DEACTIVATE_BULLET_TIME( 1, 0 );
+        l_U1380 = 1;
+    }
+    return;
+}
+

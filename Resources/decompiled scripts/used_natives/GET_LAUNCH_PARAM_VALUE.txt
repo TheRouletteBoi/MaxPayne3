@@ -1,0 +1,380 @@
+iParam0->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam1, "minimum" ); // genericchallengemp
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "bronze" ); // genericchallengemp
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "silver" ); // genericchallengemp
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericchallengemp
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericchallengemp
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam6 ); // genericchallengemp
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam2 ); // genericchallengemp
+iParam1->_fU44 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam2->_fU44; // genericchallengemp
+iParam1->_fU24 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 )) - iParam2->_fU24; // genericchallengemp
+iParam2->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallengemp
+iParam2->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericchallengemp
+iVar4 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallengemp
+iVar4 = ((GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44) + iParam1->_fU24; // genericchallengemp
+iVar4 = (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44; // genericchallengemp
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallengemp
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericchallengemp
+uVar3._fU36 = GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "primarySource" ); // genericgrind
+if ((GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "requiredItem" )) > 0) // genericgrind
+uVar3._fU36 = GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "primarySource" ); // genericgrind
+if ((GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "requiredItem" )) > 0) // genericgrind
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // genericgrind
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // genericgrind
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // genericgrind
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // genericgrind
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // genericpt
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_10killstreak
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_10killstreak
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_10killstreak
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_10killstreak
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_1killeachweapon
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_1killeachweapon
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_1killeachweapon
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_1killeachweapon
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_26mileswithsneakers
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_26mileswithsneakers
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_26mileswithsneakers
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_26mileswithsneakers
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_50killstreak
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_50killstreak
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_50killstreak
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_50killstreak
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_5killstreak
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_5killstreak
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_5killstreak
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_5killstreak
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_adrenalineearned
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_adrenalineearned
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_adrenalineearned
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_adrenalineearned
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_allgamemodesplayed
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_allgamemodesplayed
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_allgamemodesplayed
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_allgamemodesplayed
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_allgwgamesplayed
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_allgwgamesplayed
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_allgwgamesplayed
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_allgwgamesplayed
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_allgwgameswon
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_allgwgameswon
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_allgwgameswon
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_allgwgameswon
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_ammopouchkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_ammopouchkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_ammopouchkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_ammopouchkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_autoinjectorkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_autoinjectorkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_autoinjectorkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_autoinjectorkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_balaclavabehind
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_balaclavabehind
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_balaclavabehind
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_balaclavabehind
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_brassknucklekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_brassknucklekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_brassknucklekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_brassknucklekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_dmgameswonnodeaths
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_dmgameswonnodeaths
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_dmgameswonnodeaths
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_dmgameswonnodeaths
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_dmgameswontop3
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_dmgameswontop3
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_dmgameswontop3
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_dmgameswontop3
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_dominatemax
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_dominatemax
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_dominatemax
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_dominatemax
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_gamesnoteamkill
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_gamesnoteamkill
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_gamesnoteamkill
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_gamesnoteamkill
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_gogglekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_gogglekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_gogglekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_gogglekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_grenademultikill
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_grenademultikill
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_grenademultikill
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_grenademultikill
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_hardcorekillstreak
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_hardcorekillstreak
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_hardcorekillstreak
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_hardcorekillstreak
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_heavyarmourkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_heavyarmourkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_heavyarmourkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_heavyarmourkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_hyporevived
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_hyporevived
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_hyporevived
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_hyporevived
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_hyporevives
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_hyporevives
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_hyporevives
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_hyporevives
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_idcardkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_idcardkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_idcardkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_idcardkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_killsinenemybullettime
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_killsinenemybullettime
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_killsinenemybullettime
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_killsinenemybullettime
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_kilstreaknoteamkill
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_kilstreaknoteamkill
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_kilstreaknoteamkill
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_kilstreaknoteamkill
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_last5minutenodeath
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_last5minutenodeath
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_last5minutenodeath
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_last5minutenodeath
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_laststandrecovers
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_laststandrecovers
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_laststandrecovers
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_laststandrecovers
+iVar18 = GET_LAUNCH_PARAM_VALUE( uVar2._fU0, "primarySourceWithRequiredItem" ); // gr_lightarmourkills
+uVar19 = GET_LAUNCH_PARAM_VALUE( uVar2._fU0, "requiredItem" ); // gr_lightarmourkills
+if ((GET_LAUNCH_PARAM_VALUE( uVar2._fU0, "primarySourceWithRequiredItem" )) > iVar18) // gr_lightarmourkills
+iVar18 = GET_LAUNCH_PARAM_VALUE( uVar2._fU0, "primarySourceWithRequiredItem" ); // gr_lightarmourkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_lightarmourkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_lightarmourkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_lightarmourkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_lightarmourkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_listendevicekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_listendevicekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_listendevicekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_listendevicekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_luckycoinmoneylooted
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_luckycoinmoneylooted
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_luckycoinmoneylooted
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_luckycoinmoneylooted
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_manguaranteekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_manguaranteekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_manguaranteekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_manguaranteekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_mediumarmourkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_mediumarmourkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_mediumarmourkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_mediumarmourkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_meleekillsinback
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_meleekillsinback
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_meleekillsinback
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_meleekillsinback
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pacingburst
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pacingburst
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pacingburst
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pacingburst
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pacingheadshot
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pacingheadshot
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pacingheadshot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pacingheadshot
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pacingkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pacingkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pacingkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pacingkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pacingloot
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pacingloot
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pacingloot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pacingloot
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pacingmelee
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pacingmelee
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pacingmelee
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pacingmelee
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_painkillersnodeath
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_painkillersnodeath
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_painkillersnodeath
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_painkillersnodeath
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_pkkillsascharacter
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_pkkillsascharacter
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_pkkillsascharacter
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_pkkillsascharacter
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_regensnodeath
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_regensnodeath
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_regensnodeath
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_regensnodeath
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_shootdodgeover10m
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_shootdodgeover10m
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_shootdodgeover10m
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_shootdodgeover10m
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_silverbulletkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_silverbulletkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_silverbulletkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_silverbulletkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_smartphonekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_smartphonekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_smartphonekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_smartphonekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_spraycancaptures
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_spraycancaptures
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_spraycancaptures
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_spraycancaptures
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_stickyfingerslootcount
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_stickyfingerslootcount
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_stickyfingerslootcount
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_stickyfingerslootcount
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_stickytapegrenadekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_stickytapegrenadekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_stickytapegrenadekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_stickytapegrenadekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_tdmgamestopofwinningteam
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_tdmgamestopofwinningteam
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_tdmgamestopofwinningteam
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_tdmgamestopofwinningteam
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_tdmgameswonnodeaths
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_tdmgameswonnodeaths
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_tdmgameswonnodeaths
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_tdmgameswonnodeaths
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_trackingdevicevendettakills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_trackingdevicevendettakills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_trackingdevicevendettakills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_trackingdevicevendettakills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockloadout
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockloadout
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockloadout
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockloadout
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockpacing1
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockpacing1
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockpacing1
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockpacing1
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockpacing2
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockpacing2
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockpacing2
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockpacing2
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockpacing3
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockpacing3
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockpacing3
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockpacing3
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockvendettas
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockvendettas
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockvendettas
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockvendettas
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_unlockwagers
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_unlockwagers
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_unlockwagers
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_unlockwagers
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_urbancamokills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_urbancamokills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_urbancamokills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_urbancamokills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_walkietalkiekills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_walkietalkiekills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_walkietalkiekills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_walkietalkiekills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_warranttopkills
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_warranttopkills
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_warranttopkills
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_warranttopkills
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_winstopplayer
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_winstopplayer
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_winstopplayer
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_winstopplayer
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // gr_wrestlingmelee
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // gr_wrestlingmelee
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // gr_wrestlingmelee
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // gr_wrestlingmelee
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // ptleaderboardreset
+if ((GET_LAUNCH_PARAM_VALUE( uParam0, "stat01" )) != 0) // displaygoldguntoastsp
+if ((GET_LAUNCH_PARAM_VALUE( uParam0, "stat02" )) != 0) // displaygoldguntoastsp
+if ((GET_LAUNCH_PARAM_VALUE( uParam0, "stat03" )) != 0) // displaygoldguntoastsp
+iParam0->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam1, "minimum" ); // genericchallenge
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "bronze" ); // genericchallenge
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "silver" ); // genericchallenge
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericchallenge
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericchallenge
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam6 ); // genericchallenge
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam2 ); // genericchallenge
+iParam1->_fU44 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam2->_fU44; // genericchallenge
+iParam1->_fU24 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 )) - iParam2->_fU24; // genericchallenge
+iParam2->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallenge
+iParam2->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericchallenge
+iVar4 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallenge
+iVar4 = ((GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44) + iParam1->_fU24; // genericchallenge
+iVar4 = (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44; // genericchallenge
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericchallenge
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericchallenge
+uVar3._fU36 = GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "primarySource" ); // genericspgrind
+if ((GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "requiredItem" )) > 0) // genericspgrind
+uVar3._fU36 = GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "primarySource" ); // genericspgrind
+if ((GET_LAUNCH_PARAM_VALUE( uVar3._fU0, "requiredItem" )) > 0) // genericspgrind
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // genericspgrind
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // genericspgrind
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // genericspgrind
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // genericspgrind
+iParam0->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam1, "minimum" ); // genericsppt
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "bronze" ); // genericsppt
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "silver" ); // genericsppt
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericsppt
+iParam0->_fU28 = GET_LAUNCH_PARAM_VALUE( uParam1, "gold" ); // genericsppt
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam6 ); // genericsppt
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, ref uParam2 ); // genericsppt
+iParam1->_fU44 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam2->_fU44; // genericsppt
+iParam1->_fU24 += (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 )) - iParam2->_fU24; // genericsppt
+iParam2->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericsppt
+iParam2->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericsppt
+iVar4 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericsppt
+iVar4 = ((GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44) + iParam1->_fU24; // genericsppt
+iVar4 = (GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 )) - iParam1->_fU44; // genericsppt
+iParam1->_fU44 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 28 ); // genericsppt
+iParam1->_fU24 = GET_LAUNCH_PARAM_VALUE( uParam0, iParam1 + 8 ); // genericsppt
+if ((GET_LAUNCH_PARAM_VALUE( Result._fU0, "IncrementOnly" )) == 1) // muldthexpspg
+Result._fU32 = GET_LAUNCH_PARAM_VALUE( Result._fU0, ref uVar21 ); // muldthexpspg
+return (GET_GRIND_PROGRESS( iParam0->_fU0 )) + ((GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36); // muldthexpspg
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // muldthexpspg
+iVar3 = (GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" )) - iParam0->_fU36; // muldthexpspg
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // genericpt
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_05_theyalldead
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_05_theyalldead
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_05_theyalldead
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_05_theyalldead
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_07_ultimaterevenge
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_07_ultimaterevenge
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_07_ultimaterevenge
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_07_ultimaterevenge
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_11_precisionaim
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_11_precisionaim
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_11_precisionaim
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_11_precisionaim
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_16_charbroiled2
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_16_charbroiled2
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_16_charbroiled2
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_16_charbroiled2
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_23_survivor
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_23_survivor
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_23_survivor
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_23_survivor
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_25_wastenotwantnot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_25_wastenotwantnot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_25_wastenotwantnot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_25_wastenotwantnot
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_27_fromhellsheart
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_27_fromhellsheart
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_27_fromhellsheart
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_27_fromhellsheart
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_28_lastditch
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_28_lastditch
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_28_lastditch
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_28_lastditch
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // kill_31_oneinchamber
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // kill_31_oneinchamber
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // kill_31_oneinchamber
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // kill_31_oneinchamber
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // ptleaderboardreset
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "primarySource" ); // surv_13_prepfortheworst
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySourceInverted" ); // surv_13_prepfortheworst
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "secondarySource" ); // surv_13_prepfortheworst
+return GET_LAUNCH_PARAM_VALUE( iParam0->_fU0, "resetSource" ); // surv_13_prepfortheworst

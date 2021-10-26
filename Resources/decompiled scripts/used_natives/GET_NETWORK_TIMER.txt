@@ -1,0 +1,176 @@
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+iVar18 = GET_NETWORK_TIMER(); // gr_last5minutenodeath
+iVar20 += GET_NETWORK_TIMER() - iVar18; // gr_last5minutenodeath
+iVar18 = GET_NETWORK_TIMER(); // gr_last5minutenodeath
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_10493()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_10704(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_10493()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_10704(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_10493()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_10704(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 5000) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_16710()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_16921(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 5000) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_10493()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_10704(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[SpawnDebug] == Game state info -- at {} ---------------------", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+DISPLAYF( "[SpawnDebug] == Game time now", 2, 513, GET_NETWORK_TIMER(), 1537, "                           " ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+DISPLAYF( "[Spectator] Local player last requested respawn at {}ms ago", 1, 513, GET_NETWORK_TIMER() - l_U0._fU32 ); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+iVar7 = GET_NETWORK_TIMER(); // startup
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT ( /* SEV_MP_ISLOADSCENEFINISHED */ sub_10493()))) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar13 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar11 = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "Loop #{} ({}) - Reqs = {}, Priority {}, Time Elapsed {}, Stable Frames {}", 6, 513, iVar10, 257,  /* SEV_MP_HASSTREAMREQUESTS */ sub_10704(), 513, GET_STABLE_NUM_OF_STREAMING_REQUESTS(), 513, GET_STABLE_NUM_OF_PRIORITY_REQUESTS(), 513, GET_NETWORK_TIMER() - Result, 513, iVar12 ); // startup
+Result = GET_NETWORK_TIMER() - Result; // startup
+DISPLAYF( "[Streaming] After waiting for sync, streaming took {}ms", 1, 513, GET_NETWORK_TIMER() - iVar7 ); // startup
+uVar3 = TO_FLOAT( l_U0._fU20 - GET_NETWORK_TIMER() ); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+if ((GET_NETWORK_TIMER() - l_U0._fU32) > 2500) // spectator
+l_U0._fU32 = GET_NETWORK_TIMER(); // spectator
+Result = GET_NETWORK_TIMER(); // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (NOT sub_4943())) // startup
+while (((GET_NETWORK_TIMER() - Result) < 10000) AND (IS_LOCAL_PLAYER_STILL_SCANNING_WORLD())) // startup
+bVar12 = (GET_NETWORK_TIMER() - Result) >= 10000; // startup
+iVar10 = GET_NETWORK_TIMER() - Result; // startup
+Result = GET_NETWORK_TIMER() - Result; // startup

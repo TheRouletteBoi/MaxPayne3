@@ -1,0 +1,3882 @@
+void main()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+
+    l_U0 = 0;
+    l_U1 = 1;
+    l_U2 = 0;
+    l_U3 = 1.00000000;
+    l_U4 = -5.00000000;
+    l_U5 = 0;
+    l_U6 = 0;
+    l_U7 = 0;
+    l_U11 = 42;
+    l_U12 = 0;
+    l_U13 = 0;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 90.00000000;
+    l_U18 = {0.00000000, 0.00000000, 0.00000000};
+    l_U21 = {0.00000000, 0.00000000, 0.00000000};
+    l_U24 = 0;
+    l_U25 = 0;
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = nil;
+    l_U31 = {0.00000000, 0.00000000, 0.00000000};
+    l_U34 = 0;
+    l_U35 = 0;
+    l_U36 = 0;
+    l_U37 = 0.05000000;
+    l_U38 = 0;
+    l_U39 = 0;
+    l_U40 = 0;
+    l_U41 = 0;
+    l_U42 = 0;
+    l_U43 = 0;
+    l_U44 = 0;
+    l_U45 = 0;
+    l_U46 = 0;
+    l_U48 = 0;
+    StrCopy( ref l_U49, "06_06_office_sh08", 32 );
+    StrCopy( ref l_U57, "06_07_office_sh01", 32 );
+    StrCopy( ref l_U65, "06_07_office_sh02", 32 );
+    StrCopy( ref l_U73, "06_07_office_sh03", 32 );
+    StrCopy( ref l_U81, "06_07_office_sh04", 32 );
+    StrCopy( ref l_U89, "06_07_office_sh05", 32 );
+    StrCopy( ref l_U97, "06_07_office_sh06", 32 );
+    StrCopy( ref l_U105, "06_07_office_sh07", 32 );
+    StrCopy( ref l_U113, "06_07_office_sh08", 32 );
+    StrCopy( ref l_U121, "06_07_office_sh09", 32 );
+    StrCopy( ref l_U129, "06_07_office_sh10", 32 );
+    StrCopy( ref l_U137, "06_07_office_sh11", 32 );
+    StrCopy( ref l_U145, "06_07_office_sh12", 32 );
+    StrCopy( ref l_U153, "06_07_office_sh13", 32 );
+    StrCopy( ref l_U161, "06_08_booze_mirror", 32 );
+    StrCopy( ref l_U169, "06_08_booze_sh01", 32 );
+    StrCopy( ref l_U177, "06_08_booze_sh02", 32 );
+    StrCopy( ref l_U185, "06_08_booze_sh03", 32 );
+    StrCopy( ref l_U193, "06_08_booze_sh04", 32 );
+    StrCopy( ref l_U201, "mid_13_office_concat", 32 );
+    StrCopy( ref l_U209, "mid_13_office_sh01", 32 );
+    StrCopy( ref l_U217, "mid_13_office_sh02", 32 );
+    StrCopy( ref l_U225, "mid_13c_of_concat", 32 );
+    StrCopy( ref l_U233, "MID_13C_OF_SH01", 32 );
+    StrCopy( ref l_U241, "MID_13C_OF_SH02", 32 );
+    StrCopy( ref l_U249, "MID_13C_OF_SH03", 32 );
+    StrCopy( ref l_U257, "MID_13C_OF_SH04", 32 );
+    StrCopy( ref l_U265, "06_OFFICE_END_concat", 32 );
+    StrCopy( ref l_U273, "mid_15_office", 32 );
+    l_U281 = 0;
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "Script s_fire_ImgMetrics.sc is starting...", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 0 );
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-982.81140000, 23.94330000, -0.42133100};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 344.17360000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1121 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1081, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_FADE_IN_AND_WAIT */ sub_1955( 0 );
+    if (GET_CUTSCENE_CAPTURE_REQUEST( 32, ref uVar7 ))
+    {
+        l_U48 = 1;
+         /* P_PLAY_CUTSCENE */ sub_2134( uVar7 );
+        l_U48 = 0;
+    }
+    else
+    {
+        while (true)
+        {
+             /* P_HANDLE_CUTSCENES */ sub_32686();
+            WAIT( 0 );
+        }
+    }
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "Script s_fire_ImgMetrics.sc is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_1073(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* P_FADE_OUT_AND_WAIT */ void sub_1192(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade out... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_1348()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_1386() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_1386()
+{
+    return GET_PLAYER_ID();
+}
+
+/* P_MAKEOFFICEFIREMAX */ void sub_1442(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeOfficeFireMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 6, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 14, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 5, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 2, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* TELEPORTPED */ void sub_1770(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_1955(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_PLAY_CUTSCENE */ void sub_2134(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7)
+{
+    if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U49 )) == 1)
+    {
+         /* P_PLAY_06_06_OFFICE_SH08 */ sub_2181();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U201 )) == 1)
+    {
+         /* P_PLAY_MID_13_OFFICE_CONCAT */ sub_3099();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U209 )) == 1)
+    {
+         /* P_PLAY_MID_13_OFFICE_SH01 */ sub_6449();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U217 )) == 1)
+    {
+         /* P_PLAY_MID_13_OFFICE_SH02 */ sub_7285();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U225 )) == 1)
+    {
+         /* P_PLAY_MID_13C_OF_CONCAT */ sub_8078();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U233 )) == 1)
+    {
+         /* P_PLAY_MID_13C_OF_SH01 */ sub_9473();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U241 )) == 1)
+    {
+         /* P_PLAY_MID_13C_OF_SH02 */ sub_10866();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U249 )) == 1)
+    {
+         /* P_PLAY_MID_13C_OF_SH03 */ sub_12259();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U257 )) == 1)
+    {
+         /* P_PLAY_MID_13C_OF_SH04 */ sub_13652();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U273 )) == 1)
+    {
+         /* P_PLAY_MID_15_OFFICE */ sub_15045();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U57 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH01 */ sub_16376();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U65 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH02 */ sub_17146();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U73 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH03 */ sub_17916();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U81 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH04 */ sub_18686();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U89 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH05 */ sub_19456();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U97 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH06 */ sub_20226();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U105 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH07 */ sub_20996();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U113 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH08 */ sub_21766();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U121 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH09 */ sub_22536();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U129 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH10 */ sub_23306();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U137 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH11 */ sub_24076();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U145 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH12 */ sub_24846();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U153 )) == 1)
+    {
+         /* P_PLAY_06_07_OFFICE_SH13 */ sub_25616();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U161 )) == 1)
+    {
+         /* P_PLAY_06_08_BOOZE_MIRROR */ sub_26386();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U169 )) == 1)
+    {
+         /* P_PLAY_06_08_BOOZE_SH01 */ sub_27406();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U177 )) == 1)
+    {
+         /* P_PLAY_06_08_BOOZE_SH02 */ sub_28004();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U185 )) == 1)
+    {
+         /* P_PLAY_06_08_BOOZE_SH03 */ sub_28553();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U193 )) == 1)
+    {
+         /* P_PLAY_06_08_BOOZE_SH04 */ sub_29445();
+    }
+    else if ((ARE_STRINGS_EQUAL( ref uParam0, ref l_U265 )) == 1)
+    {
+         /* P_PLAY_06_OFFICE_END_CONCAT */ sub_30162();
+    };;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+    return;
+}
+
+/* P_PLAY_06_06_OFFICE_SH08 */ void sub_2181()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_06_office_sh08", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-982.81140000, 23.94330000, -0.42133100};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 344.17360000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1121 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1081, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U49, 1 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U49 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar7 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar8 = GET_CUTSCENE_TIME();
+        uVar9 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar7 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar8 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar9 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U49 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* LOADSEAMLESSCUTSCENE */ void sub_2498(unknown uParam0, int iParam1)
+{
+    if (HAS_CUTSCENE_LOADED())
+    {
+        if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+        {
+            SCRIPT_ASSERT( "Another cutscene is already loaded.  You can only load one cutscene into memory.  Your current cutscene will not load into memory.", 0 );
+        }
+    }
+    if (NOT (CUTSCENE_IS_LOADED( uParam0 )))
+    {
+        PRE_STREAM_SEAMLESS_CUTSCENE( uParam0 );
+        if (iParam1 == 1)
+        {
+            while ((CUTSCENE_IS_LOADED( uParam0 )) == 0)
+            {
+                DISPLAYF( "[SP]### Waiting for seamless cutscene to load: {} ###", 1, 1537, uParam0 );
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+/* P_PLAY_MID_13_OFFICE_CONCAT */ void sub_3099()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+    unknown uVar60;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+    unknown uVar66;
+    unknown uVar67;
+    unknown uVar68;
+    int I;
+    unknown uVar70;
+    unknown uVar71;
+    unknown uVar72;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_mid_13_office_concat", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-998.31000000, 32.58000000, 4.93000000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, -180.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1129 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1089, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U201, 1 );
+     /* LOADMODEL */ sub_3433( 1613006336, 1 );
+     /* LOADMODEL */ sub_3433( 1188660312, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -998.51000000, 28.89000000, 4.93000000, -2.50000000, -1192264476, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1009.40000000, 20.01000000, 4.93000000, -100.00000000, 2098181664, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1014.59000000, 28.30000000, 4.93000000, -101.50000000, -493273423, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar56, -998.54000000, 24.20000000, 5.10000000, 90.00000000, -761097041, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    uVar55 =  /* CREATEPED */ sub_4072( ref uVar56 );
+    if (NOT (IS_PED_DEAD( uVar55 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar55, 1 );
+    }
+    CUTSCENE_REGISTER_ACTION_TREE_PLAY_NODE(  /* PLAYER_PED_ID */ sub_1348(), "Global/Player/PlayerRoot/PLAYER_INITIALIZE_LOCO" );
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Snip_Avg", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Snip_Avg^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Snip_Avg^3", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Glk18_Aa_H", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_PT92_Aa_H", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_PT92_Aa_H^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar55 ))) AND (DOES_PED_EXIST( uVar55 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar55, "Offi_Tech_Ded", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U201 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar70 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar71 = GET_CUTSCENE_TIME();
+        uVar72 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar70 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar71 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar72 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U201 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* CLEANPED */ sub_6130( uVar55 );
+     /* UNLOADMODEL */ sub_6249( 1613006336 );
+     /* UNLOADMODEL */ sub_6249( 1188660312 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* LOADMODEL */ void sub_3433(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_3550( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* WRITE_STRING */ void sub_3550(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* P_CREATEPEDSTRUCTWITHNAME */ void sub_3786(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU20 = uParam5;
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU16 = GET_SCENE_PED_MODEL( uParam5 );
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* CREATEPED */ void sub_4072(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = 0;
+    if (iParam0->_fU16 == 0)
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            iVar3 = GET_SCENE_PED_MODEL( iParam0->_fU20 );
+        }
+    }
+    else
+    {
+        iVar3 = iParam0->_fU16;
+    }
+    if ((HAS_MODEL_LOADED( iVar3 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_3433( iParam0->_fU16, 1 );
+    }
+    iParam0->_fU40 = CREATE_PED( iParam0->_fU24, iParam0->_fU16, iParam0->_fU0, iParam0->_fU12, 1, iParam0->_fU48 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( iParam0->_fU40, 1 );
+        SET_PED_COORDS_NO_OFFSET( iParam0->_fU40, "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( iParam0->_fU40 ) );
+        SET_PED_HEADING( iParam0->_fU40, iParam0->_fU12 );
+        iParam0->_fU44 = 1;
+    }
+    else
+    {
+        SCRIPT_ASSERT( "Error: The ped you created doesn't exist or is dead!", 0 );
+    }
+     /* SETPEDDEFAULTSTATS */ sub_4563( iParam0->_fU40 );
+     /* SETPEDDEFAULTTEMPLATE */ sub_4664( iParam0->_fU40 );
+    return iParam0->_fU40;
+}
+
+/* SETPEDDEFAULTSTATS */ void sub_4563(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+/* SETPEDDEFAULTTEMPLATE */ void sub_4664(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+
+/* F_GIVEPEDWEAPON */ void sub_4896(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                    DISPLAYF( "[SP]### Waiting for a weapon to exist: {} ###", 1, 513, uParam1 );
+                }
+            }
+        }
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_3550( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+/* CLEANPEDARRAY */ void sub_6080(unknown uParam0)
+{
+    int I;
+
+    I = 0;
+    for ( I = 0; I < (uParam0^); I++ )
+    {
+         /* CLEANPED */ sub_6130( (uParam0^)[I] );
+    }
+    return;
+}
+
+/* CLEANPED */ void sub_6130(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+/* UNLOADMODEL */ void sub_6249(unknown uParam0)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 1)
+    {
+        SET_MODEL_AS_NO_LONGER_NEEDED( uParam0 );
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_3550( "[SP]### ERROR! (UnloadModel) Trying to unload a model that isn't in the img! ###" );
+    }
+    return;
+}
+
+/* P_PLAY_MID_13_OFFICE_SH01 */ void sub_6449()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown uVar51;
+    unknown uVar52;
+    unknown uVar53;
+    unknown uVar54;
+    unknown uVar55;
+    unknown uVar56;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+    unknown uVar60;
+    unknown uVar61;
+    unknown uVar62;
+    unknown uVar63;
+    unknown uVar64;
+    unknown uVar65;
+    unknown uVar66;
+    unknown uVar67;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_mid_13_office_SH01", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-998.31000000, 32.58000000, 4.93000000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, -180.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1129 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1089, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U209, 1 );
+     /* LOADMODEL */ sub_3433( 1188660312, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar52, -998.54000000, 24.20000000, 5.10000000, 90.00000000, -761097041, 7, 3, 2, 0, 0 );
+    uVar51 =  /* CREATEPED */ sub_4072( ref uVar52 );
+    if (NOT (IS_PED_DEAD( uVar51 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar51, 1 );
+    }
+    CUTSCENE_REGISTER_ACTION_TREE_PLAY_NODE(  /* PLAYER_PED_ID */ sub_1348(), "Global/Player/PlayerRoot/PLAYER_INITIALIZE_LOCO" );
+    if ((NOT (IS_PED_DEAD( uVar51 ))) AND (DOES_PED_EXIST( uVar51 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar51, "Offi_Tech_Ded", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U209 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar65 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar66 = GET_CUTSCENE_TIME();
+        uVar67 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar65 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar66 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar67 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U209 );
+     /* UNLOADMODEL */ sub_6249( 1188660312 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13_OFFICE_SH02 */ void sub_7285()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_mid_13_office_SH02", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-998.31000000, 32.58000000, 4.93000000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, -180.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1129 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1089, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U217, 1 );
+     /* LOADMODEL */ sub_3433( 1188660312, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, -998.54000000, 24.20000000, 5.10000000, 90.00000000, -761097041, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+    }
+    CUTSCENE_REGISTER_ACTION_TREE_PLAY_NODE(  /* PLAYER_PED_ID */ sub_1348(), "Global/Player/PlayerRoot/PLAYER_INITIALIZE_LOCO" );
+    if ((NOT (IS_PED_DEAD( uVar7 ))) AND (DOES_PED_EXIST( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "Offi_Tech_Ded", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U217 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar21 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar22 = GET_CUTSCENE_TIME();
+        uVar23 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar21 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar23 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U217 );
+     /* UNLOADMODEL */ sub_6249( 1188660312 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13C_OF_CONCAT */ void sub_8078()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    int I;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_mid_13c_of_concat", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1145 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1105, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U225, 1 );
+     /* LOADMODEL */ sub_3433( 1734252999, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -1013.74500000, 0.93100000, 4.92900000, 88.99000000, 1398787313, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1012.45000000, -0.27400000, 4.92900000, 0.00000000, -1616191146, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1007.97500000, 0.86300000, 4.92400000, 90.00000000, -393888614, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Sold_Z2^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Sold_Z2^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Sold_Z2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Clt1911_Aa_H^2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_Clt1911_Aa_H^1", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_Clt1911_Aa_H", 1 );
+    }
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+        REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+        uVar55 =  /* F_GIVEPEDWEAPON */ sub_4896(  /* PLAYER_PED_ID */ sub_1348(), -862236369, 25000, 0, 0 );
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar55, "W_PI_Clt1911_Aa_H^3", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U225 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar57 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar58 = GET_CUTSCENE_TIME();
+        uVar59 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar57 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar58 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar59 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U225 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* UNLOADMODEL */ sub_6249( 1734252999 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13C_OF_SH01 */ void sub_9473()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    int I;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+
+     /* WRITESCRIPTLOG */ sub_1073( "rw", "P_PLAY_mid_13c_of_SH01()", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1145 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1105, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U233, 1 );
+     /* LOADMODEL */ sub_3433( 1734252999, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -1013.74500000, 0.93100000, 4.92900000, 88.99000000, 1398787313, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1012.45000000, -0.27400000, 4.92900000, 0.00000000, -1616191146, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1007.97500000, 0.86300000, 4.92400000, 90.00000000, -393888614, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Sold_Z2^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Sold_Z2^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Sold_Z2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Clt1911_Aa_H^2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_Clt1911_Aa_H^1", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_Clt1911_Aa_H", 1 );
+    }
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+        REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+        uVar55 =  /* F_GIVEPEDWEAPON */ sub_4896(  /* PLAYER_PED_ID */ sub_1348(), -862236369, 25000, 0, 0 );
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar55, "W_PI_Clt1911_Aa_H^3", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U233 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar57 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar58 = GET_CUTSCENE_TIME();
+        uVar59 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar57 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar58 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar59 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U233 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* UNLOADMODEL */ sub_6249( 1734252999 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13C_OF_SH02 */ void sub_10866()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    int I;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+
+     /* WRITESCRIPTLOG */ sub_1073( "rw", "P_PLAY_mid_13c_of_SH02()", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1145 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1105, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U241, 1 );
+     /* LOADMODEL */ sub_3433( 1734252999, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -1013.74500000, 0.93100000, 4.92900000, 88.99000000, 1398787313, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1012.45000000, -0.27400000, 4.92900000, 0.00000000, -1616191146, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1007.97500000, 0.86300000, 4.92400000, 90.00000000, -393888614, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Sold_Z2^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Sold_Z2^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Sold_Z2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Clt1911_Aa_H^2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_Clt1911_Aa_H^1", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_Clt1911_Aa_H", 1 );
+    }
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+        REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+        uVar55 =  /* F_GIVEPEDWEAPON */ sub_4896(  /* PLAYER_PED_ID */ sub_1348(), -862236369, 25000, 0, 0 );
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar55, "W_PI_Clt1911_Aa_H^3", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U241 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar57 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar58 = GET_CUTSCENE_TIME();
+        uVar59 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar57 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar58 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar59 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U241 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* UNLOADMODEL */ sub_6249( 1734252999 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13C_OF_SH03 */ void sub_12259()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    int I;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+
+     /* WRITESCRIPTLOG */ sub_1073( "rw", "P_PLAY_mid_13c_of_SH03()", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1145 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1105, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U249, 1 );
+     /* LOADMODEL */ sub_3433( 1734252999, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -1013.74500000, 0.93100000, 4.92900000, 88.99000000, 1398787313, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1012.45000000, -0.27400000, 4.92900000, 0.00000000, -1616191146, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1007.97500000, 0.86300000, 4.92400000, 90.00000000, -393888614, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Sold_Z2^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Sold_Z2^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Sold_Z2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Clt1911_Aa_H^2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_Clt1911_Aa_H^1", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_Clt1911_Aa_H", 1 );
+    }
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+        REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+        uVar55 =  /* F_GIVEPEDWEAPON */ sub_4896(  /* PLAYER_PED_ID */ sub_1348(), -862236369, 25000, 0, 0 );
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar55, "W_PI_Clt1911_Aa_H^3", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U249 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar57 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar58 = GET_CUTSCENE_TIME();
+        uVar59 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar57 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar58 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar59 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U249 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* UNLOADMODEL */ sub_6249( 1734252999 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_13C_OF_SH04 */ void sub_13652()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown[3] uVar7;
+    unknown[3] uVar11;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    unknown uVar47;
+    unknown uVar48;
+    unknown uVar49;
+    unknown uVar50;
+    unknown[3] uVar51;
+    unknown uVar55;
+    int I;
+    unknown uVar57;
+    unknown uVar58;
+    unknown uVar59;
+
+     /* WRITESCRIPTLOG */ sub_1073( "rw", "P_PLAY_mid_13c_of_SH04()", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1145 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1105, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U257, 1 );
+     /* LOADMODEL */ sub_3433( 1734252999, 1 );
+    array(ref uVar7, 3);
+    array(ref uVar11, 3);
+    array(ref uVar51, 3);
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[0], -1013.74500000, 0.93100000, 4.92900000, 88.99000000, 1398787313, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[1], -1012.45000000, -0.27400000, 4.92900000, 0.00000000, -1616191146, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar11[2], -1007.97500000, 0.86300000, 4.92400000, 90.00000000, -393888614, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 3; I++ )
+    {
+        uVar7[I] =  /* CREATEPED */ sub_4072( ref uVar11[I] );
+        if (NOT (IS_PED_DEAD( uVar7[I] )))
+        {
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7[I], 1 );
+            SET_PED_AI_TEMPLATE( uVar7[I], "AIT_NORMAL" );
+            SET_ROOM_FOR_PED_BY_NAME( uVar7[I], ref g_U1129 );
+            uVar51[I] =  /* F_GIVEPEDWEAPON */ sub_4896( uVar7[I], -862236369, 25000, 0, 0 );
+        }
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[0] ))) AND (DOES_PED_EXIST( uVar7[0] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[0], "M_Crac_Sold_Z2^2", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[1] ))) AND (DOES_PED_EXIST( uVar7[1] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[1], "M_Crac_Sold_Z2^1", 1 );
+    }
+    if ((NOT (IS_PED_DEAD( uVar7[2] ))) AND (DOES_PED_EXIST( uVar7[2] )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7[2], "M_Crac_Sold_Z2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[0] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[0], "W_PI_Clt1911_Aa_H^2", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[1] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[1], "W_PI_Clt1911_Aa_H^1", 1 );
+    }
+    if (GET_DOES_WEAPON_EXIST( uVar51[2] ))
+    {
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar51[2], "W_PI_Clt1911_Aa_H", 1 );
+    }
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+        REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+        uVar55 =  /* F_GIVEPEDWEAPON */ sub_4896(  /* PLAYER_PED_ID */ sub_1348(), -862236369, 25000, 0, 0 );
+        REGISTER_WEAPON_PRE_SEAMLESS_CUTSCENE( uVar55, "W_PI_Clt1911_Aa_H^3", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U257 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar57 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar58 = GET_CUTSCENE_TIME();
+        uVar59 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar57 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar58 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar59 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U257 );
+     /* CLEANPEDARRAY */ sub_6080( ref uVar7 );
+     /* UNLOADMODEL */ sub_6249( 1734252999 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_MID_15_OFFICE */ void sub_15045()
+{
+    boolean bVar2;
+    vector vVar3;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_mid_15_office", 0 );
+    bVar2 = false;
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar3 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar3, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar6 = GET_HASH_KEY( ref g_U1153 );
+    uVar7 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar7, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar7, uVar6 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U273, 1 );
+     /* LOADMODEL */ sub_3433( 1931667416, 1 );
+     /* LOADMODEL */ sub_3433( 297242865, 1 );
+    uVar8 =  /* CREATEOBJECTNOOFFSET */ sub_15410( 1931667416, 64558, -8, -0.50000000, 0, 0, 0, 0, 0, 0 );
+    if (DOES_OBJECT_EXIST( uVar8 ))
+    {
+        FREEZE_OBJECT_POSITION( uVar8, 1 );
+        ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( uVar8, ref g_U1153 );
+    }
+    uVar9 =  /* CREATEOBJECTNOOFFSET */ sub_15410( 297242865, 64558, -8, -0.50000000, 0, 0, 0, 0, 0, 0 );
+    if (DOES_OBJECT_EXIST( uVar9 ))
+    {
+        FREEZE_OBJECT_POSITION( uVar9, 1 );
+        ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( uVar9, ref g_U1153 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U273 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - mid_15_office", 0 );
+        uVar10 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar11 = GET_CUTSCENE_TIME();
+        uVar12 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar10 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar11 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar12 );
+        PRINTNL();
+        if (NOT bVar2)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 4200)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "Dropping bridge", 0 );
+                PLAY_OBJECT_ANIM( uVar8, "P_AN_MTLWLK_AA_H", "of_stairs", 0.00000000, 0, 1 );
+                PLAY_OBJECT_ANIM( uVar9, "P_AN_MTLWLK_AB_H", "of_stairs", 0.00000000, 0, 1 );
+                bVar2 = true;
+            }
+        }
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U273 );
+     /* CLEANOBJECT */ sub_16254( uVar8 );
+     /* CLEANOBJECT */ sub_16254( uVar8 );
+     /* UNLOADMODEL */ sub_6249( 1931667416 );
+     /* UNLOADMODEL */ sub_6249( 297242865 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* CREATEOBJECTNOOFFSET */ void sub_15410(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, boolean bParam7, int iParam8, unknown uParam9)
+{
+    unknown Result;
+
+    if ((HAS_MODEL_LOADED( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "The model you are trying to create a object with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_3433( uParam0, 1 );
+    }
+    Result = CREATE_OBJECT_NO_OFFSET( uParam0, uParam1, NOT bParam7, uParam9 );
+    if (iParam8 == 1)
+    {
+        while ((DOES_OBJECT_EXIST( Result )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for an object to exist: {!f1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    if ((DOES_OBJECT_EXIST( Result )) == 1)
+    {
+        SET_OBJECT_ROTATION( Result, uParam4 );
+    }
+    return Result;
+}
+
+/* CLEANOBJECT */ void sub_16254(unknown uParam0)
+{
+    if (DOES_OBJECT_EXIST( uParam0 ))
+    {
+        DELETE_OBJECT( ref uParam0 );
+    }
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH01 */ void sub_16376()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh01", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U57, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U57 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh01", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U57 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH02 */ void sub_17146()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh02", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U65, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U65 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh02", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U65 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH03 */ void sub_17916()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh03", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U73, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U73 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh03", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U73 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH04 */ void sub_18686()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh04", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U81, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U81 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh04", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U81 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH05 */ void sub_19456()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh05", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U89, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U89 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh05", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U89 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH06 */ void sub_20226()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh06", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U97, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U97 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh06", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U97 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH07 */ void sub_20996()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh07", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U105, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U105 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh07", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U105 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH08 */ void sub_21766()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh08", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U113, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U113 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh08", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U113 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH09 */ void sub_22536()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh09", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U121, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U121 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh09", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U121 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH10 */ void sub_23306()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh10", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U129, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U129 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh10", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U129 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH11 */ void sub_24076()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh11", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U137, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U137 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh11", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U137 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH12 */ void sub_24846()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh12", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U145, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U145 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh12", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U145 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_07_OFFICE_SH13 */ void sub_25616()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_07_office_sh13", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    PRELOAD_MOVIE( 0, "FIRE_TEST2", 1, 0 );
+    PLAY_MOVIE( 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "EXTRASUNNY" );
+    FREEZE_TIME_OF_DAY( 18, 0 );
+    vVar2 = {-1020.11100000, -0.43000000, 4.93400000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar5 = GET_HASH_KEY( ref g_U1153 );
+    uVar6 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar6, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar6, uVar5 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U153, 1 );
+     /* LOADMODEL */ sub_3433( -343887938, 1 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_3786( ref uVar8, 0, 0, 0, 0, 36051318, 7, 3, 2, 0, 0 );
+    uVar7 =  /* CREATEPED */ sub_4072( ref uVar8 );
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( uVar7, 1 );
+        SET_ROOM_FOR_PED_BY_NAME( uVar7, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar7 )))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar7, "M_Crac_W_Sold_Avg", 1 );
+    }
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U153 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_07_office_sh13", 0 );
+        uVar22 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar23 = GET_CUTSCENE_TIME();
+        uVar24 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar22 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar23 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar24 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U153 );
+     /* CLEANPED */ sub_6130( uVar7 );
+     /* UNLOADMODEL */ sub_6249( -343887938 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_08_BOOZE_MIRROR */ void sub_26386()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SP", "P_PLAY_06_08_booze_mirror", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+    FREEZE_TIME_OF_DAY( 21, 0 );
+    vVar2 = {-1.23496200, -1.15318600, 199.20340000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    LOAD_SCENE( vVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_26619(  /* PLAYER_PED_ID */ sub_1348() );
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U161, 1 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U161 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    WAIT( 0 );
+    DO_SCREEN_FADE_IN( 0 );
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar5 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar6 = GET_CUTSCENE_TIME();
+        uVar7 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar5 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar6 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar7 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+     /* P_MAKEOFFICEMAX */ sub_27123(  /* PLAYER_PED_ID */ sub_1348() );
+    return;
+}
+
+/* P_MAKEPILLZNBOOZEPART4V1MAX */ void sub_26619(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakePillzNBoozePart4V1Max", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 8, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 8, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 10, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 3, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 7, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 2, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_MAKEOFFICEMAX */ void sub_27123(unknown uParam0)
+{
+    DISPLAYF( "[SP] P_MakeOfficeMax", 0 );
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uParam0, 0, 0, 3, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 1, 4, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 2, 13, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 3, 6, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 4, 9, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 5, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 6, 1, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 7, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 8, 1, 1, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 9, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 11, 0, 0, 0 );
+        SET_PED_COMPONENT_VARIATION( uParam0, 12, 1, 0, 0 );
+    }
+    return;
+}
+
+/* P_PLAY_06_08_BOOZE_SH01 */ void sub_27406()
+{
+    vector vVar2;
+    int iVar5;
+    unknown uVar6;
+    unknown uVar7;
+    int iVar8;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_08_booze_sh01", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    RELEASE_MOVIE( 0 );
+    PRELOAD_MOVIE( 0, "boozemirror", 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+    FREEZE_TIME_OF_DAY( 21, 0 );
+    vVar2 = {-1.31844700, -0.85210500, 199.20340000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    LOAD_SCENE( vVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U169, 1 );
+     /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_26619(  /* PLAYER_PED_ID */ sub_1348() );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 1, 0 );
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U169 );
+    }
+    iVar5 = 0;
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar6 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar7 = GET_CUTSCENE_TIME();
+        iVar8 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar6 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar7 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( iVar8 );
+        PRINTNL();
+        if (iVar5 == 0)
+        {
+            if (iVar8 >= 39000)
+            {
+                SET_MOVIE_LOOP( 0, 1 );
+                PLAY_MOVIE( 0, 0 );
+                iVar5 = 1;
+            }
+        }
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U169 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_08_BOOZE_SH02 */ void sub_28004()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_08_booze_sh02", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    RELEASE_MOVIE( 0 );
+    PRELOAD_MOVIE( 0, "boozemirror", 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+    FREEZE_TIME_OF_DAY( 21, 0 );
+    vVar2 = {-1.31844700, -0.85210500, 199.20340000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    LOAD_SCENE( vVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U177, 1 );
+     /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_26619(  /* PLAYER_PED_ID */ sub_1348() );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 1, 0 );
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U177 );
+    }
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar5 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar6 = GET_CUTSCENE_TIME();
+        uVar7 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar5 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar6 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar7 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U177 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_08_BOOZE_SH03 */ void sub_28553()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    int iVar19;
+    unknown uVar20;
+    unknown uVar21;
+    int iVar22;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_08_booze_sh03", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    RELEASE_MOVIE( 0 );
+    PRELOAD_MOVIE( 0, "boozemirror", 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+    FREEZE_TIME_OF_DAY( 21, 0 );
+    vVar2 = {-1.31844700, -0.85210500, 199.20340000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    LOAD_SCENE( vVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U185, 1 );
+     /* LOADMODEL */ sub_3433( 1469509248, 1 );
+     /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_26619(  /* PLAYER_PED_ID */ sub_1348() );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 1, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_28889( ref uVar6, -6.50155400, -2.55028000, 199.22310000, 270.00000000, 1469509248, 26, 6, 0, 0, 0 );
+    uVar5 =  /* CREATEPED */ sub_4072( ref uVar6 );
+    if (((IS_PED_DEAD( uVar5 )) == 0) AND ((DOES_PED_EXIST( uVar5 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uVar5, 1, 0, 0, 0 );
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar5, "MaxPayne_Mirrored", 1 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U185 );
+    }
+    iVar19 = 0;
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar20 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar21 = GET_CUTSCENE_TIME();
+        iVar22 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar20 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar21 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( iVar22 );
+        PRINTNL();
+        if (iVar19 == 0)
+        {
+            if (iVar22 >= 20843)
+            {
+                APPLY_PLAYER_PRELOAD_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+                if (((IS_PED_DEAD( uVar5 )) == 0) AND ((DOES_PED_EXIST( uVar5 )) == 1))
+                {
+                    SET_PED_COMPONENT_VARIATION( uVar5, 1, 0, 1, 0 );
+                }
+                iVar19 = 1;
+            }
+        }
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U185 );
+     /* CLEANPED */ sub_6130( uVar5 );
+     /* UNLOADMODEL */ sub_6249( 1469509248 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_CREATEPEDSTRUCT */ void sub_28889(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU16 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* P_PLAY_06_08_BOOZE_SH04 */ void sub_29445()
+{
+    vector vVar2;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    int iVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_08_booze_sh04", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+    RELEASE_MOVIE( 0 );
+    PRELOAD_MOVIE( 0, "boozemirror", 0, 0 );
+    RELEASE_TIME_OF_DAY();
+    SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+    FREEZE_TIME_OF_DAY( 21, 0 );
+    vVar2 = {-1.31844700, -0.85210500, 199.20340000};
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), vVar2, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    LOAD_SCENE( vVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U193, 1 );
+     /* LOADMODEL */ sub_3433( 1469509248, 1 );
+     /* P_MAKEPILLZNBOOZEPART4V1MAX */ sub_26619(  /* PLAYER_PED_ID */ sub_1348() );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 1, 0 );
+    APPLY_PLAYER_PRELOAD_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+     /* P_CREATEPEDSTRUCT */ sub_28889( ref uVar6, -6.50155400, -2.55028000, 199.22310000, 270.00000000, 1469509248, 26, 6, 0, 0, 0 );
+    uVar5 =  /* CREATEPED */ sub_4072( ref uVar6 );
+    if (((IS_PED_DEAD( uVar5 )) == 0) AND ((DOES_PED_EXIST( uVar5 )) == 1))
+    {
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar5, "MaxPayne_Mirrored", 1 );
+        SET_PED_COMPONENT_VARIATION( uVar5, 1, 0, 1, 0 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    if (l_U48 == 1)
+    {
+        START_CUTSCENE_CAPTURE( ref l_U193 );
+    }
+    iVar19 = 0;
+    while (HAS_CUTSCENE_FINISHED() == 0)
+    {
+        uVar20 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar21 = GET_CUTSCENE_TIME();
+        uVar22 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar20 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar21 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( uVar22 );
+        PRINTNL();
+        WAIT( 0 );
+    }
+    if (l_U48 == 1)
+    {
+        STOP_CUTSCENE_CAPTURE();
+    }
+    CLEAR_NAMED_CUTSCENE( ref l_U193 );
+     /* CLEANPED */ sub_6130( uVar5 );
+     /* UNLOADMODEL */ sub_6249( 1469509248 );
+    RELEASE_MOVIE( 0 );
+    return;
+}
+
+/* P_PLAY_06_OFFICE_END_CONCAT */ void sub_30162()
+{
+    unknown uVar2;
+    unknown uVar3;
+    boolean bVar4;
+    boolean bVar5;
+    boolean bVar6;
+    int iVar7;
+    int iVar8;
+    boolean bVar9;
+    boolean bVar10;
+    int iVar11;
+    int iVar12;
+    int iVar13;
+    unknown uVar14;
+    unknown uVar15;
+    unknown uVar16;
+    unknown uVar17;
+    unknown uVar18;
+    unknown uVar19;
+    unknown uVar20;
+    unknown uVar21;
+    unknown uVar22;
+    unknown uVar23;
+    unknown uVar24;
+    unknown uVar25;
+    unknown uVar26;
+    unknown uVar27;
+    unknown uVar28;
+    unknown uVar29;
+    unknown uVar30;
+    unknown uVar31;
+    unknown uVar32;
+    unknown uVar33;
+    unknown uVar34;
+    unknown uVar35;
+    unknown uVar36;
+    unknown uVar37;
+    unknown uVar38;
+    unknown uVar39;
+    unknown uVar40;
+    unknown uVar41;
+    unknown uVar42;
+    unknown uVar43;
+    unknown uVar44;
+    unknown uVar45;
+    unknown uVar46;
+    int iVar47;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PLAY_06_OFFICE_END_concat", 0 );
+     /* P_FADE_OUT_AND_WAIT */ sub_1192( 250 );
+     /* TELEPORTPED */ sub_1770(  /* PLAYER_PED_ID */ sub_1348(), -986.99020000, -9.57884600, 4.92875900, 0.00000000 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+    }
+    uVar2 = GET_HASH_KEY( ref g_U1153 );
+    uVar3 = GET_INTERIOR_FROM_NAME( ref g_U1113, 0 );
+    SET_INTERIOR_ACTIVE( uVar3, 1, 0 );
+    LOAD_SCENE_FOR_ROOM_BY_KEY( uVar3, uVar2 );
+    if ((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )) == 0)
+    {
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+    }
+     /* LOADSEAMLESSCUTSCENE */ sub_2498( ref l_U265, 1 );
+    PRELOAD_MOVIE( 1, "boozemirror", 0, 0 );
+     /* LOADMODEL */ sub_3433( 255375026, 1 );
+     /* LOADMODEL */ sub_3433( 1931667416, 1 );
+     /* LOADMODEL */ sub_3433( 297242865, 1 );
+     /* LOADMODEL */ sub_3433( 1469509248, 1 );
+     /* P_LOAD_BOOZE_N_PILLS_MAX */ sub_30474();
+    AUDIO_MUSIC_REQUEST_ONESHOT( "OFFICE_ONESHOT_01", 0 );
+    bVar4 = false;
+    bVar5 = false;
+    bVar6 = false;
+    iVar7 = 0;
+    iVar8 = 0;
+    bVar9 = false;
+    bVar10 = false;
+    iVar11 = 0;
+    iVar12 = 0;
+    iVar13 = 106003;
+    uVar14 =  /* CREATEOBJECTNOOFFSET */ sub_15410( 255375026, 64559, 4.50000000, 2, 0, 0, 0, 0, 0, 0 );
+    if (DOES_OBJECT_EXIST( uVar14 ))
+    {
+        ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( uVar14, ref g_U1153 );
+        FREEZE_OBJECT_POSITION( uVar14, 1 );
+    }
+    uVar15 =  /* CREATEOBJECTNOOFFSET */ sub_15410( 1931667416, 64558, -8, -0.50000000, 0, 0, 0, 0, 0, 0 );
+    if (DOES_OBJECT_EXIST( uVar15 ))
+    {
+        FREEZE_OBJECT_POSITION( uVar15, 1 );
+        ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( uVar15, ref g_U1153 );
+    }
+    uVar16 =  /* CREATEOBJECTNOOFFSET */ sub_15410( 297242865, 64558, -8, -0.50000000, 0, 0, 0, 0, 0, 0 );
+    if (DOES_OBJECT_EXIST( uVar16 ))
+    {
+        FREEZE_OBJECT_POSITION( uVar16, 1 );
+        ADD_OBJECT_TO_INTERIOR_ROOM_BY_NAME( uVar16, ref g_U1153 );
+    }
+    if (NOT (IS_PED_DEAD( uVar17 )))
+    {
+        FREEZE_PED_POSITION( uVar17, 0 );
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar17, "M_Crac_W_Sold_Avg", 0 );
+    }
+     /* P_CREATEPEDSTRUCT */ sub_28889( ref uVar32, -6.50155400, -2.55028000, 199.22310000, 270.00000000, 1469509248, 26, 6, 0, 0, 0 );
+    uVar31 =  /* CREATEPED */ sub_4072( ref uVar32 );
+    if (((IS_PED_DEAD( uVar31 )) == 0) AND ((DOES_PED_EXIST( uVar31 )) == 1))
+    {
+        SET_PED_COMPONENT_VARIATION( uVar31, 1, 0, 0, 0 );
+        REGISTER_PED_PRE_SEAMLESS_CUTSCENE( uVar31, "MaxPayne_Mirrored", 0 );
+    }
+    START_SEAMLESS_CUTSCENE();
+    DO_SCREEN_FADE_IN( 0 );
+    while (NOT HAS_CUTSCENE_FINISHED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Playing - 06_OFFICE_END_concat", 0 );
+        uVar45 = GET_CUTSCENE_SECTION_PLAYING();
+        uVar46 = GET_CUTSCENE_TIME();
+        iVar47 = GET_CUTSCENE_TIME_MS();
+        PRINTSTRING( "[SP] SECTION: " );
+        PRINTINT( uVar45 );
+        PRINTSTRING( " Time: " );
+        PRINTINT( uVar46 );
+        PRINTSTRING( " Time MS: " );
+        PRINTINT( iVar47 );
+        PRINTNL();
+        if (NOT bVar5)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 1300)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "Dropping bridge", 0 );
+                PLAY_OBJECT_ANIM( uVar15, "P_AN_MTLWLK_AA_H", "of_stairs", 0.00000000, 0, 1 );
+                PLAY_OBJECT_ANIM( uVar16, "P_AN_MTLWLK_AB_H", "of_stairs", 0.00000000, 0, 1 );
+                PLAY_SCRIPT_STREAM_FRONTEND( 1 );
+                AUDIO_MUSIC_SUSPEND( 500 );
+                AUDIO_MUSIC_PLAY_ONESHOT();
+                if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+                {
+                    REMOVE_ALL_PED_WEAPONS(  /* PLAYER_PED_ID */ sub_1348() );
+                }
+                bVar5 = true;
+            }
+        }
+        if (NOT bVar4)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 7360)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "Triggering sign fall", 0 );
+                PLAY_OBJECT_ANIM( uVar14, "P_AN_BRANCO_AA_H", "of_stairs", 0.00000000, 0, 1 );
+                bVar4 = true;
+            }
+        }
+        if (NOT bVar10)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 8000)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "KA", "PRELOAD OFFICE_ONESHOT_02", 0 );
+                AUDIO_MUSIC_REQUEST_ONESHOT( "OFFICE_ONESHOT_02", 0 );
+                bVar10 = true;
+            }
+        }
+        if (NOT bVar9)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 21084)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "KA", "PLAYING ONSHOT WHEN GUY LOOKS BACK AT MAX", 0 );
+                AUDIO_MUSIC_PLAY_ONESHOT();
+                bVar9 = true;
+            }
+        }
+        if (IS_MAGDEMO() == 1)
+        {
+            if (iVar7 == 0)
+            {
+                if (GET_CUTSCENE_TIME_MS() > 33640)
+                {
+                     /* P_FADE_OUT_AND_WAIT */ sub_1192( 1000 );
+                    RETURN_TO_TITLESCREEN( 0 );
+                    iVar7 = 1;
+                }
+            }
+        }
+        if (NOT bVar6)
+        {
+            if (GET_CUTSCENE_TIME_MS() > 103400)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "Scene swap - 06_OFFICE_END_concat", 0 );
+                RELEASE_MOVIE( 0 );
+                AUDIO_MUSIC_SUSPEND( 5000 );
+                if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+                {
+                    RESET_PED_GORE(  /* PLAYER_PED_ID */ sub_1348() );
+                    APPLY_PLAYER_PRELOAD_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+                }
+                RELEASE_TIME_OF_DAY();
+                SET_WEATHER_TYPE_NOW_PERSIST( "SUNNY" );
+                FREEZE_TIME_OF_DAY( 21, 0 );
+                bVar6 = true;
+            }
+        }
+        if (iVar11 == 0)
+        {
+            if (iVar47 >= 143800)
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "MOVIESLOT_1", 0 );
+                SET_MOVIE_LOOP( 1, 1 );
+                PLAY_MOVIE( 1, 0 );
+                iVar11 = 1;
+            }
+        }
+        if (iVar12 == 0)
+        {
+            if (iVar47 >= (80700 + iVar13))
+            {
+                 /* WRITESCRIPTLOG */ sub_1073( "SA", "APPLY_PLAYER_PRELOAD_VARIATION", 0 );
+                APPLY_PLAYER_PRELOAD_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+                if (((IS_PED_DEAD( uVar31 )) == 0) AND ((DOES_PED_EXIST( uVar31 )) == 1))
+                {
+                     /* WRITESCRIPTLOG */ sub_1073( "SA", "piMirroredMax", 0 );
+                    SET_PED_COMPONENT_VARIATION( uVar31, 1, 0, 1, 0 );
+                }
+                iVar12 = 1;
+            }
+        }
+        WAIT( 0 );
+    }
+    DO_SCREEN_FADE_OUT( 0 );
+    CLEAR_NAMED_CUTSCENE( ref l_U265 );
+    RELEASE_MOVIE( 0 );
+     /* CLEANPED */ sub_6130( uVar17 );
+     /* CLEANPED */ sub_6130( uVar31 );
+     /* CLEANOBJECT */ sub_16254( uVar14 );
+     /* CLEANOBJECT */ sub_16254( uVar15 );
+     /* CLEANOBJECT */ sub_16254( uVar16 );
+     /* UNLOADMODEL */ sub_6249( 255375026 );
+     /* UNLOADMODEL */ sub_6249( 1931667416 );
+     /* UNLOADMODEL */ sub_6249( 297242865 );
+     /* UNLOADMODEL */ sub_6249( 1469509248 );
+    if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+    {
+         /* P_MAKEOFFICEFIREMAX */ sub_1442(  /* PLAYER_PED_ID */ sub_1348() );
+    }
+    while (NOT HAS_CUTSCENE_UNLOADED())
+    {
+         /* WRITESCRIPTLOG */ sub_1073( "SA", "Unloading Cutscene", 0 );
+        WAIT( 0 );
+    }
+    DO_SCREEN_FADE_IN( 0 );
+    return;
+}
+
+/* P_LOAD_BOOZE_N_PILLS_MAX */ void sub_30474()
+{
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_LOAD_BOOZE_N_PILLS_MAX", 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 0, 0, 8, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 2, 10, 2, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 3, 7, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 4, 4, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 6, 3, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 5, 7, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 7, 0, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 8, 1, 2, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 9, 0, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 11, 0, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 12, 0, 0, 0 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 1, 8, 1, 1 );
+    PRELOAD_PLAYER_VARIATION(  /* PLAYER_PED_ID */ sub_1348(), 5, 7, 1, 2 );
+    return;
+}
+
+/* P_HANDLE_CUTSCENES */ void sub_32686()
+{
+    int iVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+
+    if (l_U281 == 0)
+    {
+        START_WIDGET_GROUP( "Image Metrics Cutscene Player" );
+        ADD_WIDGET_BOOL( "Start Selected Cutscene", ref l_U45 );
+        ADD_WIDGET_BOOL( "Capture Selected Cutscene", ref l_U48 );
+        START_NEW_WIDGET_COMBO();
+        ADD_TO_WIDGET_COMBO( ref l_U49 );
+        ADD_TO_WIDGET_COMBO( ref l_U57 );
+        ADD_TO_WIDGET_COMBO( ref l_U65 );
+        ADD_TO_WIDGET_COMBO( ref l_U73 );
+        ADD_TO_WIDGET_COMBO( ref l_U81 );
+        ADD_TO_WIDGET_COMBO( ref l_U89 );
+        ADD_TO_WIDGET_COMBO( ref l_U97 );
+        ADD_TO_WIDGET_COMBO( ref l_U105 );
+        ADD_TO_WIDGET_COMBO( ref l_U113 );
+        ADD_TO_WIDGET_COMBO( ref l_U121 );
+        ADD_TO_WIDGET_COMBO( ref l_U129 );
+        ADD_TO_WIDGET_COMBO( ref l_U137 );
+        ADD_TO_WIDGET_COMBO( ref l_U145 );
+        ADD_TO_WIDGET_COMBO( ref l_U153 );
+        ADD_TO_WIDGET_COMBO( ref l_U161 );
+        ADD_TO_WIDGET_COMBO( ref l_U169 );
+        ADD_TO_WIDGET_COMBO( ref l_U177 );
+        ADD_TO_WIDGET_COMBO( ref l_U185 );
+        ADD_TO_WIDGET_COMBO( ref l_U193 );
+        ADD_TO_WIDGET_COMBO( ref l_U201 );
+        ADD_TO_WIDGET_COMBO( ref l_U209 );
+        ADD_TO_WIDGET_COMBO( ref l_U217 );
+        ADD_TO_WIDGET_COMBO( ref l_U225 );
+        ADD_TO_WIDGET_COMBO( ref l_U233 );
+        ADD_TO_WIDGET_COMBO( ref l_U241 );
+        ADD_TO_WIDGET_COMBO( ref l_U249 );
+        ADD_TO_WIDGET_COMBO( ref l_U257 );
+        ADD_TO_WIDGET_COMBO( ref l_U273 );
+        ADD_TO_WIDGET_COMBO( ref l_U265 );
+        l_U47 = STOP_WIDGET_COMBO( "Cutscene Name", ref l_U46 );
+        STOP_WIDGET_GROUP();
+         /* P_PRINT_SELECTED_CUTSCENE */ sub_33212();
+        l_U281 = 1;
+    }
+    iVar2 = l_U46;
+    if ((IS_BUTTON_JUST_PRESSED( 0, 10 )) == 1)
+    {
+        iVar2--;
+        if (iVar2 < 0)
+        {
+            iVar2 = 29;
+        }
+        l_U46 = iVar2;
+         /* P_PRINT_SELECTED_CUTSCENE */ sub_33212();
+    }
+    else if ((IS_BUTTON_JUST_PRESSED( 0, 11 )) == 1)
+    {
+        iVar2++;
+        if (iVar2 >= 30)
+        {
+            iVar2 = 0;
+        }
+        l_U46 = iVar2;
+         /* P_PRINT_SELECTED_CUTSCENE */ sub_33212();
+    }
+    if (( /* F_START_SELECTED_CUTSCENE */ sub_33508()) == 1)
+    {
+         /* NIS_PRE_SETUP */ sub_33626( 1, 0, 0, 1 );
+        CLEAR_PRINTS();
+        GET_CONTENTS_OF_COMBO_WIDGET_SELECTION( 32, ref uVar3, l_U47 );
+         /* P_PLAY_CUTSCENE */ sub_2134( uVar3 );
+        STOP_CUTSCENE_AUDIO();
+         /* P_FADE_IN_AND_WAIT */ sub_1955( 250 );
+         /* P_PRINT_SELECTED_CUTSCENE */ sub_33212();
+        l_U45 = 0;
+    }
+    return;
+}
+
+/* P_PRINT_SELECTED_CUTSCENE */ void sub_33212()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+
+     /* WRITESCRIPTLOG */ sub_1073( "SA", "P_PRINT_SELECTED_CUTSCENE", 0 );
+    CLEAR_PRINTS();
+    GET_CONTENTS_OF_COMBO_WIDGET_SELECTION( 32, ref uVar2, l_U47 );
+    DISPLAYF( ref uVar2, 0 );
+     /* TEXT_ONSCREEN_GENERAL */ sub_33327( ref uVar2, 999999 );
+    return;
+}
+
+/* TEXT_ONSCREEN_GENERAL */ void sub_33327(unknown uParam0, unknown uParam1)
+{
+    PRINT_STRING_WITH_LITERAL_STRING( "STRING", uParam0, uParam1, 1 );
+    return;
+}
+
+/* F_START_SELECTED_CUTSCENE */ int sub_33508()
+{
+    if ((l_U45 == 1) || ((((IS_BUTTON_PRESSED( 0, 6 )) AND (IS_BUTTON_JUST_PRESSED( 0, 4 ))) == 1) || (((IS_BUTTON_JUST_PRESSED( 0, 6 )) AND (IS_BUTTON_PRESSED( 0, 4 ))) == 1)))
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* NIS_PRE_SETUP */ void sub_33626(int iParam0, int iParam1, unknown uParam2, boolean bParam3)
+{
+    END_POSTFX_BLENDER( 12, 0 );
+    if (bParam3)
+    {
+        STOP_ALL_IMAGEFX( 0 );
+    }
+    SET_WIDESCREEN_BORDERS( 1, 500 );
+    DISPLAY_HUD( 0 );
+    if (iParam0 == 1)
+    {
+        if (NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_1348() )))
+        {
+            SET_PLAYER_CONTROL(  /* PLAYER_ID */ sub_1386(), 0, uParam2 );
+            SET_PED_DUCKING(  /* PLAYER_PED_ID */ sub_1348(), 0 );
+            if (iParam1 == 1)
+            {
+                CLEAR_PED_TASKS_IMMEDIATELY(  /* PLAYER_PED_ID */ sub_1348() );
+            }
+            SET_PED_INVINCIBLE(  /* PLAYER_PED_ID */ sub_1348(), 1 );
+        }
+    }
+    DEACTIVATE_BULLET_TIME( 1, 0 );
+    return;
+}
+

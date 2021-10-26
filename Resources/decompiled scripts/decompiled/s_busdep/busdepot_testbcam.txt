@@ -1,0 +1,864 @@
+void main()
+{
+    l_U0 = 1;
+    l_U1 = 144;
+    l_U2 = 0;
+    l_U3 = 1;
+    l_U4 = 0;
+    l_U5 = 1.00000000;
+    l_U6 = -5.00000000;
+    l_U7 = 0;
+    l_U8 = 0;
+    l_U9 = 0;
+    l_U13 = 42;
+    l_U14 = 0;
+    l_U15 = 0;
+    l_U16 = 0;
+    l_U17 = 0;
+    l_U18 = 0;
+    l_U19 = 90.00000000;
+    l_U20 = {0.00000000, 0.00000000, 0.00000000};
+    l_U23 = {0.00000000, 0.00000000, 0.00000000};
+    l_U26 = 0;
+    l_U27 = 0;
+    l_U28 = 0;
+    l_U29 = 0;
+    l_U30 = 0;
+    l_U31 = 0;
+    l_U32 = nil;
+    l_U33 = {0.00000000, 0.00000000, 0.00000000};
+    l_U36 = 0;
+    l_U37 = 0;
+    l_U38 = 0;
+    StrCopy( ref l_U39, "DEFAULT_SCRIPTED_CAMERA", 32 );
+    StrCopy( ref l_U47, "DEFAULT_SPLINE_CAMERA", 32 );
+    l_U55 = -1;
+    l_U56 = {64536, 64536, 64536};
+    l_U59 = {0, 0, 0};
+    StrCopy( ref l_U62, "DUMMY", 32 );
+    l_U70 = 1;
+    l_U75 = 0;
+    l_U76 = 0;
+    l_U77 = 0;
+    l_U80 = 0;
+    l_U125 = 0;
+    l_U126 = 0;
+    l_U127 = 0;
+    l_U128 = 0;
+    l_U129 = 0;
+    l_U130 = 0;
+    l_U131 = 0;
+    l_U132 = 0;
+    l_U133 = 0;
+    l_U195 = {-18.78000000, -56.07000000, -0.47000000};
+    l_U198 = {-17.75000000, -56.22000000, -0.47000000};
+    l_U201 = {-40.95000000, 80.00000000, 0.20000000};
+    l_U204 = {-39.82000000, 90.69000000, 0.20000000};
+    l_U228 = -6.31760800;
+    l_U229 = -0.96015400;
+    l_U245 = 0;
+    l_U246 = 0;
+    l_U247 = 0;
+    l_U248 = 0.25000000;
+    l_U249 = 1000;
+    l_U250 = 0;
+    l_U251 = 0;
+    l_U252 = 0;
+    l_U253 = {0.00000000, 30.00000000, 0.00000000};
+    l_U256 = 0;
+     /* WRITESCRIPTLOG */ sub_655( "SP", "Script busdepot_testBcam.sc is starting...", 0 );
+     /* F_GIVEPEDWEAPON */ sub_877(  /* PLAYER_PED_ID */ sub_773(), g_U2854, 25000, 0, 0 );
+     /* P_CREATETRIGGERBOX */ sub_1401( ref l_U207, "TRIGGER_START_DOOR_KICK", -40.61000000, 72.40000000, -0.08000000, 8.60000000, 2.27000000, 2.97000000, 0.00000000, 0.00000000, -76.32000000, 1 );
+     /* LOADISEQ */ sub_1509( 903216623, 1 );
+     /* P_CREATEDOORSTRUCT */ sub_1841( ref l_U230, 1615239220, -42.11390000, 75.06350000, 1.30350000, 0.00000000, 0.00000000, 0.00000000 );
+     /* P_CREATEDOORSTRUCT */ sub_1841( ref l_U237, -1129400776, -39.71410000, 75.06050000, 1.30270000, 0.00000000, 0.00000000, 0.00000000 );
+     /* P_OPENDOOR */ sub_1961( ref l_U230, 1, 1, 1065353216 );
+     /* P_OPENDOOR */ sub_1961( ref l_U237, 0, 1, 1065353216 );
+    l_U128 = 1;
+    SET_PLAYER_INVINCIBLE(  /* PLAYER_ID */ sub_811(), 1 );
+    SET_ADRENALINE_AMT( 100.00000000 );
+    DO_SCREEN_FADE_IN( 0 );
+    while (true)
+    {
+         /* P_HANDLE_BULLET_PARTICLE_WIDGET */ sub_2294();
+         /* P_HANDLE_TEST_WIDGET */ sub_3286();
+         /* P_HANDLE_BUTTONS */ sub_8934();
+        WAIT( 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_655( "SP", "Script busdepot_testBcam.sc is terminating...", 0 );
+    return;
+}
+
+/* WRITESCRIPTLOG */ void sub_655(unknown uParam0, unknown uParam1, string sParam2)
+{
+    unknown uVar5;
+
+    if (IS_STRING_NULL( sParam2 ))
+    {
+        sParam2 = "###";
+    }
+    uVar5 = GET_REAL_GAME_TIMER();
+    DISPLAYF( "[{0}][{1}]{3} {2} {3}", 4, 513, uVar5, 1537, uParam0, 1537, uParam1, 1537, sParam2 );
+    return;
+}
+
+/* PLAYER_PED_ID */ int sub_773()
+{
+    if (DOES_MAIN_PLAYER_EXIST())
+    {
+        return GET_PLAYER_PED(  /* PLAYER_ID */ sub_811() );
+    }
+    return 0;
+}
+
+/* PLAYER_ID */ void sub_811()
+{
+    return GET_PLAYER_ID();
+}
+
+/* F_GIVEPEDWEAPON */ void sub_877(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, int iParam4)
+{
+    unknown Result;
+
+    if ((HAS_WEAPON_LOADED( uParam1 )) == 0)
+    {
+        SCRIPT_ASSERT( "The weapon model you are giving to the ped's hand MUST BE PRELOADED!!!!", 0 );
+    }
+    Result = nil;
+    if ((IS_PED_DEAD( uParam0 )) == 0)
+    {
+        Result = GIVE_WEAPON_TO_PED_HAND( uParam0, uParam1, uParam2, uParam3 );
+        if (iParam4 == 1)
+        {
+            Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+            while (NOT (GET_DOES_WEAPON_EXIST( Result )))
+            {
+                WAIT( 0 );
+                if ((IS_PED_DEAD( uParam0 )) == 0)
+                {
+                    Result = GET_WEAPON_FROM_HAND( uParam0, uParam3, 0 );
+                    DISPLAYF( "[SP]### Waiting for a weapon to exist: {} ###", 1, 513, uParam1 );
+                }
+            }
+        }
+    }
+    else
+    {
+         /* WRITE_STRING */ sub_1262( "[SP]### (F_GivePedWeapon) Error: Trying to give a dead ped a weapon. ###" );
+    }
+    return Result;
+}
+
+/* WRITE_STRING */ void sub_1262(unknown uParam0)
+{
+    PRINTSTRING( uParam0 );
+    PRINTNL();
+    return;
+}
+
+/* P_CREATETRIGGERBOX */ void sub_1401(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10, unknown uParam11)
+{
+    StrCopy( ref iParam0->_fU0, uParam1, 64 );
+    iParam0->_fU64 = 0;
+    iParam0->_fU68 = 0;
+    iParam0->_fU72 = {uParam2};
+    GAMEPLAY_HELPER_BOX_ANGLED_CREATE( 1, iParam0 + 0, uParam2, uParam5, uParam6, uParam7, uParam8, uParam11 );
+    return;
+}
+
+/* LOADISEQ */ void sub_1509(unknown uParam0, int iParam1)
+{
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+
+    if ((ISEQ_DOES_EXIST( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The interactive sequence you are trying to load does not exist!!!!", 0 );
+    }
+    if ((ISEQ_IS_LOADED( uParam0 )) == 0)
+    {
+        ISEQ_REQUEST( uParam0 );
+        ISEQ_GET_NAME( 32, ref uVar4, uParam0 );
+        if (iParam1 == 1)
+        {
+            while ((ISEQ_QUERY_STATE( uParam0, 1 )) == 1)
+            {
+                DISPLAYF( "[SP]### Waiting for interactive sequence to be loaded: {0} {1} ###", 2, 1281, ref uVar4, 513, uParam0 );
+                WAIT( 0 );
+            }
+        }
+    }
+    return;
+}
+
+/* P_CREATEDOORSTRUCT */ void sub_1841(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7)
+{
+    iParam0->_fU0 = uParam1;
+    iParam0->_fU4 = {uParam2};
+    iParam0->_fU16 = {uParam5};
+    return;
+}
+
+/* P_OPENDOOR */ void sub_1961(int iParam0, int iParam1, int iParam2, unknown uParam3)
+{
+    float fVar6;
+
+    if (( /* F_DOESDOOREXIST */ sub_1986( iParam0 )) == 0)
+    {
+         /* P_PRINTDOORNOTEXIST */ sub_2070( iParam0 );
+    }
+    fVar6 = 0.00000000;
+    if (iParam1 == 1)
+    {
+        fVar6 = uParam3;
+    }
+    else
+    {
+        fVar6 = -uParam3;
+    }
+    if (iParam2 == 1)
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 1, fVar6 );
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, fVar6 );
+    }
+    else
+    {
+        SET_STATE_OF_CLOSEST_DOOR_OF_TYPE( iParam0->_fU0, iParam0->_fU4, 0, fVar6 );
+    }
+    return;
+}
+
+/* F_DOESDOOREXIST */ int sub_1986(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = DOES_OBJECT_OF_TYPE_EXIST_AT_COORDS( iParam0->_fU4, 1.00000000, iParam0->_fU0 );
+    if (iVar3 == 1)
+    {
+        return 1;
+    }
+    return 0;
+}
+
+/* P_PRINTDOORNOTEXIST */ void sub_2070(unknown uParam0)
+{
+    (uParam0^) = {(uParam0^)};
+    return;
+}
+
+/* P_HANDLE_BULLET_PARTICLE_WIDGET */ void sub_2294()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    int iVar5;
+
+    if (l_U256 == 0)
+    {
+        START_WIDGET_GROUP( "Bullet Particle Helper" );
+        ADD_WIDGET_BOOL( "Start Test", ref l_U246 );
+        ADD_WIDGET_BOOL( "Stop Test", ref l_U247 );
+        ADD_WIDGET_FLOAT_SLIDER( "Time Modifier", ref l_U248, 0.00000000, 100.00000000, 0.01000000 );
+        ADD_WIDGET_INT_SLIDER( "Task Duration", ref l_U249, 0, 999999, 250 );
+        ADD_WIDGET_BOOL( "Snap to Shoot", ref l_U251 );
+        ADD_WIDGET_BOOL( "Fire Bullets in Aim Direction", ref l_U252 );
+        START_NEW_WIDGET_COMBO();
+        ADD_TO_WIDGET_COMBO( "FIRING_TYPE_DEFAULT" );
+        ADD_TO_WIDGET_COMBO( "FIRING_TYPE_1_THEN_AIM" );
+        ADD_TO_WIDGET_COMBO( "FIRING_TYPE_LOW_RATE" );
+        ADD_TO_WIDGET_COMBO( "FIRING_TYPE_MEDIUM_RATE" );
+        ADD_TO_WIDGET_COMBO( "FIRING_TYPE_HIGH_RATE" );
+        STOP_WIDGET_COMBO( "Firing Type", ref l_U250 );
+        START_WIDGET_GROUP( "Shoot Offset" );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset X", ref l_U253._fU0, -100.00000000, 100.00000000, 0.50000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Y", ref l_U253._fU4, -100.00000000, 100.00000000, 0.50000000 );
+        ADD_WIDGET_FLOAT_SLIDER( "Offset Z", ref l_U253._fU8, -100.00000000, 100.00000000, 0.50000000 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        l_U256 = 1;
+    }
+    if (l_U246 == 1)
+    {
+        if (((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_773() )) == 0) AND ((IS_PLAYER_DEAD(  /* PLAYER_ID */ sub_811() )) == 0))
+        {
+            SET_PLAYER_CONTROL(  /* PLAYER_ID */ sub_811(), 0, 0 );
+            CLEAR_PED_TASKS(  /* PLAYER_PED_ID */ sub_773() );
+            uVar2 = {"[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_OFFSET_FROM_PED_IN_WORLD_COORDS(  /* PLAYER_PED_ID */ sub_773(), l_U253 )};
+            iVar5 = 0;
+            switch (l_U250)
+            {
+                case 0:
+                iVar5 = 0;
+                break;
+                case 1:
+                iVar5 = 1566631136;
+                break;
+                case 2:
+                iVar5 = -511790439;
+                break;
+                case 3:
+                iVar5 = 1929989524;
+                break;
+                case 4:
+                iVar5 = -256437761;
+                break;
+            }
+            TASK_SHOOT_AT_COORD(  /* PLAYER_PED_ID */ sub_773(), uVar2, l_U249, iVar5, l_U251, l_U252 );
+            DBG_ACTIVATE_BULLET_CAM_TIME( l_U248 );
+        }
+        l_U246 = 0;
+    }
+    if (l_U247 == 1)
+    {
+        if (((IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_773() )) == 0) AND ((IS_PLAYER_DEAD(  /* PLAYER_ID */ sub_811() )) == 0))
+        {
+            CLEAR_PED_TASKS(  /* PLAYER_PED_ID */ sub_773() );
+            SET_PLAYER_CONTROL(  /* PLAYER_ID */ sub_811(), 1, 0 );
+        }
+        DBG_DEACTIVATE_BULLET_CAM_TIME( 0 );
+        l_U247 = 0;
+    }
+    return;
+}
+
+/* P_HANDLE_TEST_WIDGET */ void sub_3286()
+{
+    if (l_U125 == 0)
+    {
+        START_WIDGET_GROUP( "Bullet Cam Testing" );
+        START_WIDGET_GROUP( "TELEPORT PLAYER" );
+        ADD_WIDGET_BOOL( "TELEPORT:	JUNKYARD", ref l_U126 );
+        ADD_WIDGET_BOOL( "TELEPORT:	OFFICE", ref l_U127 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Ped Control" );
+        ADD_WIDGET_BOOL( "Spawn Junkyard Rooftop Peds", ref l_U132 );
+        ADD_WIDGET_BOOL( "Spawn Office Attacker Ped", ref l_U133 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Sequence Control" );
+        ADD_WIDGET_BOOL( "Start Junkyard Sequence", ref l_U130 );
+        ADD_WIDGET_BOOL( "Start Office Sequence", ref l_U131 );
+        STOP_WIDGET_GROUP();
+        START_WIDGET_GROUP( "Fuel Depot Sniper" );
+        ADD_WIDGET_BOOL( "Start Sniper Sequence", ref l_U245 );
+        STOP_WIDGET_GROUP();
+        STOP_WIDGET_GROUP();
+        l_U125 = 1;
+    }
+     /* P_JUNKYARD */ sub_3760();
+     /* P_OFFICE */ sub_6884();
+     /* P_HANDLE_FUEL_DEPOT_SNIPER */ sub_8278();
+    return;
+}
+
+/* P_JUNKYARD */ void sub_3760()
+{
+    if (l_U126 == 1)
+    {
+         /* P_FADE_OUT_AND_WAIT */ sub_3798( 1000 );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_773(), 1 );
+         /* TELEPORTPED */ sub_3993(  /* PLAYER_PED_ID */ sub_773(), g_U2339[36], g_U2466[36] );
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( g_U2509[36], 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( g_U2552[36], 1065353216, 0 );
+        LOAD_SCENE( g_U2339[36] );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_773(), 0 );
+         /* P_FADE_IN_AND_WAIT */ sub_4144( 1000 );
+        l_U128 = 1;
+        l_U129 = 0;
+        l_U126 = 0;
+         /* P_FADE_IN_AND_WAIT */ sub_4144( 1000 );
+    }
+    if (l_U132 == 1)
+    {
+         /* P_ROOFTOP_SPAWN */ sub_4336();
+        l_U132 = 0;
+    }
+    if (l_U130 == 1)
+    {
+         /* P_ROOFTOP_SPAWN */ sub_4336();
+         /* P_ROOFTOP_SNIPER_SHOOTING_AT_MAX */ sub_6276();
+        l_U130 = 0;
+    }
+    return;
+}
+
+/* P_FADE_OUT_AND_WAIT */ void sub_3798(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_OUT() == 0) AND (IS_SCREEN_FADED_OUT() == 0))
+    {
+        DO_SCREEN_FADE_OUT( uParam0 );
+        while (IS_SCREEN_FADED_OUT() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade out... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* TELEPORTPED */ void sub_3993(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4)
+{
+    if (NOT (IS_PED_DEAD( uParam0 )))
+    {
+        SET_PED_COORDS( uParam0, uParam1, 1 );
+        SET_PED_HEADING( uParam0, uParam4 );
+    }
+    return;
+}
+
+/* P_FADE_IN_AND_WAIT */ void sub_4144(unknown uParam0)
+{
+    if ((IS_SCREEN_FADING_IN() == 0) AND (IS_SCREEN_FADED_IN() == 0))
+    {
+        DO_SCREEN_FADE_IN( uParam0 );
+        while (IS_SCREEN_FADED_IN() == 0)
+        {
+            DISPLAYF( "[SP]### Waiting for screen to fade in... ###", 0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* P_ROOFTOP_SPAWN */ void sub_4336()
+{
+    int I;
+
+     /* P_CREATEPEDSTRUCT */ sub_4403( ref l_U136[0], -37.07000000, -37.77000000, 10.40000000, 180.00000000, g_U2100, 7, 3, 2, 0, 0 );
+     /* P_CREATEPEDSTRUCT */ sub_4403( ref l_U136[1], -38.00000000, -38.79000000, 10.40000000, 180.00000000, g_U2100, 7, 3, 2, 0, 0 );
+    for ( I = 0; I < 2; I++ )
+    {
+         /* CLEANPED */ sub_4581( l_U163[I] );
+        l_U163[I] =  /* CREATEPED */ sub_4674( ref l_U136[I] );
+        if (NOT (IS_PED_DEAD( l_U163[I] )))
+        {
+            SET_PED_AI_TEMPLATE( l_U163[I], ref g_U2088 );
+            SET_PED_COMBAT_MOVEMENT( l_U163[I], 0 );
+            SET_PED_HEALTH( l_U163[I], 150, 0 );
+            SET_PED_COMBAT_RANGE_MAX( l_U163[I], 120.00000000 );
+            SET_PED_ALERTNESS( l_U163[I], 2 );
+            SET_PED_EMOTION_STATE( l_U163[I], 1 );
+            SET_PED_SENSE_RANGE( l_U163[I], 200.00000000 );
+            SET_PED_HEARING_RANGE( l_U163[I], 200.00000000 );
+            SET_PED_SEEING_RANGE( l_U163[I], 200.00000000, 75 );
+            if (I == 0)
+            {
+                l_U134 =  /* F_GIVEPEDWEAPON */ sub_877( l_U163[I], g_U2858, 25000, 0, 0 );
+            }
+            else
+            {
+                l_U135 =  /* F_GIVEPEDWEAPON */ sub_877( l_U163[I], g_U2858, 25000, 0, 0 );
+            }
+            SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U163[I], 1 );
+            SET_PED_GORE( l_U163[I], 1 );
+            SET_PED_RELATIONSHIP( l_U163[I], 0, 2 );
+            FORCE_PED_TO_USE_DEATH_SUGGESTION_WHEN_SHOT( l_U163[I], 1, 0, 1, 1, 1 );
+            SET_PED_CAN_TRIGGER_BULLET_CAM( l_U163[I], 1 );
+            if (I == 0)
+            {
+                SET_BULLET_CAM_PREF( l_U163[I], "PIST_CUSTOM_03_BUS_ROOF_ALT", "PIST_CUSTOM_03_BUS_ROOF_ALT", "PIST_CUSTOM_03_BUS_ROOF_ALT", 0, 1, 0, 0, 0, 0, 0, 0, 0 );
+            }
+            else if (I == 1)
+            {
+                SET_BULLET_CAM_PREF( l_U163[I], "PIST_CUSTOM_03_BUS_ROOF", "PIST_CUSTOM_03_BUS_ROOF", "PIST_CUSTOM_03_BUS_ROOF", 0, 1, 0, 0, 0, 0, 0, 0, 0 );
+            }
+        }
+    }
+    return;
+}
+
+/* P_CREATEPEDSTRUCT */ void sub_4403(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU16 = uParam5;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* CLEANPED */ void sub_4581(unknown uParam0)
+{
+    if (DOES_PED_EXIST( uParam0 ))
+    {
+        if ((NOT (IS_PED_DEAD( uParam0 ))) || (IS_PED_DEAD( uParam0 )))
+        {
+            REMOVE_ALL_PED_WEAPONS( uParam0 );
+            DELETE_PED( ref uParam0 );
+        }
+    }
+    return;
+}
+
+/* CREATEPED */ void sub_4674(int iParam0)
+{
+    int iVar3;
+
+    iVar3 = 0;
+    if (iParam0->_fU16 == 0)
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            iVar3 = GET_SCENE_PED_MODEL( iParam0->_fU20 );
+        }
+    }
+    else
+    {
+        iVar3 = iParam0->_fU16;
+    }
+    if ((HAS_MODEL_LOADED( iVar3 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The model you are trying to create a ped with MUST BE PRELOADED!!!!", 0 );
+         /* LOADMODEL */ sub_4856( iParam0->_fU16, 1 );
+    }
+    iParam0->_fU40 = CREATE_PED( iParam0->_fU24, iParam0->_fU16, iParam0->_fU0, iParam0->_fU12, 1, iParam0->_fU48 );
+    if (((IS_PED_DEAD( iParam0->_fU40 )) == 0) AND ((DOES_PED_EXIST( iParam0->_fU40 )) == 1))
+    {
+        if (iParam0->_fU20 != 0)
+        {
+            SET_PERSISTENT_PED_VARIATION_ENUM( iParam0->_fU40, iParam0->_fU20 );
+        }
+        SET_PED_RELATIONSHIP_GROUP( iParam0->_fU40, iParam0->_fU28 );
+        SET_PED_RELATIONSHIP( iParam0->_fU40, iParam0->_fU36, iParam0->_fU32 );
+        SET_LOAD_COLLISION_FOR_PED_FLAG( iParam0->_fU40, 1 );
+        SET_PED_COORDS_NO_OFFSET( iParam0->_fU40, "[doubled result, dropped if not asigned]", "[doubled result, dropped if not asigned]", GET_PED_COORDS( iParam0->_fU40 ) );
+        SET_PED_HEADING( iParam0->_fU40, iParam0->_fU12 );
+        iParam0->_fU44 = 1;
+    }
+    else
+    {
+        SCRIPT_ASSERT( "Error: The ped you created doesn't exist or is dead!", 0 );
+    }
+     /* SETPEDDEFAULTSTATS */ sub_5405( iParam0->_fU40 );
+     /* SETPEDDEFAULTTEMPLATE */ sub_5506( iParam0->_fU40 );
+    return iParam0->_fU40;
+}
+
+/* LOADMODEL */ void sub_4856(unknown uParam0, boolean bParam1)
+{
+    if ((IS_MODEL_IN_CDIMAGE( uParam0 )) == 0)
+    {
+         /* WRITE_STRING */ sub_1262( "[SP]### ERROR! (LoadModel) Trying to load a model that isn't in the img! ###" );
+    }
+    REQUEST_MODEL( uParam0 );
+    "[doubled result, dropped if not asigned]";
+    if (bParam1)
+    {
+        while ((HAS_MODEL_LOADED( uParam0 )) == 0)
+        {
+            DISPLAYF( "[SP]### Waiting to load model: {!f1} : {1} ###", 2, 1, -874832622, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
+/* SETPEDDEFAULTSTATS */ void sub_5405(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_HEALTH( uParam0, 200, 0 );
+        SET_PED_ACCURACY( uParam0, -729479261 );
+    }
+    return;
+}
+
+/* SETPEDDEFAULTTEMPLATE */ void sub_5506(unknown uParam0)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND ((DOES_PED_EXIST( uParam0 )) == 1))
+    {
+        SET_PED_AI_TEMPLATE( uParam0, "AIT_DEFAULT_GENERIC" );
+    }
+    return;
+}
+
+/* P_ROOFTOP_SNIPER_SHOOTING_AT_MAX */ void sub_6276()
+{
+    unknown uVar2;
+
+     /* WRITESCRIPTLOG */ sub_655( "SP", "P_START_SNIPER_SHOOTING_AT_MAX", 0 );
+     /* P_PED_REGISTER_AND_LOCK_TARGET */ sub_6378( l_U163[0],  /* PLAYER_PED_ID */ sub_773() );
+     /* P_PED_REGISTER_AND_LOCK_TARGET */ sub_6378( l_U163[1],  /* PLAYER_PED_ID */ sub_773() );
+    ENABLE_WEAPON_ATTACHMENT( l_U134, 13, 1 );
+    TOGGLE_WEAPON_ATTACHMENT( l_U134, 13, 1 );
+    ENABLE_WEAPON_ATTACHMENT( l_U135, 13, 1 );
+    TOGGLE_WEAPON_ATTACHMENT( l_U135, 13, 1 );
+    if (NOT (IS_PED_DEAD( l_U163[0] )))
+    {
+        CLEAR_PED_TASKS_IMMEDIATELY( l_U163[0] );
+        OPEN_SEQUENCE_TASK( ref uVar2 );
+        TASK_AIM_GUN_AT_PED( 0,  /* PLAYER_PED_ID */ sub_773(), 1500, 1 );
+        TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_773(), 1000, 0, 1, 0, 0 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_773() );
+        CLOSE_SEQUENCE_TASK( uVar2 );
+        TASK_PERFORM_SEQUENCE( l_U163[0], uVar2 );
+        CLEAR_SEQUENCE_TASK( uVar2 );
+    }
+    if (NOT (IS_PED_DEAD( l_U163[1] )))
+    {
+        CLEAR_PED_TASKS_IMMEDIATELY( l_U163[1] );
+        OPEN_SEQUENCE_TASK( ref uVar2 );
+        TASK_AIM_GUN_AT_PED( 0,  /* PLAYER_PED_ID */ sub_773(), 1000, 1 );
+        TASK_SHOOT_AT_PED( 0,  /* PLAYER_PED_ID */ sub_773(), 1500, 0, 1, 0, 0 );
+        TASK_SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( 0, 0 );
+        TASK_COMBAT_PED( 0,  /* PLAYER_PED_ID */ sub_773() );
+        CLOSE_SEQUENCE_TASK( uVar2 );
+        TASK_PERFORM_SEQUENCE( l_U163[1], uVar2 );
+        CLEAR_SEQUENCE_TASK( uVar2 );
+    }
+    return;
+}
+
+/* P_PED_REGISTER_AND_LOCK_TARGET */ void sub_6378(unknown uParam0, unknown uParam1)
+{
+    if (((IS_PED_DEAD( uParam0 )) == 0) AND (((DOES_PED_EXIST( uParam0 )) == 1) AND (((IS_PED_DEAD( uParam1 )) == 0) AND ((DOES_PED_EXIST( uParam1 )) == 1))))
+    {
+        CLEAR_LOCKED_TARGET( uParam0 );
+        REGISTER_TARGET( uParam0, uParam1 );
+        SET_LOCKED_TARGET( uParam0, uParam1 );
+    }
+    return;
+}
+
+/* P_OFFICE */ void sub_6884()
+{
+    if (l_U127 == 1)
+    {
+         /* P_FADE_OUT_AND_WAIT */ sub_3798( 1000 );
+         /* CLEANPED */ sub_4581( l_U180[0] );
+         /* CLEANPED */ sub_4581( g_U2595 );
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_773(), 1 );
+         /* P_TELEPORT_PLAYER */ sub_6992( -40.98000000, 74.20000000, 0.20016000, 359.44700000, l_U228, l_U229 );
+        SET_INTERIOR_ACTIVE( GET_INTERIOR_FROM_NAME( ref g_U1880, 0 ), 1, 0 );
+        LOAD_SCENE( -40.98000000, 74.20000000, 1.21000000 );
+        LOAD_ALL_OBJECTS_NOW();
+        if (l_U129 == 0)
+        {
+            WAIT( 3000 );
+        }
+        l_U128 = 0;
+        l_U129 = 1;
+        l_U131 = 0;
+        l_U127 = 0;
+        FREEZE_PED_POSITION(  /* PLAYER_PED_ID */ sub_773(), 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_HEADING( -6.31763800, 1065353216, 0 );
+        SET_GAMEPLAY_CAM_RELATIVE_PITCH( -0.95962100, 1065353216, 0 );
+         /* P_FADE_IN_AND_WAIT */ sub_4144( 1000 );
+    }
+    if (l_U131 == 1)
+    {
+         /* P_SETUP_GIOVANNA */ sub_7249();
+         /* P_SETUP_OFFICEEND_ENEMIES */ sub_7661();
+         /* P_HANDLE_OFELIAATTACKED_ISS */ sub_8069();
+        l_U131 = 0;
+    }
+    return;
+}
+
+/* P_TELEPORT_PLAYER */ void sub_6992(unknown uParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5)
+{
+    unknown uVar8;
+
+    uVar8 =  /* PLAYER_PED_ID */ sub_773();
+     /* TELEPORTPED */ sub_3993( uVar8, uParam0, uParam3 );
+    SET_GAMEPLAY_CAM_RELATIVE_HEADING( uParam4, 1065353216, 0 );
+    SET_GAMEPLAY_CAM_RELATIVE_PITCH( uParam5, 1065353216, 0 );
+    return;
+}
+
+/* P_SETUP_GIOVANNA */ void sub_7249()
+{
+     /* WRITESCRIPTLOG */ sub_655( "SP", "P_SETUP_GIOVANNA", 0 );
+     /* P_CREATEPEDSTRUCTWITHNAME */ sub_7333( ref l_U182, l_U201, 268.65510000, -1257669444, 26, 6, 0, 0, 0 );
+     /* CLEANPED */ sub_4581( g_U2595 );
+    g_U2595 =  /* CREATEPED */ sub_4674( ref l_U182 );
+    if (((IS_PED_DEAD( g_U2595 )) == 0) AND ((DOES_PED_EXIST( g_U2595 )) == 1))
+    {
+        CLEAR_PED_TASKS_IMMEDIATELY( g_U2595 );
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( g_U2595, 1 );
+        SET_PED_NAME_DEBUG( g_U2595, "piGiovanna" );
+        SET_PED_CAN_RAGDOLL_FROM_PLAYER_IMPACT( g_U2595, 0 );
+        SET_PED_GORE_AS_ALLY( g_U2595 );
+        SET_PED_INVINCIBLE( g_U2595, 1 );
+        SET_PED_GORE( g_U2595, 1 );
+        SET_PED_ONLY_DAMAGED_BY_PLAYER( g_U2595, 0 );
+        SET_PED_STAND_GROUND_ON_PLAYER_IMPACT( g_U2595, 1 );
+    }
+    return;
+}
+
+/* P_CREATEPEDSTRUCTWITHNAME */ void sub_7333(int iParam0, unknown uParam1, unknown uParam2, unknown uParam3, unknown uParam4, unknown uParam5, unknown uParam6, unknown uParam7, unknown uParam8, unknown uParam9, unknown uParam10)
+{
+    iParam0->_fU0 = {uParam1};
+    iParam0->_fU20 = uParam5;
+    iParam0->_fU12 = uParam4;
+    iParam0->_fU24 = uParam6;
+    iParam0->_fU28 = uParam7;
+    iParam0->_fU36 = uParam8;
+    iParam0->_fU32 = uParam9;
+    iParam0->_fU44 = 0;
+    iParam0->_fU16 = GET_SCENE_PED_MODEL( uParam5 );
+    iParam0->_fU48 = uParam10;
+    return;
+}
+
+/* P_SETUP_OFFICEEND_ENEMIES */ void sub_7661()
+{
+     /* WRITESCRIPTLOG */ sub_655( "SP", "P_SETUP_OFFICEEND_ENEMIES", 0 );
+     /* P_CREATEPEDSTRUCT */ sub_4403( ref l_U166[0], -39.95000000, 89.73000000, 0.20000000, -179.60000000, g_U2104, 7, 2, 2, 0, 0 );
+     /* CLEANPED */ sub_4581( l_U180[0] );
+    l_U180[0] =  /* CREATEPED */ sub_4674( ref l_U166[0] );
+    if ((NOT (IS_PED_DEAD(  /* PLAYER_PED_ID */ sub_773() ))) AND (NOT (IS_PED_DEAD( l_U180[0] ))))
+    {
+        PED_ACTION_TREE_PLAY_NODE( l_U180[0], "/Global/NPC/NpcLoco" );
+        CLEAR_PED_TASKS_IMMEDIATELY( l_U180[0] );
+         /* F_GIVEPEDWEAPON */ sub_877( l_U180[0], g_U2857, 25000, 0, 0 );
+        SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U180[0], 1 );
+        SET_PED_CAN_TRIGGER_BULLET_CAM( l_U180[0], 1 );
+        SET_BULLET_CAM_PREF( l_U180[0], "PIST_02_CUSTOM_BUS_GIOV", "PIST_02_CUSTOM_BUS_GIOV", "PIST_02_CUSTOM_BUS_GIOV", 0, 1, 0, 0, 0, 0, 0, 0, 0 );
+    }
+    return;
+}
+
+/* P_HANDLE_OFELIAATTACKED_ISS */ void sub_8069()
+{
+     /* TELEPORTPED */ sub_3993( l_U180[0], l_U204, 180.00000000 );
+     /* TELEPORTPED */ sub_3993( g_U2595, l_U201, 360.00000000 );
+     /* LOADISEQ */ sub_1509( 903216623, 1 );
+    ISEQ_REGISTER_ENTITY( 903216623, "s_bus_of_drkick", g_U2595, 0 );
+    ISEQ_REGISTER_ENTITY( 903216623, "s_bus_gang_drkick", l_U180[0], 0 );
+    ISEQ_START( 903216623 );
+    return;
+}
+
+/* P_HANDLE_FUEL_DEPOT_SNIPER */ void sub_8278()
+{
+    if (l_U245)
+    {
+        l_U245 = 0;
+        DO_SCREEN_FADE_OUT( 0 );
+         /* TELEPORTPED */ sub_3993(  /* PLAYER_PED_ID */ sub_773(), -43.57000000, -51.63000000, 0.00000000, 7.00000000 );
+         /* P_FUEL_DEPOT_VCPF_SNIPER */ sub_8373();
+        DO_SCREEN_FADE_IN( 1000 );
+    }
+    return;
+}
+
+/* P_FUEL_DEPOT_VCPF_SNIPER */ void sub_8373()
+{
+    unknown uVar2;
+    unknown uVar3;
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+    unknown uVar12;
+    unknown uVar13;
+    unknown uVar14;
+
+     /* WRITESCRIPTLOG */ sub_655( "MF", "P_FUEL_DEPOT_VCPF_SNIPER", 0 );
+     /* P_CREATEPEDSTRUCT */ sub_4403( ref uVar2, -50.98506000, -41.00612000, 13.62586000, 189.17750000, g_U2101, 7, 3, 2, 0, 0 );
+     /* CLEANPED */ sub_4581( l_U244 );
+    l_U244 =  /* CREATEPED */ sub_4674( ref uVar2 );
+    l_U134 =  /* F_GIVEPEDWEAPON */ sub_877( l_U244, g_U2858, 25000, 0, 0 );
+    ENABLE_WEAPON_ATTACHMENT( l_U134, 13, 1 );
+    SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U244, 1 );
+    SET_PED_AI_TEMPLATE( l_U244, ref g_U2088 );
+    SET_PED_COMBAT_MOVEMENT( l_U244, 0 );
+    SET_PED_HEALTH( l_U244, 150, 0 );
+    SET_PED_COMBAT_RANGE_MAX( l_U244, 120.00000000 );
+    SET_PED_ALERTNESS( l_U244, 2 );
+    SET_PED_EMOTION_STATE( l_U244, 1 );
+     /* P_PED_REGISTER_AND_LOCK_TARGET */ sub_6378( l_U244,  /* PLAYER_PED_ID */ sub_773() );
+    SET_BLOCKING_OF_NON_TEMPORARY_EVENTS( l_U244, 0 );
+    TASK_COMBAT_PED( l_U244,  /* PLAYER_PED_ID */ sub_773() );
+    TOGGLE_WEAPON_ATTACHMENT( l_U134, 13, 1 );
+    SET_PED_PATH_CAN_DROP_FROM_HEIGHT( l_U244, 0 );
+    SET_PED_PATH_CAN_USE_CLIMBOVERS( l_U244, 0 );
+    if (NOT (IS_PED_DEAD( l_U244 )))
+    {
+        SET_PED_CAN_TRIGGER_BULLET_CAM( l_U244, 1 );
+        SET_BULLET_CAM_PREF( l_U244, "PIST_CUSTOM_04_BUS_FUEL", "PIST_CUSTOM_04_BUS_FUEL", "PIST_CUSTOM_04_BUS_FUEL", 0, 1, 0, 0, 0, 0, 0, 0, 0 );
+    }
+     /* WRITESCRIPTLOG */ sub_655( "MF", "P_FUEL_DEPOT_VCPF_SNIPER", 0 );
+    return;
+}
+
+/* P_HANDLE_BUTTONS */ void sub_8934()
+{
+    if (IS_BUTTON_PRESSED( 0, 11 ))
+    {
+        l_U127 = 1;
+    }
+    if (IS_BUTTON_PRESSED( 0, 10 ))
+    {
+        l_U126 = 1;
+    }
+    if ((IS_BUTTON_PRESSED( 0, 19 )) AND (IS_BUTTON_PRESSED( 0, 18 )))
+    {
+        DEACTIVATE_BULLET_TIME( 1, 0 );
+        if (l_U128 == 1)
+        {
+             /* TELEPORTPED */ sub_3993(  /* PLAYER_PED_ID */ sub_773(), g_U2339[36], g_U2466[36] );
+             /* P_ROOFTOP_SPAWN */ sub_4336();
+             /* P_ROOFTOP_SNIPER_SHOOTING_AT_MAX */ sub_6276();
+        }
+        else if (l_U129 == 1)
+        {
+            ISEQ_UNREGISTER_ENTITY( 903216623, "s_bus_of_drkick" );
+            ISEQ_UNREGISTER_ENTITY( 903216623, "s_bus_gang_drkick" );
+             /* TERMINATEISEQ */ sub_9174( 903216623, 1 );
+             /* P_TELEPORT_PLAYER */ sub_6992( -40.98000000, 74.20000000, 1.21000000, 359.44700000, l_U228, l_U229 );
+             /* P_SETUP_GIOVANNA */ sub_7249();
+             /* P_SETUP_OFFICEEND_ENEMIES */ sub_7661();
+             /* P_HANDLE_OFELIAATTACKED_ISS */ sub_8069();
+        }
+    }
+    return;
+}
+
+/* TERMINATEISEQ */ void sub_9174(unknown uParam0, int iParam1)
+{
+    unknown uVar4;
+    unknown uVar5;
+    unknown uVar6;
+    unknown uVar7;
+    unknown uVar8;
+    unknown uVar9;
+    unknown uVar10;
+    unknown uVar11;
+
+    if ((ISEQ_DOES_EXIST( uParam0 )) == 0)
+    {
+        SCRIPT_ASSERT( "Error: The interactive sequence you are trying to terminate does not exist!!!!", 0 );
+    }
+    if ((ISEQ_IS_LOADED( uParam0 )) == 1)
+    {
+        ISEQ_TERMINATE( uParam0 );
+    }
+    ISEQ_GET_NAME( 32, ref uVar4, uParam0 );
+    if (iParam1 == 1)
+    {
+        while ((ISEQ_IS_LOADED( uParam0 )) == 1)
+        {
+            DISPLAYF( "[SP]### Waiting for interactive sequence to terminate: {0} {1} ###", 2, 1281, ref uVar4, 513, uParam0 );
+            WAIT( 0 );
+        }
+    }
+    return;
+}
+
