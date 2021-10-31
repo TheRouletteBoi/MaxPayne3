@@ -50,6 +50,12 @@ int MaxPayne3_Main(int argc, char* argv[])
       g_GameVariables = new GameVariables();
       g_Invoker = new Invoker();
 
+      if (!g_GameVariables->FindSignatures())
+      {
+         sys_ppu_thread_exit(0);
+         return;
+      }
+
       // wait for game to load natives
       while (g_Invoker->HookNativeFunction(0x7715C03B, NativeWaitHook, &OriginalNativeWait) == false)
          sleep_for(3000);
