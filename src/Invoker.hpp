@@ -62,66 +62,14 @@ private:
 class Invoker
 {
 public:
-   rage::scrNativeHandler GetHandler(rage::scrNativeHash hash)
-   {
-      uint32_t mapSize = *(uint32_t*)(g_GameVariables->pNativeRegistration + 0x04);
-
-      if (mapSize == 0)
-         return nullptr;
-
-      rage::scrNativeRegistration* reg = *(rage::scrNativeRegistration**)(g_GameVariables->pNativeRegistration);
-
-      if (reg == nullptr)
-         return nullptr;
-
-      uint32_t nativeHash = hash;
-      uint32_t index = nativeHash - nativeHash / mapSize * mapSize;
-
-      for (rage::scrNativeRegistration nat = reg[index]; ; nat = reg[index])
-      {
-         if (nat.m_Hash == hash || nat.m_Hash == 0)
-            break;
-
-         // next iteration
-         nativeHash = (nativeHash >> 1) + 1;
-         index = index + nativeHash - (index + nativeHash) / mapSize * mapSize;
-      }
-
-      if (reg[index].m_Hash)
-         return reg[index].m_Handler;
-
-      return nullptr;
-   }
-
    bool HookNativeFunction(rage::scrNativeHash hash, rage::scrNativeHandler nativeFunction, rage::scrNativeHandler* original)
    {
-      uint32_t mapSize = *(uint32_t*)(g_GameVariables->pNativeRegistration + 0x04);
+      rage::scrNativeHandler handler = (rage::scrNativeHandler)g_GameVariables->GetNativeHandler(hash);
 
-      if (mapSize == 0)
-         return false;
-
-      rage::scrNativeRegistration* reg = *(rage::scrNativeRegistration**)(g_GameVariables->pNativeRegistration);
-
-      if (reg == nullptr)
-         return false;
-
-      uint32_t nativeHash = hash;
-      uint32_t index = nativeHash - nativeHash / mapSize * mapSize;
-
-      for (rage::scrNativeRegistration nat = reg[index]; ; nat = reg[index])
+      if (handler != nullptr)
       {
-         if (nat.m_Hash == hash || nat.m_Hash == 0)
-            break;
-
-         // next iteration
-         nativeHash = (nativeHash >> 1) + 1;
-         index = index + nativeHash - (index + nativeHash) / mapSize * mapSize;
-      }
-
-      if (reg[index].m_Hash)
-      {
-         *original = reg[index].m_Handler;
-         reg[index].m_Handler = nativeFunction;
+         *original = handler;
+         handler = nativeFunction;
          return true;
       }
 
@@ -154,7 +102,7 @@ public:
 
    void EndCall(rage::scrNativeHash hash)
    {
-      if (auto handler = GetHandler(hash))
+      if (auto handler = (rage::scrNativeHandler)g_GameVariables->GetNativeHandler(hash))
       {
          handler(&m_Context);
       }
